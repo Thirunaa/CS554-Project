@@ -2,12 +2,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
-import { Box, Card, CardContent, CircularProgress, Typography, CardHeader, Button } from "@material-ui/core";
+import {
+  Box,
+  Card,
+  Grid,
+  CardContent,
+  CircularProgress,
+  Typography,
+  CardHeader,
+  CardMedia,
+  Button,
+} from "@material-ui/core";
 import "../App.css";
 
 const Match = (props) => {
   const [matchData, setMatchData] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [scoreList, setScoreList] = useState([]);
   const classes = useStyles();
   let { id } = useParams();
   const matchUrl = "https://api.cricapi.com/v1/match_info?";
@@ -18,8 +29,18 @@ const Match = (props) => {
     async function fetchData() {
       try {
         const { data } = await axios.get(matchUrl + API_KEY + "&id=" + id);
+        let scoresArray = [];
         console.log(data);
         setMatchData(data.data);
+        // set score
+        if (data.data && data.data.score) {
+          for (const score of data.data.score) {
+            scoresArray.push(
+              (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
+            );
+          }
+        }
+        setScoreList(scoresArray);
         setLoading(false);
       } catch (e) {
         console.log(e);
@@ -46,15 +67,41 @@ const Match = (props) => {
       >
         <Card className={classes.card} variant="outlined">
           <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
-          {/* <CardMedia className={classes.media} component="img" image={bigImage} title="show image" /> */}
-
+          <Grid container wrap="nowrap">
+            <CardMedia
+              className={classes.media}
+              component="img"
+              image={
+                matchData && matchData.teamInfo && matchData.teamInfo[0].img && matchData.teamInfo[1].img
+                  ? matchData.teamInfo[0].img
+                  : ""
+              }
+              title="show image"
+            />
+            <CardMedia
+              className={classes.media}
+              component="img"
+              image={
+                matchData && matchData.teamInfo && matchData.teamInfo[0].img && matchData.teamInfo[1].img
+                  ? matchData.teamInfo[1].img
+                  : ""
+              }
+              title="show image"
+            />
+          </Grid>
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="span">
               <dl>
-                <p>
-                  <dt className="title">Match Type: </dt>
-                  {matchData && matchData.matchType ? matchData.matchType : ""}
-                </p>
+                {scoreList.length !== 0 && (
+                  <p>
+                    <dt className="title">Score: </dt>
+
+                    {scoreList.map((s) => {
+                      return <Grid>{s}</Grid>;
+                    })}
+                  </p>
+                )}
+
                 <p>
                   <dt className="title">Status: </dt>
                   {matchData && matchData.status ? matchData.status : ""}

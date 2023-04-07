@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from "react";
-// import { Helmet } from "react-helmet";
-// import Typekit from "react-typekit";
-// import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardMedia, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
-import NewsData from "../data/newsData.json";
-import noNewsImage from "../images/noNewsImage.png";
+import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
+
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
-// import LiveScoreScript from "../components/LiveScoreScript.js";
+import SearchData from "../components/SearchData.js";
 
-const Home = () => {
+const PlayersList = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
-  const [newsData, setnewsData] = useState([]);
-  //const allnewsUrl = "https://api.cricapi.com/v1/news?";
-  //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+  const [searchData, setSearchData] = useState(undefined);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [playersData, setPlayersData] = useState([]);
+  const allplayersUrl = "https://api.cricapi.com/v1/players?";
+  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
   let card = null;
 
   useEffect(() => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        //const { data } = await axios.get(allnewsUrl + API_KEY + "&offset=0");
-        //console.log(data);
-        setnewsData(NewsData.articles);
+        const { data } = await axios.get(allplayersUrl + API_KEY + "&offset=0");
+        console.log(data);
+        setPlayersData(data.data);
       } catch (e) {
         console.log(e);
       }
@@ -34,49 +33,40 @@ const Home = () => {
     setLoading(false);
   }, []);
 
-  //   useEffect(() => {
-  //     console.log("search useEffect fired");
-  //     async function fetchData() {
-  //       let pageNo = pageId;
-  //       try {
-  //         console.log(`in fetch searchTerm: ${searchTerm}`);
-  //         const { data } = await axios.get(eventUrl + pageNo + "&keyword=" + searchTerm + API_KEY);
-  //         setSearchData(data);
-  //         setLoading(false);
-  //       } catch (e) {
-  //         console.log(e);
-  //       }
-  //     }
-  //     if (searchTerm) {
-  //       console.log("searchTerm is set");
-  //       fetchData();
-  //     }
-  //   }, [searchTerm, pageId]);
+  useEffect(() => {
+    console.log("search useEffect fired");
+    async function fetchData() {
+      try {
+        console.log(`in fetch searchTerm: ${searchTerm}`);
+        const { data } = await axios.get(allplayersUrl + API_KEY + "&offset=0&search=" + searchTerm);
+        setSearchData(data.data);
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    if (searchTerm) {
+      console.log("searchTerm is set");
+      fetchData();
+    }
+  }, [searchTerm]);
 
-  //   const searchValue = async (value) => {
-  //     setSearchTerm(value);
-  //   };
+  const searchValue = async (value) => {
+    setSearchTerm(value);
+  };
 
-  const buildCard = (article) => {
+  const buildCard = (player) => {
     return (
-      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={article.id}>
+      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={player.id}>
         <Card className={classes.card} variant="outlined">
           <CardActionArea>
-            <Link to={`${article.url}`}>
-              <CardMedia
-                className={classes.media}
-                component="img"
-                image={article.urlToImage ? article.urlToImage : noNewsImage}
-                title="show image"
-              />
+            <Link to={`/player/${player.id}`}>
               <CardContent>
                 <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
-                  {article.title}
+                  {player.name}
                 </Typography>
-
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {article.content ? article.content.substring(0, 150) + "..." : ""}
-                  <span>More Info</span>
+                  {player && player.country ? player.country : ""}
                 </Typography>
               </CardContent>
             </Link>
@@ -86,29 +76,19 @@ const Home = () => {
     );
   };
 
-  //   if (searchTerm) {
-  //     card =
-  //       searchData &&
-  //       searchData._embedded &&
-  //       searchData._embedded.venues &&
-  //       searchData._embedded.venues.map((event) => {
-  //         return buildCard(event);
-  //       });
-  //   } else {
-  //     card =
-  //       venuesData &&
-  //       venuesData._embedded &&
-  //       venuesData._embedded.venues &&
-  //       venuesData._embedded.venues.map((venue) => {
-  //         return buildCard(venue);
-  //       });
-  //   }
-
-  card =
-    newsData &&
-    newsData.map((article) => {
-      return buildCard(article);
-    });
+  if (searchTerm) {
+    card =
+      searchData &&
+      searchData.map((player) => {
+        return buildCard(player);
+      });
+  } else {
+    card =
+      playersData &&
+      playersData.map((player) => {
+        return buildCard(player);
+      });
+  }
 
   //   if (err) {
   //     return (
@@ -141,9 +121,9 @@ const Home = () => {
             )}
           </ButtonGroup>
         </Container> */}
-        {/* <br />
-        Venues Keyword Search <SearchData searchValue={searchValue} />
-        <br /> */}
+        <br />
+        Search Player <SearchData searchValue={searchValue} />
+        <br />
         <br />
         {/* <Container>
           {err && (
@@ -153,9 +133,7 @@ const Home = () => {
             </Alert>
           )}
         </Container> */}
-        <Typography> LATEST CRICKET NEWS </Typography>
         <br />
-
         <br />
         <Grid container className={classes.grid} spacing={5}>
           {card}
@@ -185,4 +163,4 @@ const Home = () => {
   }
 };
 
-export default Home;
+export default PlayersList;

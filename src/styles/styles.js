@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 250,
+    maxWidth: 300,
     height: "auto",
     marginLeft: "auto",
     marginRight: "auto",
@@ -10,6 +10,16 @@ const useStyles = makeStyles({
     border: "1px solid #000000",
     boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);",
   },
+  container: {
+    maxWidth: 300,
+    height: "auto",
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: 5,
+    border: "1px solid #000000",
+    boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);",
+  },
+
   titleHead: {
     borderBottom: "1px solid #000000",
     fontWeight: "bold",

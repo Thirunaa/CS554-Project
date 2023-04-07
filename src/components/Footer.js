@@ -12,7 +12,7 @@ function Footer() {
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
           {"Copyright © "}
-          <Link color="inherit" to="/home">
+          <Link color="inherit" to="/">
             cricketify
           </Link>{" "}
           {new Date().getFullYear()}

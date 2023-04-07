@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 550,
+    maxWidth: 1000,
     height: "auto",
     marginLeft: "auto",
     marginRight: "auto",
@@ -19,13 +19,16 @@ const useStyles = makeStyles({
     flexDirection: "row",
   },
   media: {
-    height: "100%",
-    width: "100%",
+    height: "50%",
+    width: "50%",
   },
   button: {
     color: "#000000",
     fontWeight: "bold",
     fontSize: 12,
+    "&:hover": {
+      transform: "scale(0.95)",
+    },
   },
 });
 

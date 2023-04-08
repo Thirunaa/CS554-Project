@@ -75,7 +75,7 @@ const Home = () => {
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {article.content ? article.content.substring(0, 150) + "..." : ""}
+                  {article.content ? article.content.substring(0, 150) + "...." : ""}
                   <span>More Info</span>
                 </Typography>
               </CardContent>

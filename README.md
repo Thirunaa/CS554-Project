@@ -1,6 +1,6 @@
 # Cricketify - a cricket news and score application
 
-Cricketify is an cricket news web application. It features, news, articles and live coverage of cricket matches including text commentary, player stats and team rankings.
+Cricketify is an cricket news web application. It features news articles and live coverage of cricket matches. It also includes text commentary, player stats and team rankings.
 
 ## walkthrough video:
 

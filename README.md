@@ -1,4 +1,4 @@
-# Fable - a social story-telling platform
+# Cricketify - a cricket news and score application
 
 Cricketify is an cricket news web application. It features, news, articles and live coverage of cricket matches including text commentary, player stats and team rankings.
 

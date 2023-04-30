@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,8 +15,26 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "../images/logo192.png";
 import userImage from "../images/User.png";
 import { useStyles } from "../styles/singleElementStyles.js";
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../firebase/Auth';
+//import SignOutButton from '../pages/SignOut';
+import { doSignOut } from '../firebase/FirebaseFunctions';
+import '../App.css';
+
 
 const settings = ["Profile", "Logout"];
+const Navigation = () => {
+  const { currentUser } = useContext(AuthContext);
+  console.log("cu", currentUser)
+  if (currentUser) {
+    console.log('up')
+  }
+  else {
+    console.log('n')
+  }
+  return <div>{currentUser ? <Navbar /> : <NavigationNonAuth />}</div>;
+};
+
 
 function Navbar() {
   const classes = useStyles();
@@ -90,6 +108,14 @@ function Navbar() {
             >
               Players
             </Button>
+
+            <Button
+              className={classes.button}
+              sx={{ my: 2, color: "white", display: "block" }}
+              onClick={doSignOut}>
+              SignOut
+            </Button>
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -127,4 +153,54 @@ function Navbar() {
     </AppBar>
   );
 }
-export default Navbar;
+
+const NavigationNonAuth = () => {
+  const classes = useStyles();
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <img src={logo} className="App-logo" alt="logo" />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            Cricketify
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              className={classes.button}
+              key={"signup"}
+              href="/signup"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Signup
+            </Button>
+
+            <Button
+              className={classes.button}
+              key={"signin"}
+              href="/signin"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Login
+            </Button>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+
+  );
+};
+export default Navigation;

@@ -12,6 +12,7 @@ import Match from "./pages/Match";
 import Navbar from "./components/Navbar";
 import PlayersList from "./pages/PlayersList";
 import Player from "./pages/Player";
+import BBB from "./pages/BallByBallList"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/players" element={<PlayersList />} />
             <Route path="/match/:id" element={<Match />} />
             <Route path="/player/:id" element={<Player />} />
+            <Route path="/ball-by-ball" element={<BBB />} />
             <Route path="*" element={<RouteNotFound />} />
           </Routes>
         </div>

@@ -72,6 +72,14 @@ function Navbar() {
             >
               Current Matches
             </Button>
+            <Button
+              className={classes.button}
+              key={"Current Matches"}
+              href="/ball-by-ball"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+             Ball By Ball
+            </Button>
 
             <Button
               className={classes.button}

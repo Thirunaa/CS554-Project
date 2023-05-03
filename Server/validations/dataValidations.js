@@ -7,6 +7,19 @@ const validateComment = (inputComment) => {
   if (inputComment.trim().length === 0) throw `Comment contains only whitespaces.`;
 };
 
+const validatePageNo = (PageNo) => {
+  if (PageNo.includes(".")) {
+    throw `400 - Bad request`;
+  }
+  if (Number.isInteger(parseInt(PageNo))) {
+    if (parseInt(PageNo) < 0) {
+      throw `404 - Page not found`;
+    }
+  } else {
+    throw `400 - Bad request`;
+  }
+};
+
 const validateID = (id) => {
   if (!id) {
     throw `All fields need to have valid values`;
@@ -75,4 +88,5 @@ module.exports = {
   validateUsername,
   validatePassword,
   validateName,
+  validatePageNo,
 };

@@ -1,0 +1,717 @@
+{
+  "apikey": "f9262a85-d559-439c-b1c0-4817f5e46208",
+  "data": [
+    {
+      "id": "4619de7c-379f-4b0f-af51-6913f4f13e90",
+      "name": "Malaysia Women vs Philippines Women, 5th Match",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-06",
+      "dateTimeGMT": "2023-05-06T07:30:00",
+      "teams": ["Malaysia Women", "Philippines Women"],
+      "teamInfo": [
+        {
+          "name": "Malaysia Women",
+          "shortname": "ML-W",
+          "img": "https://g.cricapi.com/iapi/1551-637926306213013515.webp?w=48"
+        },
+        { "name": "Philippines Women", "img": "https://h.cricapi.com/img/icon512.png" }
+      ],
+      "series_id": "c33c5f98-4d51-48f9-b4fb-15dfef4c1c83",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": false,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "f59bf063-e538-4d19-a0d1-903627d07882",
+      "name": "Cambodia vs Philippines, 6th Match",
+      "matchType": "t20",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-10",
+      "dateTimeGMT": "2023-05-10T00:00:00",
+      "teams": ["Cambodia", "Philippines"],
+      "teamInfo": [
+        {
+          "name": "Philippines",
+          "shortname": "PHL",
+          "img": "https://g.cricapi.com/iapi/70-637869112270788027.webp?w=48"
+        }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": false,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "059a20f0-666a-4054-9544-e2f0a932e42e",
+      "name": "Malaysia Women vs Thailand Women, 4th Match",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T07:00:00",
+      "teams": ["Malaysia Women", "Thailand Women"],
+      "teamInfo": [
+        {
+          "name": "Malaysia Women",
+          "shortname": "ML-W",
+          "img": "https://g.cricapi.com/iapi/1551-637926306213013515.webp?w=48"
+        },
+        {
+          "name": "Thailand Women",
+          "shortname": "THW",
+          "img": "https://g.cricapi.com/iapi/2351-637985730472466346.webp?w=48"
+        }
+      ],
+      "series_id": "c33c5f98-4d51-48f9-b4fb-15dfef4c1c83",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": false,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "853f13a8-f66f-4c06-87a9-72fa250ad9b5",
+      "name": "Cambodia vs Singapore, 5th Match",
+      "matchType": "t20",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T03:30:00",
+      "teams": ["Cambodia", "Singapore"],
+      "teamInfo": [
+        {
+          "name": "Singapore",
+          "shortname": "SGP",
+          "img": "https://g.cricapi.com/iapi/576-637877085561587712.webp?w=48"
+        }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": false,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "a5cf1727-5472-4ef7-8cdb-3ffea5502c83",
+      "name": "Malaysia vs Thailand, 4th Match",
+      "matchType": "t20",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T00:00:00",
+      "teams": ["Malaysia", "Thailand"],
+      "teamInfo": [
+        {
+          "name": "Malaysia",
+          "shortname": "MAL",
+          "img": "https://g.cricapi.com/iapi/625-637865062320348912.webp?w=48"
+        },
+        {
+          "name": "Thailand",
+          "shortname": "THAI",
+          "img": "https://g.cricapi.com/iapi/661-637873698140793668.webp?w=48"
+        }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "b95dc53a-4d46-439e-889c-953782e74ac4",
+      "name": "Philippines vs Singapore, 3rd Match",
+      "matchType": "t20",
+      "status": "Match not started",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-03",
+      "dateTimeGMT": "2023-05-03T07:30:00",
+      "teams": ["Philippines", "Singapore"],
+      "teamInfo": [
+        {
+          "name": "Philippines",
+          "shortname": "PHL",
+          "img": "https://g.cricapi.com/iapi/70-637869112270788027.webp?w=48"
+        },
+        {
+          "name": "Singapore",
+          "shortname": "SGP",
+          "img": "https://g.cricapi.com/iapi/576-637877085561587712.webp?w=48"
+        }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": false,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "1bb46c0f-d7fb-4d67-9d01-06c57630979b",
+      "name": "Indonesia vs Malaysia, 2nd Match, Group A",
+      "matchType": "t20",
+      "status": "Malaysia won by 94 runs",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T00:00:00",
+      "teams": ["Indonesia", "Malaysia"],
+      "teamInfo": [
+        {
+          "name": "Indonesia",
+          "shortname": "IDN",
+          "img": "https://g.cricapi.com/iapi/614-637928918114057334.png?w=48"
+        },
+        { "name": "Malaysia", "shortname": "MAL", "img": "https://g.cricapi.com/iapi/625-637865062320348912.webp?w=48" }
+      ],
+      "score": [
+        { "r": 191, "w": 6, "o": 20, "inning": "Malaysia Inning 1" },
+        { "r": 97, "w": 4, "o": 20, "inning": "Indonesia Inning 1" }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "e6e05056-11b2-42f7-a580-51a51af360a6",
+      "name": "Indonesia Women vs Singapore Women, 3rd Match, Group B",
+      "status": "Indonesia Women won by 52 runs",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T07:00:00",
+      "teams": ["Indonesia Women", "Singapore Women"],
+      "teamInfo": [
+        {
+          "name": "Indonesia Women",
+          "shortname": "INA-W",
+          "img": "https://g.cricapi.com/iapi/2874-638040163945402807.webp?w=48"
+        },
+        {
+          "name": "Singapore Women",
+          "shortname": "SIN-W",
+          "img": "https://g.cricapi.com/iapi/1553-637926305464374356.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 121, "w": 5, "o": 20, "inning": "Indonesia Women Inning 1" },
+        { "r": 69, "w": 10, "o": 19.1, "inning": "Singapore Women Inning 1" }
+      ],
+      "series_id": "c33c5f98-4d51-48f9-b4fb-15dfef4c1c83",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "bb9ab772-90e7-4d07-acc2-2b01d0036ead",
+      "name": "Philippines Women vs Thailand Women, 2nd Match, Group A",
+      "status": "Thailand Women won by 10 wkts",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T00:00:00",
+      "teams": ["Philippines Women", "Thailand Women"],
+      "teamInfo": [
+        { "name": "Philippines Women", "img": "https://h.cricapi.com/img/icon512.png" },
+        {
+          "name": "Thailand Women",
+          "shortname": "THW",
+          "img": "https://g.cricapi.com/iapi/2351-637985730472466346.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 9, "w": 10, "o": 11.1, "inning": "Philippines Women Inning 1" },
+        { "r": 10, "w": 0, "o": 0.4, "inning": "Thailand Women Inning 1" }
+      ],
+      "series_id": "c33c5f98-4d51-48f9-b4fb-15dfef4c1c83",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "21cb6b08-eed7-45d7-99c9-453fb4fced3c",
+      "name": "Indonesia vs Thailand, 1st Match, Group A",
+      "matchType": "t20",
+      "status": "Indonesia won by 32 runs",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T03:30:00",
+      "teams": ["Indonesia", "Thailand"],
+      "teamInfo": [
+        {
+          "name": "Indonesia",
+          "shortname": "IDN",
+          "img": "https://g.cricapi.com/iapi/614-637928918114057334.png?w=48"
+        },
+        {
+          "name": "Thailand",
+          "shortname": "THAI",
+          "img": "https://g.cricapi.com/iapi/661-637873698140793668.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 122, "w": 8, "o": 20, "inning": "Indonesia Inning 1" },
+        { "r": 90, "w": 9, "o": 20, "inning": "Thailand Inning 1" }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "e9c137e7-d0c3-41d5-87d0-b228d243474b",
+      "name": "Hampshire vs Warwickshire, County Div 1",
+      "status": "Match not started",
+      "venue": "The Rose Bowl, Southampton",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Hampshire", "Warwickshire"],
+      "teamInfo": [
+        {
+          "name": "Hampshire",
+          "shortname": "HAM",
+          "img": "https://g.cricapi.com/iapi/1122-637885550993657486.webp?w=48"
+        },
+        {
+          "name": "Warwickshire",
+          "shortname": "WRKS",
+          "img": "https://g.cricapi.com/iapi/1137-637885552592685258.webp?w=48"
+        }
+      ],
+      "series_id": "a02fe535-9179-4d64-970b-c00014482057",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "521ef61d-1945-4d14-b81a-c008d2b549e0",
+      "name": "Essex vs Surrey, County Div 1",
+      "status": "Match not started",
+      "venue": "County Ground, Chelmsford",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Essex", "Surrey"],
+      "teamInfo": [
+        { "name": "Essex", "shortname": "ESX", "img": "https://g.cricapi.com/iapi/1119-637885549753088458.webp?w=48" },
+        { "name": "Surrey", "shortname": "SUR", "img": "https://g.cricapi.com/iapi/1133-637885552361099530.webp?w=48" }
+      ],
+      "series_id": "a02fe535-9179-4d64-970b-c00014482057",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "bf2e3cb5-cd13-4080-9d7e-d2a66800afb3",
+      "name": "Somerset vs Northamptonshire, County Div 1",
+      "status": "Match not started",
+      "venue": "The Cooper Associates County Ground, Taunton",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Somerset", "Northamptonshire"],
+      "teamInfo": [
+        {
+          "name": "Northamptonshire",
+          "shortname": "NOR",
+          "img": "https://g.cricapi.com/iapi/1129-637885551856435418.webp?w=48"
+        },
+        {
+          "name": "Somerset",
+          "shortname": "SOM",
+          "img": "https://g.cricapi.com/iapi/1131-637885552070524344.webp?w=48"
+        }
+      ],
+      "series_id": "a02fe535-9179-4d64-970b-c00014482057",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "7fccb243-fdfb-4b8f-a359-0c694dbc8a9e",
+      "name": "Nottinghamshire vs Lancashire, County Div 1",
+      "status": "Match not started",
+      "venue": "Trent Bridge, Nottingham",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Nottinghamshire", "Lancashire"],
+      "teamInfo": [
+        {
+          "name": "Lancashire",
+          "shortname": "LNCS",
+          "img": "https://g.cricapi.com/iapi/1125-637885551497331567.webp?w=48"
+        },
+        {
+          "name": "Nottinghamshire",
+          "shortname": "NOT",
+          "img": "https://g.cricapi.com/iapi/1130-637889092060873937.webp?w=48"
+        }
+      ],
+      "series_id": "a02fe535-9179-4d64-970b-c00014482057",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "c0bae3a2-3427-4f8d-83fc-9239ddcff86c",
+      "name": "Yorkshire vs Glamorgan, County Div 2",
+      "status": "Match not started",
+      "venue": "Headingley, Leeds",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Yorkshire", "Glamorgan"],
+      "teamInfo": [
+        {
+          "name": "Glamorgan",
+          "shortname": "GLAM",
+          "img": "https://g.cricapi.com/iapi/1120-637889090390357869.webp?w=48"
+        },
+        {
+          "name": "Yorkshire",
+          "shortname": "YRK",
+          "img": "https://g.cricapi.com/iapi/1139-637885552795894277.webp?w=48"
+        }
+      ],
+      "series_id": "07e4c424-5e5a-48ec-abb2-b15c1ea9781f",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "1995644d-b9b1-495a-8335-24a91fa43a07",
+      "name": "Derbyshire vs Leicestershire, County Div 2",
+      "status": "Match not started",
+      "venue": "County Ground, Derby",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Derbyshire", "Leicestershire"],
+      "teamInfo": [
+        {
+          "name": "Derbyshire",
+          "shortname": "DERB",
+          "img": "https://g.cricapi.com/iapi/1117-637889091569915358.webp?w=48"
+        },
+        {
+          "name": "Leicestershire",
+          "shortname": "LECS",
+          "img": "https://g.cricapi.com/iapi/1126-637889090878436462.webp?w=48"
+        }
+      ],
+      "series_id": "07e4c424-5e5a-48ec-abb2-b15c1ea9781f",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "aca8dab8-7447-40a0-baee-ce67935410f2",
+      "name": "Worcestershire vs Sussex, County Div 2",
+      "status": "Match not started",
+      "venue": "New Road, Worcester",
+      "date": "2023-05-04",
+      "dateTimeGMT": "2023-05-04T10:00:00",
+      "teams": ["Worcestershire", "Sussex"],
+      "teamInfo": [
+        {
+          "name": "Sussex",
+          "shortname": "SUSS",
+          "img": "https://g.cricapi.com/iapi/1134-637889091814592518.webp?w=48"
+        },
+        {
+          "name": "Worcestershire",
+          "shortname": "WRCS",
+          "img": "https://g.cricapi.com/iapi/1138-637889091123850841.webp?w=48"
+        }
+      ],
+      "series_id": "07e4c424-5e5a-48ec-abb2-b15c1ea9781f",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": false,
+      "matchEnded": false
+    },
+    {
+      "id": "56482789-985d-40bd-8e4b-1fda00ea16cd",
+      "name": "Namibia Women vs Uganda Women, Final",
+      "matchType": "t20",
+      "status": "Uganda Women won by 3 runs",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T12:30:00",
+      "teams": ["Namibia Women", "Uganda Women"],
+      "teamInfo": [
+        {
+          "name": "Namibia Women",
+          "shortname": "NAMW",
+          "img": "https://g.cricapi.com/iapi/1128-637877082812217889.webp?w=48"
+        },
+        {
+          "name": "Uganda Women",
+          "shortname": "UGAW",
+          "img": "https://g.cricapi.com/iapi/1135-637877086844153505.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 93, "w": 5, "o": 20, "inning": "Uganda Women Inning 1" },
+        { "r": 90, "w": 4, "o": 20, "inning": "Namibia Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "83d5bed1-0c32-41e2-9482-fddca383d0c8",
+      "name": "United Arab Emirates Women vs Hong Kong Women, 3rd place-play off",
+      "matchType": "t20",
+      "status": "There is no scorecard available for this match.",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T07:45:00",
+      "teams": ["United Arab Emirates Women", "Hong Kong Women"],
+      "teamInfo": [
+        {
+          "name": "Hong Kong Women",
+          "shortname": "HKGW",
+          "img": "https://g.cricapi.com/iapi/1123-637877089446450033.webp?w=48"
+        },
+        {
+          "name": "United Arab Emirates Women",
+          "shortname": "UAEW",
+          "img": "https://g.cricapi.com/iapi/1136-637877081374906304.webp?w=48"
+        }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": false,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "d4b09bee-bcea-4fff-b7eb-d9b18308be91",
+      "name": "Namibia Women vs Hong Kong Women, 1st Match (Rescheduled)",
+      "matchType": "t20",
+      "status": "Namibia Women won by 5 runs",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-04-28",
+      "dateTimeGMT": "2023-04-28T07:45:00",
+      "teams": ["Namibia Women", "Hong Kong Women"],
+      "teamInfo": [
+        {
+          "name": "Hong Kong Women",
+          "shortname": "HKGW",
+          "img": "https://g.cricapi.com/iapi/1123-637877089446450033.webp?w=48"
+        },
+        {
+          "name": "Namibia Women",
+          "shortname": "NAMW",
+          "img": "https://g.cricapi.com/iapi/1128-637877082812217889.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 112, "w": 7, "o": 20, "inning": "Namibia Women Inning 1" },
+        { "r": 107, "w": 10, "o": 19.5, "inning": "Hong Kong Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "d041ef6e-8113-44b2-8cea-06318510fdf8",
+      "name": "Nepal vs United Arab Emirates, Final",
+      "matchType": "odi",
+      "status": "Nepal won by 7 wkts",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T03:15:00",
+      "teams": ["Nepal", "United Arab Emirates"],
+      "teamInfo": [
+        { "name": "Nepal", "shortname": "NEP", "img": "https://g.cricapi.com/iapi/54-637877084789981539.webp?w=48" },
+        {
+          "name": "United Arab Emirates",
+          "shortname": "UAE",
+          "img": "https://g.cricapi.com/iapi/92-637877081068315608.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 117, "w": 10, "o": 33.1, "inning": "United Arab Emirates Inning 1" },
+        { "r": 118, "w": 3, "o": 30.3, "inning": "Nepal Inning 1" }
+      ],
+      "series_id": "8e82cede-58f3-4532-99d8-bc12ad4a4f01",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "436ec120-c248-4dc0-8599-d4ade7c58724",
+      "name": "Namibia Women vs Uganda Women, 12th Match",
+      "matchType": "t20",
+      "status": "Uganda Women won by 4 wkts",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T12:30:00",
+      "teams": ["Namibia Women", "Uganda Women"],
+      "teamInfo": [
+        {
+          "name": "Namibia Women",
+          "shortname": "NAMW",
+          "img": "https://g.cricapi.com/iapi/1128-637877082812217889.webp?w=48"
+        },
+        {
+          "name": "Uganda Women",
+          "shortname": "UGAW",
+          "img": "https://g.cricapi.com/iapi/1135-637877086844153505.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 77, "w": 7, "o": 20, "inning": "Namibia Women Inning 1" },
+        { "r": 79, "w": 6, "o": 18.4, "inning": "Uganda Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "805ff490-e893-4aca-9efa-e6f6564d911f",
+      "name": "Hong Kong Women vs United Arab Emirates Women, 11th Match",
+      "matchType": "t20",
+      "status": "United Arab Emirates Women won by 72 runs",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-05-01",
+      "dateTimeGMT": "2023-05-01T07:45:00",
+      "teams": ["Hong Kong Women", "United Arab Emirates Women"],
+      "teamInfo": [
+        {
+          "name": "Hong Kong Women",
+          "shortname": "HKGW",
+          "img": "https://g.cricapi.com/iapi/1123-637877089446450033.webp?w=48"
+        },
+        {
+          "name": "United Arab Emirates Women",
+          "shortname": "UAEW",
+          "img": "https://g.cricapi.com/iapi/1136-637877081374906304.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 182, "w": 4, "o": 20, "inning": "United Arab Emirates Women Inning 1" },
+        { "r": 110, "w": 6, "o": 20, "inning": "Hong Kong Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "d1ecf524-27ae-4f22-9f22-268635cbe42a",
+      "name": "Thailand Women vs Zimbabwe Women, 2nd T20I (Rescheduled match)",
+      "matchType": "t20",
+      "status": "Thailand Women won by 5 wkts",
+      "venue": "Terdthai Cricket Ground, Bangkok",
+      "date": "2023-04-27",
+      "dateTimeGMT": "2023-04-27T02:00:00",
+      "teams": ["Thailand Women", "Zimbabwe Women"],
+      "teamInfo": [
+        {
+          "name": "Thailand Women",
+          "shortname": "THW",
+          "img": "https://g.cricapi.com/iapi/2351-637985730472466346.webp?w=48"
+        },
+        {
+          "name": "Zimbabwe Women",
+          "shortname": "ZIMW",
+          "img": "https://g.cricapi.com/iapi/1141-637877080090615236.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 103, "w": 9, "o": 20, "inning": "Zimbabwe Women Inning 1" },
+        { "r": 106, "w": 5, "o": 19.3, "inning": "Thailand Women Inning 1" }
+      ],
+      "series_id": "d6abcd65-a948-4bb4-b3d8-732c0e947cdb",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "62639208-eedf-45f0-95fa-09df51dd0d87",
+      "name": "Namibia Women vs United Arab Emirates Women, 10th Match",
+      "matchType": "t20",
+      "status": "Namibia Women won by 7 runs (DLS method)",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-04-30",
+      "dateTimeGMT": "2023-04-30T12:30:00",
+      "teams": ["Namibia Women", "United Arab Emirates Women"],
+      "teamInfo": [
+        {
+          "name": "Namibia Women",
+          "shortname": "NAMW",
+          "img": "https://g.cricapi.com/iapi/1128-637877082812217889.webp?w=48"
+        },
+        {
+          "name": "United Arab Emirates Women",
+          "shortname": "UAEW",
+          "img": "https://g.cricapi.com/iapi/1136-637877081374906304.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 78, "w": 8, "o": 20, "inning": "Namibia Women Inning 1" },
+        { "r": 50, "w": 6, "o": 14, "inning": "United Arab Emirates Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    }
+  ],
+  "status": "success",
+  "info": {
+    "hitsToday": 14,
+    "hitsUsed": 1,
+    "hitsLimit": 10000,
+    "credits": 0,
+    "server": 16,
+    "offsetRows": 0,
+    "totalRows": 3798,
+    "queryTime": 25.1708,
+    "s": 0,
+    "cache": 1
+  }
+}

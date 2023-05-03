@@ -15,6 +15,18 @@ const validateID = (id) => {
   return { isValid: true };
 };
 
+const validatePageNo = (PageNo) => {
+  if (PageNo.includes(".")) {
+    return { isValid: false, message: `400 - Bad request` };
+  }
+  if (Number.isInteger(parseInt(PageNo))) {
+    return { isValid: false, message: `404 - Page not found` };
+  } else {
+    return { isValid: false, message: `400 - Bad request` };
+  }
+  return { isValid: true };
+};
+
 const validateSignup = (body) => {
   if (typeof body !== "object") throw "Invalid body provided for signup.";
   if (!body.username || !body.password || !body.name)
@@ -85,4 +97,5 @@ module.exports = {
   validateLogin,
   validateID,
   validateCommentPostBody,
+  validatePageNo,
 };

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
-import ballbyball from "../data/ballByBall.json";
-import { useStyles } from "../styles/styles.js";
+//import ballbyball from "../data/ballByBall.json";
 
 import {
   Table,
@@ -13,44 +12,36 @@ import {
   TableHead,
   TableRow,
   Button,
+  Typography
 } from "@mui/material";
-// const useStyles = makeStyles({
-//     table: {
-//       minWidth: 650,
-//     },
-//   });
 
 const Balls_list = () => {
-  // const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
-  // const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
-  // const regex = /(<([^>]+)>)/gi;
+  const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
+  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+  //const regex = /(<([^>]+)>)/gi;
   const [loading, setLoading] = useState(false);
   //const [errorMsg, seterrorMsg] = useState('No Data for this Page.');
   const [bbbData, setbbbData] = useState(undefined);
-  let id = null;
-  const nav = useNavigate();
-  //const match_id = "&id=f2b8aa8a-f24c-40b4-99bb-4e6a222a1614";
-  const classes = useStyles();
-
-  let card = null;
-
+  let { match_id } = useParams();
+  
   useEffect(() => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        // console.log("before axios call")
-        // const { data } = await axios.get(ballbyballUrl + API_KEY + match_id);
-        // console.log("after axios call")
-        // console.log(data.data.bb,"data");
-        setbbbData(ballbyball?.data?.bbb);
-        console.log(ballbyball.data.bbb);
+        
+        const { data } = await axios.get(ballbyballUrl + API_KEY + '&id' + match_id);
+        //console.log(ballbyball,"ballbyball")
+        setbbbData(data);
+        
+        
       } catch (e) {
         console.log(e);
       }
     }
     fetchData();
     setLoading(false);
-  }, [ballbyball]);
+  });
+  
 
   if (loading) {
     return (
@@ -62,6 +53,29 @@ const Balls_list = () => {
     return (
       <div>
         <br />
+        <card>
+          <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >{bbbData?.data?.name} {console.log(bbbData)}
+        </Typography>
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >Toss-winner:{bbbData?.data?.tossWinner}
+        </Typography>
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >Toss-choice:{bbbData?.data?.tossChoice}
+        </Typography>
+        </card>
         <Table>
           <TableHead>
             <TableRow>
@@ -73,7 +87,7 @@ const Balls_list = () => {
           </TableHead>
           <TableBody>
             {bbbData &&
-              bbbData.map((x, index) => (
+              bbbData?.data?.bbb?.map((x, index) => (
                 <TableRow key={index}>
                   <TableCell>{x.bowler.name}</TableCell>
                   <TableCell>{x.batsman.name}</TableCell>

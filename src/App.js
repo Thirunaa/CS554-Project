@@ -31,7 +31,7 @@ function App() {
             <Route path="/players" element={<PlayersList />} />
             <Route path="/match/:id" element={<Match />} />
             <Route path="/player/:id" element={<Player />} />
-            <Route path="/ball-by-ball" element={<BBB />} />
+            <Route path="/ball-by-ball/:match_id" element={<BBB />} />
             <Route path="*" element={<RouteNotFound />} />
           </Routes>
         </div>

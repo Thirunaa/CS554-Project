@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
+import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography, Button } from "@material-ui/core";
 
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
@@ -72,6 +72,8 @@ const AllMatchesList = () => {
                 </Typography>
               </CardContent>
             </Link>
+            <Link to={`/ball-by-ball/${match.id}`}>
+            <Button>Get ball by ball updates.</Button></Link>
           </CardActionArea>
         </Card>
       </Grid>

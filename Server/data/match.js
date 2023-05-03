@@ -2,6 +2,25 @@ const mongoCollections = require("../config/mongoCollections");
 const validation = require("../validations/dataValidations");
 const { ObjectId } = require("mongodb");
 const matches = mongoCollections.matches;
+const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
+const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
+const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+const axios = require("axios");
+
+const getCurrentMatches = async () => {
+  const { data } = await axios.get(currentMatchesUrl + API_KEY + "&offset=0");
+  //console.log(data.data);
+  return data.data;
+};
+
+const getAllMatchesByPageNo = async (PageNo) => {
+  validation.validatePageNo(PageNo);
+  PageNo = parseInt(PageNo);
+  let offset = 25 * PageNo;
+  const { data } = await axios.get(allMatchesUrl + API_KEY + "&offset=" + offset);
+  //console.log(data.data);
+  return data.data;
+};
 
 const addComment = async (id, comment, userThatPostedComment) => {
   validation.validateID(id);
@@ -88,4 +107,6 @@ module.exports = {
   addComment,
   deleteComment,
   addLike,
+  getCurrentMatches,
+  getAllMatchesByPageNo,
 };

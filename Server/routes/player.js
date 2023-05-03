@@ -40,3 +40,5 @@ router.get("/players/:id", async (req, res) => {
     return;
   }
 });
+
+module.exports = router;

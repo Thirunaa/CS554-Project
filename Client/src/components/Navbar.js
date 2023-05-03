@@ -1,40 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// import AdbIcon from "@mui/icons-material/Adb";
 import logo from "../images/logo192.png";
 import userImage from "../images/User.png";
 import { useStyles } from "../styles/singleElementStyles.js";
-import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../firebase/Auth';
-//import SignOutButton from '../pages/SignOut';
-import { doSignOut } from '../firebase/FirebaseFunctions';
-import '../App.css';
-
+//import { NavLink } from "react-router-dom";
+import { AuthContext } from "../firebase/Auth";
+import { doSignOut } from "../firebase/FirebaseFunctions";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 const settings = ["Profile", "Logout"];
 const Navigation = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log("cu", currentUser)
+  console.log("current user", currentUser);
   if (currentUser) {
-    console.log('up')
-  }
-  else {
-    console.log('n')
+    console.log("current user available");
+  } else {
+    console.log("not logged in");
   }
   return <div>{currentUser ? <Navbar /> : <NavigationNonAuth />}</div>;
 };
-
 
 function Navbar() {
   const classes = useStyles();
@@ -68,7 +63,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -82,40 +77,36 @@ function Navbar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
+            <Link
               className={classes.button}
               key={"Current Matches"}
-              href="/current-matches"
+              to="/current-matches"
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Current Matches
-            </Button>
+            </Link>
 
-            <Button
+            <Link
               className={classes.button}
               key={"All Matches"}
-              href="/all-matches"
+              to="/all-matches/page/0"
               sx={{ my: 2, color: "white", display: "block" }}
             >
               All Matches
-            </Button>
+            </Link>
 
-            <Button
+            <Link
               className={classes.button}
               key={"Players"}
-              href="/players"
+              to="/players"
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Players
-            </Button>
+            </Link>
 
-            <Button
-              className={classes.button}
-              sx={{ my: 2, color: "white", display: "block" }}
-              onClick={doSignOut}>
+            <Button className={classes.button} sx={{ my: 2, color: "white", display: "block" }} onClick={doSignOut}>
               SignOut
             </Button>
-
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -200,7 +191,6 @@ const NavigationNonAuth = () => {
         </Toolbar>
       </Container>
     </AppBar>
-
   );
 };
 export default Navigation;

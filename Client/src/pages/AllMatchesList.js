@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
-
-//import ErrorComponent from "./ErrorComponent";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Container,
+  CircularProgress,
+  Button,
+  ButtonGroup,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import "../App.css";
 
 const AllMatchesList = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  let { pagenum } = useParams();
+  pagenum = parseInt(pagenum);
+  //const [pageNo, setPageNo] = useState(parseInt(pagenum));
+  const [prevPagePresent, setPrevPagePresent] = useState(false);
+  const [nextPagePresent, setNextPagePresent] = useState(true);
   const [loading, setLoading] = useState(true);
   const [matchesData, setMatchesData] = useState([]);
-  const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
-  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
   let card = null;
 
   useEffect(() => {
-    console.log("on load useeffect");
+    console.log("on load useeffect all matches");
     async function fetchData() {
       try {
-        const { data } = await axios.get(allMatchesUrl + API_KEY + "&offset=0");
+        let pageId = pagenum;
+        if (pageId !== 0) {
+          setPrevPagePresent(true);
+        }
+        const { data } = await axios.get("http://localhost:4000/match/allMatches/page/" + pageId);
         console.log(data);
-        setMatchesData(data.data);
+
+        if (data.length < 25) {
+          setNextPagePresent(false);
+        }
+        setMatchesData(data);
       } catch (e) {
         console.log(e);
       }
     }
     fetchData();
     setLoading(false);
-  }, []);
-
-  //   useEffect(() => {
-  //     console.log("search useEffect fired");
-  //     async function fetchData() {
-  //       let pageNo = pageId;
-  //       try {
-  //         console.log(`in fetch searchTerm: ${searchTerm}`);
-  //         const { data } = await axios.get(eventUrl + pageNo + "&keyword=" + searchTerm + API_KEY);
-  //         setSearchData(data);
-  //         setLoading(false);
-  //       } catch (e) {
-  //         console.log(e);
-  //       }
-  //     }
-  //     if (searchTerm) {
-  //       console.log("searchTerm is set");
-  //       fetchData();
-  //     }
-  //   }, [searchTerm, pageId]);
-
-  //   const searchValue = async (value) => {
-  //     setSearchTerm(value);
-  //   };
+  }, [pagenum]);
 
   const buildCard = (match) => {
     return (
@@ -78,24 +75,6 @@ const AllMatchesList = () => {
     );
   };
 
-  //   if (searchTerm) {
-  //     card =
-  //       searchData &&
-  //       searchData._embedded &&
-  //       searchData._embedded.venues &&
-  //       searchData._embedded.venues.map((event) => {
-  //         return buildCard(event);
-  //       });
-  //   } else {
-  //     card =
-  //       venuesData &&
-  //       venuesData._embedded &&
-  //       venuesData._embedded.venues &&
-  //       venuesData._embedded.venues.map((venue) => {
-  //         return buildCard(venue);
-  //       });
-  //   }
-
   card =
     matchesData &&
     matchesData.map((match) => {
@@ -119,57 +98,41 @@ const AllMatchesList = () => {
   } else {
     return (
       <div>
-        {/* <Container>
+        <Container>
           <ButtonGroup disableElevation variant="contained" color="secondary">
-            {prevPageExists && (
-              <Button>
-                <Link to={`/ticketify/venues/page/${pageId - 1}`}>PREVIOUS</Link>
+            {prevPagePresent && (
+              <Button
+                sx={{ marginRight: "1.5%" }}
+                variant={"contained"}
+                onClick={() => {
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) - 1), {
+                    replace: true,
+                  });
+                }}
+              >
+                PREVIOUS
               </Button>
             )}
-            {nextPageExists && (
-              <Button>
-                <Link to={`/ticketify/venues/page/${pageId + 1}`}>NEXT</Link>
+            {nextPagePresent && (
+              <Button
+                sx={{ marginRight: "1.5%" }}
+                variant={"contained"}
+                onClick={() => {
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) + 1), {
+                    replace: true,
+                  });
+                }}
+              >
+                NEXT
               </Button>
             )}
           </ButtonGroup>
-        </Container> */}
-        {/* <br />
-        Venues Keyword Search <SearchData searchValue={searchValue} />
-        <br /> */}
-        <br />
-        {/* <Container>
-          {err && (
-            <Alert severity="error">
-              <AlertTitle>Error</AlertTitle>
-              This is an error alert — <strong>404 - Page Not Found</strong>
-            </Alert>
-          )}
-        </Container> */}
-        <br />
+        </Container>
         <br />
         <Grid container className={classes.grid} spacing={5}>
           {card}
         </Grid>
         <br />
-        <br />
-        {/* <Container>
-          <ButtonGroup disableElevation variant="contained" color="secondary">
-            {prevPageExists && (
-              <Button>
-                <Link role="button" to={`/ticketify/venues/page/${pageId - 1}`}>
-                  PREVIOUS
-                </Link>
-              </Button>
-            )}
-            {nextPageExists && (
-              <Button>
-                <Link role="button" to={`/ticketify/venues/page/${pageId + 1}`}>
-                  NEXT
-                </Link>
-              </Button>
-            )}
-          </ButtonGroup>
-        </Container> */}
       </div>
     );
   }

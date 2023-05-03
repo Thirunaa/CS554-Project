@@ -1,0 +1,110 @@
+{
+  "apikey": "f9262a85-d559-439c-b1c0-4817f5e46208",
+  "data": [
+    {
+      "id": "1bb46c0f-d7fb-4d67-9d01-06c57630979b",
+      "name": "Indonesia vs Malaysia, 2nd Match, Group A",
+      "matchType": "t20",
+      "status": "Malaysia won by 94 runs",
+      "venue": "AZ Group Cricket Oval, Phnom Penh",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T00:00:00",
+      "teams": ["Indonesia", "Malaysia"],
+      "teamInfo": [
+        {
+          "name": "Indonesia",
+          "shortname": "IDN",
+          "img": "https://g.cricapi.com/iapi/614-637928918114057334.png?w=48"
+        },
+        { "name": "Malaysia", "shortname": "MAL", "img": "https://g.cricapi.com/iapi/625-637865062320348912.webp?w=48" }
+      ],
+      "score": [
+        { "r": 191, "w": 6, "o": 20, "inning": "Malaysia Inning 1" },
+        { "r": 97, "w": 4, "o": 20, "inning": "Indonesia Inning 1" }
+      ],
+      "series_id": "4e815aab-596e-4507-92ea-8bec93f9c2c1",
+      "fantasyEnabled": true,
+      "bbbEnabled": false,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "56482789-985d-40bd-8e4b-1fda00ea16cd",
+      "name": "Namibia Women vs Uganda Women, Final",
+      "matchType": "t20",
+      "status": "Uganda Women won by 3 runs",
+      "venue": "United Cricket Club Ground, Windhoek",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T12:30:00",
+      "teams": ["Namibia Women", "Uganda Women"],
+      "teamInfo": [
+        {
+          "name": "Namibia Women",
+          "shortname": "NAMW",
+          "img": "https://g.cricapi.com/iapi/1128-637877082812217889.webp?w=48"
+        },
+        {
+          "name": "Uganda Women",
+          "shortname": "UGAW",
+          "img": "https://g.cricapi.com/iapi/1135-637877086844153505.webp?w=48"
+        }
+      ],
+      "score": [
+        { "r": 93, "w": 5, "o": 20, "inning": "Uganda Women Inning 1" },
+        { "r": 90, "w": 4, "o": 20, "inning": "Namibia Women Inning 1" }
+      ],
+      "series_id": "0b8b51e9-7a20-4893-bb2f-0cbcb5c14436",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    },
+    {
+      "id": "494e1d55-324c-42ee-850b-8de25f27f547",
+      "name": "Gujarat Titans vs Delhi Capitals, 44th Match",
+      "matchType": "t20",
+      "status": "Delhi Capitals won by 5 runs",
+      "venue": "Narendra Modi Stadium, Ahmedabad",
+      "date": "2023-05-02",
+      "dateTimeGMT": "2023-05-02T14:00:00",
+      "teams": ["Gujarat Titans", "Delhi Capitals"],
+      "teamInfo": [
+        {
+          "name": "Delhi Capitals",
+          "shortname": "DC",
+          "img": "https://g.cricapi.com/iapi/148-637874596301457910.png?w=48"
+        },
+        {
+          "name": "Gujarat Titans",
+          "shortname": "GT",
+          "img": "https://g.cricapi.com/iapi/172-637852957798476823.png?w=48"
+        }
+      ],
+      "score": [
+        { "r": 130, "w": 8, "o": 20, "inning": "Delhi Capitals Inning 1" },
+        { "r": 125, "w": 6, "o": 20, "inning": "Gujarat Titans Inning 1" }
+      ],
+      "series_id": "c75f8952-74d4-416f-b7b4-7da4b4e3ae6e",
+      "fantasyEnabled": true,
+      "bbbEnabled": true,
+      "hasSquad": true,
+      "matchStarted": true,
+      "matchEnded": true
+    }
+  ],
+  "status": "success",
+  "info": {
+    "hitsToday": 11,
+    "hitsUsed": 1,
+    "hitsLimit": 10000,
+    "credits": 0,
+    "server": 17,
+    "offsetRows": 0,
+    "totalRows": 3,
+    "queryTime": 17.3437,
+    "s": 0,
+    "cache": 0
+  }
+}

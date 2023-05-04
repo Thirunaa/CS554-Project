@@ -166,7 +166,7 @@ const deleteReply = async (matchId, commentId, replyId, userId) => {
   return matchAfterReplyDeleted;
 };
 
-const addLikeToComment = async (matchId, commentId, userId) => {
+const likeComment = async (matchId, commentId, userId) => {
   validation.validateID(commentId);
   const commentsCollection = await comments();
 
@@ -181,7 +181,7 @@ const addLikeToComment = async (matchId, commentId, userId) => {
   return matchAfterCommentLiked;
 };
 
-const addLikeToReply = async (matchId, commentId, replyId, userId) => {
+const likeReply = async (matchId, commentId, replyId, userId) => {
   validation.validateID(commentId);
   validation.validateID(replyId);
   const commentsCollection = await comments();
@@ -197,7 +197,7 @@ const addLikeToReply = async (matchId, commentId, replyId, userId) => {
   return matchAfterReplyLiked;
 };
 
-const removeLikeFromComment = async (matchId, commentId, userId) => {
+const unlikeComment = async (matchId, commentId, userId) => {
   validation.validateID(commentId);
   const commentsCollection = await comments();
 
@@ -212,7 +212,7 @@ const removeLikeFromComment = async (matchId, commentId, userId) => {
   return matchAfterCommentUnliked;
 };
 
-const removeLikeFromReply = async (matchId, commentId, replyId, userId) => {
+const unlikeReply = async (matchId, commentId, replyId, userId) => {
   validation.validateID(commentId);
   validation.validateID(replyId);
   const commentsCollection = await comments();
@@ -298,9 +298,9 @@ module.exports = {
   getCommentsByMatchId,
   addReply,
   deleteReply,
-  addLikeToComment,
-  addLikeToReply,
-  removeLikeFromComment,
-  removeLikeFromReply,
+  likeComment,
+  likeReply,
+  unlikeComment,
+  unlikeReply,
   predictMatchResult,
 };

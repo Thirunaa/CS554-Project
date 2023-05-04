@@ -267,4 +267,84 @@ router.post("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
   }
 });
 
+router.delete("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    let matchId = req.params.matchId;
+    let commentId = req.params.commentId;
+    let replyId = req.params.replyId;
+
+    if (!validation.validateID(replyId).isValid) {
+      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+      return;
+    }
+
+    let matchAfterReplyUnliked = await matches.unlikeReply(matchId, commentId, replyId, currentUser);
+    res.status(200).json(matchAfterReplyUnliked);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.post("/matches/:matchId/:commentId/likes", async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    let matchId = req.params.matchId;
+    let commentId = req.params.commentId;
+
+    if (!validation.validateID(commentId).isValid) {
+      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+      return;
+    }
+
+    let matchAfterCommentLiked = await matches.likeComment(matchId, commentId, currentUser);
+    res.status(200).json(matchAfterCommentLiked);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.delete("/matches/:matchId/:commentId/likes", async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    let matchId = req.params.matchId;
+    let commentId = req.params.commentId;
+
+    if (!validation.validateID(commentId).isValid) {
+      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+      return;
+    }
+
+    let matchAfterCommentUnliked = await matches.unlikeComment(matchId, commentId, currentUser);
+    res.status(200).json(matchAfterCommentUnliked);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.post("/matches/:matchId/predict", async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    let matchId = req.params.matchId;
+    let prediction = req.body.prediction;
+
+    const matchAfterPredictionAdded = await matches.predictMatchResult(matchId, currentUser, prediction);
+    res.status(200).json(matchAfterPredictionAdded);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
 module.exports = router;

@@ -26,7 +26,7 @@ const Player = (props) => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:4000/players/player/" + id);
+        const { data } = await axios.get("http://localhost:3001/players/player/" + id);
         let statsArray = [];
         console.log(data);
         setplayerData(data);

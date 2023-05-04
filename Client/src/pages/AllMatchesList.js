@@ -35,7 +35,7 @@ const AllMatchesList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:4000/matches/allMatches/page/" + pageId);
+        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId);
         //console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);

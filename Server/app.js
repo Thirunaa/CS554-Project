@@ -93,6 +93,6 @@ app.use(
 
 configRoutes(app);
 
-app.listen(4000, () => {
-  console.log("Server started at port 4000!");
+app.listen(3001, () => {
+  console.log("Server started at port 3001!");
 });

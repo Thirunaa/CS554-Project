@@ -2,10 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CircularProgress,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
-
+// Change by rohit
 const CurrentMatchesList = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
@@ -16,7 +23,9 @@ const CurrentMatchesList = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/currentMatches");
+        const { data } = await axios.get(
+          "http://localhost:3001/matches/currentMatches"
+        );
         console.log(data);
         setMatchesData(data);
       } catch (e) {
@@ -34,7 +43,12 @@ const CurrentMatchesList = () => {
           <CardActionArea>
             <Link to={`/match/${match.id}`}>
               <CardContent>
-                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
+                <Typography
+                  className={classes.titleHead}
+                  gutterBottom
+                  variant="h6"
+                  component="h2"
+                >
                   {match.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
@@ -42,7 +56,9 @@ const CurrentMatchesList = () => {
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {match && match.teams ? match.teams[0] + " vs " + match.teams[1] : ""}
+                  {match && match.teams
+                    ? match.teams[0] + " vs " + match.teams[1]
+                    : ""}
                 </Typography>
               </CardContent>
             </Link>

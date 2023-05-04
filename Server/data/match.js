@@ -33,6 +33,7 @@ const getMatchById = async (id) => {
     matchId: id,
     data: metaData,
     comments: [],
+    predictions: { team1: [], team2: [], tie: [] },
   };
   const matchesCollection = await matches();
   const createdMatch = await matchesCollection.insertOne(matchObject);
@@ -40,6 +41,34 @@ const getMatchById = async (id) => {
   return metaData;
 };
 
+const getMatchByIdFromDB = async (id) => {
+  const matchesCollection = await matches();
+  const match = await matchesCollection.findOne({ matchId: id });
+  if (!match) throw `No match found with that id ${id}`;
+  return match;
+};
+
+const getCommentById = async (id) => {
+  const commentsCollection = await comments();
+  const comment = await commentsCollection.findOne({ _id: id });
+  if (!comment) throw `No comment found with that id ${id}`;
+  return comment;
+};
+
+const getCommentsByMatchId = async (id) => {
+  const matchesCollection = await matches();
+  const match = await matchesCollection.findOne({ matchId: id });
+  if (!match) throw `No match found with that id ${id}`;
+  let commentsArray = [];
+  for (let i = 0; i < match.comments.length; i++) {
+    let comment = await getCommentById(match.comments[i]);
+    commentsArray.push(comment);
+  }
+  return commentsArray;
+};
+
+// add comment to match
+// return the match object with the updated comments array
 const addComment = async (matchId, comment, userThatPostedComment) => {
   validation.validateComment(comment);
   const matchesCollection = await matches();
@@ -73,7 +102,8 @@ const deleteComment = async (matchId, commentId, userId) => {
   const commentsCollection = await comments();
   let commentObject = await commentsCollection.findOne({ _id: commentId });
   if (!commentObject) throw `No comment found with match id ${matchId} and comment id <${commentId}>`;
-  if (commentObject.userThatPostedComment != userId) throw `User ${userId} is not authorized to delete this comment.`;
+  if (commentObject.userThatPostedComment != userId)
+    throw `Unauthorized - User ${userId} is not authorized to delete this comment.`;
 
   let matchWithComment = await matchesCollection.findOne({ matchId: matchId });
   if (!matchWithComment) throw `No Match found with that match id ${matchId}`;
@@ -94,34 +124,183 @@ const deleteComment = async (matchId, commentId, userId) => {
   return await matchesCollection.findOne({ matchId: matchId });
 };
 
-const addLike = async (id, userIdThatPostedLike) => {
-  validation.validateID(id);
-  let likes = [];
+// return the match object with the updated comments array with the added reply
+const addReply = async (matchId, commentId, reply, userThatPostedReply) => {
+  validation.validateComment(reply);
+  const commentsCollection = await comments();
+  const matchesCollection = await matches();
+  const replyObject = {
+    _id: new ObjectId(),
+    userThatPostedReply: userThatPostedReply,
+    reply,
+    likes: [],
+  };
 
-  const recipesCollection = await recipes();
-  let recipeToBeLiked = await recipesCollection.findOne({ _id: new ObjectId(id) });
-  if (!recipeToBeLiked) throw `No Recipe found with id ${id}`;
+  const addReply = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId) },
+    { $addToSet: { replies: replyObject } }
+  );
+  if (!addReply.modifiedCount) throw `Adding reply to comment was unsuccessful.`;
 
-  if (recipeToBeLiked.likes.includes(userIdThatPostedLike.toString())) {
-    likes = recipeToBeLiked.likes.filter(function (likerId) {
-      return likerId != userIdThatPostedLike.toString();
-    });
-  } else {
-    likes = recipeToBeLiked.likes;
-    likes.push(userIdThatPostedLike.toString());
+  let matchAfterReplyAdded = await getCommentsByMatchId(matchId);
+  return matchAfterReplyAdded;
+};
+
+const deleteReply = async (matchId, commentId, replyId, userId) => {
+  validation.validateID(commentId);
+  validation.validateID(replyId);
+  const commentsCollection = await comments();
+  const matchesCollection = await matches();
+  let replyObject = await commentsCollection.findOne({ _id: commentId, "replies._id": replyId });
+  if (!replyObject) throw `No reply found with match id ${matchId} and reply id <${replyId}>`;
+  if (replyObject.userThatPostedReply != userId)
+    throw `Unauthorized -User ${userId} is not authorized to delete this reply.`;
+
+  const deleteReply = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId) },
+    { $pull: { replies: { _id: new ObjectId(replyId) } } }
+  );
+  if (!deleteReply.modifiedCount) throw `Deleting reply was unsuccessful.`;
+
+  let matchAfterReplyDeleted = await getMatchByIdFromDB(matchId);
+  return matchAfterReplyDeleted;
+};
+
+const addLikeToComment = async (matchId, commentId, userId) => {
+  validation.validateID(commentId);
+  const commentsCollection = await comments();
+
+  let commentAfterLikeAdded = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId) },
+    { $addToSet: { likes: userId } }
+  );
+
+  if (!commentAfterLikeAdded.modifiedCount) throw `Adding like to comment was unsuccessful.`;
+
+  let matchAfterCommentLiked = await getCommentsByMatchId(matchId);
+  return matchAfterCommentLiked;
+};
+
+const addLikeToReply = async (matchId, commentId, replyId, userId) => {
+  validation.validateID(commentId);
+  validation.validateID(replyId);
+  const commentsCollection = await comments();
+
+  let replyAfterLikeAdded = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId), "replies._id": new ObjectId(replyId) },
+    { $addToSet: { "replies.$.likes": userId } }
+  );
+
+  if (!replyAfterLikeAdded.modifiedCount) throw `Adding like to reply was unsuccessful.`;
+
+  let matchAfterReplyLiked = await getCommentsByMatchId(matchId);
+  return matchAfterReplyLiked;
+};
+
+const removeLikeFromComment = async (matchId, commentId, userId) => {
+  validation.validateID(commentId);
+  const commentsCollection = await comments();
+
+  let commentAfterLikeRemoved = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId) },
+    { $pull: { likes: userId } }
+  );
+
+  if (!commentAfterLikeRemoved.modifiedCount) throw `Removing like from comment was unsuccessful.`;
+
+  let matchAfterCommentUnliked = await getCommentsByMatchId(matchId);
+  return matchAfterCommentUnliked;
+};
+
+const removeLikeFromReply = async (matchId, commentId, replyId, userId) => {
+  validation.validateID(commentId);
+  validation.validateID(replyId);
+  const commentsCollection = await comments();
+
+  let replyAfterLikeRemoved = await commentsCollection.updateOne(
+    { _id: new ObjectId(commentId), "replies._id": new ObjectId(replyId) },
+    { $pull: { "replies.$.likes": userId } }
+  );
+
+  if (!replyAfterLikeRemoved.modifiedCount) throw `Removing like from reply was unsuccessful.`;
+
+  let matchAfterReplyUnliked = await getCommentsByMatchId(matchId);
+  return matchAfterReplyUnliked;
+};
+
+const predictMatchResult = async (matchId, userId, prediction) => {
+  validation.validatePrediction(prediction);
+  const matchesCollection = await matches();
+  const match = await matchesCollection.findOne({ matchId: matchId });
+  if (!match) throw `No match found with that id ${matchId}`;
+
+  if (prediction === "team1") {
+    if (match.predictions.team2.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.team2": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    } else if (match.predictions.tie.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.tie": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    }
+  } else if (prediction === "team2") {
+    if (match.predictions.team1.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.team1": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    } else if (match.predictions.tie.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.tie": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    }
+  } else if (prediction === "tie") {
+    if (match.predictions.team1.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.team1": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    } else if (match.predictions.team2.includes(userId)) {
+      const updateMatch = await matchesCollection.updateOne(
+        { matchId: matchId },
+        { $pull: { "predictions.team2": userId } }
+      );
+      if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
+    }
   }
 
-  const addLike = await recipesCollection.updateOne({ _id: new ObjectId(id) }, { $set: { likes: likes.flat() } });
+  const updateMatch = await matchesCollection.updateOne(
+    { matchId: matchId },
+    { $addToSet: { [`predictions.${prediction}`]: userId } }
+  );
+  if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
 
-  if (!addLike.modifiedCount) throw `Like/Unlike was unsuccessful.`;
-  return await recipesCollection.findOne({ _id: new ObjectId(id) });
+  const updatedMatch = await matchesCollection.findOne({ matchId: matchId });
+  return updatedMatch;
 };
 
 module.exports = {
   addComment,
   deleteComment,
-  addLike,
   getCurrentMatches,
   getAllMatchesByPageNo,
   getMatchById,
+  getMatchByIdFromDB,
+  getCommentsByMatchId,
+  addReply,
+  deleteReply,
+  addLikeToComment,
+  addLikeToReply,
+  removeLikeFromComment,
+  removeLikeFromReply,
+  predictMatchResult,
 };

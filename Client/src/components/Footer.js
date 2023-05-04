@@ -7,13 +7,18 @@ function Footer() {
     <div>
       <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
         <ConfirmationNumberIcon />
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
           All rights reserved!
         </Typography>
         <Typography variant="body2" color="textSecondary" align="center">
           {"Copyright © "}
           <Link color="inherit" to="/">
-            cricketify
+            LiveCricketHub
           </Link>{" "}
           {new Date().getFullYear()}
           {"."}

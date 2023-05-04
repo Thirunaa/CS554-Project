@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
+// import App.css
+import "../App.css";
 import {
   Box,
   Card,
@@ -29,7 +31,9 @@ const Match = (props) => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/match/" + id);
+        const { data } = await axios.get(
+          "http://localhost:3001/matches/match/" + id
+        );
         let scoresArray = [];
         console.log(data);
         setMatchData(data);
@@ -37,7 +41,16 @@ const Match = (props) => {
         if (data && data.score) {
           for (const score of data.score) {
             scoresArray.push(
-              (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
+              (
+                score.inning +
+                " - " +
+                score.r +
+                "/" +
+                score.w +
+                "   Overs: " +
+                score.o +
+                " "
+              ).toString()
             );
           }
         }
@@ -49,6 +62,25 @@ const Match = (props) => {
     }
     fetchData();
   }, [id]);
+
+  function convertTo12Hour(timeString) {
+    const [hour, minute] = timeString.split(":").map(Number);
+    let amPm = "AM";
+    let hour12 = hour;
+
+    if (hour >= 12) {
+      amPm = "PM";
+      hour12 = hour - 12;
+    }
+
+    if (hour12 === 0) {
+      hour12 = 12;
+    }
+
+    return `${hour12.toString().padStart(2, "0")}:${minute
+      .toString()
+      .padStart(2, "0")} ${amPm}`;
+  }
 
   if (loading) {
     return (
@@ -69,13 +101,19 @@ const Match = (props) => {
             }}
           >
             <Card className={classes.card} variant="outlined">
-              <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
+              <CardHeader
+                className={classes.titleHead}
+                title={matchData && matchData.name ? matchData.name : ""}
+              />
               <Grid container wrap="nowrap">
                 <CardMedia
                   className={classes.media}
                   component="img"
                   image={
-                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                    matchData &&
+                    matchData.teamInfo &&
+                    matchData.teamInfo[0]?.img &&
+                    matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[0].img
                       : noNewsImage
                   }
@@ -85,7 +123,10 @@ const Match = (props) => {
                   className={classes.media}
                   component="img"
                   image={
-                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                    matchData &&
+                    matchData.teamInfo &&
+                    matchData.teamInfo[0]?.img &&
+                    matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[1].img
                       : noNewsImage
                   }
@@ -93,34 +134,61 @@ const Match = (props) => {
                 />
               </Grid>
               <CardContent>
-                <Typography variant="body2" color="textSecondary" component="span">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="span"
+                >
                   <dl>
                     {scoreList.length !== 0 && (
                       <p>
-                        <dt className="title">Score: </dt>
+                        <dt className="title">Score </dt>
 
                         {scoreList.map((s) => {
                           return <Grid>{s}</Grid>;
                         })}
                       </p>
                     )}
-
                     <p>
-                      <dt className="title">Status: </dt>
+                      {matchData && matchData.matchStarted && (
+                        <div>
+                          <dt className="title">Toss</dt>
+                          {matchData.tossWinner
+                            ? matchData.tossWinner +
+                              " won the toss and chose to " +
+                              matchData.tossChoice
+                            : "Toss not yet decided"}
+                        </div>
+                      )}
+                    </p>
+                    <p>
+                      <dt className="title">Status</dt>
                       {matchData && matchData.status ? matchData.status : ""}
                     </p>
                     <p>
-                      <dt className="title">Venue: </dt>
+                      <dt className="title">Venue</dt>
                       {matchData && matchData.venue ? matchData.venue : ""}
                     </p>
                     <p>
-                      <dt className="title">Date: </dt>
+                      <dt className="title">Date</dt>
                       {matchData && matchData.date ? matchData.date : ""}
                     </p>
-                    <p>
-                      <dt className="title">Teams: </dt>
+                    {matchData && matchData.date && matchData.dateTimeGMT ? (
+                      <p>
+                        <dt className="title">Time</dt>
+                        {convertTo12Hour(matchData.dateTimeGMT.slice(11, 16))}
+                      </p>
+                    ) : (
+                      ""
+                    )}
 
-                      {matchData && matchData.teams && matchData.teams[0] && matchData.teams[1]
+                    <p>
+                      <dt className="title">Teams</dt>
+
+                      {matchData &&
+                      matchData.teams &&
+                      matchData.teams[0] &&
+                      matchData.teams[1]
                         ? matchData.teams[0] + " vs " + matchData.teams[1]
                         : ""}
                     </p>
@@ -128,6 +196,8 @@ const Match = (props) => {
                   <br />
                   <br />
                   <Button
+                    variant="contained"
+                    color="primary"
                     to="/home"
                     onClick={(e) => {
                       e.preventDefault();

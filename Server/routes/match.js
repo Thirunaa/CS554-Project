@@ -39,7 +39,19 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
   try {
     let pageNo = req.params.pageNo;
     //write validatePageNo in route validation
-    validation.validatePageNo(pageNo);
+    let validationStatus = validation.validatePageNo(pageNo);
+    console.log(validationStatus);
+    if (!validationStatus.isValid) {
+      if (validationStatus.message.includes("404")) {
+        res.status(404).json({ errorCode: 404, message: validationStatus.message });
+        return;
+      }
+      if (validationStatus.message.includes("400")) {
+        res.status(400).json({ errorCode: 400, message: validationStatus.message });
+        return;
+      }
+    }
+
     if (!client.isOpen) await client.connect();
     let allMatchesFromCache = await client.get("allmatches" + pageNo);
     if (allMatchesFromCache) {
@@ -65,12 +77,25 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
   }
 });
 
-router.get("/matches/:id", async (req, res) => {
+router.get("/match/:id", async (req, res) => {
   try {
-    let validationStatus = validation.validateID(req.params.id);
     let id = req.params.id;
-    if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
+    if (!client.isOpen) await client.connect();
+    let matchFromCache = await client.get("match_" + id);
+    if (matchFromCache) {
+      console.log("match from redis");
+      res.status(200).json(JSON.parse(matchFromCache));
+      return;
+    } else {
+      let matchObj = await matches.getMatchById(id);
+      try {
+        await client.set("match_" + id, JSON.stringify(matchObj));
+      } catch (e) {
+        console.log("Set current matches in Redis Error");
+        console.log(e);
+      }
+      console.log("data from route", matchObj);
+      res.status(200).json(matchObj);
       return;
     }
   } catch (e) {

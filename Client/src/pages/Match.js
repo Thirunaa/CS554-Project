@@ -21,20 +21,20 @@ const Match = (props) => {
   const [scoreList, setScoreList] = useState([]);
   const classes = useStyles();
   let { id } = useParams();
-  const matchUrl = "https://api.cricapi.com/v1/match_info?";
-  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+  //const matchUrl = "https://api.cricapi.com/v1/match_info?";
+  //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
 
   useEffect(() => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get(matchUrl + API_KEY + "&id=" + id);
+        const { data } = await axios.get("http://localhost:4000/matches/match/" + id);
         let scoresArray = [];
         console.log(data);
-        setMatchData(data.data);
+        setMatchData(data);
         // set score
-        if (data.data && data.data.score) {
-          for (const score of data.data.score) {
+        if (data && data.score) {
+          for (const score of data.score) {
             scoresArray.push(
               (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
             );
@@ -72,7 +72,7 @@ const Match = (props) => {
               className={classes.media}
               component="img"
               image={
-                matchData && matchData.teamInfo && matchData.teamInfo[0].img && matchData.teamInfo[1].img
+                matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
                   ? matchData.teamInfo[0].img
                   : ""
               }

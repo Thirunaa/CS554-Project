@@ -4,18 +4,19 @@ import React, { useState, useEffect, useContext } from "react";
 // import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardMedia, CardContent, CircularProgress, Grid, Typography, Button } from "@material-ui/core";
+import { Card, CardActionArea, CardMedia, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
 import NewsData from "../data/newsData.json";
 import noNewsImage from "../images/noNewsImage.png";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
-import { AuthContext } from '../firebase/Auth';
+import { AuthContext } from "../firebase/Auth";
 // import LiveScoreScript from "../components/LiveScoreScript.js";
 
 const Home = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [newsData, setnewsData] = useState([]);
+  // eslint-disable-next-line
   const { currentUser } = useContext(AuthContext);
   //const allnewsUrl = "https://api.cricapi.com/v1/news?";
   //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";

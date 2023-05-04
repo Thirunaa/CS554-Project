@@ -21,20 +21,18 @@ const Player = (props) => {
   const [statList, setstatList] = useState([]);
   const classes = useStyles();
   let { id } = useParams();
-  const playerUrl = "https://api.cricapi.com/v1/players_info?";
-  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
 
   useEffect(() => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get(playerUrl + API_KEY + "&id=" + id);
+        const { data } = await axios.get("http://localhost:4000/players/player/" + id);
         let statsArray = [];
         console.log(data);
-        setplayerData(data.data);
+        setplayerData(data);
         // set stat
-        if (data.data && data.data.stats) {
-          for (const stat of data.data.stats) {
+        if (data && data.stats) {
+          for (const stat of data.stats) {
             statsArray.push(
               (stat.fn + " - " + stat.matchtype + " - " + stat.stat + " - " + stat.value + " ").toString()
             );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
+import Error400 from "../components/Error400.js";
 import {
   Card,
   CardActionArea,
@@ -13,16 +14,18 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
+//import { Alert } from "@mui/material";
 import "../App.css";
+import RouteNotFound from "../components/RouteNotFound.js";
 
 const AllMatchesList = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   let { pagenum } = useParams();
   pagenum = parseInt(pagenum);
-  //const [pageNo, setPageNo] = useState(parseInt(pagenum));
-  const [prevPagePresent, setPrevPagePresent] = useState(false);
+  //const [prevPagePresent, setPrevPagePresent] = useState(false);
   const [nextPagePresent, setNextPagePresent] = useState(true);
+  const [axiosError, setAxiosError] = useState("");
   const [loading, setLoading] = useState(true);
   const [matchesData, setMatchesData] = useState([]);
   let card = null;
@@ -32,18 +35,16 @@ const AllMatchesList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        if (pageId !== 0) {
-          setPrevPagePresent(true);
-        }
-        const { data } = await axios.get("http://localhost:4000/match/allMatches/page/" + pageId);
-        console.log(data);
-
+        const { data } = await axios.get("http://localhost:4000/matches/allMatches/page/" + pageId);
+        //console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
         }
+        setAxiosError("");
         setMatchesData(data);
       } catch (e) {
         console.log(e);
+        setAxiosError(e.response.data.message);
       }
     }
     fetchData();
@@ -81,13 +82,21 @@ const AllMatchesList = () => {
       return buildCard(match);
     });
 
-  //   if (err) {
-  //     return (
-  //       <div>
-  //         <ErrorComponent />
-  //       </div>
-  //     );
-  //   }
+  if (axiosError !== "") {
+    if (axiosError.includes("400")) {
+      return (
+        <div>
+          <Error400 />;
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <RouteNotFound />;
+        </div>
+      );
+    }
+  }
 
   if (loading) {
     return (
@@ -100,7 +109,7 @@ const AllMatchesList = () => {
       <div>
         <Container>
           <ButtonGroup disableElevation variant="contained" color="secondary">
-            {prevPagePresent && (
+            {pagenum !== 0 && (
               <Button
                 sx={{ marginRight: "1.5%" }}
                 variant={"contained"}

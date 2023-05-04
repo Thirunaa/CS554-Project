@@ -14,7 +14,8 @@ import {
   Button,
 } from "@material-ui/core";
 import "../App.css";
-
+// change a different image
+import noNewsImage from "../images/noNewsImage.png";
 const Match = (props) => {
   const [matchData, setMatchData] = useState(undefined);
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const Match = (props) => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:4000/matches/match/" + id);
+        const { data } = await axios.get("http://localhost:3001/matches/match/" + id);
         let scoresArray = [];
         console.log(data);
         setMatchData(data);
@@ -57,86 +58,93 @@ const Match = (props) => {
     );
   } else {
     return (
-      <Box
-        style={{
-          //   backgroundImage: `url(${bigImage})`,
-          backgroundSize: "cover",
-          height: "auto",
-          color: "#0f0101",
-        }}
-      >
-        <Card className={classes.card} variant="outlined">
-          <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
-          <Grid container wrap="nowrap">
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={
-                matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
-                  ? matchData.teamInfo[0].img
-                  : ""
-              }
-              title="show image"
-            />
-            <CardMedia
-              className={classes.media}
-              component="img"
-              image={
-                matchData && matchData.teamInfo && matchData.teamInfo[0].img && matchData.teamInfo[1].img
-                  ? matchData.teamInfo[1].img
-                  : ""
-              }
-              title="show image"
-            />
-          </Grid>
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="span">
-              <dl>
-                {scoreList.length !== 0 && (
-                  <p>
-                    <dt className="title">Score: </dt>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item>
+          <Box
+            style={{
+              //   backgroundImage: `url(${bigImage})`,
+              backgroundSize: "cover",
+              height: "auto",
+              color: "#0f0101",
+            }}
+          >
+            <Card className={classes.card} variant="outlined">
+              <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
+              <Grid container wrap="nowrap">
+                <CardMedia
+                  className={classes.media}
+                  component="img"
+                  image={
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                      ? matchData.teamInfo[0].img
+                      : noNewsImage
+                  }
+                  title="show image"
+                />
+                <CardMedia
+                  className={classes.media}
+                  component="img"
+                  image={
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                      ? matchData.teamInfo[1].img
+                      : noNewsImage
+                  }
+                  title="show image"
+                />
+              </Grid>
+              <CardContent>
+                <Typography variant="body2" color="textSecondary" component="span">
+                  <dl>
+                    {scoreList.length !== 0 && (
+                      <p>
+                        <dt className="title">Score: </dt>
 
-                    {scoreList.map((s) => {
-                      return <Grid>{s}</Grid>;
-                    })}
-                  </p>
-                )}
+                        {scoreList.map((s) => {
+                          return <Grid>{s}</Grid>;
+                        })}
+                      </p>
+                    )}
 
-                <p>
-                  <dt className="title">Status: </dt>
-                  {matchData && matchData.status ? matchData.status : ""}
-                </p>
-                <p>
-                  <dt className="title">Venue: </dt>
-                  {matchData && matchData.venue ? matchData.venue : ""}
-                </p>
-                <p>
-                  <dt className="title">Date: </dt>
-                  {matchData && matchData.date ? matchData.date : ""}
-                </p>
-                <p>
-                  <dt className="title">Teams: </dt>
+                    <p>
+                      <dt className="title">Status: </dt>
+                      {matchData && matchData.status ? matchData.status : ""}
+                    </p>
+                    <p>
+                      <dt className="title">Venue: </dt>
+                      {matchData && matchData.venue ? matchData.venue : ""}
+                    </p>
+                    <p>
+                      <dt className="title">Date: </dt>
+                      {matchData && matchData.date ? matchData.date : ""}
+                    </p>
+                    <p>
+                      <dt className="title">Teams: </dt>
 
-                  {matchData && matchData.teams && matchData.teams[0] && matchData.teams[1]
-                    ? matchData.teams[0] + " vs " + matchData.teams[1]
-                    : ""}
-                </p>
-              </dl>
-              <br />
-              <br />
-              <Button
-                to="/home"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.history.back();
-                }}
-              >
-                Back
-              </Button>
-            </Typography>
-          </CardContent>
-        </Card>
-      </Box>
+                      {matchData && matchData.teams && matchData.teams[0] && matchData.teams[1]
+                        ? matchData.teams[0] + " vs " + matchData.teams[1]
+                        : ""}
+                    </p>
+                  </dl>
+                  <br />
+                  <br />
+                  <Button
+                    to="/home"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.history.back();
+                    }}
+                  >
+                    Back
+                  </Button>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+        <Grid item>
+          <Box></Box>
+        </Grid>
+      </Grid>
     );
   }
 };

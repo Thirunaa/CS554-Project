@@ -37,7 +37,7 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:4000/players/playersList/page/" + pageId);
+        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId);
         console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -58,7 +58,7 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:4000/players/search/" + searchTerm);
+        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm);
         setSearchData(data);
         setLoading(false);
       } catch (e) {

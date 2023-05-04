@@ -2,6 +2,7 @@ const mongoCollections = require("../config/mongoCollections");
 const validation = require("../validations/dataValidations");
 const { ObjectId } = require("mongodb");
 const matches = mongoCollections.matches;
+const comments = mongoCollections.comments;
 const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
 const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
@@ -25,66 +26,72 @@ const getAllMatchesByPageNo = async (PageNo) => {
 
 const getMatchById = async (id) => {
   const { data } = await axios.get(matchUrl + API_KEY + "&id=" + id);
-  console.log("data from data func", data.data);
-  return data.data;
+  metaData = data.data;
+  console.log("data from data func", metaData);
+  let matchObject = {
+    _id: new ObjectId(),
+    matchId: id,
+    data: metaData,
+    comments: [],
+  };
+  const matchesCollection = await matches();
+  const createdMatch = await matchesCollection.insertOne(matchObject);
+  if (!createdMatch.insertedId) throw `Creating this match was unsuccessful.`;
+  return metaData;
 };
 
-const addComment = async (id, comment, userThatPostedComment) => {
-  validation.validateID(id);
+const addComment = async (matchId, comment, userThatPostedComment) => {
   validation.validateComment(comment);
-
-  const recipesCollection = await recipes();
-  let recipeCommentedOn = await recipesCollection.findOne({ _id: new ObjectId(id) });
-  if (!recipeCommentedOn) throw `No Recipe found with id ${id}`;
+  const matchesCollection = await matches();
+  const commentsCollection = await comments();
+  let matchCommentedOn = await matchesCollection.findOne({ matchId: matchId });
+  if (!matchCommentedOn) throw `No Match found with that match id ${matchId}`;
 
   let commentObject = {
     _id: new ObjectId(),
     userThatPostedComment: userThatPostedComment,
     comment,
+    likes: [],
+    replies: [],
   };
 
-  const addComment = await recipesCollection.updateOne(
-    { _id: new ObjectId(id) },
-    { $addToSet: { comments: commentObject } }
-  );
+  const createdComment = await commentsCollection.insertOne(commentObject);
+  if (!createdComment.insertedId) throw `Creating this comment was unsuccessful.`;
 
-  if (!addComment.modifiedCount) throw `Adding comment was unsuccessful.`;
-  return await recipesCollection.findOne({ _id: new ObjectId(id) });
+  const addCommentToMatch = await matchCommentedOn.updateOne(
+    { matchId: matchId },
+    { $addToSet: { comments: commentObject._id } }
+  );
+  if (!addCommentToMatch.modifiedCount) throw `Adding comment to match was unsuccessful.`;
+  return await matchesCollection.findOne({ matchId: matchId });
 };
 
-const deleteComment = async (recipeId, commentId, userId) => {
-  validation.validateID(recipeId);
+const deleteComment = async (matchId, commentId, userId) => {
   validation.validateID(commentId);
-  validation.validateID(userId);
 
-  const recipesCollection = await recipes();
-  let recipeWithComment = await recipesCollection.findOne({
-    _id: new ObjectId(recipeId),
-    "comments._id": new ObjectId(commentId),
+  const matchesCollection = await matches();
+  const commentsCollection = await comments();
+  let commentObject = await commentsCollection.findOne({ _id: commentId });
+  if (!commentObject) throw `No comment found with match id ${matchId} and comment id <${commentId}>`;
+  if (commentObject.userThatPostedComment != userId) throw `User ${userId} is not authorized to delete this comment.`;
+
+  let matchWithComment = await matchesCollection.findOne({ matchId: matchId });
+  if (!matchWithComment) throw `No Match found with that match id ${matchId}`;
+
+  let commentsWithoutDeletedComment = matchWithComment.comments.filter(function (comment) {
+    return comment != commentId;
   });
-  if (!recipeWithComment) throw `No comment found with recipe id ${recipeId} and comment id <${commentId}>`;
 
-  for (const comment of recipeWithComment.comments) {
-    if (comment._id.toString() === commentId) {
-      if (comment.userThatPostedComment._id.toString() !== userId) {
-        throw `Unauthorized. You do not have access to delete this comment`;
-      }
-    }
-  }
+  const deletedComment = await commentsCollection.deleteOne({ _id: new ObjectId(commentId) });
+  if (deletedComment.deletedCount === 0) throw `Deleting comment was unsuccessful.`;
 
-  let deletedComment = await recipesCollection.updateOne(
-    { _id: new ObjectId(recipeId), "comments._id": new ObjectId(commentId) },
-    {
-      $pull: {
-        comments: {
-          _id: new ObjectId(commentId),
-        },
-      },
-    }
+  const updateMatch = await matchesCollection.updateOne(
+    { matchId: matchId },
+    { $set: { comments: commentsWithoutDeletedComment } }
   );
+  if (!updateMatch.modifiedCount) throw `Updating match was unsuccessful.`;
 
-  if (deletedComment.modifiedCount === 0) throw `Deleting comment was unsuccessful.`;
-  return await recipesCollection.findOne({ _id: new ObjectId(recipeId) });
+  return await matchesCollection.findOne({ matchId: matchId });
 };
 
 const addLike = async (id, userIdThatPostedLike) => {

@@ -9,6 +9,8 @@ import {
   CircularProgress,
   Grid,
   Typography,
+  CardHeader,
+  CardMedia,
 } from "@material-ui/core";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
@@ -36,9 +38,28 @@ const CurrentMatchesList = () => {
     setLoading(false);
   }, []);
 
+  function convertTo12Hour(timeString) {
+    const [hour, minute] = timeString.split(":").map(Number);
+    let amPm = "AM";
+    let hour12 = hour;
+
+    if (hour >= 12) {
+      amPm = "PM";
+      hour12 = hour - 12;
+    }
+
+    if (hour12 === 0) {
+      hour12 = 12;
+    }
+
+    return `${hour12.toString().padStart(2, "0")}:${minute
+      .toString()
+      .padStart(2, "0")} ${amPm}`;
+  }
+
   const buildCard = (match) => {
     return (
-      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={match.id}>
+      <Grid item xs={12} key={match.id}>
         <Card className={classes.card} variant="outlined">
           <CardActionArea>
             <Link to={`/match/${match.id}`}>
@@ -49,16 +70,91 @@ const CurrentMatchesList = () => {
                   variant="h6"
                   component="h2"
                 >
-                  {match.name}
+                  {match.name && match.name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {match && match.venue ? match.venue : ""}
+                <Typography variant="body1" color="text.secondary">
+                  <strong>Date:</strong>{" "}
+                  {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  {match && match.matchStarted ? (
+                    <div>
+                      <strong>Started At:</strong>
 
+                      {match &&
+                        match.dateTimeGMT &&
+                        convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                    </div>
+                  ) : (
+                    <div>
+                      <strong>Starts At:</strong>
+
+                      {match &&
+                        match.dateTimeGMT &&
+                        convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                    </div>
+                  )}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  <strong>Status: </strong>
+                  {match && match.matchStarted ? (
+                    <span style={{ color: "green" }}>{match.status}</span>
+                  ) : (
+                    <span style={{ color: "red" }}>{match.status}</span>
+                  )}
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {match && match.teams
-                    ? match.teams[0] + " vs " + match.teams[1]
-                    : ""}
+                  <strong>Teams:</strong>
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  <CardMedia>
+                    {match &&
+                      match.teamInfo &&
+                      match.teamInfo[0] &&
+                      match.teamInfo[0].img &&
+                      match.teamInfo[1] &&
+                      match.teamInfo[1].img && (
+                        <img
+                          src={match.teamInfo[0].img}
+                          alt={match.teamInfo[0].name}
+                          height={35}
+                          width={60}
+                        />
+                      )}
+                    {match.teams?.[0]}
+                  </CardMedia>
+
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      fontSize: "1.5rem",
+                      fontWeight: "bold",
+                      margin: "0 1rem",
+                    }}
+                  >
+                    vs
+                  </Typography>
+                  <CardMedia>
+                    {match &&
+                      match.teamInfo &&
+                      match.teamInfo[0] &&
+                      match.teamInfo[0].img &&
+                      match.teamInfo[1] &&
+                      match.teamInfo[1].img && (
+                        <img
+                          src={match.teamInfo[1].img}
+                          alt={match.teamInfo[1].name}
+                          height={35}
+                          width={60}
+                        />
+                      )}
+                    {match.teams?.[1]}
+                  </CardMedia>
                 </Typography>
               </CardContent>
             </Link>

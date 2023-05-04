@@ -73,7 +73,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            Cricketify
+            LiveCricketHub
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -82,6 +82,12 @@ function Navbar() {
               key={"Current Matches"}
               to="/current-matches"
               sx={{ my: 2, color: "white", display: "block" }}
+              style={{
+                marginRight: "10px",
+                marginLeft: "10px",
+                color: "white",
+                fontSize: "1rem",
+              }}
             >
               Current Matches
             </Link>
@@ -90,7 +96,18 @@ function Navbar() {
               className={classes.button}
               key={"All Matches"}
               to="/all-matches/page/0"
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "3rem",
+              }}
+              style={{
+                marginRight: "10px",
+                marginLeft: "10px",
+                color: "white",
+                fontSize: "1rem",
+              }}
             >
               All Matches
             </Link>
@@ -100,11 +117,26 @@ function Navbar() {
               key={"Players"}
               to="/players/page/0"
               sx={{ my: 2, color: "white", display: "block" }}
+              style={{
+                marginRight: "10px",
+                marginLeft: "10px",
+                color: "white",
+                fontSize: "1rem",
+              }}
             >
               Players
             </Link>
-
-            <Button className={classes.button} sx={{ my: 2, color: "white", display: "block" }} onClick={doSignOut}>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              className={classes.button}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+              }}
+              onClick={doSignOut}
+            >
               SignOut
             </Button>
           </Box>

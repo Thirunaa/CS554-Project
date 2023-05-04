@@ -20,7 +20,9 @@ const validatePageNo = (PageNo) => {
     return { isValid: false, message: `400 - Bad request` };
   }
   if (Number.isInteger(parseInt(PageNo))) {
-    return { isValid: false, message: `404 - Page not found` };
+    if (parseInt(PageNo) < 0) {
+      return { isValid: false, message: `404 - Page not found` };
+    }
   } else {
     return { isValid: false, message: `400 - Bad request` };
   }

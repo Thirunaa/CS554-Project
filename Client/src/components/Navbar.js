@@ -98,7 +98,7 @@ function Navbar() {
             <Link
               className={classes.button}
               key={"Players"}
-              to="/players"
+              to="/players/page/0"
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Players

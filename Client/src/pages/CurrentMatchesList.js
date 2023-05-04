@@ -16,7 +16,7 @@ const CurrentMatchesList = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:4000/match/currentMatches");
+        const { data } = await axios.get("http://localhost:4000/matches/currentMatches");
         console.log(data);
         setMatchesData(data);
       } catch (e) {

@@ -39,8 +39,8 @@ function App() {
                 <Route path="/all-matches/page/:pagenum" element={<AllMatchesList />} />
               </Route>
 
-              <Route path="/players" element={<PrivateRoute />}>
-                <Route path="/players" element={<PlayersList />} />
+              <Route path="/players/page/:pagenum" element={<PrivateRoute />}>
+                <Route path="/players/page/:pagenum" element={<PlayersList />} />
               </Route>
 
               <Route path="/match/:id" element={<PrivateRoute />}>

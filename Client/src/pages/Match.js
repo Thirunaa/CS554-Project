@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
 // import App.css
 import "../App.css";
+import io from "socket.io-client";
 import {
   Box,
   Card,
@@ -16,52 +17,19 @@ import {
   Button,
 } from "@material-ui/core";
 import "../App.css";
-// change a different image
+
 import noNewsImage from "../images/noNewsImage.png";
+
 const Match = (props) => {
   const [matchData, setMatchData] = useState(undefined);
   const [loading, setLoading] = useState(true);
   const [scoreList, setScoreList] = useState([]);
   const classes = useStyles();
   let { id } = useParams();
-  //const matchUrl = "https://api.cricapi.com/v1/match_info?";
-  //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
 
-  useEffect(() => {
-    console.log("SHOW useEffect fired");
-    async function fetchData() {
-      try {
-        const { data } = await axios.get(
-          "http://localhost:3001/matches/match/" + id
-        );
-        let scoresArray = [];
-        console.log(data);
-        setMatchData(data);
-        // set score
-        if (data && data.score) {
-          for (const score of data.score) {
-            scoresArray.push(
-              (
-                score.inning +
-                " - " +
-                score.r +
-                "/" +
-                score.w +
-                "   Overs: " +
-                score.o +
-                " "
-              ).toString()
-            );
-          }
-        }
-        setScoreList(scoresArray);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, [id]);
+  // eslint-disable-next-line
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
 
   function convertTo12Hour(timeString) {
     const [hour, minute] = timeString.split(":").map(Number);
@@ -77,10 +45,69 @@ const Match = (props) => {
       hour12 = 12;
     }
 
-    return `${hour12.toString().padStart(2, "0")}:${minute
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
+    return `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${amPm}`;
   }
+
+  function handleInputChange(event) {
+    setMessage(event.target.value);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Send the new message to the server
+    const socket = io("http://localhost:3002");
+    console.log("SENDING MESSAGE");
+    console.log("ID: " + id);
+    console.log("MESSAGE: " + message);
+    socket.emit("message", { id, message });
+
+    // Clear the message input
+    setMessage("");
+  }
+
+  useEffect(() => {
+    console.log("SHOW useEffect fired");
+    async function fetchData() {
+      try {
+        const { data } = await axios.get("http://localhost:3001/matches/match/" + id);
+        let scoresArray = [];
+        console.log(data);
+        setMatchData(data);
+        // set score
+        if (data && data.score) {
+          for (const score of data.score) {
+            scoresArray.push(
+              (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
+            );
+          }
+        }
+        setScoreList(scoresArray);
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+  useEffect(() => {
+    // Set up Socket.io connection
+    const socket = io("http://localhost:3002");
+
+    // Join the chat room for the current match
+    socket.emit("join", id);
+
+    // Listen for new messages
+    socket.on("message", (message) => {
+      setMessages((prevMessages) => [...prevMessages, message]);
+    });
+
+    // Clean up the Socket.io connection
+    return () => {
+      socket.disconnect();
+    };
+  }, [id]);
 
   if (loading) {
     return (
@@ -90,7 +117,7 @@ const Match = (props) => {
     );
   } else {
     return (
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid id={matchData.id} container justifyContent="center" alignItems="center">
         <Grid item>
           <Box
             style={{
@@ -101,19 +128,13 @@ const Match = (props) => {
             }}
           >
             <Card className={classes.card} variant="outlined">
-              <CardHeader
-                className={classes.titleHead}
-                title={matchData && matchData.name ? matchData.name : ""}
-              />
+              <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
               <Grid container wrap="nowrap">
                 <CardMedia
                   className={classes.media}
                   component="img"
                   image={
-                    matchData &&
-                    matchData.teamInfo &&
-                    matchData.teamInfo[0]?.img &&
-                    matchData.teamInfo[1]?.img
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[0].img
                       : noNewsImage
                   }
@@ -123,10 +144,7 @@ const Match = (props) => {
                   className={classes.media}
                   component="img"
                   image={
-                    matchData &&
-                    matchData.teamInfo &&
-                    matchData.teamInfo[0]?.img &&
-                    matchData.teamInfo[1]?.img
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[1].img
                       : noNewsImage
                   }
@@ -134,11 +152,7 @@ const Match = (props) => {
                 />
               </Grid>
               <CardContent>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="span"
-                >
+                <Typography variant="body2" color="textSecondary" component="span">
                   <dl>
                     {scoreList.length !== 0 && (
                       <p>
@@ -154,9 +168,7 @@ const Match = (props) => {
                         <div>
                           <dt className="title">Toss</dt>
                           {matchData.tossWinner
-                            ? matchData.tossWinner +
-                              " won the toss and chose to " +
-                              matchData.tossChoice
+                            ? matchData.tossWinner + " won the toss and chose to " + matchData.tossChoice
                             : "Toss not yet decided"}
                         </div>
                       )}
@@ -185,10 +197,7 @@ const Match = (props) => {
                     <p>
                       <dt className="title">Teams</dt>
 
-                      {matchData &&
-                      matchData.teams &&
-                      matchData.teams[0] &&
-                      matchData.teams[1]
+                      {matchData && matchData.teams && matchData.teams[0] && matchData.teams[1]
                         ? matchData.teams[0] + " vs " + matchData.teams[1]
                         : ""}
                     </p>
@@ -212,7 +221,17 @@ const Match = (props) => {
           </Box>
         </Grid>
         <Grid item>
-          <Box></Box>
+          <div>
+            <ul>
+              {messages.map((message, index) => (
+                <li key={index}>{message}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleFormSubmit}>
+              <input type="text" value={message} onChange={handleInputChange} />
+              <button type="submit">Send</button>
+            </form>
+          </div>
         </Grid>
       </Grid>
     );

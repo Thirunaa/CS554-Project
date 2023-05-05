@@ -16,10 +16,22 @@ function SignUp() {
       setPwMatch("Passwords do not match");
       return false;
     }
+    console.log(displayName.value);
 
     try {
-      await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
+      await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName.value);
+      let userId = firebase.auth().currentUser.uid;
+      let emailAddress = firebase.auth().currentUser.email;
+      let username = displayName.value;
+      let loweredEmailAddress = emailAddress.toLowerCase();
+      const { data } = await axios.post("http://localhost:3001/users/signup", {
+        userId,
+        emailAddress: loweredEmailAddress,
+        displayName: username,
+      });
+      console.log(data);
       alert("Sign up successful");
+      // api - Sign Up call to backend
     } catch (error) {
       alert(error);
     }

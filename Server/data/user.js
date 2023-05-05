@@ -3,8 +3,7 @@ const validation = require("../validations/dataValidations");
 const users = mongoCollections.users;
 
 const createUser = async (userId, emailAddress, displayName) => {
-  validateDisplayName(displayName);
-  validateUserId(userId);
+  validation.validateName(displayName);
 
   const usersCollection = await users();
   const findUser = await usersCollection.findOne({ _id: userId });

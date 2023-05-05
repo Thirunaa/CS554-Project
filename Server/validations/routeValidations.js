@@ -29,32 +29,18 @@ const validatePageNo = (PageNo) => {
   return { isValid: true };
 };
 
-const validateSignup = (body) => {
-  if (typeof body !== "object") throw "Invalid body provided for signup.";
-  if (!body.username || !body.password || !body.name)
+const validateName = (name) => {
+  if (!name)
     return {
       isValid: false,
-      message: "Invalid query params - Expected: [ name: string, username: string, password: string ]",
+      message: "Invalid query params - Expected: [ name: string]",
     };
-  if (typeof body.username !== "string")
+
+  if (typeof name !== "string")
     return {
       isValid: false,
-      message: "Invalid datatype for username - Expected: [ name: string, username: string, password: string ]",
+      message: "Invalid datatype for name - Expected: [ name: string]",
     };
-  if (typeof body.password !== "string")
-    return {
-      isValid: false,
-      message: "Invalid datatype for password - Expected: [ name: string, username: string, password: string ]",
-    };
-  if (typeof body.name !== "string")
-    return {
-      isValid: false,
-      message: "Invalid datatype for name - Expected: [ name: string, username: string, password: string ]",
-    };
-  if (body.username.length === 0 || body.username.trim().length === 0)
-    return { isValid: false, message: `Username/Password cannot be empty.` };
-  if (body.password.length === 0 || body.password.trim().length === 0)
-    return { isValid: false, message: `Username/Password cannot be empty.` };
   return { isValid: true };
 };
 
@@ -95,7 +81,7 @@ const validateCommentPostBody = (commentBody) => {
 };
 
 module.exports = {
-  validateSignup,
+  validateName,
   validateLogin,
   validateID,
   validateCommentPostBody,

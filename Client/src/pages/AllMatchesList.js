@@ -14,7 +14,6 @@ import {
   ButtonGroup,
   Grid,
   Typography,
-  CardHeader,
   CardMedia,
 } from "@material-ui/core";
 //import { Alert } from "@mui/material";
@@ -38,9 +37,7 @@ const AllMatchesList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        const { data } = await axios.get(
-          "http://localhost:3001/matches/allMatches/page/" + pageId
-        );
+        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId);
         //console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -72,9 +69,7 @@ const AllMatchesList = () => {
       hour12 = 12;
     }
 
-    return `${hour12.toString().padStart(2, "0")}:${minute
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
+    return `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${amPm}`;
   }
 
   const buildCard = (match) => {
@@ -84,23 +79,15 @@ const AllMatchesList = () => {
           <CardActionArea>
             <Link to={`/match/${match.id}`}>
               <CardContent>
-                <Typography
-                  className={classes.titleHead}
-                  gutterBottom
-                  variant="h6"
-                  component="h2"
-                >
+                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
-                  <strong>Date:</strong>{" "}
-                  {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
+                  <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
                   <strong>Time:</strong>{" "}
-                  {match &&
-                    match.dateTimeGMT &&
-                    convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                  {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
                   <strong>Status: </strong>
@@ -121,12 +108,7 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[0].img}
-                          alt={match.teamInfo[0].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[0].img} alt={match.teamInfo[0].name} height={35} width={60} />
                       )}
                     {match.teams?.[0]}
                   </CardMedia>
@@ -153,12 +135,7 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[1].img}
-                          alt={match.teamInfo[1].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[1].img} alt={match.teamInfo[1].name} height={35} width={60} />
                       )}
                     {match.teams?.[1]}
                   </CardMedia>
@@ -209,12 +186,9 @@ const AllMatchesList = () => {
                 style={{ marginRight: "10px" }}
                 variant={"contained"}
                 onClick={() => {
-                  navigate(
-                    "/all-matches/page/" + parseInt(parseInt(pagenum) - 1),
-                    {
-                      replace: true,
-                    }
-                  );
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) - 1), {
+                    replace: true,
+                  });
                 }}
               >
                 PREVIOUS
@@ -225,12 +199,9 @@ const AllMatchesList = () => {
                 style={{ marginRight: "10px" }}
                 variant={"contained"}
                 onClick={() => {
-                  navigate(
-                    "/all-matches/page/" + parseInt(parseInt(pagenum) + 1),
-                    {
-                      replace: true,
-                    }
-                  );
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) + 1), {
+                    replace: true,
+                  });
                 }}
               >
                 NEXT

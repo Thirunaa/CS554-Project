@@ -7,7 +7,7 @@ const validation = require("../validations/routeValidations");
 const redis = require("redis");
 const client = redis.createClient();
 client.connect().then(() => {});
-
+// catch the validation status from routeValidations.js - some validations has to be changed
 router.route("/login").post(async (req, res) => {
   try {
     if (req.session.userId) {
@@ -65,32 +65,28 @@ router.route("/logout").get(async (req, res) => {
 
 router.route("/signup").post(async (req, res) => {
   try {
-    if (req.session.userId) {
-      res.status(400).json({
-        errorCode: 400,
-        message: `You're already logged in.`,
-      });
-      return;
-    }
-    let body = req.body;
-    let validationStatus = validation.validateSignup(body);
-    if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
-      return;
-    }
+    let userId = req.body.userId;
+    let emailAddress = req.body.emailAddress;
+    let displayName = req.body.displayName;
+    // validation blocks
     try {
-      const createdUser = await users.createUser(body.name, body.username, body.password);
-      res.status(200).json(createdUser);
-      return;
+      // catch the validation status from routeValidations.js - some validations has to be changed
+      validation.validateName(displayName);
     } catch (e) {
       console.log(e);
-      res.status(400).json({ errorCode: 400, message: e });
+      res.status(400).json({ success: false, error: e });
       return;
     }
+    if (!userId) {
+      res.status(400).json({ success: false, error: "User id not provided. " });
+      return;
+    }
+    const createdUser = await users.createUser(userId, emailAddress, displayName);
+    res.status(200).json({ success: true, createdUser });
+    return;
   } catch (e) {
     console.log(e);
-    res.status(500).json({ errorCode: 500, message: e });
-    return;
+    res.status(500).json({ success: false, message: "Sorry, something went wrong. " });
   }
 });
 

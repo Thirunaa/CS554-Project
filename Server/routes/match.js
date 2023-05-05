@@ -5,8 +5,6 @@ const matches = require("../data/match");
 const users = require("../data/user");
 const validation = require("../validations/routeValidations");
 const redis = require("redis");
-const http = require("http");
-const { Server } = require("socket.io");
 const client = redis.createClient();
 client.connect().then(() => {});
 
@@ -82,6 +80,7 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
 router.get("/match/:id", async (req, res) => {
   try {
     let id = req.params.id;
+    //Redis
     if (!client.isOpen) await client.connect();
     let matchFromCache = await client.get("match_" + id);
     if (matchFromCache) {

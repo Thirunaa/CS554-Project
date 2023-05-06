@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
-import ballbyball from "../data/ballByBall.json";
 import { useStyles } from "../styles/ballbyballStyles";
-import { Typography, Divider, Box } from "@mui/material";
+import { Typography, Divider, Box, CircularProgress } from "@mui/material";
 
-const Balls_list = () => {
-  const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
-  const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
-  //const regex = /(<([^>]+)>)/gi;
-  const [loading, setLoading] = useState(false);
-  //const [errorMsg, seterrorMsg] = useState('No Data for this Page.');
+const BallByBall = () => {
+  const [loading, setLoading] = useState(true);
   const [bbbData, setbbbData] = useState(undefined);
   const classes = useStyles();
   let score = 0;
@@ -22,9 +17,7 @@ const Balls_list = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        console.log(ballbyballUrl + API_KEY + "&id=" + id);
-        const { data } = await axios.get(ballbyballUrl + API_KEY + "&id=" + id);
-
+        const { data } = await axios.get("http://localhost:3001/matches/match_bbb/" + id);
         setbbbData(data);
       } catch (e) {
         console.log(e);
@@ -34,22 +27,22 @@ const Balls_list = () => {
     setLoading(false);
   }, [id]);
 
-  let first20overs = [];
-  let next20overs = [];
+  let firstInnings = [];
+  let secondInnings = [];
 
   if (bbbData) {
     bbbData.data.bbb.forEach((x) => {
       if (x.inning === 0) {
-        first20overs.push(x);
+        firstInnings.push(x);
       } else {
-        next20overs.push(x);
+        secondInnings.push(x);
       }
     });
   }
   if (loading) {
     return (
       <div>
-        <h2>Loading....</h2>
+        <CircularProgress />
       </div>
     );
   } else {
@@ -78,12 +71,12 @@ const Balls_list = () => {
         <br></br>
 
         {bbbData &&
-          first20overs.map((x, index) =>
+          firstInnings.map((x, index) =>
             x.ball === 6 ? (
               <React.Fragment key={index}>
                 <card className={classes.card1}>
                   <Typography variant="h4">
-                    {x.over + 1}.{x.ball}{" "}
+                    {x.over}.{x.ball}{" "}
                   </Typography>
                   <Typography variant="h6" className="classes.typography">
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
@@ -127,7 +120,7 @@ const Balls_list = () => {
             ) : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>
                 <Typography variant="h4">
-                  {x.over + 1}.{x.ball}{" "}
+                  {x.over}.{x.ball}{" "}
                 </Typography>
                 <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
@@ -141,12 +134,12 @@ const Balls_list = () => {
         </Typography>
 
         {bbbData &&
-          next20overs.map((x, index) =>
+          secondInnings.map((x, index) =>
             x.ball === 6 ? (
               <React.Fragment key={index}>
                 <card className={classes.card1}>
                   <Typography variant="h4">
-                    {x.over + 1}.{x.ball}{" "}
+                    {x.over}.{x.ball}{" "}
                   </Typography>
                   <Typography variant="h6" className="classes.typography">
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
@@ -190,7 +183,7 @@ const Balls_list = () => {
             ) : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>
                 <Typography variant="h4">
-                  {x.over + 1}.{x.ball}{" "}
+                  {x.over}.{x.ball}{" "}
                 </Typography>
                 <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
@@ -203,4 +196,4 @@ const Balls_list = () => {
   }
 };
 
-export default Balls_list;
+export default BallByBall;

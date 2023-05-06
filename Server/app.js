@@ -13,6 +13,10 @@ const configRoutes = require("./routes");
 const app = express();
 const cors = require("cors");
 
+// Firebase Middle ware variables and imports
+const { firebaseApp } = require("./initFirebaseAdmin");
+require("dotenv").config();
+
 //Chat App Middleware variables
 const server = http.createServer(app);
 const io = socketio(server, {
@@ -80,7 +84,7 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Chat Server listening on port ${port}`);
 });
 
 // // 1. You will apply a middleware that will be applied to the POST, PUT and PATCH routes for the /recipes endpoint that will check if there is a logged in user, if there is not a user logged in,
@@ -146,6 +150,44 @@ server.listen(port, () => {
 //   console.log(`Url ${req.originalUrl} is requested ${urlCounter[requestedUrl]} time(s)`);
 //   next();
 // });
+
+// this middleware authenticates the user based on the authtoken sent in the request
+// no authtoken is required for the "/api/users" route (obviously) as the user wouldn't be created at that point
+// feel free to add exception cases here
+app.use(async (req, res, next) => {
+  console.log(req.originalUrl, req.method);
+  if (req.originalUrl === "/users/signup" && req.method.toLowerCase() === "post") {
+    console.log("User creation process. Skipping authentication check.");
+    next();
+    return;
+  }
+  if (req.originalUrl.includes("/users/check")) {
+    console.log("Username checking process. Skipping authentication check.");
+    next();
+    return;
+  }
+
+  if (req.originalUrl === "/") {
+    console.log("Display Cricket News - Home. Skipping authentication check.");
+    next();
+    return;
+  }
+
+  // const idToken = req.headers.authtoken;
+  // try {
+  //   if (!idToken) {
+  //     throw `No authtoken in incoming request. Cannot authenticate user.`;
+  //   }
+  //   let { uid, email, auth_time } = await firebaseApp.auth().verifyIdToken(idToken);
+  //   console.info(`Authenticated user with email ${email}. Authenticated on: ${new Date(auth_time * 1000)}`);
+  //   req["authenticatedUser"] = uid;
+  // } catch (e) {
+  //   console.log(e);
+  //   res.status(401).json({ success: false, message: "You must be logged in to perform this action." });
+  //   return;
+  // }
+  next();
+});
 
 configRoutes(app);
 

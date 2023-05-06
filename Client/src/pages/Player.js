@@ -26,7 +26,9 @@ const Player = (props) => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:3001/players/player/" + id);
+        const { data } = await axios.get(
+          "http://localhost:3001/players/player/" + id
+        );
         let statsArray = [];
         console.log(data);
         setplayerData(data);
@@ -34,7 +36,16 @@ const Player = (props) => {
         if (data && data.stats) {
           for (const stat of data.stats) {
             statsArray.push(
-              (stat.fn + " - " + stat.matchtype + " - " + stat.stat + " - " + stat.value + " ").toString()
+              (
+                stat.fn +
+                " - " +
+                stat.matchtype +
+                " - " +
+                stat.stat +
+                " - " +
+                stat.value +
+                " "
+              ).toString()
             );
           }
         }
@@ -64,11 +75,16 @@ const Player = (props) => {
         }}
       >
         <Card className={classes.card} variant="outlined">
-          <CardHeader className={classes.titleHead} title={playerData && playerData.name ? playerData.name : ""} />
+          <CardHeader
+            className={classes.titleHead}
+            title={playerData && playerData.name ? playerData.name : ""}
+          />
           <Grid container wrap="nowrap">
             <CardMedia
               component="img"
-              image={playerData && playerData.playerImg ? playerData.playerImg : ""}
+              image={
+                playerData && playerData.playerImg ? playerData.playerImg : ""
+              }
               title="show image"
               sx={{ objectFit: "contain" }}
             />
@@ -78,7 +94,9 @@ const Player = (props) => {
               <dl>
                 <p>
                   <dt className="title">Date Of Birth: </dt>
-                  {playerData && playerData.dateOfBirth ? playerData.dateOfBirth.slice(0, 10) : ""}
+                  {playerData && playerData.dateOfBirth
+                    ? playerData.dateOfBirth.slice(0, 10)
+                    : ""}
                 </p>
 
                 <p>
@@ -87,11 +105,15 @@ const Player = (props) => {
                 </p>
                 <p>
                   <dt className="title">Batting Style: </dt>
-                  {playerData && playerData.battingStyle ? playerData.battingStyle : ""}
+                  {playerData && playerData.battingStyle
+                    ? playerData.battingStyle
+                    : ""}
                 </p>
                 <p>
                   <dt className="title">Bowling Style: </dt>
-                  {playerData && playerData.bowlingStyle ? playerData.bowlingStyle : ""}
+                  {playerData && playerData.bowlingStyle
+                    ? playerData.bowlingStyle
+                    : ""}
                 </p>
                 <p>
                   <dt className="title">Country: </dt>
@@ -111,6 +133,8 @@ const Player = (props) => {
               <br />
               <br />
               <Button
+                variant="contained"
+                color="primary"
                 to="/home"
                 onClick={(e) => {
                   e.preventDefault();

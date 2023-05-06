@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
+import MatchPrediction from "./MatchPrediction.js";
 // import App.css
 import "../App.css";
 import {
@@ -22,8 +23,10 @@ const Match = (props) => {
   const [matchData, setMatchData] = useState(undefined);
   const [loading, setLoading] = useState(true);
   const [scoreList, setScoreList] = useState([]);
+
   const classes = useStyles();
   let { id } = useParams();
+
   //const matchUrl = "https://api.cricapi.com/v1/match_info?";
   //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
 
@@ -193,6 +196,8 @@ const Match = (props) => {
                         : ""}
                     </p>
                   </dl>
+                  <MatchPrediction key={matchData.id} matchData={matchData} />
+
                   <br />
                   <br />
                   <Button

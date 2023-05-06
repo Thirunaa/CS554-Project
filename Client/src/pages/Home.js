@@ -4,13 +4,22 @@ import React, { useState, useEffect, useContext } from "react";
 // import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import { Card, CardActionArea, CardMedia, CardContent, CircularProgress, Grid, Typography } from "@material-ui/core";
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CircularProgress,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import NewsData from "../data/newsData.json";
 import noNewsImage from "../images/noNewsImage.png";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
 import { AuthContext } from "../firebase/Auth";
 // import LiveScoreScript from "../components/LiveScoreScript.js";
+import Carousel from "./Carousel";
 
 const Home = () => {
   const classes = useStyles();
@@ -63,7 +72,11 @@ const Home = () => {
   const buildCard = (article) => {
     return (
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={article.id}>
-        <Card className={classes.card} variant="outlined">
+        <Card
+          className={classes.card}
+          variant="outlined"
+          style={{ height: "500px" }}
+        >
           <CardActionArea>
             <Link to={`${article.url}`}>
               <CardMedia
@@ -73,12 +86,19 @@ const Home = () => {
                 title="show image"
               />
               <CardContent>
-                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
+                <Typography
+                  className={classes.titleHead}
+                  gutterBottom
+                  variant="h6"
+                  component="h2"
+                >
                   {article.title}
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {article.content ? article.content.substring(0, 150) + "...." : ""}
+                  {article.content
+                    ? article.content.substring(0, 150) + "...."
+                    : ""}
                   <span>More Info</span>
                 </Typography>
               </CardContent>
@@ -130,6 +150,8 @@ const Home = () => {
   } else {
     return (
       <div>
+        <Carousel />
+        <br />
         {/* <Container>
           <ButtonGroup disableElevation variant="contained" color="secondary">
             {prevPageExists && (
@@ -160,9 +182,11 @@ const Home = () => {
         <br />
 
         <br />
-        <Grid container className={classes.grid} spacing={5}>
-          {card}
-        </Grid>
+        <div style={{ margin: "0 100px" }}>
+          <Grid container className={classes.grid} spacing={5}>
+            {card}
+          </Grid>
+        </div>
         <br />
         <br />
         {/* <Container>

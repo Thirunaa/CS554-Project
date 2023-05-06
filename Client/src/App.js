@@ -18,6 +18,7 @@ import SignOut from "./components/SignOut";
 import SignIn from "./components/SignIn";
 import PrivateRoute from "./pages/PrivateRoute";
 import Predict from "./components/Predict";
+import Carousel from "./pages/Carousel";
 
 function App() {
   return (
@@ -33,15 +34,27 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/current-matches" element={<PrivateRoute />}>
-                <Route path="/current-matches" element={<CurrentMatchesList />} />
+                <Route
+                  path="/current-matches"
+                  element={<CurrentMatchesList />}
+                />
               </Route>
 
-              <Route path="/all-matches/page/:pagenum" element={<PrivateRoute />}>
-                <Route path="/all-matches/page/:pagenum" element={<AllMatchesList />} />
+              <Route
+                path="/all-matches/page/:pagenum"
+                element={<PrivateRoute />}
+              >
+                <Route
+                  path="/all-matches/page/:pagenum"
+                  element={<AllMatchesList />}
+                />
               </Route>
 
               <Route path="/players/page/:pagenum" element={<PrivateRoute />}>
-                <Route path="/players/page/:pagenum" element={<PlayersList />} />
+                <Route
+                  path="/players/page/:pagenum"
+                  element={<PlayersList />}
+                />
               </Route>
 
               <Route path="/match/:id" element={<PrivateRoute />}>

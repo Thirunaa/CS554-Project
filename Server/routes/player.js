@@ -15,11 +15,15 @@ router.get("/playersList/page/:pageNo", async (req, res) => {
     console.log(validationStatus);
     if (!validationStatus.isValid) {
       if (validationStatus.message.includes("404")) {
-        res.status(404).json({ errorCode: 404, message: validationStatus.message });
+        res
+          .status(404)
+          .json({ errorCode: 404, message: validationStatus.message });
         return;
       }
       if (validationStatus.message.includes("400")) {
-        res.status(400).json({ errorCode: 400, message: validationStatus.message });
+        res
+          .status(400)
+          .json({ errorCode: 400, message: validationStatus.message });
         return;
       }
     }
@@ -52,7 +56,9 @@ router.get("/search/:searchTerm", async (req, res) => {
   try {
     let searchTerm = req.params.searchTerm;
     if (!client.isOpen) await client.connect();
-    let searchedPlayersListFromCache = await client.get("searchPlayer_" + searchTerm);
+    let searchedPlayersListFromCache = await client.get(
+      "searchPlayer_" + searchTerm
+    );
     if (searchedPlayersListFromCache) {
       console.log("searched players from redis");
       res.status(200).json(JSON.parse(searchedPlayersListFromCache));
@@ -60,7 +66,10 @@ router.get("/search/:searchTerm", async (req, res) => {
     } else {
       let searchedPlayersList = await players.searchPlayersByName(searchTerm);
       try {
-        await client.set("searchPlayer_" + searchTerm, JSON.stringify(searchedPlayersList));
+        await client.set(
+          "searchPlayer_" + searchTerm,
+          JSON.stringify(searchedPlayersList)
+        );
       } catch (e) {
         console.log("Set searched playersList in Redis Error");
         console.log(e);

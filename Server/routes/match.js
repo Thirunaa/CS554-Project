@@ -45,11 +45,15 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
     console.log(validationStatus);
     if (!validationStatus.isValid) {
       if (validationStatus.message.includes("404")) {
-        res.status(404).json({ errorCode: 404, message: validationStatus.message });
+        res
+          .status(404)
+          .json({ errorCode: 404, message: validationStatus.message });
         return;
       }
       if (validationStatus.message.includes("400")) {
-        res.status(400).json({ errorCode: 400, message: validationStatus.message });
+        res
+          .status(400)
+          .json({ errorCode: 400, message: validationStatus.message });
         return;
       }
     }
@@ -126,11 +130,17 @@ router.post("/matches/:matchId/comment", async (req, res) => {
 
     let validationStatus = validation.validateCommentPostBody(body);
     if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
+      res
+        .status(400)
+        .json({ errorCode: 400, message: validationStatus.message });
       return;
     }
 
-    const createdComment = await matches.addComment(matchId, comment, commenter);
+    const createdComment = await matches.addComment(
+      matchId,
+      comment,
+      commenter
+    );
     res.status(200).json(createdComment);
     return;
   } catch (e) {
@@ -147,7 +157,9 @@ router.get("/:matchId/comments", async (req, res) => {
     res.status(200).json(existingComments);
   } catch (e) {
     console.log(e);
-    res.status(500).json({ success: false, error: "Sorry, something went wrong." });
+    res
+      .status(500)
+      .json({ success: false, error: "Sorry, something went wrong." });
   }
 });
 
@@ -158,17 +170,27 @@ router.delete("/matches/:matchId/:commentId", async (req, res) => {
     let commentId = req.params.commentId;
 
     if (!validation.validateID(commentId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+      res.status(400).json({
+        errorCode: 400,
+        message: validation.validateID(commentId).message,
+      });
       return;
     }
 
     try {
-      let matchAfterCommentDeleted = await matches.deleteComment(matchId, commentId, currentUser);
+      let matchAfterCommentDeleted = await matches.deleteComment(
+        matchId,
+        commentId,
+        currentUser
+      );
       res.status(200).json(matchAfterCommentDeleted);
       return;
     } catch (e) {
       if (e.toString().includes("Unauthorized")) {
-        res.status(403).json({ errorCode: 403, message: "You don't have access to delete this comment." });
+        res.status(403).json({
+          errorCode: 403,
+          message: "You don't have access to delete this comment.",
+        });
         return;
       } else {
         console.log(e);
@@ -200,11 +222,18 @@ router.post("/matches/:matchId/:commentId/replies", async (req, res) => {
 
     let validationStatus = validation.validateCommentPostBody(body);
     if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
+      res
+        .status(400)
+        .json({ errorCode: 400, message: validationStatus.message });
       return;
     }
 
-    const matchAfterCommentReplyAdded = await matches.addReply(matchId, commentId, reply, commenter);
+    const matchAfterCommentReplyAdded = await matches.addReply(
+      matchId,
+      commentId,
+      reply,
+      commenter
+    );
     res.status(200).json(matchAfterCommentReplyAdded);
     return;
   } catch (e) {
@@ -222,17 +251,28 @@ router.delete("/matches/:matchId/:commentId/:replyId", async (req, res) => {
     let replyId = req.params.replyId;
 
     if (!validation.validateID(replyId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+      res.status(400).json({
+        errorCode: 400,
+        message: validation.validateID(replyId).message,
+      });
       return;
     }
 
     try {
-      let matchAfterReplyDeleted = await matches.deleteReply(matchId, commentId, replyId, currentUser);
+      let matchAfterReplyDeleted = await matches.deleteReply(
+        matchId,
+        commentId,
+        replyId,
+        currentUser
+      );
       res.status(200).json(matchAfterReplyDeleted);
       return;
     } catch (e) {
       if (e.toString().includes("Unauthorized")) {
-        res.status(403).json({ errorCode: 403, message: "You don't have access to delete this reply." });
+        res.status(403).json({
+          errorCode: 403,
+          message: "You don't have access to delete this reply.",
+        });
         return;
       } else {
         console.log(e);
@@ -255,11 +295,19 @@ router.post("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
     let replyId = req.params.replyId;
 
     if (!validation.validateID(replyId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+      res.status(400).json({
+        errorCode: 400,
+        message: validation.validateID(replyId).message,
+      });
       return;
     }
 
-    let matchAfterReplyLiked = await matches.likeReply(matchId, commentId, replyId, currentUser);
+    let matchAfterReplyLiked = await matches.likeReply(
+      matchId,
+      commentId,
+      replyId,
+      currentUser
+    );
     res.status(200).json(matchAfterReplyLiked);
     return;
   } catch (e) {
@@ -269,27 +317,38 @@ router.post("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
   }
 });
 
-router.delete("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
-  try {
-    let currentUser = req.authenticatedUser;
-    let matchId = req.params.matchId;
-    let commentId = req.params.commentId;
-    let replyId = req.params.replyId;
+router.delete(
+  "/matches/:matchId/:commentId/:replyId/likes",
+  async (req, res) => {
+    try {
+      let currentUser = req.authenticatedUser;
+      let matchId = req.params.matchId;
+      let commentId = req.params.commentId;
+      let replyId = req.params.replyId;
 
-    if (!validation.validateID(replyId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+      if (!validation.validateID(replyId).isValid) {
+        res.status(400).json({
+          errorCode: 400,
+          message: validation.validateID(replyId).message,
+        });
+        return;
+      }
+
+      let matchAfterReplyUnliked = await matches.unlikeReply(
+        matchId,
+        commentId,
+        replyId,
+        currentUser
+      );
+      res.status(200).json(matchAfterReplyUnliked);
+      return;
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ errorCode: 500, message: e });
       return;
     }
-
-    let matchAfterReplyUnliked = await matches.unlikeReply(matchId, commentId, replyId, currentUser);
-    res.status(200).json(matchAfterReplyUnliked);
-    return;
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ errorCode: 500, message: e });
-    return;
   }
-});
+);
 
 router.post("/matches/:matchId/:commentId/likes", async (req, res) => {
   try {
@@ -298,11 +357,18 @@ router.post("/matches/:matchId/:commentId/likes", async (req, res) => {
     let commentId = req.params.commentId;
 
     if (!validation.validateID(commentId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+      res.status(400).json({
+        errorCode: 400,
+        message: validation.validateID(commentId).message,
+      });
       return;
     }
 
-    let matchAfterCommentLiked = await matches.likeComment(matchId, commentId, currentUser);
+    let matchAfterCommentLiked = await matches.likeComment(
+      matchId,
+      commentId,
+      currentUser
+    );
     res.status(200).json(matchAfterCommentLiked);
     return;
   } catch (e) {
@@ -319,11 +385,18 @@ router.delete("/matches/:matchId/:commentId/likes", async (req, res) => {
     let commentId = req.params.commentId;
 
     if (!validation.validateID(commentId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+      res.status(400).json({
+        errorCode: 400,
+        message: validation.validateID(commentId).message,
+      });
       return;
     }
 
-    let matchAfterCommentUnliked = await matches.unlikeComment(matchId, commentId, currentUser);
+    let matchAfterCommentUnliked = await matches.unlikeComment(
+      matchId,
+      commentId,
+      currentUser
+    );
     res.status(200).json(matchAfterCommentUnliked);
     return;
   } catch (e) {
@@ -339,7 +412,11 @@ router.post("/matches/:matchId/predict", async (req, res) => {
     let matchId = req.params.matchId;
     let prediction = req.body.prediction;
 
-    const matchAfterPredictionAdded = await matches.predictMatchResult(matchId, currentUser, prediction);
+    const matchAfterPredictionAdded = await matches.predictMatchResult(
+      matchId,
+      currentUser,
+      prediction
+    );
     res.status(200).json(matchAfterPredictionAdded);
     return;
   } catch (e) {

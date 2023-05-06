@@ -37,7 +37,9 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId);
+        const { data } = await axios.get(
+          "http://localhost:3001/players/playersList/page/" + pageId
+        );
         console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -58,7 +60,9 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm);
+        const { data } = await axios.get(
+          "http://localhost:3001/players/search/" + searchTerm
+        );
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -77,12 +81,17 @@ const PlayersList = () => {
 
   const buildCard = (player) => {
     return (
-      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={player.id}>
+      <Grid item xs={12} key={player.id}>
         <Card className={classes.card} variant="outlined">
           <CardActionArea>
             <Link to={`/player/${player.id}`}>
               <CardContent>
-                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
+                <Typography
+                  className={classes.titleHead}
+                  gutterBottom
+                  variant="h6"
+                  component="h2"
+                >
                   {player.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

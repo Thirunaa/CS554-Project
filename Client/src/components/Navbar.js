@@ -18,6 +18,7 @@ import { AuthContext } from "../firebase/Auth";
 import { doSignOut } from "../firebase/FirebaseFunctions";
 import { Link } from "react-router-dom";
 import "../App.css";
+import Carousel from "../pages/Carousel";
 // fixing the navbar merge issue
 const settings = ["Profile", "Logout"];
 const Navigation = () => {

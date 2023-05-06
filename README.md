@@ -1,6 +1,6 @@
 # LiveCricketHub - a cricket news and score application
 
-Cricketify is an cricket news web application. It features news articles and live coverage of cricket matches. It also includes text commentary, player stats and team rankings.
+LiveCricketHub is an cricket news web application. It features news articles and live coverage of cricket matches. It also includes text commentary, player stats and team rankings.
 
 ## walkthrough video:
 

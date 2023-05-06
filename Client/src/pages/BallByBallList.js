@@ -28,7 +28,7 @@ const Balls_list = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        //const { data } = await axios.get(ballbyballUrl + API_KEY + '&id' + match_id);
+        //const { data } = await axios.get(ballbyballUrl + API_KEY + '&id=' + match_id);
         console.log(ballbyball, "ballbyball");
         setbbbData(ballbyball);
       } catch (e) {

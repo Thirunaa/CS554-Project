@@ -37,7 +37,9 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId);
+        const { data } = await axios.get(
+          "http://localhost:3001/players/playersList/page/" + pageId
+        );
         console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -58,7 +60,9 @@ const PlayersList = () => {
     async function fetchData() {
       try {
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm);
+        const { data } = await axios.get(
+          "http://localhost:3001/players/search/" + searchTerm
+        );
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -82,7 +86,12 @@ const PlayersList = () => {
           <CardActionArea>
             <Link to={`/player/${player.id}`}>
               <CardContent>
-                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
+                <Typography
+                  className={classes.titleHead}
+                  gutterBottom
+                  variant="h6"
+                  component="h2"
+                >
                   {player.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
@@ -111,7 +120,7 @@ const PlayersList = () => {
   }
 
   if (axiosError !== "") {
-    if (axiosError.includes("400")) {
+    if (axiosError?.includes("400")) {
       return (
         <div>
           <Error400 />;

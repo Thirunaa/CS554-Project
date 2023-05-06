@@ -80,6 +80,7 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
 router.get("/match/:id", async (req, res) => {
   try {
     let id = req.params.id;
+    //Redis
     if (!client.isOpen) await client.connect();
     let matchFromCache = await client.get("match_" + id);
     if (matchFromCache) {

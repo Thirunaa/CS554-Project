@@ -4,7 +4,7 @@ import { TextField, Button, Card } from "@material-ui/core";
 import { doCreateUserWithEmailAndPassword } from "../firebase/FirebaseFunctions";
 import { AuthContext } from "../firebase/Auth";
 import SocialSignIn from "./SocialSignIn";
-
+import axios from "axios";
 function SignUp() {
   const { currentUser } = useContext(AuthContext);
   const [pwMatch, setPwMatch] = useState("");
@@ -16,10 +16,22 @@ function SignUp() {
       setPwMatch("Passwords do not match");
       return false;
     }
+    console.log(displayName.value);
 
     try {
-      await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
+      await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName.value);
+      let userId = currentUser.uid;
+      let emailAddress = currentUser.email;
+      let username = displayName.value;
+      let loweredEmailAddress = emailAddress.toLowerCase();
+      const { data } = await axios.post("http://localhost:3001/users/signup", {
+        userId,
+        emailAddress: loweredEmailAddress,
+        displayName: username,
+      });
+      console.log(data);
       alert("Sign up successful");
+      // api - Sign Up call to backend
     } catch (error) {
       alert(error);
     }

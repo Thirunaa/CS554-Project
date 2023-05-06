@@ -69,14 +69,14 @@ router.route("/signup").post(async (req, res) => {
     let emailAddress = req.body.emailAddress;
     let displayName = req.body.displayName;
     // validation blocks
-    try {
-      // catch the validation status from routeValidations.js - some validations has to be changed
-      validation.validateName(displayName);
-    } catch (e) {
-      console.log(e);
-      res.status(400).json({ success: false, error: e });
+
+    // catch the validation status from routeValidations.js - some validations has to be changed
+    let validationStatus = validation.validateName(displayName);
+    if (!validationStatus.isValid) {
+      res.status(400).json({ errorCode: 400, message: validationStatus.message });
       return;
     }
+
     if (!userId) {
       res.status(400).json({ success: false, error: "User id not provided. " });
       return;

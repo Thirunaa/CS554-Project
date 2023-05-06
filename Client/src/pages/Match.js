@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
 // import App.css
 import "../App.css";
@@ -215,6 +215,8 @@ const Match = (props) => {
                   >
                     Back
                   </Button>
+
+                  {matchData.bbbEnabled && <Link to={"/match_bbb/" + matchData.id}> Ball By Ball Details</Link>}
                 </Typography>
               </CardContent>
             </Card>

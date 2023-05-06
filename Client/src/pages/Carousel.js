@@ -27,7 +27,10 @@ function Carousel() {
   return (
     <>
       {matches.length > 0 && (
-        <div className={classes.carousel} style={{ backgroundColor: "#2196f3", height: 225 }}>
+        <div
+          className={classes.carousel}
+          style={{ backgroundColor: "#2196f3", height: 235 }}
+        >
           <div style={{ margin: "0 100px", position: "relative" }}>
             <div
               className={classes.item}
@@ -57,21 +60,29 @@ function Carousel() {
                 }}
               />
             </div>
-            <Grid container>
+            <Grid container spacing={2}>
               {currMatch < matches.length ? (
                 matches.map((match, index) => {
                   if (index >= currMatch && index < currMatch + 4) {
                     return (
-                      <Grid item xs={3} key={index} style={{ marginBottom: "20px", marginTop: "20px" }}>
+                      <Grid
+                        item
+                        xs={3}
+                        key={index}
+                        style={{
+                          justifyContent: "center",
+                          marginTop: 7,
+                        }}
+                      >
                         <Card
                           style={{
-                            height: 185,
-                            width: 400,
-                            backgroundColor: "white",
+                            height: 190,
+                            width: 310,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)",
                             borderRadius: 10,
                             wrap: "wrap !important",
                             display: "flex",
-                            fontSize: "0.75rem",
+                            fontSize: "0.70rem",
                           }}
                         >
                           <CardContent>
@@ -91,7 +102,11 @@ function Carousel() {
                                 Match Type: {match.matchType}
                               </p>
                             ) : null}
-                            {match.status ? <p style={{ textAlign: "left" }}>Status: {match.status}</p> : null}
+                            {match.status ? (
+                              <p style={{ textAlign: "left" }}>
+                                Status: {match.status}
+                              </p>
+                            ) : null}
 
                             {match.t1s ? (
                               <div
@@ -127,6 +142,7 @@ function Carousel() {
               ) : (
                 <h1>No matches found.</h1>
               )}
+              <p style={{ textDecoration: "underline" }}></p>
             </Grid>
             <div
               className={classes.item}
@@ -136,7 +152,7 @@ function Carousel() {
               style={{
                 position: "absolute",
                 top: "50%",
-                right: 27,
+                right: -8,
                 transform: "translateY(-50%)",
                 zIndex: 1,
               }}

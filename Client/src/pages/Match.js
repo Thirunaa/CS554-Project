@@ -23,6 +23,7 @@ import noNewsImage from "../images/noNewsImage.png";
 
 const Match = (props) => {
   const [matchData, setMatchData] = useState(undefined);
+  const [matchDataFromDB, setMatchDataFromDB] = useState(undefined);
   const [loading, setLoading] = useState(true);
   const [scoreList, setScoreList] = useState([]);
   const classes = useStyles();
@@ -74,7 +75,8 @@ const Match = (props) => {
         const { data } = await axios.get("http://localhost:3001/matches/match/" + id);
         let scoresArray = [];
         console.log(data);
-        setMatchData(data);
+        setMatchDataFromDB(data);
+        setMatchData(data.data);
         // set score
         if (data && data.score) {
           for (const score of data.score) {
@@ -203,7 +205,7 @@ const Match = (props) => {
                         : ""}
                     </p>
                   </dl>
-                  <MatchPrediction key={matchData.id} matchData={matchData} />
+                  <MatchPrediction key={matchData.id} matchData={matchDataFromDB} />
                   <br />
                   <br />
                   <Button

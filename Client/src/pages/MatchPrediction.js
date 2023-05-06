@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 import { Grid, Button } from "@material-ui/core";
 
-const MatchPrediction = ({ matchData }) => {
+const MatchPrediction = ({ matchDataFromDB }) => {
   const [match, setMatch] = useState({
-    team1: matchData && matchData.teams && matchData.teams[0],
-    team2: matchData && matchData.teams && matchData.teams[1],
+    team1: matchDataFromDB && matchDataFromDB.data && matchDataFromDB.data.teams && matchDataFromDB.data.teams[0],
+    team2: matchDataFromDB && matchDataFromDB.data && matchDataFromDB.data.teams && matchDataFromDB.data.teams[1],
     predictions: {
       team1: [],
       team2: [],

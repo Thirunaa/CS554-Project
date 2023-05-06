@@ -40,7 +40,7 @@ const getMatchById = async (id) => {
   const matchesCollection = await matches();
   const createdMatch = await matchesCollection.insertOne(matchObject);
   if (!createdMatch.insertedId) throw `Creating this match was unsuccessful.`;
-  return metaData;
+  return await matchesCollection.findOne({ matchId: id });
 };
 
 const getBBBMatchDataById = async (id) => {

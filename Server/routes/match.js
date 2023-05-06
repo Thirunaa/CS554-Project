@@ -94,10 +94,16 @@ router.get("/match/:id", async (req, res) => {
 router.get("/match_bbb/:id", async (req, res) => {
   try {
     let id = req.params.id;
-    let matchObj = await matches.getBBBMatchDataById(id);
-    console.log("data", matchObj);
-    res.status(200).json(matchObj);
-    return;
+    let matchMetaData = await matches.getMatchById(id);
+    if (!matchMetaData.bbbEnabled) {
+      res.status(400).json({ errorCode: 400, message: "Bad request - BBB is not enabled for this match." });
+      return;
+    } else {
+      let matchObj = await matches.getBBBMatchDataById(id);
+      console.log("data", matchObj);
+      res.status(200).json(matchObj);
+      return;
+    }
   } catch (e) {
     console.log(e);
     res.status(500).json({ errorCode: 500, message: e });

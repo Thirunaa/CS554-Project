@@ -3,7 +3,7 @@ const validation = require("../validations/dataValidations");
 const { ObjectId } = require("mongodb");
 const allplayersUrl = "https://api.cricapi.com/v1/players?";
 const playerUrl = "https://api.cricapi.com/v1/players_info?";
-const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
 const players = mongoCollections.players;
 const axios = require("axios");
 

@@ -1,1 +1,2612 @@
-{"apikey":"f9262a85-d559-439c-b1c0-4817f5e46208","data":{"id":"f2b8aa8a-f24c-40b4-99bb-4e6a222a1614","name":"Delhi Capitals vs Sunrisers Hyderabad, 40th Match","matchType":"t20","status":"Sunrisers Hyderabad won by 9 runs","venue":"Arun Jaitley Stadium, Delhi","date":"2023-04-29","dateTimeGMT":"2023-04-29T14:00:00","teams":["Delhi Capitals","Sunrisers Hyderabad"],"teamInfo":[{"name":"Delhi Capitals","shortname":"DC","img":"https://g.cricapi.com/iapi/148-637874596301457910.png?w=48"},{"name":"Sunrisers Hyderabad","shortname":"SRH","img":"https://g.cricapi.com/iapi/279-637852957609490368.png?w=48"}],"score":[{"r":197,"w":6,"o":20,"inning":"Sunrisers Hyderabad Inning 1"},{"r":188,"w":6,"o":20,"inning":"Delhi Capitals Inning 1"}],"tossWinner":"Sunrisers Hyderabad","tossChoice":"bat","matchWinner":"Sunrisers Hyderabad","series_id":"c75f8952-74d4-416f-b7b4-7da4b4e3ae6e","bbb":[{"n":1,"inning":0,"over":0,"ball":1,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":2,"inning":0,"over":0,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":3,"inning":0,"over":0,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":4,"inning":0,"over":0,"ball":4,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":5,"inning":0,"over":0,"ball":5,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":6,"inning":0,"over":0,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":7,"inning":0,"over":1,"ball":1,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"penalty":"wide","extras":1},{"n":8,"inning":0,"over":1,"ball":1,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":4,"extras":0},{"n":9,"inning":0,"over":1,"ball":2,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"extras":0},{"n":10,"inning":0,"over":1,"ball":3,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"penalty":"wide","extras":1},{"n":11,"inning":0,"over":1,"ball":3,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":12,"inning":0,"over":1,"ball":4,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"extras":0},{"n":13,"inning":0,"over":1,"ball":5,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":2,"extras":0},{"n":14,"inning":0,"over":1,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":4,"extras":0},{"n":15,"inning":0,"over":2,"ball":1,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":16,"inning":0,"over":2,"ball":2,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":17,"inning":0,"over":2,"ball":3,"batsman":{"id":"b2919aba-b8de-4844-bced-26b30bbe9c6d","name":"Mayank Agarwal"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"dismissal":"catch","catcher":"Philip Salt","extras":0},{"n":18,"inning":0,"over":2,"ball":4,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":1,"extras":0},{"n":19,"inning":0,"over":2,"ball":5,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":2,"extras":0},{"n":20,"inning":0,"over":2,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":21,"inning":0,"over":3,"ball":1,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":1,"extras":0},{"n":22,"inning":0,"over":3,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":4,"extras":0},{"n":23,"inning":0,"over":3,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":1,"extras":0},{"n":24,"inning":0,"over":3,"ball":4,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":0,"extras":0},{"n":25,"inning":0,"over":3,"ball":5,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":2,"extras":0},{"n":26,"inning":0,"over":3,"ball":6,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":6,"extras":0},{"n":27,"inning":0,"over":4,"ball":1,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":28,"inning":0,"over":4,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":29,"inning":0,"over":4,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":30,"inning":0,"over":4,"ball":4,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"penalty":"wide","extras":1},{"n":31,"inning":0,"over":4,"ball":4,"batsman":{"id":"fb313a9a-0a14-499d-a8d1-7561bccea8cb","name":"Rahul Tripathi"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"dismissal":"catch","catcher":"Manish Pandey","extras":0},{"n":32,"inning":0,"over":4,"ball":5,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":33,"inning":0,"over":4,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":34,"inning":0,"over":5,"ball":1,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":35,"inning":0,"over":5,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":36,"inning":0,"over":5,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":37,"inning":0,"over":5,"ball":4,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":0,"extras":0},{"n":38,"inning":0,"over":5,"ball":5,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":39,"inning":0,"over":5,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"0c3d24bb-a517-435f-8cc3-60e945327bb3","name":"Ishant Sharma"},"runs":4,"extras":0},{"n":40,"inning":0,"over":6,"ball":1,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":0,"extras":0},{"n":41,"inning":0,"over":6,"ball":2,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":42,"inning":0,"over":6,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":43,"inning":0,"over":6,"ball":4,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":0,"extras":0},{"n":44,"inning":0,"over":6,"ball":5,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":45,"inning":0,"over":6,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":6,"extras":0},{"n":46,"inning":0,"over":7,"ball":1,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":47,"inning":0,"over":7,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":48,"inning":0,"over":7,"ball":3,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":49,"inning":0,"over":7,"ball":4,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":50,"inning":0,"over":7,"ball":5,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":51,"inning":0,"over":7,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"extras":0},{"n":52,"inning":0,"over":8,"ball":1,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":53,"inning":0,"over":8,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":54,"inning":0,"over":8,"ball":3,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":0,"extras":0},{"n":55,"inning":0,"over":8,"ball":4,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":56,"inning":0,"over":8,"ball":5,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":4,"extras":0},{"n":57,"inning":0,"over":8,"ball":6,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":0,"extras":0},{"n":58,"inning":0,"over":9,"ball":1,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":59,"inning":0,"over":9,"ball":2,"batsman":{"id":"3fef81b0-c1e9-45eb-954f-519f3b33d640","name":"Aiden Markram"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"dismissal":"catch","catcher":"Axar","extras":0},{"n":60,"inning":0,"over":9,"ball":3,"batsman":{"id":"87e87390-b14f-455b-8526-5eaa19735aed","name":"Harry Brook"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":61,"inning":0,"over":9,"ball":4,"batsman":{"id":"87e87390-b14f-455b-8526-5eaa19735aed","name":"Harry Brook"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"dismissal":"catch","catcher":"Axar","extras":0},{"n":62,"inning":0,"over":9,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":63,"inning":0,"over":9,"ball":6,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":64,"inning":0,"over":10,"ball":1,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":4,"extras":0},{"n":65,"inning":0,"over":10,"ball":2,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":4,"extras":0},{"n":66,"inning":0,"over":10,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":0,"penalty":"wide","extras":1},{"n":67,"inning":0,"over":10,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":1,"extras":0},{"n":68,"inning":0,"over":10,"ball":4,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":0,"penalty":"wide","extras":1},{"n":69,"inning":0,"over":10,"ball":4,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":0,"extras":0},{"n":70,"inning":0,"over":10,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":2,"penalty":"no ball","extras":1},{"n":71,"inning":0,"over":10,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":4,"extras":0},{"n":72,"inning":0,"over":10,"ball":6,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"116e2bfb-6a97-4221-8006-8e7da70b0715","name":"Mukesh Kumar"},"runs":6,"extras":0},{"n":73,"inning":0,"over":11,"ball":1,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":74,"inning":0,"over":11,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":75,"inning":0,"over":11,"ball":3,"batsman":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"dismissal":"catch","catcher":"Warner","extras":0},{"n":76,"inning":0,"over":11,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"extras":0},{"n":77,"inning":0,"over":11,"ball":5,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"extras":0},{"n":78,"inning":0,"over":11,"ball":6,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"extras":0},{"n":79,"inning":0,"over":12,"ball":1,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":80,"inning":0,"over":12,"ball":2,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":81,"inning":0,"over":12,"ball":3,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":82,"inning":0,"over":12,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":83,"inning":0,"over":12,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":1,"extras":0},{"n":84,"inning":0,"over":12,"ball":6,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"1e651cfb-57f1-48da-bf9d-83cbff1733d1","name":"Kuldeep Yadav"},"runs":6,"extras":0},{"n":85,"inning":0,"over":13,"ball":1,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":86,"inning":0,"over":13,"ball":2,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":87,"inning":0,"over":13,"ball":3,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":88,"inning":0,"over":13,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":89,"inning":0,"over":13,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":90,"inning":0,"over":13,"ball":6,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":91,"inning":0,"over":14,"ball":1,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":4,"extras":0},{"n":92,"inning":0,"over":14,"ball":2,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"extras":0},{"n":93,"inning":0,"over":14,"ball":3,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":2,"extras":0},{"n":94,"inning":0,"over":14,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":95,"inning":0,"over":14,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":96,"inning":0,"over":14,"ball":6,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":97,"inning":0,"over":15,"ball":1,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":98,"inning":0,"over":15,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"penalty":"wide","extras":1},{"n":99,"inning":0,"over":15,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"penalty":"wide","extras":1},{"n":100,"inning":0,"over":15,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":1,"extras":0},{"n":101,"inning":0,"over":15,"ball":3,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"extras":0},{"n":102,"inning":0,"over":15,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":0,"penalty":"leg byes","extras":1},{"n":103,"inning":0,"over":15,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":6,"extras":0},{"n":104,"inning":0,"over":15,"ball":6,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"runs":6,"extras":0},{"n":105,"inning":0,"over":16,"ball":1,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":106,"inning":0,"over":16,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":107,"inning":0,"over":16,"ball":3,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":6,"extras":0},{"n":108,"inning":0,"over":16,"ball":4,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":109,"inning":0,"over":16,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":110,"inning":0,"over":16,"ball":6,"batsman":{"id":"dd665f5d-04e8-436b-b376-8fd2a9b8bf8a","name":"Abdul Samad"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"dismissal":"catch","catcher":"Philip Salt","extras":0},{"n":111,"inning":0,"over":17,"ball":1,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":6,"extras":0},{"n":112,"inning":0,"over":17,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":113,"inning":0,"over":17,"ball":3,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":0,"extras":0},{"n":114,"inning":0,"over":17,"ball":4,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":115,"inning":0,"over":17,"ball":5,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":116,"inning":0,"over":17,"ball":6,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":117,"inning":0,"over":18,"ball":1,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":4,"extras":0},{"n":118,"inning":0,"over":18,"ball":2,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"penalty":"wide","extras":1},{"n":119,"inning":0,"over":18,"ball":2,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":120,"inning":0,"over":18,"ball":3,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":121,"inning":0,"over":18,"ball":4,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":1,"extras":0},{"n":122,"inning":0,"over":18,"ball":5,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":0,"extras":0},{"n":123,"inning":0,"over":18,"ball":6,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"runs":6,"extras":0},{"n":124,"inning":0,"over":19,"ball":1,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":4,"extras":0},{"n":125,"inning":0,"over":19,"ball":2,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":2,"extras":0},{"n":126,"inning":0,"over":19,"ball":3,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":127,"inning":0,"over":19,"ball":4,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":2,"extras":0},{"n":128,"inning":0,"over":19,"ball":5,"batsman":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":1,"extras":0},{"n":129,"inning":0,"over":19,"ball":6,"batsman":{"id":"7d662361-8f12-4a52-9a4b-01e8734bd31d","name":"Heinrich Klaasen"},"bowler":{"id":"a8c7ce67-5862-4acb-9297-97eafd0ea3d5","name":"Anrich Nortje"},"runs":2,"extras":0},{"n":130,"inning":1,"over":0,"ball":1,"batsman":{"id":"08da6d78-2316-454b-a7f4-40479bdd9b27","name":"David Warner"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"extras":0},{"n":131,"inning":1,"over":0,"ball":2,"batsman":{"id":"08da6d78-2316-454b-a7f4-40479bdd9b27","name":"David Warner"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"dismissal":"bowled","extras":0},{"n":132,"inning":1,"over":0,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":133,"inning":1,"over":0,"ball":4,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":4,"extras":0},{"n":134,"inning":1,"over":0,"ball":5,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":2,"extras":0},{"n":135,"inning":1,"over":0,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"extras":0},{"n":136,"inning":1,"over":1,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":137,"inning":1,"over":1,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":4,"extras":0},{"n":138,"inning":1,"over":1,"ball":3,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":139,"inning":1,"over":1,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":140,"inning":1,"over":1,"ball":5,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":141,"inning":1,"over":1,"ball":6,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"extras":0},{"n":142,"inning":1,"over":2,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"extras":0},{"n":143,"inning":1,"over":2,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":2,"extras":0},{"n":144,"inning":1,"over":2,"ball":3,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":145,"inning":1,"over":2,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"extras":0},{"n":146,"inning":1,"over":2,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":147,"inning":1,"over":2,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":4,"extras":0},{"n":148,"inning":1,"over":3,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"extras":0},{"n":149,"inning":1,"over":3,"ball":2,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":6,"extras":0},{"n":150,"inning":1,"over":3,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"extras":0},{"n":151,"inning":1,"over":3,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"penalty":"leg byes","extras":1},{"n":152,"inning":1,"over":3,"ball":5,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":4,"extras":0},{"n":153,"inning":1,"over":3,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":154,"inning":1,"over":4,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":0,"extras":0},{"n":155,"inning":1,"over":4,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":156,"inning":1,"over":4,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":2,"extras":0},{"n":157,"inning":1,"over":4,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":6,"extras":0},{"n":158,"inning":1,"over":4,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":159,"inning":1,"over":4,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":160,"inning":1,"over":5,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":4,"extras":0},{"n":161,"inning":1,"over":5,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":4,"extras":0},{"n":162,"inning":1,"over":5,"ball":3,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":163,"inning":1,"over":5,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":164,"inning":1,"over":5,"ball":5,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"extras":0},{"n":165,"inning":1,"over":5,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":166,"inning":1,"over":6,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":4,"extras":0},{"n":167,"inning":1,"over":6,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":1,"extras":0},{"n":168,"inning":1,"over":6,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":6,"extras":0},{"n":169,"inning":1,"over":6,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":6,"extras":0},{"n":170,"inning":1,"over":6,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":1,"extras":0},{"n":171,"inning":1,"over":6,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"b367db88-a73e-445f-8cdd-3f6335617b07","name":"Umran Malik"},"runs":4,"extras":0},{"n":172,"inning":1,"over":7,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":173,"inning":1,"over":7,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":174,"inning":1,"over":7,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":175,"inning":1,"over":7,"ball":4,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":176,"inning":1,"over":7,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":177,"inning":1,"over":7,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":178,"inning":1,"over":8,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":179,"inning":1,"over":8,"ball":2,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"extras":0},{"n":180,"inning":1,"over":8,"ball":3,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":4,"extras":0},{"n":181,"inning":1,"over":8,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":6,"extras":0},{"n":182,"inning":1,"over":8,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":183,"inning":1,"over":8,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"extras":0},{"n":184,"inning":1,"over":9,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":185,"inning":1,"over":9,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":4,"extras":0},{"n":186,"inning":1,"over":9,"ball":3,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":187,"inning":1,"over":9,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"extras":0},{"n":188,"inning":1,"over":9,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":189,"inning":1,"over":9,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":190,"inning":1,"over":10,"ball":1,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":191,"inning":1,"over":10,"ball":2,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":192,"inning":1,"over":10,"ball":3,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":193,"inning":1,"over":10,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":0,"extras":0},{"n":194,"inning":1,"over":10,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":195,"inning":1,"over":10,"ball":6,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":2,"extras":0},{"n":196,"inning":1,"over":11,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":197,"inning":1,"over":11,"ball":2,"batsman":{"id":"6db25d60-ff96-4d8d-8d22-dedeeb5ffa29","name":"Philip Salt"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"dismissal":"cb","extras":0},{"n":198,"inning":1,"over":11,"ball":3,"batsman":{"id":"306f6b88-0442-476a-be55-1500b3441051","name":"Manish Pandey"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":199,"inning":1,"over":11,"ball":4,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"extras":0},{"n":200,"inning":1,"over":11,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":201,"inning":1,"over":11,"ball":6,"batsman":{"id":"306f6b88-0442-476a-be55-1500b3441051","name":"Manish Pandey"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"extras":0},{"n":202,"inning":1,"over":12,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"extras":0},{"n":203,"inning":1,"over":12,"ball":2,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":204,"inning":1,"over":12,"ball":3,"batsman":{"id":"306f6b88-0442-476a-be55-1500b3441051","name":"Manish Pandey"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"dismissal":"bowled","extras":0},{"n":205,"inning":1,"over":12,"ball":3,"batsman":{"id":"306f6b88-0442-476a-be55-1500b3441051","name":"Manish Pandey"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"extras":0,"notes":"Stumped"},{"n":206,"inning":1,"over":12,"ball":4,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":207,"inning":1,"over":12,"ball":5,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":2,"extras":0},{"n":208,"inning":1,"over":12,"ball":6,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":209,"inning":1,"over":13,"ball":1,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":6,"extras":0},{"n":210,"inning":1,"over":13,"ball":2,"batsman":{"id":"6eaac800-13e7-4a07-8ee2-14acd04cc53f","name":"Mitchell Marsh"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":0,"dismissal":"catch","catcher":"Markram","extras":0},{"n":211,"inning":1,"over":13,"ball":3,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":212,"inning":1,"over":13,"ball":4,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":213,"inning":1,"over":13,"ball":5,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":214,"inning":1,"over":13,"ball":6,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"7d053d4e-a735-4c96-bb98-4098dee523df","name":"Akeal Hosein"},"runs":1,"extras":0},{"n":215,"inning":1,"over":14,"ball":1,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":4,"extras":0},{"n":216,"inning":1,"over":14,"ball":2,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":217,"inning":1,"over":14,"ball":3,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":218,"inning":1,"over":14,"ball":4,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":2,"extras":0},{"n":219,"inning":1,"over":14,"ball":5,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":1,"extras":0},{"n":220,"inning":1,"over":14,"ball":6,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"83fe6ab6-d63c-420e-9416-a93d59a9a964","name":"Abhishek Sharma"},"runs":0,"extras":0},{"n":221,"inning":1,"over":15,"ball":1,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":222,"inning":1,"over":15,"ball":2,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"extras":0},{"n":223,"inning":1,"over":15,"ball":3,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":224,"inning":1,"over":15,"ball":4,"batsman":{"id":"05521a15-b6bd-4bf6-9953-122c014418f6","name":"Priyam Garg"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"dismissal":"bowled","extras":0},{"n":225,"inning":1,"over":15,"ball":5,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":1,"extras":0},{"n":226,"inning":1,"over":15,"ball":6,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"c06c697c-9575-4bb0-b1f0-27a56a2f3898","name":"Mayank Markande"},"runs":0,"extras":0},{"n":227,"inning":1,"over":16,"ball":1,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":228,"inning":1,"over":16,"ball":2,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":229,"inning":1,"over":16,"ball":3,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":230,"inning":1,"over":16,"ball":4,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":4,"extras":0},{"n":231,"inning":1,"over":16,"ball":5,"batsman":{"id":"ec1b806b-de33-4b79-b3ba-8a5ad78df163","name":"Sarfaraz Khan"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":0,"dismissal":"bowled","extras":0},{"n":232,"inning":1,"over":16,"ball":6,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":233,"inning":1,"over":17,"ball":1,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":234,"inning":1,"over":17,"ball":2,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":235,"inning":1,"over":17,"ball":3,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":236,"inning":1,"over":17,"ball":4,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":6,"extras":0},{"n":237,"inning":1,"over":17,"ball":5,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":2,"extras":0},{"n":238,"inning":1,"over":17,"ball":6,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"penalty":"wide","extras":1},{"n":239,"inning":1,"over":17,"ball":6,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":2,"extras":0},{"n":240,"inning":1,"over":18,"ball":1,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":241,"inning":1,"over":18,"ball":2,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":242,"inning":1,"over":18,"ball":3,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":1,"extras":0},{"n":243,"inning":1,"over":18,"ball":4,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":2,"extras":0},{"n":244,"inning":1,"over":18,"ball":5,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":0,"extras":0},{"n":245,"inning":1,"over":18,"ball":6,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"d8826d0d-ef95-4dce-a47a-b09b97f49f07","name":"T Natarajan"},"runs":4,"extras":0},{"n":246,"inning":1,"over":19,"ball":1,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":247,"inning":1,"over":19,"ball":2,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"penalty":"wide","extras":1},{"n":248,"inning":1,"over":19,"ball":2,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":0,"penalty":"wide","extras":1},{"n":249,"inning":1,"over":19,"ball":2,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":250,"inning":1,"over":19,"ball":3,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":251,"inning":1,"over":19,"ball":4,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":6,"extras":0},{"n":252,"inning":1,"over":19,"ball":5,"batsman":{"id":"670ae8ac-4fe9-4f0c-84ee-320b13039f34","name":"Axar Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":1,"extras":0},{"n":253,"inning":1,"over":19,"ball":6,"batsman":{"id":"6ab03de1-2150-4902-b313-1529003f2d75","name":"Ripal Patel"},"bowler":{"id":"3f3ecf51-8411-4046-9477-18c0fe3da6ac","name":"Bhuvneshwar Kumar"},"runs":4,"extras":0}],"matchStarted":true,"matchEnded":true},"status":"success","info":{"hitsToday":116,"hitsUsed":1,"hitsLimit":10000,"credits":0,"server":15,"queryTime":78.9475,"s":0,"cache":0}}
+{
+  "apikey": "62fea853-66e8-45e1-9e61-b8f56daa7058",
+  "data": {
+    "id": "f2b8aa8a-f24c-40b4-99bb-4e6a222a1614",
+    "name": "Delhi Capitals vs Sunrisers Hyderabad, 40th Match",
+    "matchType": "t20",
+    "status": "Sunrisers Hyderabad won by 9 runs",
+    "venue": "Arun Jaitley Stadium, Delhi",
+    "date": "2023-04-29",
+    "dateTimeGMT": "2023-04-29T14:00:00",
+    "teams": ["Delhi Capitals", "Sunrisers Hyderabad"],
+    "teamInfo": [
+      {
+        "name": "Delhi Capitals",
+        "shortname": "DC",
+        "img": "https://g.cricapi.com/iapi/148-637874596301457910.png?w=48"
+      },
+      {
+        "name": "Sunrisers Hyderabad",
+        "shortname": "SRH",
+        "img": "https://g.cricapi.com/iapi/279-637852957609490368.png?w=48"
+      }
+    ],
+    "score": [
+      { "r": 197, "w": 6, "o": 20, "inning": "Sunrisers Hyderabad Inning 1" },
+      { "r": 188, "w": 6, "o": 20, "inning": "Delhi Capitals Inning 1" }
+    ],
+    "tossWinner": "Sunrisers Hyderabad",
+    "tossChoice": "bat",
+    "matchWinner": "Sunrisers Hyderabad",
+    "series_id": "c75f8952-74d4-416f-b7b4-7da4b4e3ae6e",
+    "bbb": [
+      {
+        "n": 1,
+        "inning": 0,
+        "over": 0,
+        "ball": 1,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 2,
+        "inning": 0,
+        "over": 0,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 3,
+        "inning": 0,
+        "over": 0,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 4,
+        "inning": 0,
+        "over": 0,
+        "ball": 4,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 5,
+        "inning": 0,
+        "over": 0,
+        "ball": 5,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 6,
+        "inning": 0,
+        "over": 0,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 7,
+        "inning": 0,
+        "over": 1,
+        "ball": 1,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 8,
+        "inning": 0,
+        "over": 1,
+        "ball": 1,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 9,
+        "inning": 0,
+        "over": 1,
+        "ball": 2,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 10,
+        "inning": 0,
+        "over": 1,
+        "ball": 3,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 11,
+        "inning": 0,
+        "over": 1,
+        "ball": 3,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 12,
+        "inning": 0,
+        "over": 1,
+        "ball": 4,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 13,
+        "inning": 0,
+        "over": 1,
+        "ball": 5,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 14,
+        "inning": 0,
+        "over": 1,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 15,
+        "inning": 0,
+        "over": 2,
+        "ball": 1,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 16,
+        "inning": 0,
+        "over": 2,
+        "ball": 2,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 17,
+        "inning": 0,
+        "over": 2,
+        "ball": 3,
+        "batsman": { "id": "b2919aba-b8de-4844-bced-26b30bbe9c6d", "name": "Mayank Agarwal" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Philip Salt",
+        "extras": 0
+      },
+      {
+        "n": 18,
+        "inning": 0,
+        "over": 2,
+        "ball": 4,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 19,
+        "inning": 0,
+        "over": 2,
+        "ball": 5,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 20,
+        "inning": 0,
+        "over": 2,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 21,
+        "inning": 0,
+        "over": 3,
+        "ball": 1,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 22,
+        "inning": 0,
+        "over": 3,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 23,
+        "inning": 0,
+        "over": 3,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 24,
+        "inning": 0,
+        "over": 3,
+        "ball": 4,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 25,
+        "inning": 0,
+        "over": 3,
+        "ball": 5,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 26,
+        "inning": 0,
+        "over": 3,
+        "ball": 6,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 27,
+        "inning": 0,
+        "over": 4,
+        "ball": 1,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 28,
+        "inning": 0,
+        "over": 4,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 29,
+        "inning": 0,
+        "over": 4,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 30,
+        "inning": 0,
+        "over": 4,
+        "ball": 4,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 31,
+        "inning": 0,
+        "over": 4,
+        "ball": 4,
+        "batsman": { "id": "fb313a9a-0a14-499d-a8d1-7561bccea8cb", "name": "Rahul Tripathi" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Manish Pandey",
+        "extras": 0
+      },
+      {
+        "n": 32,
+        "inning": 0,
+        "over": 4,
+        "ball": 5,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 33,
+        "inning": 0,
+        "over": 4,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 34,
+        "inning": 0,
+        "over": 5,
+        "ball": 1,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 35,
+        "inning": 0,
+        "over": 5,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 36,
+        "inning": 0,
+        "over": 5,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 37,
+        "inning": 0,
+        "over": 5,
+        "ball": 4,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 38,
+        "inning": 0,
+        "over": 5,
+        "ball": 5,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 39,
+        "inning": 0,
+        "over": 5,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "0c3d24bb-a517-435f-8cc3-60e945327bb3", "name": "Ishant Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 40,
+        "inning": 0,
+        "over": 6,
+        "ball": 1,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 41,
+        "inning": 0,
+        "over": 6,
+        "ball": 2,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 42,
+        "inning": 0,
+        "over": 6,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 43,
+        "inning": 0,
+        "over": 6,
+        "ball": 4,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 44,
+        "inning": 0,
+        "over": 6,
+        "ball": 5,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 45,
+        "inning": 0,
+        "over": 6,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 46,
+        "inning": 0,
+        "over": 7,
+        "ball": 1,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 47,
+        "inning": 0,
+        "over": 7,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 48,
+        "inning": 0,
+        "over": 7,
+        "ball": 3,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 49,
+        "inning": 0,
+        "over": 7,
+        "ball": 4,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 50,
+        "inning": 0,
+        "over": 7,
+        "ball": 5,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 51,
+        "inning": 0,
+        "over": 7,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 52,
+        "inning": 0,
+        "over": 8,
+        "ball": 1,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 53,
+        "inning": 0,
+        "over": 8,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 54,
+        "inning": 0,
+        "over": 8,
+        "ball": 3,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 55,
+        "inning": 0,
+        "over": 8,
+        "ball": 4,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 56,
+        "inning": 0,
+        "over": 8,
+        "ball": 5,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 57,
+        "inning": 0,
+        "over": 8,
+        "ball": 6,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 58,
+        "inning": 0,
+        "over": 9,
+        "ball": 1,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 59,
+        "inning": 0,
+        "over": 9,
+        "ball": 2,
+        "batsman": { "id": "3fef81b0-c1e9-45eb-954f-519f3b33d640", "name": "Aiden Markram" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Axar",
+        "extras": 0
+      },
+      {
+        "n": 60,
+        "inning": 0,
+        "over": 9,
+        "ball": 3,
+        "batsman": { "id": "87e87390-b14f-455b-8526-5eaa19735aed", "name": "Harry Brook" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 61,
+        "inning": 0,
+        "over": 9,
+        "ball": 4,
+        "batsman": { "id": "87e87390-b14f-455b-8526-5eaa19735aed", "name": "Harry Brook" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Axar",
+        "extras": 0
+      },
+      {
+        "n": 62,
+        "inning": 0,
+        "over": 9,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 63,
+        "inning": 0,
+        "over": 9,
+        "ball": 6,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 64,
+        "inning": 0,
+        "over": 10,
+        "ball": 1,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 65,
+        "inning": 0,
+        "over": 10,
+        "ball": 2,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 66,
+        "inning": 0,
+        "over": 10,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 67,
+        "inning": 0,
+        "over": 10,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 68,
+        "inning": 0,
+        "over": 10,
+        "ball": 4,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 69,
+        "inning": 0,
+        "over": 10,
+        "ball": 4,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 70,
+        "inning": 0,
+        "over": 10,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 2,
+        "penalty": "no ball",
+        "extras": 1
+      },
+      {
+        "n": 71,
+        "inning": 0,
+        "over": 10,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 72,
+        "inning": 0,
+        "over": 10,
+        "ball": 6,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "116e2bfb-6a97-4221-8006-8e7da70b0715", "name": "Mukesh Kumar" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 73,
+        "inning": 0,
+        "over": 11,
+        "ball": 1,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 74,
+        "inning": 0,
+        "over": 11,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 75,
+        "inning": 0,
+        "over": 11,
+        "ball": 3,
+        "batsman": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Warner",
+        "extras": 0
+      },
+      {
+        "n": 76,
+        "inning": 0,
+        "over": 11,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 77,
+        "inning": 0,
+        "over": 11,
+        "ball": 5,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 78,
+        "inning": 0,
+        "over": 11,
+        "ball": 6,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 79,
+        "inning": 0,
+        "over": 12,
+        "ball": 1,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 80,
+        "inning": 0,
+        "over": 12,
+        "ball": 2,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 81,
+        "inning": 0,
+        "over": 12,
+        "ball": 3,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 82,
+        "inning": 0,
+        "over": 12,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 83,
+        "inning": 0,
+        "over": 12,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 84,
+        "inning": 0,
+        "over": 12,
+        "ball": 6,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "1e651cfb-57f1-48da-bf9d-83cbff1733d1", "name": "Kuldeep Yadav" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 85,
+        "inning": 0,
+        "over": 13,
+        "ball": 1,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 86,
+        "inning": 0,
+        "over": 13,
+        "ball": 2,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 87,
+        "inning": 0,
+        "over": 13,
+        "ball": 3,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 88,
+        "inning": 0,
+        "over": 13,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 89,
+        "inning": 0,
+        "over": 13,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 90,
+        "inning": 0,
+        "over": 13,
+        "ball": 6,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 91,
+        "inning": 0,
+        "over": 14,
+        "ball": 1,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 92,
+        "inning": 0,
+        "over": 14,
+        "ball": 2,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 93,
+        "inning": 0,
+        "over": 14,
+        "ball": 3,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 94,
+        "inning": 0,
+        "over": 14,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 95,
+        "inning": 0,
+        "over": 14,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 96,
+        "inning": 0,
+        "over": 14,
+        "ball": 6,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 97,
+        "inning": 0,
+        "over": 15,
+        "ball": 1,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 98,
+        "inning": 0,
+        "over": 15,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 99,
+        "inning": 0,
+        "over": 15,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 100,
+        "inning": 0,
+        "over": 15,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 101,
+        "inning": 0,
+        "over": 15,
+        "ball": 3,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 102,
+        "inning": 0,
+        "over": 15,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 0,
+        "penalty": "leg byes",
+        "extras": 1
+      },
+      {
+        "n": 103,
+        "inning": 0,
+        "over": 15,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 104,
+        "inning": 0,
+        "over": 15,
+        "ball": 6,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 105,
+        "inning": 0,
+        "over": 16,
+        "ball": 1,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 106,
+        "inning": 0,
+        "over": 16,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 107,
+        "inning": 0,
+        "over": 16,
+        "ball": 3,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 108,
+        "inning": 0,
+        "over": 16,
+        "ball": 4,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 109,
+        "inning": 0,
+        "over": 16,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 110,
+        "inning": 0,
+        "over": 16,
+        "ball": 6,
+        "batsman": { "id": "dd665f5d-04e8-436b-b376-8fd2a9b8bf8a", "name": "Abdul Samad" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Philip Salt",
+        "extras": 0
+      },
+      {
+        "n": 111,
+        "inning": 0,
+        "over": 17,
+        "ball": 1,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 112,
+        "inning": 0,
+        "over": 17,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 113,
+        "inning": 0,
+        "over": 17,
+        "ball": 3,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 114,
+        "inning": 0,
+        "over": 17,
+        "ball": 4,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 115,
+        "inning": 0,
+        "over": 17,
+        "ball": 5,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 116,
+        "inning": 0,
+        "over": 17,
+        "ball": 6,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 117,
+        "inning": 0,
+        "over": 18,
+        "ball": 1,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 118,
+        "inning": 0,
+        "over": 18,
+        "ball": 2,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 119,
+        "inning": 0,
+        "over": 18,
+        "ball": 2,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 120,
+        "inning": 0,
+        "over": 18,
+        "ball": 3,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 121,
+        "inning": 0,
+        "over": 18,
+        "ball": 4,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 122,
+        "inning": 0,
+        "over": 18,
+        "ball": 5,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 123,
+        "inning": 0,
+        "over": 18,
+        "ball": 6,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 124,
+        "inning": 0,
+        "over": 19,
+        "ball": 1,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 125,
+        "inning": 0,
+        "over": 19,
+        "ball": 2,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 126,
+        "inning": 0,
+        "over": 19,
+        "ball": 3,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 127,
+        "inning": 0,
+        "over": 19,
+        "ball": 4,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 128,
+        "inning": 0,
+        "over": 19,
+        "ball": 5,
+        "batsman": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 129,
+        "inning": 0,
+        "over": 19,
+        "ball": 6,
+        "batsman": { "id": "7d662361-8f12-4a52-9a4b-01e8734bd31d", "name": "Heinrich Klaasen" },
+        "bowler": { "id": "a8c7ce67-5862-4acb-9297-97eafd0ea3d5", "name": "Anrich Nortje" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 130,
+        "inning": 1,
+        "over": 0,
+        "ball": 1,
+        "batsman": { "id": "08da6d78-2316-454b-a7f4-40479bdd9b27", "name": "David Warner" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 131,
+        "inning": 1,
+        "over": 0,
+        "ball": 2,
+        "batsman": { "id": "08da6d78-2316-454b-a7f4-40479bdd9b27", "name": "David Warner" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "dismissal": "bowled",
+        "extras": 0
+      },
+      {
+        "n": 132,
+        "inning": 1,
+        "over": 0,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 133,
+        "inning": 1,
+        "over": 0,
+        "ball": 4,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 134,
+        "inning": 1,
+        "over": 0,
+        "ball": 5,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 135,
+        "inning": 1,
+        "over": 0,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 136,
+        "inning": 1,
+        "over": 1,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 137,
+        "inning": 1,
+        "over": 1,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 138,
+        "inning": 1,
+        "over": 1,
+        "ball": 3,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 139,
+        "inning": 1,
+        "over": 1,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 140,
+        "inning": 1,
+        "over": 1,
+        "ball": 5,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 141,
+        "inning": 1,
+        "over": 1,
+        "ball": 6,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 142,
+        "inning": 1,
+        "over": 2,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 143,
+        "inning": 1,
+        "over": 2,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 144,
+        "inning": 1,
+        "over": 2,
+        "ball": 3,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 145,
+        "inning": 1,
+        "over": 2,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 146,
+        "inning": 1,
+        "over": 2,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 147,
+        "inning": 1,
+        "over": 2,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 148,
+        "inning": 1,
+        "over": 3,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 149,
+        "inning": 1,
+        "over": 3,
+        "ball": 2,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 150,
+        "inning": 1,
+        "over": 3,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 151,
+        "inning": 1,
+        "over": 3,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "penalty": "leg byes",
+        "extras": 1
+      },
+      {
+        "n": 152,
+        "inning": 1,
+        "over": 3,
+        "ball": 5,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 153,
+        "inning": 1,
+        "over": 3,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 154,
+        "inning": 1,
+        "over": 4,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 155,
+        "inning": 1,
+        "over": 4,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 156,
+        "inning": 1,
+        "over": 4,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 157,
+        "inning": 1,
+        "over": 4,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 158,
+        "inning": 1,
+        "over": 4,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 159,
+        "inning": 1,
+        "over": 4,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 160,
+        "inning": 1,
+        "over": 5,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 161,
+        "inning": 1,
+        "over": 5,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 162,
+        "inning": 1,
+        "over": 5,
+        "ball": 3,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 163,
+        "inning": 1,
+        "over": 5,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 164,
+        "inning": 1,
+        "over": 5,
+        "ball": 5,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 165,
+        "inning": 1,
+        "over": 5,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 166,
+        "inning": 1,
+        "over": 6,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 167,
+        "inning": 1,
+        "over": 6,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 168,
+        "inning": 1,
+        "over": 6,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 169,
+        "inning": 1,
+        "over": 6,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 170,
+        "inning": 1,
+        "over": 6,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 171,
+        "inning": 1,
+        "over": 6,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "b367db88-a73e-445f-8cdd-3f6335617b07", "name": "Umran Malik" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 172,
+        "inning": 1,
+        "over": 7,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 173,
+        "inning": 1,
+        "over": 7,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 174,
+        "inning": 1,
+        "over": 7,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 175,
+        "inning": 1,
+        "over": 7,
+        "ball": 4,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 176,
+        "inning": 1,
+        "over": 7,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 177,
+        "inning": 1,
+        "over": 7,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 178,
+        "inning": 1,
+        "over": 8,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 179,
+        "inning": 1,
+        "over": 8,
+        "ball": 2,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 180,
+        "inning": 1,
+        "over": 8,
+        "ball": 3,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 181,
+        "inning": 1,
+        "over": 8,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 182,
+        "inning": 1,
+        "over": 8,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 183,
+        "inning": 1,
+        "over": 8,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 184,
+        "inning": 1,
+        "over": 9,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 185,
+        "inning": 1,
+        "over": 9,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 186,
+        "inning": 1,
+        "over": 9,
+        "ball": 3,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 187,
+        "inning": 1,
+        "over": 9,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 188,
+        "inning": 1,
+        "over": 9,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 189,
+        "inning": 1,
+        "over": 9,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 190,
+        "inning": 1,
+        "over": 10,
+        "ball": 1,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 191,
+        "inning": 1,
+        "over": 10,
+        "ball": 2,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 192,
+        "inning": 1,
+        "over": 10,
+        "ball": 3,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 193,
+        "inning": 1,
+        "over": 10,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 194,
+        "inning": 1,
+        "over": 10,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 195,
+        "inning": 1,
+        "over": 10,
+        "ball": 6,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 196,
+        "inning": 1,
+        "over": 11,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 197,
+        "inning": 1,
+        "over": 11,
+        "ball": 2,
+        "batsman": { "id": "6db25d60-ff96-4d8d-8d22-dedeeb5ffa29", "name": "Philip Salt" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "dismissal": "cb",
+        "extras": 0
+      },
+      {
+        "n": 198,
+        "inning": 1,
+        "over": 11,
+        "ball": 3,
+        "batsman": { "id": "306f6b88-0442-476a-be55-1500b3441051", "name": "Manish Pandey" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 199,
+        "inning": 1,
+        "over": 11,
+        "ball": 4,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 200,
+        "inning": 1,
+        "over": 11,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 201,
+        "inning": 1,
+        "over": 11,
+        "ball": 6,
+        "batsman": { "id": "306f6b88-0442-476a-be55-1500b3441051", "name": "Manish Pandey" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 202,
+        "inning": 1,
+        "over": 12,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 203,
+        "inning": 1,
+        "over": 12,
+        "ball": 2,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 204,
+        "inning": 1,
+        "over": 12,
+        "ball": 3,
+        "batsman": { "id": "306f6b88-0442-476a-be55-1500b3441051", "name": "Manish Pandey" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "dismissal": "bowled",
+        "extras": 0
+      },
+      {
+        "n": 205,
+        "inning": 1,
+        "over": 12,
+        "ball": 3,
+        "batsman": { "id": "306f6b88-0442-476a-be55-1500b3441051", "name": "Manish Pandey" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "extras": 0,
+        "notes": "Stumped"
+      },
+      {
+        "n": 206,
+        "inning": 1,
+        "over": 12,
+        "ball": 4,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 207,
+        "inning": 1,
+        "over": 12,
+        "ball": 5,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 208,
+        "inning": 1,
+        "over": 12,
+        "ball": 6,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 209,
+        "inning": 1,
+        "over": 13,
+        "ball": 1,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 210,
+        "inning": 1,
+        "over": 13,
+        "ball": 2,
+        "batsman": { "id": "6eaac800-13e7-4a07-8ee2-14acd04cc53f", "name": "Mitchell Marsh" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 0,
+        "dismissal": "catch",
+        "catcher": "Markram",
+        "extras": 0
+      },
+      {
+        "n": 211,
+        "inning": 1,
+        "over": 13,
+        "ball": 3,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 212,
+        "inning": 1,
+        "over": 13,
+        "ball": 4,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 213,
+        "inning": 1,
+        "over": 13,
+        "ball": 5,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 214,
+        "inning": 1,
+        "over": 13,
+        "ball": 6,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "7d053d4e-a735-4c96-bb98-4098dee523df", "name": "Akeal Hosein" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 215,
+        "inning": 1,
+        "over": 14,
+        "ball": 1,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 216,
+        "inning": 1,
+        "over": 14,
+        "ball": 2,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 217,
+        "inning": 1,
+        "over": 14,
+        "ball": 3,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 218,
+        "inning": 1,
+        "over": 14,
+        "ball": 4,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 219,
+        "inning": 1,
+        "over": 14,
+        "ball": 5,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 220,
+        "inning": 1,
+        "over": 14,
+        "ball": 6,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "83fe6ab6-d63c-420e-9416-a93d59a9a964", "name": "Abhishek Sharma" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 221,
+        "inning": 1,
+        "over": 15,
+        "ball": 1,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 222,
+        "inning": 1,
+        "over": 15,
+        "ball": 2,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 223,
+        "inning": 1,
+        "over": 15,
+        "ball": 3,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 224,
+        "inning": 1,
+        "over": 15,
+        "ball": 4,
+        "batsman": { "id": "05521a15-b6bd-4bf6-9953-122c014418f6", "name": "Priyam Garg" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "dismissal": "bowled",
+        "extras": 0
+      },
+      {
+        "n": 225,
+        "inning": 1,
+        "over": 15,
+        "ball": 5,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 226,
+        "inning": 1,
+        "over": 15,
+        "ball": 6,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "c06c697c-9575-4bb0-b1f0-27a56a2f3898", "name": "Mayank Markande" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 227,
+        "inning": 1,
+        "over": 16,
+        "ball": 1,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 228,
+        "inning": 1,
+        "over": 16,
+        "ball": 2,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 229,
+        "inning": 1,
+        "over": 16,
+        "ball": 3,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 230,
+        "inning": 1,
+        "over": 16,
+        "ball": 4,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 231,
+        "inning": 1,
+        "over": 16,
+        "ball": 5,
+        "batsman": { "id": "ec1b806b-de33-4b79-b3ba-8a5ad78df163", "name": "Sarfaraz Khan" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 0,
+        "dismissal": "bowled",
+        "extras": 0
+      },
+      {
+        "n": 232,
+        "inning": 1,
+        "over": 16,
+        "ball": 6,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 233,
+        "inning": 1,
+        "over": 17,
+        "ball": 1,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 234,
+        "inning": 1,
+        "over": 17,
+        "ball": 2,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 235,
+        "inning": 1,
+        "over": 17,
+        "ball": 3,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 236,
+        "inning": 1,
+        "over": 17,
+        "ball": 4,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 237,
+        "inning": 1,
+        "over": 17,
+        "ball": 5,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 238,
+        "inning": 1,
+        "over": 17,
+        "ball": 6,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 239,
+        "inning": 1,
+        "over": 17,
+        "ball": 6,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 240,
+        "inning": 1,
+        "over": 18,
+        "ball": 1,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 241,
+        "inning": 1,
+        "over": 18,
+        "ball": 2,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 242,
+        "inning": 1,
+        "over": 18,
+        "ball": 3,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 243,
+        "inning": 1,
+        "over": 18,
+        "ball": 4,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 2,
+        "extras": 0
+      },
+      {
+        "n": 244,
+        "inning": 1,
+        "over": 18,
+        "ball": 5,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 0,
+        "extras": 0
+      },
+      {
+        "n": 245,
+        "inning": 1,
+        "over": 18,
+        "ball": 6,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "d8826d0d-ef95-4dce-a47a-b09b97f49f07", "name": "T Natarajan" },
+        "runs": 4,
+        "extras": 0
+      },
+      {
+        "n": 246,
+        "inning": 1,
+        "over": 19,
+        "ball": 1,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 247,
+        "inning": 1,
+        "over": 19,
+        "ball": 2,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 248,
+        "inning": 1,
+        "over": 19,
+        "ball": 2,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 0,
+        "penalty": "wide",
+        "extras": 1
+      },
+      {
+        "n": 249,
+        "inning": 1,
+        "over": 19,
+        "ball": 2,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 250,
+        "inning": 1,
+        "over": 19,
+        "ball": 3,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 251,
+        "inning": 1,
+        "over": 19,
+        "ball": 4,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 6,
+        "extras": 0
+      },
+      {
+        "n": 252,
+        "inning": 1,
+        "over": 19,
+        "ball": 5,
+        "batsman": { "id": "670ae8ac-4fe9-4f0c-84ee-320b13039f34", "name": "Axar Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 1,
+        "extras": 0
+      },
+      {
+        "n": 253,
+        "inning": 1,
+        "over": 19,
+        "ball": 6,
+        "batsman": { "id": "6ab03de1-2150-4902-b313-1529003f2d75", "name": "Ripal Patel" },
+        "bowler": { "id": "3f3ecf51-8411-4046-9477-18c0fe3da6ac", "name": "Bhuvneshwar Kumar" },
+        "runs": 4,
+        "extras": 0
+      }
+    ],
+    "matchStarted": true,
+    "matchEnded": true
+  },
+  "status": "success",
+  "info": {
+    "hitsToday": 116,
+    "hitsUsed": 1,
+    "hitsLimit": 10000,
+    "credits": 0,
+    "server": 15,
+    "queryTime": 78.9475,
+    "s": 0,
+    "cache": 0
+  }
+}

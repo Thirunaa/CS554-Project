@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
-import Match from "./Match.js";
 
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CircularProgress,
-  Grid,
-  Typography,
-  CardHeader,
-  CardMedia,
-  Button,
-} from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 
 const MatchPrediction = ({ matchData }) => {
   const [match, setMatch] = useState({
@@ -34,16 +23,11 @@ const MatchPrediction = ({ matchData }) => {
   useEffect(() => {
     // Calculate percentages
     const totalPredictions =
-      match.predictions.team1.length +
-      match.predictions.team2.length +
-      match.predictions.tie.length;
+      match.predictions.team1.length + match.predictions.team2.length + match.predictions.tie.length;
     if (totalPredictions > 0) {
-      const team1Percent =
-        (match.predictions.team1.length / totalPredictions) * 100;
-      const team2Percent =
-        (match.predictions.team2.length / totalPredictions) * 100;
-      const tiePercent =
-        (match.predictions.tie.length / totalPredictions) * 100;
+      const team1Percent = (match.predictions.team1.length / totalPredictions) * 100;
+      const team2Percent = (match.predictions.team2.length / totalPredictions) * 100;
+      const tiePercent = (match.predictions.tie.length / totalPredictions) * 100;
       setTeam1Percent(team1Percent.toFixed(2));
       setTeam2Percent(team2Percent.toFixed(2));
       setTiePercent(tiePercent.toFixed(2));
@@ -58,14 +42,10 @@ const MatchPrediction = ({ matchData }) => {
     // Update match predictions in the state
     const updatedPredictions = { ...match.predictions };
     const selectedOption = updatedPredictions[prediction];
-    const otherOptions = Object.keys(updatedPredictions).filter(
-      (option) => option !== prediction
-    );
+    const otherOptions = Object.keys(updatedPredictions).filter((option) => option !== prediction);
     updatedPredictions[prediction] = [...selectedOption, true];
     otherOptions.forEach((option) => {
-      updatedPredictions[option] = updatedPredictions[option].filter(
-        (item) => item !== true
-      );
+      updatedPredictions[option] = updatedPredictions[option].filter((item) => item !== true);
     });
     const updatedMatch = {
       ...match,
@@ -129,14 +109,12 @@ const MatchPrediction = ({ matchData }) => {
       <div>
         {match.predictions.team1.length > 0 && (
           <p>
-            {match.predictions.team1.length} predictions for {match.team1} (
-            {team1Percent}%)
+            {match.predictions.team1.length} predictions for {match.team1} ({team1Percent}%)
           </p>
         )}
         {match.predictions.team2.length > 0 && (
           <p>
-            {match.predictions.team2.length} predictions for {match.team2} (
-            {team2Percent}%)
+            {match.predictions.team2.length} predictions for {match.team2} ({team2Percent}%)
           </p>
         )}
 

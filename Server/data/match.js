@@ -7,7 +7,7 @@ const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
 const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
 const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
-const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
 
 const axios = require("axios");
 

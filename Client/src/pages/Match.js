@@ -16,6 +16,7 @@ import {
   CardMedia,
   Button,
 } from "@material-ui/core";
+import MatchPrediction from "./MatchPrediction.js";
 import "../App.css";
 
 import noNewsImage from "../images/noNewsImage.png";
@@ -202,6 +203,7 @@ const Match = (props) => {
                         : ""}
                     </p>
                   </dl>
+                  <MatchPrediction key={matchData.id} matchData={matchData} />
                   <br />
                   <br />
                   <Button

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/Carousel.css";
-import { Grid, Card, CardContent, Typography } from "@mui/material";
+import { Grid, Card, CardContent } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-const api_key = "f9262a85-d559-439c-b1c0-4817f5e46208";
+import { useStyles } from "../styles/carouselStyles.js";
+const api_key = "39b67a47-1b14-4fa1-aa78-260749f0fd05";
 const matchUrl = `https://api.cricapi.com/v1/cricScore?apikey=${api_key}`;
 
 function Carousel() {
+  const classes = useStyles();
   const [currMatch, setCurrMatch] = useState(0);
   const [matches, setMatches] = useState([]);
 
@@ -27,16 +27,10 @@ function Carousel() {
   return (
     <>
       {matches.length > 0 && (
-        <div
-          className="carousel"
-          style={{ backgroundColor: "#2196f3", height: 225 }}
-        >
-          <div
-            className="carouselInner"
-            style={{ margin: "0 100px", position: "relative" }}
-          >
+        <div className={classes.carousel} style={{ backgroundColor: "#2196f3", height: 225 }}>
+          <div style={{ margin: "0 100px", position: "relative" }}>
             <div
-              className="left"
+              className={classes.item}
               onClick={() => {
                 currMatch > 0 && setCurrMatch(currMatch - 1);
               }}
@@ -63,17 +57,12 @@ function Carousel() {
                 }}
               />
             </div>
-            <Grid container className="center">
+            <Grid container>
               {currMatch < matches.length ? (
                 matches.map((match, index) => {
                   if (index >= currMatch && index < currMatch + 4) {
                     return (
-                      <Grid
-                        item
-                        xs={3}
-                        key={index}
-                        style={{ marginBottom: "20px", marginTop: "20px" }}
-                      >
+                      <Grid item xs={3} key={index} style={{ marginBottom: "20px", marginTop: "20px" }}>
                         <Card
                           style={{
                             height: 185,
@@ -102,11 +91,7 @@ function Carousel() {
                                 Match Type: {match.matchType}
                               </p>
                             ) : null}
-                            {match.status ? (
-                              <p style={{ textAlign: "left" }}>
-                                Status: {match.status}
-                              </p>
-                            ) : null}
+                            {match.status ? <p style={{ textAlign: "left" }}>Status: {match.status}</p> : null}
 
                             {match.t1s ? (
                               <div
@@ -144,7 +129,7 @@ function Carousel() {
               )}
             </Grid>
             <div
-              className="right"
+              className={classes.item}
               onClick={() => {
                 if (currMatch < matches.length - 4) setCurrMatch(currMatch + 4);
               }}

@@ -11,6 +11,7 @@ import noNewsImage from "../images/noNewsImage.png";
 import "../App.css";
 import { AuthContext } from "../firebase/Auth";
 // import LiveScoreScript from "../components/LiveScoreScript.js";
+import Carousel from "./Carousel.js";
 
 const Home = () => {
   const classes = useStyles();
@@ -19,7 +20,7 @@ const Home = () => {
   // eslint-disable-next-line
   const { currentUser } = useContext(AuthContext);
   //const allnewsUrl = "https://api.cricapi.com/v1/news?";
-  //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+  //const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
   let card = null;
 
   useEffect(() => {
@@ -130,6 +131,8 @@ const Home = () => {
   } else {
     return (
       <div>
+        <Carousel />
+        <br />
         {/* <Container>
           <ButtonGroup disableElevation variant="contained" color="secondary">
             {prevPageExists && (

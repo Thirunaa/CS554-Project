@@ -80,28 +80,10 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
 router.get("/match/:id", async (req, res) => {
   try {
     let id = req.params.id;
-    //Redis
-    if (!client.isOpen) await client.connect();
-    let matchFromCache = await client.get("match_" + id);
-    if (matchFromCache) {
-      console.log("match from redis");
-      res.status(200).json(JSON.parse(matchFromCache));
-      return;
-    } else {
-      let matchObj = await matches.getMatchById(id);
-      try {
-        // if it is a Live match, then dont store it in redis
-        if (matchObj.matchEnded) {
-          await client.set("match_" + id, JSON.stringify(matchObj));
-        }
-      } catch (e) {
-        console.log("Set current matches in Redis Error");
-        console.log(e);
-      }
-      console.log("data from route", matchObj);
-      res.status(200).json(matchObj);
-      return;
-    }
+    let matchObj = await matches.getMatchById(id);
+    console.log("data", matchObj);
+    res.status(200).json(matchObj);
+    return;
   } catch (e) {
     console.log(e);
     res.status(500).json({ errorCode: 500, message: e });
@@ -109,7 +91,21 @@ router.get("/match/:id", async (req, res) => {
   }
 });
 
-router.post("/matches/:matchId/comment", async (req, res) => {
+router.get("/match_bbb/:id", async (req, res) => {
+  try {
+    let id = req.params.id;
+    let matchObj = await matches.getBBBMatchDataById(id);
+    console.log("data", matchObj);
+    res.status(200).json(matchObj);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.post("/match/:matchId/comment", async (req, res) => {
   try {
     let matchId = req.params.matchId;
     let commenter = req.authenticatedUser;
@@ -139,7 +135,7 @@ router.post("/matches/:matchId/comment", async (req, res) => {
   }
 });
 
-router.get("/:matchId/comments", async (req, res) => {
+router.get("/match/:matchId/comments", async (req, res) => {
   try {
     let matchId = req.params.matchId;
     let existingComments = await matches.getCommentsByMatchId(matchId);
@@ -150,7 +146,7 @@ router.get("/:matchId/comments", async (req, res) => {
   }
 });
 
-router.delete("/matches/:matchId/:commentId", async (req, res) => {
+router.delete("/match/:matchId/:commentId", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -182,7 +178,7 @@ router.delete("/matches/:matchId/:commentId", async (req, res) => {
   }
 });
 
-router.post("/matches/:matchId/:commentId/replies", async (req, res) => {
+router.post("/match/:matchId/:commentId/replies", async (req, res) => {
   try {
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
@@ -213,7 +209,7 @@ router.post("/matches/:matchId/:commentId/replies", async (req, res) => {
   }
 });
 
-router.delete("/matches/:matchId/:commentId/:replyId", async (req, res) => {
+router.delete("/match/:matchId/:commentId/:replyId", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -246,7 +242,7 @@ router.delete("/matches/:matchId/:commentId/:replyId", async (req, res) => {
   }
 });
 
-router.post("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -268,7 +264,7 @@ router.post("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
   }
 });
 
-router.delete("/matches/:matchId/:commentId/:replyId/likes", async (req, res) => {
+router.delete("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -290,7 +286,7 @@ router.delete("/matches/:matchId/:commentId/:replyId/likes", async (req, res) =>
   }
 });
 
-router.post("/matches/:matchId/:commentId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/likes", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -311,7 +307,7 @@ router.post("/matches/:matchId/:commentId/likes", async (req, res) => {
   }
 });
 
-router.delete("/matches/:matchId/:commentId/likes", async (req, res) => {
+router.delete("/match/:matchId/:commentId/likes", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
@@ -332,7 +328,7 @@ router.delete("/matches/:matchId/:commentId/likes", async (req, res) => {
   }
 });
 
-router.post("/matches/:matchId/predict", async (req, res) => {
+router.post("/match/:matchId/predict", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;

@@ -6,7 +6,9 @@ const comments = mongoCollections.comments;
 const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
 const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
+const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
 const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+
 const axios = require("axios");
 
 const getCurrentMatches = async () => {
@@ -39,6 +41,11 @@ const getMatchById = async (id) => {
   const createdMatch = await matchesCollection.insertOne(matchObject);
   if (!createdMatch.insertedId) throw `Creating this match was unsuccessful.`;
   return metaData;
+};
+
+const getBBBMatchDataById = async (id) => {
+  const { data } = await axios.get(ballbyballUrl + API_KEY + "&id=" + id);
+  return data;
 };
 
 const getMatchByIdFromDB = async (id) => {
@@ -295,6 +302,7 @@ module.exports = {
   getAllMatchesByPageNo,
   getMatchById,
   getMatchByIdFromDB,
+  getBBBMatchDataById,
   getCommentsByMatchId,
   addReply,
   deleteReply,

@@ -132,7 +132,7 @@ const Match = (props) => {
   }, [id, prediction, currentUser]);
 
   useEffect(() => {
-    console.log("SHOW useEffect fired");
+    console.log("Match data useEffect fired");
     async function fetchData() {
       let authtoken = await currentUser.getIdToken();
       try {

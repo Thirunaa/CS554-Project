@@ -24,6 +24,12 @@ const createUser = async (userId, emailAddress, displayName) => {
   return await usersCollection.findOne({ _id: insertUser.insertedId });
 };
 
+const getUserById = async (userId) => {
+  const usersCollection = await users();
+  const user = await usersCollection.findOne({ _id: userId });
+  return user;
+};
+
 const addFavoriteMatch = async (userId, matchId) => {
   validateUserId(userId);
   const usersCollection = await users();
@@ -37,14 +43,22 @@ const addFavoriteMatch = async (userId, matchId) => {
 };
 
 const addFavoritePlayer = async (userId, playerId) => {
-  validateUserId(userId);
+  console.log("addFavoritePlayer");
   const usersCollection = await users();
+  const user = await usersCollection.findOne({ _id: userId });
 
-  const updatingUser = await usersCollection.updateOne({ _id: userId }, { $addToSet: { favouritePlayers: playerId } });
-
-  if (!updatingUser.modifiedCount) throw `Adding player to user was unsuccessful.`;
-
+  if (user.favouritePlayers.includes(playerId)) {
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouritePlayers: playerId } });
+    if (!updatingUser.modifiedCount) throw `Deleting player from user was unsuccessful.`;
+  } else {
+    const updatingUser = await usersCollection.updateOne(
+      { _id: userId },
+      { $addToSet: { favouritePlayers: playerId } }
+    );
+    if (!updatingUser.modifiedCount) throw `Adding player to user was unsuccessful.`;
+  }
   const updatedUser = await usersCollection.findOne({ _id: userId });
+  console.log(updatedUser);
   return updatedUser;
 };
 
@@ -88,6 +102,7 @@ const checkDisplayName = async (name) => {
 
 module.exports = {
   createUser,
+  getUserById,
   addFavoriteMatch,
   addFavoritePlayer,
   removeFavoriteMatch,

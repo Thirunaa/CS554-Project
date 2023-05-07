@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { TextField, Button, Card } from "@material-ui/core";
 import { doCreateUserWithEmailAndPassword } from "../firebase/FirebaseFunctions";
 import { AuthContext } from "../firebase/Auth";
-import SocialSignIn from "./SocialSignIn";
+//import SocialSignIn from "./SocialSignIn";
 import firebase from "firebase/compat/app";
 import axios from "axios";
 function SignUp() {
@@ -79,7 +79,7 @@ function SignUp() {
         </Card>
       </div>
       <br />
-      <SocialSignIn />
+      {/* <SocialSignIn /> */}
     </div>
   );
 }

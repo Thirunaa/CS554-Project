@@ -84,6 +84,7 @@ const STATS_HEADERS = {
 const Player = (props) => {
   const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
+  // eslint-disable-next-line
   const [favourite, setFavourite] = useState();
   const [playerData, setPlayerData] = useState(undefined);
   const [loading, setLoading] = useState(false);

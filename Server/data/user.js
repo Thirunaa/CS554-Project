@@ -1,6 +1,8 @@
 const mongoCollections = require("../config/mongoCollections");
 const validation = require("../validations/dataValidations");
 const users = mongoCollections.users;
+const { Client } = require("@elastic/elasticsearch");
+const elasticClient = new Client({ node: "http://localhost:9200" });
 
 const createUser = async (userId, emailAddress, displayName) => {
   validation.validateName(displayName);
@@ -21,7 +23,31 @@ const createUser = async (userId, emailAddress, displayName) => {
   };
   const insertUser = await usersCollection.insertOne(user);
   if (insertUser.insertedCount === 0) throw `Couldn't insert user to database.`;
+
+  //insert into elastic search index
+  try {
+    await elasticClient.index({
+      index: "users",
+      document: {
+        displayName: displayName,
+        userId: userId,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
   return await usersCollection.findOne({ _id: insertUser.insertedId });
+};
+
+const searchUsers = async (query) => {
+  return elasticClient.search({
+    index: "users",
+    body: {
+      query: {
+        match: { displayName: query },
+      },
+    },
+  }).hits.hits;
 };
 
 const getUserById = async (userId) => {
@@ -111,4 +137,5 @@ module.exports = {
   removeFavoriteMatch,
   removeFavoritePlayer,
   checkDisplayName,
+  searchUsers,
 };

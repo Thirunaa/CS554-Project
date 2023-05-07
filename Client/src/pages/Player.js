@@ -120,7 +120,7 @@ const Player = (props) => {
 
   //favouritePlayers
 
-  async function fetchData() {
+  async function fetchUserData() {
     try {
       let authtoken = await currentUser.getIdToken();
       setLoading(true);
@@ -141,7 +141,7 @@ const Player = (props) => {
   }
 
   function handleClick() {
-    fetchData();
+    fetchUserData();
   }
 
   return loading && !playerData && !userData ? (

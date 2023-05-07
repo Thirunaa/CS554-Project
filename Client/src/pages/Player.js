@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Box, CircularProgress, Grid } from "@material-ui/core";
@@ -76,38 +77,12 @@ const useStyles = makeStyles({
 });
 
 const STATS_HEADERS = {
-  batting: [
-    "M",
-    "Inn",
-    "NO",
-    "Runs",
-    "HS",
-    "Avg",
-    "BF",
-    "SR",
-    "100s",
-    "200s",
-    "50s",
-    "4s",
-    "6s",
-  ],
-  bowling: [
-    "M",
-    "Inn",
-    "B",
-    "Runs",
-    "Wkts",
-    "BBI",
-    "BBM",
-    "Econ",
-    "Avg",
-    "SR",
-    "5W",
-    "10W",
-  ],
+  batting: ["M", "Inn", "NO", "Runs", "HS", "Avg", "BF", "SR", "100s", "200s", "50s", "4s", "6s"],
+  bowling: ["M", "Inn", "B", "Runs", "Wkts", "BBI", "BBM", "Econ", "Avg", "SR", "5W", "10W"],
 };
 
 const Player = (props) => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
 
   const [playerData, setPlayerData] = useState(undefined);
@@ -118,10 +93,11 @@ const Player = (props) => {
   useEffect(() => {
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         setLoading(true);
-        const { data } = await axios.get(
-          "http://localhost:3001/players/player/" + id
-        );
+        const { data } = await axios.get("http://localhost:3001/players/player/" + id, {
+          headers: { authtoken: authtoken },
+        });
         console.log(data);
         if (data) {
           setPlayerData(data);
@@ -136,7 +112,7 @@ const Player = (props) => {
     }
 
     fetchData();
-  }, [id]);
+  }, [id, currentUser]);
 
   return loading && !playerData ? (
     <CircularProgress />
@@ -144,19 +120,9 @@ const Player = (props) => {
     <>
       <Grid container className={classes.itemPadding}>
         <Grid item xs={12}>
-          <Grid
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-end"
-            container
-            className={classes.header}
-          >
+          <Grid direction="row" justifyContent="flex-start" alignItems="flex-end" container className={classes.header}>
             <Grid item>
-              <img
-                alt={playerData?.name}
-                className={classes.playerImg}
-                src={playerData?.playerImg || ""}
-              />
+              <img alt={playerData?.name} className={classes.playerImg} src={playerData?.playerImg || ""} />
             </Grid>
             <Grid item>
               <h1>{playerData?.name || ""}</h1>
@@ -172,19 +138,11 @@ const Player = (props) => {
             <Box>
               <h2 className={classes.subheading}>Batting Career Summary</h2>
             </Box>
-            <StatsTable
-              stats={playerData?.stats?.batting}
-              classes={classes}
-              type="batting"
-            />
+            <StatsTable stats={playerData?.stats?.batting} classes={classes} type="batting" />
             <Box>
               <h2 className={classes.subheading}>Bowling Career Summary</h2>
             </Box>
-            <StatsTable
-              stats={playerData?.stats?.bowling}
-              classes={classes}
-              type="bowling"
-            />
+            <StatsTable stats={playerData?.stats?.bowling} classes={classes} type="bowling" />
           </Grid>
         </Grid>
       </Grid>
@@ -282,9 +240,7 @@ function PersonalInfo({ playerData, classes }) {
     <>
       <Box className={classes.playerInfo}>
         <div>
-          <h3 className={(classes.alignLeft, classes.subheading)}>
-            Personal Information
-          </h3>
+          <h3 className={(classes.alignLeft, classes.subheading)}>Personal Information</h3>
           {playerData && (
             <TableContainer>
               <Table className={classes.table}>
@@ -306,15 +262,11 @@ function PersonalInfo({ playerData, classes }) {
                     <TableCell>{playerData?.role}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className={classes.bold}>
-                      Batting Style
-                    </TableCell>
+                    <TableCell className={classes.bold}>Batting Style</TableCell>
                     <TableCell>{playerData?.battingStyle}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className={classes.bold}>
-                      Bowling Style
-                    </TableCell>
+                    <TableCell className={classes.bold}>Bowling Style</TableCell>
                     <TableCell>{playerData?.bowlingStyle}</TableCell>
                   </TableRow>
                 </TableBody>
@@ -322,9 +274,7 @@ function PersonalInfo({ playerData, classes }) {
             </TableContainer>
           )}
 
-          <h3 className={(classes.alignLeft, classes.subheading)}>
-            ICC Rankings
-          </h3>
+          <h3 className={(classes.alignLeft, classes.subheading)}>ICC Rankings</h3>
           {playerData && (
             <TableContainer>
               <Table className={classes.table}>
@@ -339,27 +289,15 @@ function PersonalInfo({ playerData, classes }) {
                 <TableBody>
                   <TableRow>
                     <TableCell padding="none">Batting</TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.batting?.test || "--"}
-                    </TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.batting?.odi || "--"}
-                    </TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.batting?.t20 || "--"}
-                    </TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.batting?.test || "--"}</TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.batting?.odi || "--"}</TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.batting?.t20 || "--"}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell padding="none">Bowling</TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.bowling?.test || "--"}
-                    </TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.bowling?.odi || "--"}
-                    </TableCell>
-                    <TableCell padding="none">
-                      {playerData?.iccRankings?.bowling?.t20 || "--"}
-                    </TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.test || "--"}</TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.odi || "--"}</TableCell>
+                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.t20 || "--"}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

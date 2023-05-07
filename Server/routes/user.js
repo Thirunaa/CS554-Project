@@ -8,7 +8,35 @@ const redis = require("redis");
 const client = redis.createClient();
 client.connect().then(() => {});
 // catch the validation status from routeValidations.js - some validations has to be changed
-router.route("/login").post(async (req, res) => {
+
+router.route("/").get(async (req, res) => {
+  try {
+    if (!client.isOpen) await client.connect();
+    let newsFromCache = await client.get("news");
+    if (newsFromCache) {
+      console.log("news from redis");
+      res.status(200).json(JSON.parse(newsFromCache));
+      return;
+    } else {
+      let newsData = await matches.getCricketNews();
+      try {
+        await client.set("news", JSON.stringify(newsData));
+      } catch (e) {
+        console.log("Set news in Redis Error");
+        console.log(e);
+      }
+      //console.log(newsData);
+      res.status(200).json(newsData);
+      return;
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.route("/users/login").post(async (req, res) => {
   try {
     if (req.session.userId) {
       res.status(400).json({
@@ -47,7 +75,7 @@ router.route("/login").post(async (req, res) => {
   }
 });
 
-router.route("/logout").get(async (req, res) => {
+router.route("/users/logout").get(async (req, res) => {
   try {
     if (!req.session.userId) {
       res.status(401).json({ errorCode: 401, message: "You've to be logged in to perform this action." });
@@ -63,7 +91,7 @@ router.route("/logout").get(async (req, res) => {
   }
 });
 
-router.route("/signup").post(async (req, res) => {
+router.route("/users/signup").post(async (req, res) => {
   try {
     let userId = req.body.userId;
     let emailAddress = req.body.emailAddress;

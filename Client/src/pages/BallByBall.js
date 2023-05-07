@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 import { useStyles } from "../styles/ballbyballStyles";
 import { Typography, Divider, Box, CircularProgress } from "@mui/material";
+import { AuthContext } from "../firebase/Auth";
 
 const BallByBall = () => {
+  // eslint-disable-next-line
+  const { currentUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [bbbData, setbbbData] = useState(undefined);
   const classes = useStyles();
@@ -16,8 +19,11 @@ const BallByBall = () => {
   useEffect(() => {
     console.log("on load useeffect");
     async function fetchData() {
+      let authtoken = await currentUser.getIdToken();
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/match_bbb/" + id);
+        const { data } = await axios.get("http://localhost:3001/matches/match_bbb/" + id, {
+          headers: { authtoken: authtoken },
+        });
         setbbbData(data);
       } catch (e) {
         console.log(e);
@@ -25,7 +31,7 @@ const BallByBall = () => {
     }
     fetchData();
     setLoading(false);
-  }, [id]);
+  }, [id, currentUser]);
 
   let firstInnings = [];
   let secondInnings = [];

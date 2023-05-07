@@ -17,7 +17,7 @@ import SignUp from "./components/SignUp";
 import SignOut from "./components/SignOut";
 import SignIn from "./components/SignIn";
 import PrivateRoute from "./pages/PrivateRoute";
-import Predict from "./components/Predict";
+//import Predict from "./components/Predict";
 import BallByBall from "./pages/BallByBall";
 
 function App() {
@@ -57,9 +57,9 @@ function App() {
                 <Route path="/match_bbb/:id" element={<BallByBall />} />
               </Route>
 
-              <Route path="/predict" element={<PrivateRoute />}>
+              {/* <Route path="/predict" element={<PrivateRoute />}>
                 <Route path="/predict" element={<Predict />} />
-              </Route>
+              </Route> */}
 
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />

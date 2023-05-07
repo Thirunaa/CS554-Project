@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
@@ -21,6 +22,7 @@ import "../App.css";
 import RouteNotFound from "../components/RouteNotFound.js";
 
 const AllMatchesList = () => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const navigate = useNavigate();
   let { pagenum } = useParams();
@@ -32,12 +34,16 @@ const AllMatchesList = () => {
   const [matchesData, setMatchesData] = useState([]);
   let card = null;
 
+  console.log("current user uid", currentUser.uid);
   useEffect(() => {
     console.log("on load useeffect all matches");
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId);
+        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId, {
+          headers: { authtoken: authtoken },
+        });
         //console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -51,7 +57,7 @@ const AllMatchesList = () => {
     }
     fetchData();
     setLoading(false);
-  }, [pagenum]);
+  }, [pagenum, currentUser]);
 
   console.log("Matches Data: ", matchesData);
 

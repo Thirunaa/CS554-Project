@@ -154,7 +154,28 @@ router.route("/users/addFavourite/:playerId").post(async (req, res) => {
       return;
     }
     let playerId = req.params.playerId;
-    const updatedUser = await users.addFavoritePlayer(currentUser, playerId);
+    const updatedUser = await users.addRemoveFavoritePlayer(currentUser, playerId);
+    console.log("updatedUser");
+    console.log(updatedUser);
+    res.status(200).json(updatedUser);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+// saveMatch
+router.route("/users/saveMatch/:matchId").post(async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    if (!currentUser) {
+      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      return;
+    }
+    let matchId = req.params.matchId;
+    const updatedUser = await users.addRemoveFavoriteMatch(currentUser, matchId);
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);

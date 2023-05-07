@@ -109,12 +109,16 @@ const Profile = () => {
             )}
             <Grid container spacing={2}>
               {favouriteMatchesObjects.map((match) => (
-                <Grid item key={match} xs={12} sm={6} md={4}>
-                  <Card sx={{ backgroundColor: "#EFEFEF", p: 1 }}>
-                    <CardContent>
-                      <Typography>{match}</Typography>
-                    </CardContent>
-                  </Card>
+                <Grid item key={match.data.name} xs={12} sm={6} md={4}>
+                  <Link to={`/match/${match.data.id}`}>
+                    <Card sx={{ backgroundColor: "#EFEFEF", p: 1 }}>
+                      <CardContent>
+                        <Typography>{match.data.name}</Typography>
+                        <Typography>{match.data.date}</Typography>
+                        <Typography>{match.data.status}</Typography>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </Grid>
               ))}
             </Grid>

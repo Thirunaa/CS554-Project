@@ -30,19 +30,24 @@ const getUserById = async (userId) => {
   return user;
 };
 
-const addFavoriteMatch = async (userId, matchId) => {
-  validateUserId(userId);
+const addRemoveFavoriteMatch = async (userId, matchId) => {
+  console.log("saveFavoriteMatch");
   const usersCollection = await users();
+  const user = await usersCollection.findOne({ _id: userId });
 
-  const updatingUser = await usersCollection.updateOne({ _id: userId }, { $addToSet: { favouriteMatches: matchId } });
-
-  if (!updatingUser.modifiedCount) throw `Adding match to user was unsuccessful.`;
-
+  if (user.favouriteMatches.includes(matchId)) {
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouriteMatches: matchId } });
+    if (!updatingUser.modifiedCount) throw `Unsave match from user was unsuccessful.`;
+  } else {
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $addToSet: { favouriteMatches: matchId } });
+    if (!updatingUser.modifiedCount) throw `Save match to user was unsuccessful.`;
+  }
   const updatedUser = await usersCollection.findOne({ _id: userId });
+  console.log(updatedUser);
   return updatedUser;
 };
 
-const addFavoritePlayer = async (userId, playerId) => {
+const addRemoveFavoritePlayer = async (userId, playerId) => {
   console.log("addFavoritePlayer");
   const usersCollection = await users();
   const user = await usersCollection.findOne({ _id: userId });
@@ -63,7 +68,6 @@ const addFavoritePlayer = async (userId, playerId) => {
 };
 
 const removeFavoriteMatch = async (userId, matchId) => {
-  validateUserId(userId);
   const usersCollection = await users();
 
   const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouriteMatches: matchId } });
@@ -76,7 +80,6 @@ const removeFavoriteMatch = async (userId, matchId) => {
 };
 
 const removeFavoritePlayer = async (userId, playerId) => {
-  validateUserId(userId);
   const usersCollection = await users();
 
   const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouritePlayers: playerId } });
@@ -103,8 +106,8 @@ const checkDisplayName = async (name) => {
 module.exports = {
   createUser,
   getUserById,
-  addFavoriteMatch,
-  addFavoritePlayer,
+  addRemoveFavoriteMatch,
+  addRemoveFavoritePlayer,
   removeFavoriteMatch,
   removeFavoritePlayer,
   checkDisplayName,

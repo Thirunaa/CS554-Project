@@ -166,7 +166,6 @@ router.route("/users/addFavourite/:playerId").post(async (req, res) => {
   }
 });
 
-// saveMatch
 router.route("/users/saveMatch/:matchId").post(async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
@@ -179,6 +178,19 @@ router.route("/users/saveMatch/:matchId").post(async (req, res) => {
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.get("users/searchUsers/:searchTerm", async (req, res) => {
+  try {
+    let searchTerm = req.params.searchTerm;
+    let searchedUsers = await users.searchUsers(searchTerm);
+    res.status(200).json(searchedUsers);
     return;
   } catch (e) {
     console.log(e);

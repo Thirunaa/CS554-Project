@@ -22,6 +22,7 @@ import BallByBall from "./pages/BallByBall";
 import ChangePassword from "./components/ChangePassword";
 import Profile from "./pages/Profile";
 import User from "./pages/User";
+import MatchPreview from "./pages/MatchPreview";
 
 function App() {
   return (

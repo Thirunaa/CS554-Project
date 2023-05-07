@@ -16,10 +16,10 @@ import { useStyles } from "../styles/singleElementStyles.js";
 //import { NavLink } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
 import { doSignOut } from "../firebase/FirebaseFunctions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 // fixing the navbar merge issue
-const settings = ["Profile", "Logout"];
+//const settings = ["Profile", "Logout"];
 const Navigation = () => {
   const { currentUser } = useContext(AuthContext);
   console.log("current user", currentUser);
@@ -33,6 +33,7 @@ const Navigation = () => {
 
 function Navbar() {
   const classes = useStyles();
+  const navigate = useNavigate();
   // eslint-disable-next-line
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -127,7 +128,7 @@ function Navbar() {
               Players
             </Link>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          {/* <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
               className={classes.button}
               sx={{
@@ -139,7 +140,7 @@ function Navbar() {
             >
               SignOut
             </Button>
-          </Box>
+          </Box> */}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -164,11 +165,25 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem
+                key={"Profile"}
+                onClick={() => {
+                  handleCloseUserMenu();
+                  navigate("/profile", { replace: true });
+                }}
+              >
+                <Typography textAlign="center">{"Profile"}</Typography>
+              </MenuItem>
+
+              <MenuItem
+                key={"Logout"}
+                onClick={() => {
+                  handleCloseUserMenu();
+                  doSignOut();
+                }}
+              >
+                <Typography textAlign="center">{"Logout"}</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

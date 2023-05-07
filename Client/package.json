@@ -6,6 +6,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.16",
     "@mui/styled-engine": "^5.11.16",
@@ -21,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.2",
     "react-typekit": "^1.1.4",
+    "socket.io-client": "^4.6.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

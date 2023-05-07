@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
@@ -20,6 +21,7 @@ import Error400 from "../components/Error400.js";
 import RouteNotFound from "../components/RouteNotFound.js";
 
 const PlayersList = () => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const navigate = useNavigate();
   let { pagenum } = useParams();
@@ -36,8 +38,11 @@ const PlayersList = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId);
+        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId, {
+          headers: { authtoken: authtoken },
+        });
         console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -51,14 +56,17 @@ const PlayersList = () => {
     }
     fetchData();
     setLoading(false);
-  }, [pagenum]);
+  }, [pagenum, currentUser]);
 
   useEffect(() => {
     console.log("search useEffect fired");
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm);
+        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm, {
+          headers: { authtoken: authtoken },
+        });
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -69,7 +77,7 @@ const PlayersList = () => {
       console.log("searchTerm is set");
       fetchData();
     }
-  }, [searchTerm]);
+  }, [searchTerm, currentUser]);
 
   const searchValue = async (value) => {
     setSearchTerm(value);
@@ -111,7 +119,7 @@ const PlayersList = () => {
   }
 
   if (axiosError !== "") {
-    if (axiosError.includes("400")) {
+    if (axiosError?.includes("400")) {
       return (
         <div>
           <Error400 />;

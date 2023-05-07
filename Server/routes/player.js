@@ -8,6 +8,48 @@ const redis = require("redis");
 const client = redis.createClient();
 client.connect().then(() => {});
 
+function formattedDate(dateString) {
+  if (dateString) {
+    const date = new Date(dateString);
+    const today = new Date();
+    const diffInMs = today.getTime() - date.getTime();
+    const diffInYears = Math.floor(diffInMs / (1000 * 60 * 60 * 24 * 365.25));
+    const month = date.toLocaleString("default", { month: "short" });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const outputString = `${month} ${day}, ${year} (${diffInYears} years)`;
+    return outputString;
+  } else {
+    return "";
+  }
+}
+
+function getStats(stats) {
+  let battingStats = stats?.filter((x) => x.fn == "batting");
+  let bowlingStats = stats?.filter((x) => x.fn == "bowling");
+  let matchtypes = ["odi", "t20i", "ipl"];
+  let newStats = {
+    batting: matchtypes.map((matchtype) => {
+      let obj = { matchtype };
+      let arr = battingStats?.filter((x) => x.matchtype == matchtype);
+      arr?.forEach((element) => {
+        obj[element.stat] = element.value;
+      });
+      return obj;
+    }),
+    bowling: matchtypes.map((matchtype) => {
+      let obj = { matchtype };
+      let arr = bowlingStats?.filter((x) => x.matchtype == matchtype);
+      arr?.forEach((element) => {
+        obj[element.stat] = element.value;
+      });
+      return obj;
+    }),
+  };
+
+  return newStats;
+}
+
 router.get("/playersList/page/:pageNo", async (req, res) => {
   try {
     let pageNo = req.params.pageNo;
@@ -80,13 +122,19 @@ router.get("/player/:id", async (req, res) => {
   try {
     let id = req.params.id;
     if (!client.isOpen) await client.connect();
+
     let playerFromCache = await client.get("player_" + id);
+    let currentUser = req.authenticatedUser;
+    const user = await users.getUserById(currentUser);
+    console.log("user", user);
     if (playerFromCache) {
       console.log("player from redis");
-      res.status(200).json(JSON.parse(playerFromCache));
+      res.status(200).json({ playerObj: JSON.parse(playerFromCache), user });
       return;
     } else {
       let playerObj = await players.getPlayerById(id);
+      playerObj.dateOfBirth = formattedDate(playerObj.dateOfBirth);
+      playerObj.stats = getStats(playerObj.stats);
       try {
         await client.set("player_" + id, JSON.stringify(playerObj));
       } catch (e) {
@@ -94,7 +142,7 @@ router.get("/player/:id", async (req, res) => {
         console.log(e);
       }
       //console.log(player);
-      res.status(200).json(playerObj);
+      res.status(200).json({ playerObj, user });
       return;
     }
   } catch (e) {

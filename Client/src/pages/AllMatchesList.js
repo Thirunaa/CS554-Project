@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
@@ -14,7 +15,6 @@ import {
   ButtonGroup,
   Grid,
   Typography,
-  CardHeader,
   CardMedia,
 } from "@material-ui/core";
 //import { Alert } from "@mui/material";
@@ -22,6 +22,7 @@ import "../App.css";
 import RouteNotFound from "../components/RouteNotFound.js";
 
 const AllMatchesList = () => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const navigate = useNavigate();
   let { pagenum } = useParams();
@@ -33,14 +34,16 @@ const AllMatchesList = () => {
   const [matchesData, setMatchesData] = useState([]);
   let card = null;
 
+  console.log("current user uid", currentUser.uid);
   useEffect(() => {
     console.log("on load useeffect all matches");
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         let pageId = pagenum;
-        const { data } = await axios.get(
-          "http://localhost:3001/matches/allMatches/page/" + pageId
-        );
+        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId, {
+          headers: { authtoken: authtoken },
+        });
         //console.log(data);
         if (data.length < 25) {
           setNextPagePresent(false);
@@ -54,7 +57,7 @@ const AllMatchesList = () => {
     }
     fetchData();
     setLoading(false);
-  }, [pagenum]);
+  }, [pagenum, currentUser]);
 
   console.log("Matches Data: ", matchesData);
 
@@ -72,9 +75,7 @@ const AllMatchesList = () => {
       hour12 = 12;
     }
 
-    return `${hour12.toString().padStart(2, "0")}:${minute
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
+    return `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${amPm}`;
   }
 
   const buildCard = (match) => {
@@ -84,25 +85,17 @@ const AllMatchesList = () => {
           <CardActionArea>
             <Link to={`/match/${match.id}`}>
               <CardContent>
-                <Typography
-                  className={classes.titleHead}
-                  gutterBottom
-                  variant="h6"
-                  component="h2"
-                >
+                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  <strong>Date:</strong>{" "}
-                  {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
+                <Typography variant="body1" color="textSecondary">
+                  <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Time:</strong>{" "}
-                  {match &&
-                    match.dateTimeGMT &&
-                    convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                  {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Status: </strong>
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
@@ -110,10 +103,10 @@ const AllMatchesList = () => {
                     <span style={{ color: "red" }}>{match.status}</span>
                   )}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <CardMedia>
                     {match &&
                       match.teamInfo &&
@@ -121,12 +114,7 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[0].img}
-                          alt={match.teamInfo[0].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[0].img} alt={match.teamInfo[0].name} height={35} width={60} />
                       )}
                     {match.teams?.[0]}
                   </CardMedia>
@@ -134,7 +122,6 @@ const AllMatchesList = () => {
                   <Typography
                     variant="body2"
                     color="textSecondary"
-                    component="p"
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -153,12 +140,7 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[1].img}
-                          alt={match.teamInfo[1].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[1].img} alt={match.teamInfo[1].name} height={35} width={60} />
                       )}
                     {match.teams?.[1]}
                   </CardMedia>
@@ -209,12 +191,9 @@ const AllMatchesList = () => {
                 style={{ marginRight: "10px" }}
                 variant={"contained"}
                 onClick={() => {
-                  navigate(
-                    "/all-matches/page/" + parseInt(parseInt(pagenum) - 1),
-                    {
-                      replace: true,
-                    }
-                  );
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) - 1), {
+                    replace: true,
+                  });
                 }}
               >
                 PREVIOUS
@@ -225,12 +204,9 @@ const AllMatchesList = () => {
                 style={{ marginRight: "10px" }}
                 variant={"contained"}
                 onClick={() => {
-                  navigate(
-                    "/all-matches/page/" + parseInt(parseInt(pagenum) + 1),
-                    {
-                      replace: true,
-                    }
-                  );
+                  navigate("/all-matches/page/" + parseInt(parseInt(pagenum) + 1), {
+                    replace: true,
+                  });
                 }}
               >
                 NEXT

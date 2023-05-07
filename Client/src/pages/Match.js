@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
 // import App.css
 import "../App.css";
+import io from "socket.io-client";
 import {
   Box,
   Card,
@@ -15,53 +17,36 @@ import {
   CardMedia,
   Button,
 } from "@material-ui/core";
+//import MatchPrediction from "./MatchPrediction.js";
 import "../App.css";
-// change a different image
+
 import noNewsImage from "../images/noNewsImage.png";
+//import Predict from "../components/Predict";
+
 const Match = (props) => {
+  const { currentUser } = useContext(AuthContext);
   const [matchData, setMatchData] = useState(undefined);
+  // eslint-disable-next-line
+  const [matchDataFromDB, setMatchDataFromDB] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [predictionObj, setPredictionObj] = useState();
+  const [prediction, setPrediction] = useState("");
   const [scoreList, setScoreList] = useState([]);
+  const [userData, setUserData] = useState();
   const classes = useStyles();
   let { id } = useParams();
-  //const matchUrl = "https://api.cricapi.com/v1/match_info?";
-  //const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+  // eslint-disable-next-line
+  const [matchId, setMatchId] = useState(id);
 
-  useEffect(() => {
-    console.log("SHOW useEffect fired");
-    async function fetchData() {
-      try {
-        const { data } = await axios.get(
-          "http://localhost:3001/matches/match/" + id
-        );
-        let scoresArray = [];
-        console.log(data);
-        setMatchData(data);
-        // set score
-        if (data && data.score) {
-          for (const score of data.score) {
-            scoresArray.push(
-              (
-                score.inning +
-                " - " +
-                score.r +
-                "/" +
-                score.w +
-                "   Overs: " +
-                score.o +
-                " "
-              ).toString()
-            );
-          }
-        }
-        setScoreList(scoresArray);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, [id]);
+  // eslint-disable-next-line
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
+
+  const [team1Percent, setTeam1Percent] = useState(0);
+  const [team2Percent, setTeam2Percent] = useState(0);
+  const [tiePercent, setTiePercent] = useState(0);
+
+  const userId = currentUser.uid;
 
   function convertTo12Hour(timeString) {
     const [hour, minute] = timeString.split(":").map(Number);
@@ -77,10 +62,150 @@ const Match = (props) => {
       hour12 = 12;
     }
 
-    return `${hour12.toString().padStart(2, "0")}:${minute
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
+    return `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${amPm}`;
   }
+
+  function handleInputChange(event) {
+    setMessage(event.target.value);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Send the new message to the server
+    const socket = io("http://localhost:3002");
+    console.log("SENDING MESSAGE");
+    console.log("ID: " + id);
+    console.log("MESSAGE: " + message);
+    socket.emit("message", { id, message });
+
+    // Clear the message input
+    setMessage("");
+  }
+
+  function handleClick(button) {
+    setPrediction(button);
+  }
+
+  function setPredictionPercentage(match) {
+    // Calculate percentages
+    const totalPredictions =
+      match.predictions.team1.length + match.predictions.team2.length + match.predictions.tie.length;
+    if (totalPredictions > 0) {
+      const team1Percent = (match.predictions.team1.length / totalPredictions) * 100;
+      const team2Percent = (match.predictions.team2.length / totalPredictions) * 100;
+      const tiePercent = (match.predictions.tie.length / totalPredictions) * 100;
+      setTeam1Percent(team1Percent.toFixed(2));
+      setTeam2Percent(team2Percent.toFixed(2));
+      setTiePercent(tiePercent.toFixed(2));
+    }
+  }
+
+  useEffect(() => {
+    console.log(prediction);
+
+    async function fetchData() {
+      let authtoken = await currentUser.getIdToken();
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3001/matches/match/" + id + "/predict",
+          {
+            prediction,
+          },
+          {
+            headers: {
+              authtoken: authtoken,
+            },
+          }
+        );
+        console.log("from axios", data);
+        setMatchDataFromDB(data);
+        setMatchData(data.data);
+        setPredictionObj(data.predictions);
+        setPredictionPercentage(data);
+        setLoading(false);
+      } catch (e) {
+        //setMatch(matchData);
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [id, prediction, currentUser]);
+
+  useEffect(() => {
+    console.log("Match data useEffect fired");
+    async function fetchData() {
+      let authtoken = await currentUser.getIdToken();
+      try {
+        const {
+          data: { matchObj, user },
+        } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
+          headers: { authtoken: authtoken },
+        });
+        let scoresArray = [];
+        console.log(matchObj);
+        setUserData(user);
+        setMatchDataFromDB(matchObj);
+        setMatchData(matchObj.data);
+        setPredictionObj(matchObj.predictions);
+        setPredictionPercentage(matchObj);
+        // set score
+        if (matchObj?.data?.score) {
+          for (const score of matchObj.data.score) {
+            scoresArray.push(
+              (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
+            );
+          }
+        }
+        setScoreList(scoresArray);
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [matchId, currentUser]);
+
+  async function fetchUserData() {
+    try {
+      let authtoken = await currentUser.getIdToken();
+      setLoading(true);
+      const { data } = await axios.post(
+        "http://localhost:3001/users/saveMatch/" + id,
+        {},
+        {
+          headers: { authtoken: authtoken },
+        }
+      );
+      setUserData(data);
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  }
+
+  function handleSaveUnsave() {
+    fetchUserData();
+  }
+
+  useEffect(() => {
+    // Set up Socket.io connection
+    const socket = io("http://localhost:3002");
+
+    // Join the chat room for the current match
+    socket.emit("join", id);
+
+    // Listen for new messages
+    socket.on("message", (message) => {
+      setMessages((prevMessages) => [...prevMessages, message]);
+    });
+
+    // Clean up the Socket.io connection
+    return () => {
+      socket.disconnect();
+    };
+  }, [id]);
 
   if (loading) {
     return (
@@ -90,7 +215,7 @@ const Match = (props) => {
     );
   } else {
     return (
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid id={matchData.id} container justifyContent="center" alignItems="center">
         <Grid item>
           <Box
             style={{
@@ -101,19 +226,13 @@ const Match = (props) => {
             }}
           >
             <Card className={classes.card} variant="outlined">
-              <CardHeader
-                className={classes.titleHead}
-                title={matchData && matchData.name ? matchData.name : ""}
-              />
+              <CardHeader className={classes.titleHead} title={matchData && matchData.name ? matchData.name : ""} />
               <Grid container wrap="nowrap">
                 <CardMedia
                   className={classes.media}
                   component="img"
                   image={
-                    matchData &&
-                    matchData.teamInfo &&
-                    matchData.teamInfo[0]?.img &&
-                    matchData.teamInfo[1]?.img
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[0].img
                       : noNewsImage
                   }
@@ -123,10 +242,7 @@ const Match = (props) => {
                   className={classes.media}
                   component="img"
                   image={
-                    matchData &&
-                    matchData.teamInfo &&
-                    matchData.teamInfo[0]?.img &&
-                    matchData.teamInfo[1]?.img
+                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
                       ? matchData.teamInfo[1].img
                       : noNewsImage
                   }
@@ -134,11 +250,7 @@ const Match = (props) => {
                 />
               </Grid>
               <CardContent>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="span"
-                >
+                <Typography variant="body2" color="textSecondary" component="div">
                   <dl>
                     {scoreList.length !== 0 && (
                       <p>
@@ -151,14 +263,12 @@ const Match = (props) => {
                     )}
                     <p>
                       {matchData && matchData.matchStarted && (
-                        <div>
+                        <>
                           <dt className="title">Toss</dt>
                           {matchData.tossWinner
-                            ? matchData.tossWinner +
-                              " won the toss and chose to " +
-                              matchData.tossChoice
+                            ? matchData.tossWinner + " won the toss and chose to " + matchData.tossChoice
                             : "Toss not yet decided"}
-                        </div>
+                        </>
                       )}
                     </p>
                     <p>
@@ -185,14 +295,85 @@ const Match = (props) => {
                     <p>
                       <dt className="title">Teams</dt>
 
-                      {matchData &&
-                      matchData.teams &&
-                      matchData.teams[0] &&
-                      matchData.teams[1]
+                      {matchData && matchData.teams && matchData.teams[0] && matchData.teams[1]
                         ? matchData.teams[0] + " vs " + matchData.teams[1]
                         : ""}
                     </p>
                   </dl>
+
+                  {/* Prediction button logic */}
+                  {!predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+                  {predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+
+                  {!predictionObj.team1.includes(userId) &&
+                    predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                      </div>
+                    )}
+
+                  {!predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+
+                  <p>
+                    Predictions for {matchData?.teams[0]} ({team1Percent}) Predictions for {matchData?.teams[1]} (
+                    {team2Percent}) Predictions for Tie ({tiePercent})
+                  </p>
+                  {/* End of Prediction button logic */}
+                  <br />
+
+                  {!userData?.favouriteMatches.includes(id) && (
+                    <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
+                      Save
+                    </Button>
+                  )}
+                  {userData?.favouriteMatches.includes(id) && (
+                    <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
+                      Unsave
+                    </Button>
+                  )}
+
                   <br />
                   <br />
                   <Button
@@ -206,13 +387,24 @@ const Match = (props) => {
                   >
                     Back
                   </Button>
+                  {matchData.bbbEnabled && <Link to={"/match_bbb/" + matchData.id}> Ball By Ball Details</Link>}
                 </Typography>
               </CardContent>
             </Card>
           </Box>
         </Grid>
         <Grid item>
-          <Box></Box>
+          <div>
+            <ul>
+              {messages.map((message, index) => (
+                <li key={index}>{message}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleFormSubmit}>
+              <input type="text" value={message} onChange={handleInputChange} />
+              <button type="submit">Send</button>
+            </form>
+          </div>
         </Grid>
       </Grid>
     );

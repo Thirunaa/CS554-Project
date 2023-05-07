@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CircularProgress,
-  Grid,
-  Typography,
-  CardHeader,
-  CardMedia,
-} from "@material-ui/core";
+import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography, CardMedia } from "@material-ui/core";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
-// Change by rohit
+import { AuthContext } from "../firebase/Auth";
+
 const CurrentMatchesList = () => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [matchesData, setMatchesData] = useState([]);
@@ -25,9 +18,10 @@ const CurrentMatchesList = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        const { data } = await axios.get(
-          "http://localhost:3001/matches/currentMatches"
-        );
+        let authtoken = await currentUser.getIdToken();
+        const { data } = await axios.get("http://localhost:3001/matches/currentMatches", {
+          headers: { authtoken: authtoken },
+        });
         console.log(data);
         setMatchesData(data);
       } catch (e) {
@@ -36,7 +30,7 @@ const CurrentMatchesList = () => {
     }
     fetchData();
     setLoading(false);
-  }, []);
+  }, [currentUser]);
 
   function convertTo12Hour(timeString) {
     const [hour, minute] = timeString.split(":").map(Number);
@@ -52,9 +46,7 @@ const CurrentMatchesList = () => {
       hour12 = 12;
     }
 
-    return `${hour12.toString().padStart(2, "0")}:${minute
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
+    return `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${amPm}`;
   }
 
   const buildCard = (match) => {
@@ -64,38 +56,28 @@ const CurrentMatchesList = () => {
           <CardActionArea>
             <Link to={`/match/${match.id}`}>
               <CardContent>
-                <Typography
-                  className={classes.titleHead}
-                  gutterBottom
-                  variant="h6"
-                  component="h2"
-                >
+                <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  <strong>Date:</strong>{" "}
-                  {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
+                <Typography variant="body1" color="textSecondary">
+                  <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   {match && match.matchStarted ? (
                     <div>
                       <strong>Started At:</strong>
 
-                      {match &&
-                        match.dateTimeGMT &&
-                        convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                      {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                     </div>
                   ) : (
                     <div>
                       <strong>Starts At:</strong>
 
-                      {match &&
-                        match.dateTimeGMT &&
-                        convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
+                      {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                     </div>
                   )}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Status: </strong>
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
@@ -106,7 +88,7 @@ const CurrentMatchesList = () => {
                 <Typography variant="body2" color="textSecondary" component="p">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <CardMedia>
                     {match &&
                       match.teamInfo &&
@@ -114,12 +96,7 @@ const CurrentMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[0].img}
-                          alt={match.teamInfo[0].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[0].img} alt={match.teamInfo[0].name} height={35} width={60} />
                       )}
                     {match.teams?.[0]}
                   </CardMedia>
@@ -146,12 +123,7 @@ const CurrentMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img
-                          src={match.teamInfo[1].img}
-                          alt={match.teamInfo[1].name}
-                          height={35}
-                          width={60}
-                        />
+                        <img src={match.teamInfo[1].img} alt={match.teamInfo[1].name} height={35} width={60} />
                       )}
                     {match.teams?.[1]}
                   </CardMedia>

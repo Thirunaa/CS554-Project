@@ -17,8 +17,12 @@ import SignUp from "./components/SignUp";
 import SignOut from "./components/SignOut";
 import SignIn from "./components/SignIn";
 import PrivateRoute from "./pages/PrivateRoute";
-import Predict from "./components/Predict";
-import BBB from "./pages/BallByBallList"
+//import Predict from "./components/Predict";
+import BallByBall from "./pages/BallByBall";
+import ChangePassword from "./components/ChangePassword";
+import Profile from "./pages/Profile";
+import User from "./pages/User";
+import MatchPreview from "./pages/MatchPreview";
 
 function App() {
   return (
@@ -49,16 +53,28 @@ function App() {
                 <Route path="/match/:id" element={<Match />} />
               </Route>
 
+              <Route path="/match/preview" element={<PrivateRoute />}>
+                <Route path="/match/preview" element={<MatchPreview />} />
+              </Route>
+
               <Route path="/player/:id" element={<PrivateRoute />}>
                 <Route path="/player/:id" element={<Player />} />
               </Route>
 
-              <Route path="/bbb/:id" element={<PrivateRoute />}>
-                <Route path="/bbb/:id" element={<BBB />} />
+              <Route path="/user/:username" element={<PrivateRoute />}>
+                <Route path="/user/:username" element={<User />} />
               </Route>
 
-              <Route path="/predict" element={<PrivateRoute />}>
-                <Route path="/predict" element={<Predict />} />
+              <Route path="/match_bbb/:id" element={<PrivateRoute />}>
+                <Route path="/match_bbb/:id" element={<BallByBall />} />
+              </Route>
+
+              <Route path="/change-password" element={<PrivateRoute />}>
+                <Route path="/change-password" element={<ChangePassword />} />
+              </Route>
+
+              <Route path="/profile" element={<PrivateRoute />}>
+                <Route path="/profile" element={<Profile />} />
               </Route>
 
               <Route path="/signup" element={<SignUp />} />

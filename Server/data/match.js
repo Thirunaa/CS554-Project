@@ -6,11 +6,33 @@ const comments = mongoCollections.comments;
 const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
 const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
-const API_KEY = "apikey=f9262a85-d559-439c-b1c0-4817f5e46208";
+const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
+const liveScoresUrl = "https://api.cricapi.com/v1/cricScore?";
+const newsAPI = "https://newsapi.org/v2/top-headlines?country=in&category=sports&q=Cric&";
+const newAPI_KEY = "apiKey=f1a6e7d5baf347b5b46b2b32ac608252";
+const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
+
 const axios = require("axios");
 
+const getCricketNews = async () => {
+  const { data } = await axios.get(newsAPI + newAPI_KEY);
+  //console.log(data);
+  return data.articles;
+};
+
 const getCurrentMatches = async () => {
-  const { data } = await axios.get(currentMatchesUrl + API_KEY + "&offset=0");
+  let currentMatchesList = [];
+  for (let i = 0; i < 2; i++) {
+    const { data } = await axios.get(currentMatchesUrl + API_KEY + "&offset=" + (i * 25).toString());
+    //console.log(data.data);
+    currentMatchesList = currentMatchesList.concat(data.data);
+  }
+  //console.log(currentMatchesList.length);
+  return currentMatchesList;
+};
+
+const getLiveScores = async () => {
+  const { data } = await axios.get(liveScoresUrl + API_KEY);
   //console.log(data.data);
   return data.data;
 };
@@ -25,20 +47,34 @@ const getAllMatchesByPageNo = async (PageNo) => {
 };
 
 const getMatchById = async (id) => {
+  const matchesCollection = await matches();
   const { data } = await axios.get(matchUrl + API_KEY + "&id=" + id);
   metaData = data.data;
-  console.log("data from data func", metaData);
-  let matchObject = {
-    _id: new ObjectId(),
-    matchId: id,
-    data: metaData,
-    comments: [],
-    predictions: { team1: [], team2: [], tie: [] },
-  };
-  const matchesCollection = await matches();
-  const createdMatch = await matchesCollection.insertOne(matchObject);
-  if (!createdMatch.insertedId) throw `Creating this match was unsuccessful.`;
-  return metaData;
+  let match = await matchesCollection.findOne({ matchId: id });
+
+  if (match) {
+    console.log("data from data func - Match already in DB", match);
+    const updatedMatchMetaData = await matchesCollection.updateOne({ matchId: id }, { $set: { data: metaData } });
+    if (!updatedMatchMetaData.modifiedCount) return match;
+    return await matchesCollection.findOne({ matchId: id });
+  } else {
+    console.log("data from data func - Match inserted into DB", metaData);
+    let matchObject = {
+      _id: new ObjectId(),
+      matchId: id,
+      data: metaData,
+      comments: [],
+      predictions: { team1: [], team2: [], tie: [] },
+    };
+    const createdMatch = await matchesCollection.insertOne(matchObject);
+    if (!createdMatch.insertedId) throw `Creating this match was unsuccessful.`;
+    return await matchesCollection.findOne({ matchId: id });
+  }
+};
+
+const getBBBMatchDataById = async (id) => {
+  const { data } = await axios.get(ballbyballUrl + API_KEY + "&id=" + id);
+  return data;
 };
 
 const getMatchByIdFromDB = async (id) => {
@@ -229,7 +265,7 @@ const unlikeReply = async (matchId, commentId, replyId, userId) => {
 };
 
 const predictMatchResult = async (matchId, userId, prediction) => {
-  validation.validatePrediction(prediction);
+  //validation.validatePrediction(prediction);
   const matchesCollection = await matches();
   const match = await matchesCollection.findOne({ matchId: matchId });
   if (!match) throw `No match found with that id ${matchId}`;
@@ -289,12 +325,15 @@ const predictMatchResult = async (matchId, userId, prediction) => {
 };
 
 module.exports = {
+  getCricketNews,
   addComment,
   deleteComment,
   getCurrentMatches,
+  getLiveScores,
   getAllMatchesByPageNo,
   getMatchById,
   getMatchByIdFromDB,
+  getBBBMatchDataById,
   getCommentsByMatchId,
   addReply,
   deleteReply,

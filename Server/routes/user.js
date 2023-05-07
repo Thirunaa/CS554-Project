@@ -199,4 +199,33 @@ router.get("users/searchUsers/:searchTerm", async (req, res) => {
   }
 });
 
+router.route("/users/:username").get(async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    let username = req.params.username;
+    if (!currentUser) {
+      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      return;
+    }
+    console.log("username");
+    let user = await users.getUserByUsername(username);
+    let favouriteMatchesObjects = [];
+    for (let i = 0; i < user.favouriteMatches.length; i++) {
+      let match = await matches.getMatchById(user.favouriteMatches[i]);
+      favouriteMatchesObjects.push(match);
+    }
+    let favouritePlayersObjects = [];
+    for (let i = 0; i < user.favouritePlayers.length; i++) {
+      let player = await players.getPlayerById(user.favouritePlayers[i]);
+      favouritePlayersObjects.push(player);
+    }
+    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
 module.exports = router;

@@ -51,8 +51,16 @@ const searchUsers = async (query) => {
 };
 
 const getUserById = async (userId) => {
+  console.log("getUserById");
   const usersCollection = await users();
   const user = await usersCollection.findOne({ _id: userId });
+  return user;
+};
+
+const getUserByUsername = async (username) => {
+  console.log("getUserByUsername");
+  const usersCollection = await users();
+  const user = await usersCollection.findOne({ displayName: username });
   return user;
 };
 
@@ -132,6 +140,7 @@ const checkDisplayName = async (name) => {
 module.exports = {
   createUser,
   getUserById,
+  getUserByUsername,
   addRemoveFavoriteMatch,
   addRemoveFavoritePlayer,
   removeFavoriteMatch,

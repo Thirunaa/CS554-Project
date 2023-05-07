@@ -22,6 +22,7 @@ import BallByBall from "./pages/BallByBall";
 import ChangePassword from "./components/ChangePassword";
 import Profile from "./pages/Profile";
 import User from "./pages/User";
+import MatchPreview from "./pages/MatchPreview";
 
 function App() {
   return (
@@ -50,6 +51,10 @@ function App() {
 
               <Route path="/match/:id" element={<PrivateRoute />}>
                 <Route path="/match/:id" element={<Match />} />
+              </Route>
+
+              <Route path="/match/preview" element={<PrivateRoute />}>
+                <Route path="/match/preview" element={<MatchPreview />} />
               </Route>
 
               <Route path="/player/:id" element={<PrivateRoute />}>

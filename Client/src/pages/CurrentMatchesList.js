@@ -59,10 +59,10 @@ const CurrentMatchesList = () => {
                 <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   {match && match.matchStarted ? (
                     <div>
                       <strong>Started At:</strong>
@@ -77,7 +77,7 @@ const CurrentMatchesList = () => {
                     </div>
                   )}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Status: </strong>
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
@@ -88,7 +88,7 @@ const CurrentMatchesList = () => {
                 <Typography variant="body2" color="textSecondary" component="p">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <CardMedia>
                     {match &&
                       match.teamInfo &&

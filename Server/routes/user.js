@@ -2,6 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const router = express.Router();
 const matches = require("../data/match");
+const players = require("../data/player");
 const users = require("../data/user");
 const validation = require("../validations/routeValidations");
 const redis = require("redis");
@@ -113,8 +114,55 @@ router.route("/users/signup").post(async (req, res) => {
     res.status(200).json({ success: true, createdUser });
     return;
   } catch (e) {
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.route("/users/profile").get(async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    if (!currentUser) {
+      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      return;
+    }
+    let user = await users.getUserById(currentUser);
+    let favouriteMatchesObjects = [];
+    for (let i = 0; i < user.favouriteMatches.length; i++) {
+      let match = await matches.getMatchById(user.favouriteMatches[i]);
+      favouriteMatchesObjects.push(match);
+    }
+    let favouritePlayersObjects = [];
+    for (let i = 0; i < user.favouritePlayers.length; i++) {
+      let player = await players.getPlayerById(user.favouritePlayers[i]);
+      favouritePlayersObjects.push(player);
+    }
+    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    return;
+  } catch (e) {
     console.log(e);
-    res.status(500).json({ success: false, message: "Sorry, something went wrong. " });
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
+router.route("/users/addFavourite/:playerId").post(async (req, res) => {
+  try {
+    let currentUser = req.authenticatedUser;
+    if (!currentUser) {
+      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      return;
+    }
+    let playerId = req.params.playerId;
+    const updatedUser = await users.addFavoritePlayer(currentUser, playerId);
+    console.log("updatedUser");
+    console.log(updatedUser);
+    res.status(200).json(updatedUser);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
   }
 });
 

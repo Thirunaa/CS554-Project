@@ -88,14 +88,14 @@ const AllMatchesList = () => {
                 <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Time:</strong>{" "}
                   {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <strong>Status: </strong>
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
@@ -103,10 +103,10 @@ const AllMatchesList = () => {
                     <span style={{ color: "red" }}>{match.status}</span>
                   )}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="textSecondary">
                   <CardMedia>
                     {match &&
                       match.teamInfo &&
@@ -122,7 +122,6 @@ const AllMatchesList = () => {
                   <Typography
                     variant="body2"
                     color="textSecondary"
-                    component="p"
                     style={{
                       display: "flex",
                       justifyContent: "center",

@@ -62,8 +62,11 @@ const PlayersList = () => {
     console.log("search useEffect fired");
     async function fetchData() {
       try {
+        let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm);
+        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm, {
+          headers: { authtoken: authtoken },
+        });
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -74,7 +77,7 @@ const PlayersList = () => {
       console.log("searchTerm is set");
       fetchData();
     }
-  }, [searchTerm]);
+  }, [searchTerm, currentUser]);
 
   const searchValue = async (value) => {
     setSearchTerm(value);

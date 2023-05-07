@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { Grid, Card, CardContent } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useStyles } from "../styles/carouselStyles.js";
-const api_key = "39b67a47-1b14-4fa1-aa78-260749f0fd05";
-const matchUrl = `https://api.cricapi.com/v1/cricScore?apikey=${api_key}`;
+import { useStyles } from "../styles/liveScoresStyles.js";
 
-function Carousel() {
+function LiveScores() {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const [currMatch, setCurrMatch] = useState(0);
   const [matches, setMatches] = useState([]);
@@ -15,22 +15,22 @@ function Carousel() {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await axios.get(matchUrl);
-        const data = response.data.data;
+        let authtoken = await currentUser.getIdToken();
+        const { data } = await axios.get("http://localhost:3001/matches/liveScores", {
+          headers: { authtoken: authtoken },
+        });
+        console.log(data);
         setMatches(data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchMatches();
-  }, []);
+  }, [currentUser]);
   return (
     <>
       {matches.length > 0 && (
-        <div
-          className={classes.carousel}
-          style={{ backgroundColor: "#2196f3", height: 235 }}
-        >
+        <div className={classes.carousel} style={{ backgroundColor: "#2196f3", height: 235 }}>
           <div style={{ margin: "0 100px", position: "relative" }}>
             <div
               className={classes.item}
@@ -102,11 +102,7 @@ function Carousel() {
                                 Match Type: {match.matchType}
                               </p>
                             ) : null}
-                            {match.status ? (
-                              <p style={{ textAlign: "left" }}>
-                                Status: {match.status}
-                              </p>
-                            ) : null}
+                            {match.status ? <p style={{ textAlign: "left" }}>Status: {match.status}</p> : null}
 
                             {match.t1s ? (
                               <div
@@ -179,4 +175,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default LiveScores;

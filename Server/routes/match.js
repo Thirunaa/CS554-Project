@@ -35,6 +35,33 @@ router.get("/currentMatches", async (req, res) => {
   }
 });
 
+router.get("/liveScores", async (req, res) => {
+  try {
+    if (!client.isOpen) await client.connect();
+    let liveScoresFromCache = await client.get("livescores");
+    if (liveScoresFromCache) {
+      console.log("live scores from redis");
+      res.status(200).json(JSON.parse(liveScoresFromCache));
+      return;
+    } else {
+      let liveScoresList = await matches.getLiveScores();
+      try {
+        await client.set("livescores", JSON.stringify(liveScoresList));
+      } catch (e) {
+        console.log("Set livescores in Redis Error");
+        console.log(e);
+      }
+      //console.log(currentMatchesList);
+      res.status(200).json(liveScoresList);
+      return;
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
 router.get("/allMatches/page/:pageNo", async (req, res) => {
   try {
     let pageNo = req.params.pageNo;
@@ -95,7 +122,7 @@ router.get("/match_bbb/:id", async (req, res) => {
   try {
     let id = req.params.id;
     let matchMetaData = await matches.getMatchById(id);
-    if (!matchMetaData.bbbEnabled) {
+    if (!matchMetaData.data.bbbEnabled) {
       res.status(400).json({ errorCode: 400, message: "Bad request - BBB is not enabled for this match." });
       return;
     } else {
@@ -339,6 +366,12 @@ router.post("/match/:matchId/predict", async (req, res) => {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
     let prediction = req.body.prediction;
+
+    if (!prediction) {
+      let matchObj = await matches.getMatchById(matchId);
+      res.status(200).json(matchObj);
+      return;
+    }
 
     const matchAfterPredictionAdded = await matches.predictMatchResult(matchId, currentUser, prediction);
     res.status(200).json(matchAfterPredictionAdded);

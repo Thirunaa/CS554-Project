@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
@@ -16,22 +17,35 @@ import {
   CardMedia,
   Button,
 } from "@material-ui/core";
-import MatchPrediction from "./MatchPrediction.js";
+//import MatchPrediction from "./MatchPrediction.js";
 import "../App.css";
 
 import noNewsImage from "../images/noNewsImage.png";
+//import Predict from "../components/Predict";
 
 const Match = (props) => {
+  const { currentUser } = useContext(AuthContext);
   const [matchData, setMatchData] = useState(undefined);
+  // eslint-disable-next-line
   const [matchDataFromDB, setMatchDataFromDB] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [predictionObj, setPredictionObj] = useState();
+  const [prediction, setPrediction] = useState("");
   const [scoreList, setScoreList] = useState([]);
   const classes = useStyles();
   let { id } = useParams();
+  // eslint-disable-next-line
+  const [matchId, setMatchId] = useState(id);
 
   // eslint-disable-next-line
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
+
+  const [team1Percent, setTeam1Percent] = useState(0);
+  const [team2Percent, setTeam2Percent] = useState(0);
+  const [tiePercent, setTiePercent] = useState(0);
+
+  const userId = currentUser.uid;
 
   function convertTo12Hour(timeString) {
     const [hour, minute] = timeString.split(":").map(Number);
@@ -68,15 +82,69 @@ const Match = (props) => {
     setMessage("");
   }
 
+  function handleClick(button) {
+    setPrediction(button);
+  }
+
+  function setPredictionPercentage(match) {
+    // Calculate percentages
+    const totalPredictions =
+      match.predictions.team1.length + match.predictions.team2.length + match.predictions.tie.length;
+    if (totalPredictions > 0) {
+      const team1Percent = (match.predictions.team1.length / totalPredictions) * 100;
+      const team2Percent = (match.predictions.team2.length / totalPredictions) * 100;
+      const tiePercent = (match.predictions.tie.length / totalPredictions) * 100;
+      setTeam1Percent(team1Percent.toFixed(2));
+      setTeam2Percent(team2Percent.toFixed(2));
+      setTiePercent(tiePercent.toFixed(2));
+    }
+  }
+
+  useEffect(() => {
+    console.log(prediction);
+
+    async function fetchData() {
+      let authtoken = await currentUser.getIdToken();
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3001/matches/match/" + id + "/predict",
+          {
+            prediction,
+          },
+          {
+            headers: {
+              authtoken: authtoken,
+            },
+          }
+        );
+        console.log("from axios", data);
+        setMatchDataFromDB(data);
+        setMatchData(data.data);
+        setPredictionObj(data.predictions);
+        setPredictionPercentage(data);
+        setLoading(false);
+      } catch (e) {
+        //setMatch(matchData);
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [id, prediction, currentUser]);
+
   useEffect(() => {
     console.log("SHOW useEffect fired");
     async function fetchData() {
+      let authtoken = await currentUser.getIdToken();
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/match/" + id);
+        const { data } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
+          headers: { authtoken: authtoken },
+        });
         let scoresArray = [];
         console.log(data);
         setMatchDataFromDB(data);
         setMatchData(data.data);
+        setPredictionObj(data.predictions);
+        setPredictionPercentage(data);
         // set score
         if (data && data.score) {
           for (const score of data.score) {
@@ -92,7 +160,7 @@ const Match = (props) => {
       }
     }
     fetchData();
-  }, [id]);
+  }, [matchId, currentUser]);
 
   useEffect(() => {
     // Set up Socket.io connection
@@ -155,7 +223,7 @@ const Match = (props) => {
                 />
               </Grid>
               <CardContent>
-                <Typography variant="body2" color="textSecondary" component="span">
+                <Typography variant="body2" color="textSecondary" component="div">
                   <dl>
                     {scoreList.length !== 0 && (
                       <p>
@@ -168,12 +236,12 @@ const Match = (props) => {
                     )}
                     <p>
                       {matchData && matchData.matchStarted && (
-                        <div>
+                        <>
                           <dt className="title">Toss</dt>
                           {matchData.tossWinner
                             ? matchData.tossWinner + " won the toss and chose to " + matchData.tossChoice
                             : "Toss not yet decided"}
-                        </div>
+                        </>
                       )}
                     </p>
                     <p>
@@ -205,7 +273,67 @@ const Match = (props) => {
                         : ""}
                     </p>
                   </dl>
-                  <MatchPrediction key={matchData.id} matchData={matchDataFromDB} />
+
+                  {/* Prediction button logic */}
+                  {!predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+                  {predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+
+                  {!predictionObj.team1.includes(userId) &&
+                    predictionObj.team2.includes(userId) &&
+                    !predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button onClick={() => handleClick("tie")} variant="contained">
+                          Tie
+                        </Button>
+                      </div>
+                    )}
+
+                  {!predictionObj.team1.includes(userId) &&
+                    !predictionObj.team2.includes(userId) &&
+                    predictionObj.tie.includes(userId) && (
+                      <div>
+                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                          {matchData?.teams[0]}
+                        </Button>
+                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                          {matchData?.teams[1]}
+                        </Button>
+                      </div>
+                    )}
+
+                  <p>
+                    Predictions for {matchData?.teams[0]} ({team1Percent}) Predictions for {matchData?.teams[1]} (
+                    {team2Percent}) Predictions for Tie ({tiePercent})
+                  </p>
+                  {/* End of Prediction button logic */}
                   <br />
                   <br />
                   <Button
@@ -219,7 +347,6 @@ const Match = (props) => {
                   >
                     Back
                   </Button>
-
                   {matchData.bbbEnabled && <Link to={"/match_bbb/" + matchData.id}> Ball By Ball Details</Link>}
                 </Typography>
               </CardContent>

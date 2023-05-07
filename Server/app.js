@@ -173,19 +173,19 @@ app.use(async (req, res, next) => {
     return;
   }
 
-  // const idToken = req.headers.authtoken;
-  // try {
-  //   if (!idToken) {
-  //     throw `No authtoken in incoming request. Cannot authenticate user.`;
-  //   }
-  //   let { uid, email, auth_time } = await firebaseApp.auth().verifyIdToken(idToken);
-  //   console.info(`Authenticated user with email ${email}. Authenticated on: ${new Date(auth_time * 1000)}`);
-  //   req["authenticatedUser"] = uid;
-  // } catch (e) {
-  //   console.log(e);
-  //   res.status(401).json({ success: false, message: "You must be logged in to perform this action." });
-  //   return;
-  // }
+  const idToken = req.headers.authtoken;
+  try {
+    if (!idToken) {
+      throw `No authtoken in incoming request. Cannot authenticate user.`;
+    }
+    let { uid, email, auth_time } = await firebaseApp.auth().verifyIdToken(idToken);
+    console.info(`Authenticated user with email ${email}. Authenticated on: ${new Date(auth_time * 1000)}`);
+    req["authenticatedUser"] = uid;
+  } catch (e) {
+    console.log(e);
+    res.status(401).json({ success: false, message: "You must be logged in to perform this action." });
+    return;
+  }
   next();
 });
 

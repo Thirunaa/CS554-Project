@@ -3,7 +3,7 @@ const playerRoutes = require("./player");
 const userRoutes = require("./user");
 
 const constructorMethod = (app) => {
-  app.use("/users", userRoutes);
+  app.use("/", userRoutes);
   app.use("/matches", matchRoutes);
   app.use("/players", playerRoutes);
   app.use("*", async (req, res) => {

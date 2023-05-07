@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useStyles } from "../styles/styles.js";
 import { Card, CardActionArea, CardContent, CircularProgress, Grid, Typography, CardMedia } from "@material-ui/core";
 //import ErrorComponent from "./ErrorComponent";
 import "../App.css";
+import { AuthContext } from "../firebase/Auth";
 
 const CurrentMatchesList = () => {
+  const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [matchesData, setMatchesData] = useState([]);
@@ -16,7 +18,10 @@ const CurrentMatchesList = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/currentMatches");
+        let authtoken = await currentUser.getIdToken();
+        const { data } = await axios.get("http://localhost:3001/matches/currentMatches", {
+          headers: { authtoken: authtoken },
+        });
         console.log(data);
         setMatchesData(data);
       } catch (e) {
@@ -25,7 +30,7 @@ const CurrentMatchesList = () => {
     }
     fetchData();
     setLoading(false);
-  }, []);
+  }, [currentUser]);
 
   function convertTo12Hour(timeString) {
     const [hour, minute] = timeString.split(":").map(Number);

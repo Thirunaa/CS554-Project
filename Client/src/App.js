@@ -49,6 +49,10 @@ function App() {
                 <Route path="/match/:id" element={<Match />} />
               </Route>
 
+              <Route path="/match/preview" element={<PrivateRoute />}>
+                <Route path="/match/preview" element={<MatchPreview />} />
+              </Route>
+
               <Route path="/player/:id" element={<PrivateRoute />}>
                 <Route path="/player/:id" element={<Player />} />
               </Route>

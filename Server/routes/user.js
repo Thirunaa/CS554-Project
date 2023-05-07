@@ -49,11 +49,18 @@ router.route("/users/login").post(async (req, res) => {
     let body = req.body;
     let validationStatus = validation.validateLogin(body);
     if (!validationStatus.isValid) {
-      if (validationStatus.message === "Either the username or password is invalid") {
-        res.status(401).json({ errorCode: 401, message: validationStatus.message });
+      if (
+        validationStatus.message ===
+        "Either the username or password is invalid"
+      ) {
+        res
+          .status(401)
+          .json({ errorCode: 401, message: validationStatus.message });
         return;
       } else {
-        res.status(400).json({ errorCode: 400, message: validationStatus.message });
+        res
+          .status(400)
+          .json({ errorCode: 400, message: validationStatus.message });
         return;
       }
     }
@@ -79,7 +86,10 @@ router.route("/users/login").post(async (req, res) => {
 router.route("/users/logout").get(async (req, res) => {
   try {
     if (!req.session.userId) {
-      res.status(401).json({ errorCode: 401, message: "You've to be logged in to perform this action." });
+      res.status(401).json({
+        errorCode: 401,
+        message: "You've to be logged in to perform this action.",
+      });
       return;
     }
     req.session.destroy();
@@ -102,7 +112,9 @@ router.route("/users/signup").post(async (req, res) => {
     // catch the validation status from routeValidations.js - some validations has to be changed
     let validationStatus = validation.validateName(displayName);
     if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
+      res
+        .status(400)
+        .json({ errorCode: 400, message: validationStatus.message });
       return;
     }
 
@@ -110,7 +122,11 @@ router.route("/users/signup").post(async (req, res) => {
       res.status(400).json({ success: false, error: "User id not provided. " });
       return;
     }
-    const createdUser = await users.createUser(userId, emailAddress, displayName);
+    const createdUser = await users.createUser(
+      userId,
+      emailAddress,
+      displayName
+    );
     res.status(200).json({ success: true, createdUser });
     return;
   } catch (e) {
@@ -122,8 +138,12 @@ router.route("/users/signup").post(async (req, res) => {
 router.route("/users/profile").get(async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
+    console.log("currentUser", currentUser);
     if (!currentUser) {
-      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      res.status(401).json({
+        success: false,
+        message: "You've to be logged in to perform this action.",
+      });
       return;
     }
     let user = await users.getUserById(currentUser);
@@ -137,7 +157,9 @@ router.route("/users/profile").get(async (req, res) => {
       let player = await players.getPlayerById(user.favouritePlayers[i]);
       favouritePlayersObjects.push(player);
     }
-    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    res
+      .status(200)
+      .json({ user, favouriteMatchesObjects, favouritePlayersObjects });
     return;
   } catch (e) {
     console.log(e);
@@ -150,11 +172,17 @@ router.route("/users/addFavourite/:playerId").post(async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     if (!currentUser) {
-      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      res.status(401).json({
+        success: false,
+        message: "You've to be logged in to perform this action.",
+      });
       return;
     }
     let playerId = req.params.playerId;
-    const updatedUser = await users.addRemoveFavoritePlayer(currentUser, playerId);
+    const updatedUser = await users.addRemoveFavoritePlayer(
+      currentUser,
+      playerId
+    );
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);
@@ -170,11 +198,17 @@ router.route("/users/saveMatch/:matchId").post(async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     if (!currentUser) {
-      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      res.status(401).json({
+        success: false,
+        message: "You've to be logged in to perform this action.",
+      });
       return;
     }
     let matchId = req.params.matchId;
-    const updatedUser = await users.addRemoveFavoriteMatch(currentUser, matchId);
+    const updatedUser = await users.addRemoveFavoriteMatch(
+      currentUser,
+      matchId
+    );
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);
@@ -204,7 +238,10 @@ router.route("/users/:username").get(async (req, res) => {
     let currentUser = req.authenticatedUser;
     let username = req.params.username;
     if (!currentUser) {
-      res.status(401).json({ success: false, message: "You've to be logged in to perform this action." });
+      res.status(401).json({
+        success: false,
+        message: "You've to be logged in to perform this action.",
+      });
       return;
     }
     console.log("username");
@@ -219,7 +256,9 @@ router.route("/users/:username").get(async (req, res) => {
       let player = await players.getPlayerById(user.favouritePlayers[i]);
       favouritePlayersObjects.push(player);
     }
-    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    res
+      .status(200)
+      .json({ user, favouriteMatchesObjects, favouritePlayersObjects });
     return;
   } catch (e) {
     console.log(e);

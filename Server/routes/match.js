@@ -107,9 +107,11 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
 router.get("/match/:id", async (req, res) => {
   try {
     let id = req.params.id;
+    let currentUser = req.authenticatedUser;
+    const user = await users.getUserById(currentUser);
     let matchObj = await matches.getMatchById(id);
     console.log("data", matchObj);
-    res.status(200).json(matchObj);
+    res.status(200).json({ matchObj, user });
     return;
   } catch (e) {
     console.log(e);

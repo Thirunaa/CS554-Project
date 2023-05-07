@@ -57,15 +57,11 @@ router.get("/playersList/page/:pageNo", async (req, res) => {
     console.log(validationStatus);
     if (!validationStatus.isValid) {
       if (validationStatus.message.includes("404")) {
-        res
-          .status(404)
-          .json({ errorCode: 404, message: validationStatus.message });
+        res.status(404).json({ errorCode: 404, message: validationStatus.message });
         return;
       }
       if (validationStatus.message.includes("400")) {
-        res
-          .status(400)
-          .json({ errorCode: 400, message: validationStatus.message });
+        res.status(400).json({ errorCode: 400, message: validationStatus.message });
         return;
       }
     }
@@ -98,9 +94,7 @@ router.get("/search/:searchTerm", async (req, res) => {
   try {
     let searchTerm = req.params.searchTerm;
     if (!client.isOpen) await client.connect();
-    let searchedPlayersListFromCache = await client.get(
-      "searchPlayer_" + searchTerm
-    );
+    let searchedPlayersListFromCache = await client.get("searchPlayer_" + searchTerm);
     if (searchedPlayersListFromCache) {
       console.log("searched players from redis");
       res.status(200).json(JSON.parse(searchedPlayersListFromCache));
@@ -108,10 +102,7 @@ router.get("/search/:searchTerm", async (req, res) => {
     } else {
       let searchedPlayersList = await players.searchPlayersByName(searchTerm);
       try {
-        await client.set(
-          "searchPlayer_" + searchTerm,
-          JSON.stringify(searchedPlayersList)
-        );
+        await client.set("searchPlayer_" + searchTerm, JSON.stringify(searchedPlayersList));
       } catch (e) {
         console.log("Set searched playersList in Redis Error");
         console.log(e);
@@ -131,17 +122,19 @@ router.get("/player/:id", async (req, res) => {
   try {
     let id = req.params.id;
     if (!client.isOpen) await client.connect();
-    
+
     let playerFromCache = await client.get("player_" + id);
-    
+    let currentUser = req.authenticatedUser;
+    const user = await users.getUserById(currentUser);
+    console.log("user", user);
     if (playerFromCache) {
       console.log("player from redis");
-      res.status(200).json(JSON.parse(playerFromCache));
+      res.status(200).json({ playerObj: JSON.parse(playerFromCache), user });
       return;
     } else {
       let playerObj = await players.getPlayerById(id);
-      playerObj.dateOfBirth = formattedDate(playerObj.dateOfBirth)
-      playerObj.stats = getStats(playerObj.stats)
+      playerObj.dateOfBirth = formattedDate(playerObj.dateOfBirth);
+      playerObj.stats = getStats(playerObj.stats);
       try {
         await client.set("player_" + id, JSON.stringify(playerObj));
       } catch (e) {
@@ -149,7 +142,7 @@ router.get("/player/:id", async (req, res) => {
         console.log(e);
       }
       //console.log(player);
-      res.status(200).json(playerObj);
+      res.status(200).json({ playerObj, user });
       return;
     }
   } catch (e) {

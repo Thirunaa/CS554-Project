@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Box, CircularProgress, Grid } from "@material-ui/core";
+import { Box, Button, CircularProgress, Grid } from "@material-ui/core";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -84,10 +84,11 @@ const STATS_HEADERS = {
 const Player = (props) => {
   const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
-
+  // eslint-disable-next-line
+  const [favourite, setFavourite] = useState();
   const [playerData, setPlayerData] = useState(undefined);
   const [loading, setLoading] = useState(false);
-
+  const [userData, setUserData] = useState();
   let { id } = useParams();
 
   useEffect(() => {
@@ -95,17 +96,21 @@ const Player = (props) => {
       try {
         let authtoken = await currentUser.getIdToken();
         setLoading(true);
-        const { data } = await axios.get("http://localhost:3001/players/player/" + id, {
+        const {
+          data: { playerObj, user },
+        } = await axios.get("http://localhost:3001/players/player/" + id, {
           headers: { authtoken: authtoken },
         });
-        console.log(data);
-        if (data) {
-          setPlayerData(data);
-          setLoading(false);
+        console.log(playerObj);
+        console.log(user);
+        if (playerObj) {
+          setPlayerData(playerObj);
         } else {
           setLoading(false);
           alert("No data found");
         }
+        setUserData(user);
+        setLoading(false);
       } catch (e) {
         console.log(e);
       }
@@ -114,7 +119,33 @@ const Player = (props) => {
     fetchData();
   }, [id, currentUser]);
 
-  return loading && !playerData ? (
+  //favouritePlayers
+
+  async function fetchUserData() {
+    try {
+      let authtoken = await currentUser.getIdToken();
+      setLoading(true);
+      const { data } = await axios.post(
+        "http://localhost:3001/users/addFavourite/" + id,
+        {},
+        {
+          headers: { authtoken: authtoken },
+        }
+      );
+      setUserData(data);
+      console.log(data);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+    }
+  }
+
+  function handleClick() {
+    fetchUserData();
+  }
+
+  return loading && !playerData && !userData ? (
     <CircularProgress />
   ) : (
     <>
@@ -128,6 +159,16 @@ const Player = (props) => {
               <h1>{playerData?.name || ""}</h1>
               <h4>{playerData?.country || ""}</h4>
             </Grid>
+            {!userData?.favouritePlayers.includes(id) && (
+              <Button variant="contained" color="primary" onClick={() => handleClick()}>
+                Add to Favourites
+              </Button>
+            )}
+            {userData?.favouritePlayers.includes(id) && (
+              <Button variant="contained" color="primary" onClick={() => handleClick()}>
+                Remove from Favourites
+              </Button>
+            )}
           </Grid>
         </Grid>
         <Grid item xs={3}>

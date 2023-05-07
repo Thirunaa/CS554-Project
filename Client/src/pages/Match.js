@@ -32,6 +32,7 @@ const Match = (props) => {
   const [predictionObj, setPredictionObj] = useState();
   const [prediction, setPrediction] = useState("");
   const [scoreList, setScoreList] = useState([]);
+  const [userData, setUserData] = useState();
   const classes = useStyles();
   let { id } = useParams();
   // eslint-disable-next-line
@@ -132,22 +133,25 @@ const Match = (props) => {
   }, [id, prediction, currentUser]);
 
   useEffect(() => {
-    console.log("SHOW useEffect fired");
+    console.log("Match data useEffect fired");
     async function fetchData() {
       let authtoken = await currentUser.getIdToken();
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
+        const {
+          data: { matchObj, user },
+        } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
           headers: { authtoken: authtoken },
         });
         let scoresArray = [];
-        console.log(data);
-        setMatchDataFromDB(data);
-        setMatchData(data.data);
-        setPredictionObj(data.predictions);
-        setPredictionPercentage(data);
+        console.log(matchObj);
+        setUserData(user);
+        setMatchDataFromDB(matchObj);
+        setMatchData(matchObj.data);
+        setPredictionObj(matchObj.predictions);
+        setPredictionPercentage(matchObj);
         // set score
-        if (data && data.score) {
-          for (const score of data.score) {
+        if (matchObj?.data?.score) {
+          for (const score of matchObj.data.score) {
             scoresArray.push(
               (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
             );
@@ -161,6 +165,29 @@ const Match = (props) => {
     }
     fetchData();
   }, [matchId, currentUser]);
+
+  async function fetchUserData() {
+    try {
+      let authtoken = await currentUser.getIdToken();
+      setLoading(true);
+      const { data } = await axios.post(
+        "http://localhost:3001/users/saveMatch/" + id,
+        {},
+        {
+          headers: { authtoken: authtoken },
+        }
+      );
+      setUserData(data);
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  }
+
+  function handleSaveUnsave() {
+    fetchUserData();
+  }
 
   useEffect(() => {
     // Set up Socket.io connection
@@ -334,6 +361,19 @@ const Match = (props) => {
                     {team2Percent}) Predictions for Tie ({tiePercent})
                   </p>
                   {/* End of Prediction button logic */}
+                  <br />
+
+                  {!userData?.favouriteMatches.includes(id) && (
+                    <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
+                      Save
+                    </Button>
+                  )}
+                  {userData?.favouriteMatches.includes(id) && (
+                    <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
+                      Unsave
+                    </Button>
+                  )}
+
                   <br />
                   <br />
                   <Button

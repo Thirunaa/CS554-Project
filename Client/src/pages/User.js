@@ -1,14 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import { CircularProgress, Container, Avatar, Card, CardContent, Typography, Grid, Box, Button } from "@mui/material";
 //import ChangePassword from '../components/ChangePassword';
-import { Navigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 
-const Profile = () => {
-  const [showChangePassword, setShowChangePassword] = useState(false);
+const User = () => {
   const { currentUser } = useContext(AuthContext);
-  const { displayName, email } = currentUser;
+  //const { displayName, email } = currentUser;
+  let { username } = useParams();
   // eslint-disable-next-line
   const [profile, setProfile] = useState();
   // eslint-disable-next-line
@@ -19,12 +19,11 @@ const Profile = () => {
   useEffect(() => {
     console.log("User profile useEffect fired");
     async function fetchData() {
-      let authtoken = await currentUser.getIdToken();
       try {
         const {
           data: { user, favouriteMatchesObjects, favouritePlayersObjects },
-        } = await axios.get("http://localhost:3001/users/profile/", {
-          headers: { authtoken: authtoken },
+        } = await axios.get("http://localhost:3001/users/" + username, {
+          headers: { authtoken: await currentUser.getIdToken() },
         });
         console.log(user);
         setProfile(user);
@@ -36,15 +35,7 @@ const Profile = () => {
       }
     }
     fetchData();
-  }, [currentUser]);
-
-  const handlePasswordReset = () => {
-    setShowChangePassword(true);
-  };
-
-  if (showChangePassword) {
-    return <Navigate to="/change-password" />;
-  }
+  }, [username]);
 
   if (loading) {
     return (
@@ -57,19 +48,13 @@ const Profile = () => {
       <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>
         <Card>
           <CardContent sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar sx={{ width: 100, height: 100, mr: 2 }}>{displayName.charAt(0)}</Avatar>
+            <Avatar sx={{ width: 100, height: 100, mr: 2 }}>{profile.displayName.charAt(0)}</Avatar>
             <div>
-              <Typography variant="h5">{displayName}</Typography>
-              <Typography color="textSecondary">{email}</Typography>
+              <Typography variant="h5">{profile.displayName}</Typography>
+              <Typography color="textSecondary">{profile.email}</Typography>
             </div>
           </CardContent>
-          <CardContent>
-            <Grid item xs={12}>
-              <Button variant="contained" onClick={handlePasswordReset}>
-                Change Password
-              </Button>
-            </Grid>
-          </CardContent>
+          <CardContent></CardContent>
         </Card>
 
         <Grid item xs={12}>
@@ -124,9 +109,19 @@ const Profile = () => {
             </Grid>
           </Box>
         </Grid>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.back();
+          }}
+        >
+          Back
+        </Button>
       </Container>
     );
   }
 };
 
-export default Profile;
+export default User;

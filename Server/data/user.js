@@ -39,15 +39,24 @@ const createUser = async (userId, emailAddress, displayName) => {
   return await usersCollection.findOne({ _id: insertUser.insertedId });
 };
 
-const searchUsers = async (query) => {
-  return elasticClient.search({
-    index: "users",
-    body: {
-      query: {
-        match: { displayName: query },
+const searchUsers = async (searchTerm) => {
+  let result = [];
+  try {
+    result = await elasticClient.search({
+      index: "users",
+      body: {
+        query: {
+          wildcard: { displayName: `*${searchTerm}*` },
+        },
       },
-    },
-  }).hits.hits;
+    });
+  } catch (e) {
+    console.log("Elstaic search error");
+    console.log(e);
+  }
+
+  console.log("result.hits.hits", result.hits.hits);
+  return result.hits.hits;
 };
 
 const getUserById = async (userId) => {

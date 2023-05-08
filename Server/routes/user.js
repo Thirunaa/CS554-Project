@@ -267,4 +267,17 @@ router.route("/users/:username").get(async (req, res) => {
   }
 });
 
+router.route("/users/search/:searchTerm").get(async (req, res) => {
+  try {
+    let searchTerm = req.params.searchTerm;
+    let searchUsers = await users.searchUsers(searchTerm);
+    res.status(200).json(searchUsers);
+    return;
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
 module.exports = router;

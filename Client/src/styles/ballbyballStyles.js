@@ -33,11 +33,6 @@ const useStyles = makeStyles({
     height: "100%"
   }
 
-
-  
-
-
- 
 });
 
  export { useStyles };

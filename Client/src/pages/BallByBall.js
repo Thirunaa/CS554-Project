@@ -5,7 +5,6 @@ import axios from "axios";
 import { useStyles } from "../styles/ballbyballStyles";
 import { Typography, Divider, Box, CircularProgress } from "@mui/material";
 import { AuthContext } from "../firebase/Auth";
-import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const BallByBall = () => {
   // eslint-disable-next-line
@@ -55,7 +54,7 @@ const BallByBall = () => {
     );
   } else {
     return (
-      <div  className={classes.page} style={{ width: "60%", backgroundColor: "#f1faee" , marginLeft:"20%", marginRight:"20%"}}>
+      <div style={{ width: "60%", backgroundColor: "#f1faee" , marginLeft:"20%", marginRight:"20%"}}>
         <br />
         <card>
           <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">

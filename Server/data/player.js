@@ -19,7 +19,7 @@ const getPlayersList = async (PageNo) => {
 
 const getPlayerById = async (id) => {
   const { data } = await axios.get(playerUrl + API_KEY + "&id=" + id);
-  console.log("data from data func", data.data);
+  //console.log("data from data func", data.data);
   return data.data;
 };
 

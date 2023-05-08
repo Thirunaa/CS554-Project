@@ -19,7 +19,8 @@ router.get("/currentMatches", async (req, res) => {
     } else {
       let currentMatchesList = await matches.getCurrentMatches();
       try {
-        await client.set("currentmatches", JSON.stringify(currentMatchesList));
+        // Update the current matches cache every 24 hours
+        await client.set("currentmatches", JSON.stringify(currentMatchesList), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set current matches in Redis Error");
         console.log(e);
@@ -46,7 +47,8 @@ router.get("/liveScores", async (req, res) => {
     } else {
       let liveScoresList = await matches.getLiveScores();
       try {
-        await client.set("livescores", JSON.stringify(liveScoresList));
+        // Update the live scores cache every 2 hours
+        await client.set("livescores", JSON.stringify(liveScoresList), "EX", 2 * 60 * 60);
       } catch (e) {
         console.log("Set livescores in Redis Error");
         console.log(e);
@@ -88,7 +90,8 @@ router.get("/allMatches/page/:pageNo", async (req, res) => {
     } else {
       let allMatchesList = await matches.getAllMatchesByPageNo(pageNo);
       try {
-        await client.set("allmatches" + pageNo, JSON.stringify(allMatchesList));
+        // Update the all matches cache every 24 hours
+        await client.set("allmatches" + pageNo, JSON.stringify(allMatchesList), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set all matches in Redis Error");
         console.log(e);

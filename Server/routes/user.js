@@ -21,7 +21,8 @@ router.route("/").get(async (req, res) => {
     } else {
       let newsData = await matches.getCricketNews();
       try {
-        await client.set("news", JSON.stringify(newsData));
+        // Update the news in the homepage cache every 24 hours
+        await client.set("news", JSON.stringify(newsData), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set news in Redis Error");
         console.log(e);
@@ -143,6 +144,33 @@ router.route("/users/profile").get(async (req, res) => {
     console.log(e);
     res.status(500).json({ errorCode: 500, message: e });
     return;
+  }
+});
+
+router.get("/users/check/:displayName", async (req, res) => {
+  try {
+    let displayName = req.params.displayName;
+    // try {
+    //   validateDisplayName(displayName);
+    // } catch (e) {
+    //   console.log(e);
+    //   res.status(400).json({ success: false, error: e });
+    //   return;
+    // }
+    try {
+      const { isAvailable } = await users.checkDisplayName(displayName);
+      if (isAvailable) {
+        res.status(200).json({ success: true, isAvailable: true });
+        return;
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(409).json({ success: false, isAvailable: false, message: e });
+      return;
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ success: false, message: "Sorry, something went wrong. " });
   }
 });
 

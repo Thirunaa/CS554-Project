@@ -9,7 +9,7 @@ const createUser = async (userId, emailAddress, displayName) => {
 
   const usersCollection = await users();
   const findUser = await usersCollection.findOne({ _id: userId });
-  const namedUser = await usersCollection.findOne({ displayName });
+  const namedUser = await usersCollection.findOne({ displayName: { $regex: new RegExp(`^${displayName}$`, "i") } });
   if (findUser || namedUser) {
     throw `User already exists with given displayName / id.`;
   }
@@ -135,7 +135,7 @@ const removeFavoritePlayer = async (userId, playerId) => {
 };
 
 const checkDisplayName = async (name) => {
-  validateDisplayName(name);
+  //validateDisplayName(name);
   const usersCollection = await users();
   const findUser = await usersCollection.findOne({
     displayName: { $regex: new RegExp("^" + name + "$", "i") },

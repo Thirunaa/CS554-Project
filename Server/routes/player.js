@@ -74,7 +74,8 @@ router.get("/playersList/page/:pageNo", async (req, res) => {
     } else {
       let playersList = await players.getPlayersList(pageNo);
       try {
-        await client.set("playersList" + pageNo, JSON.stringify(playersList));
+        // Set this key expiration date to 24 hours - watching for player list updates
+        await client.set("playersList" + pageNo, JSON.stringify(playersList), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set playersList in Redis Error");
         console.log(e);
@@ -102,7 +103,8 @@ router.get("/search/:searchTerm", async (req, res) => {
     } else {
       let searchedPlayersList = await players.searchPlayersByName(searchTerm);
       try {
-        await client.set("searchPlayer_" + searchTerm, JSON.stringify(searchedPlayersList));
+        // Set this key expiration date to 24 hours - watching for player list updates
+        await client.set("searchPlayer_" + searchTerm, JSON.stringify(searchedPlayersList), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set searched playersList in Redis Error");
         console.log(e);
@@ -136,7 +138,8 @@ router.get("/player/:id", async (req, res) => {
       playerObj.dateOfBirth = formattedDate(playerObj.dateOfBirth);
       playerObj.stats = getStats(playerObj.stats);
       try {
-        await client.set("player_" + id, JSON.stringify(playerObj));
+        // Set this key expiration date to 24 hours - watching for player stats updates
+        await client.set("player_" + id, JSON.stringify(playerObj), "EX", 24 * 60 * 60);
       } catch (e) {
         console.log("Set player in Redis Error");
         console.log(e);

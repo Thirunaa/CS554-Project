@@ -250,7 +250,7 @@ const unlikeComment = async (matchId, commentId, userId) => {
 
   if (!commentAfterLikeRemoved.modifiedCount) throw `Removing like from comment was unsuccessful.`;
 
-  let matchAfterCommentUnliked = await getCommentsByMatchId(matchId);
+  let matchAfterCommentUnliked = await getCommentObjectsByMatchId(matchId);
   return matchAfterCommentUnliked;
 };
 

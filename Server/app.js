@@ -154,6 +154,7 @@ server.listen(port, () => {
 // this middleware authenticates the user based on the authtoken sent in the request
 // no authtoken is required for the "/api/users" route (obviously) as the user wouldn't be created at that point
 // feel free to add exception cases here
+
 app.use(async (req, res, next) => {
   console.log(req.originalUrl, req.method);
   if (req.originalUrl === "/users/signup" && req.method.toLowerCase() === "post") {

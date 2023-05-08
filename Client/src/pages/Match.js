@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+// eslint-disable-next-line
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useStyles } from "../styles/singleElementStyles.js";
 // import App.css
 import "../App.css";
@@ -21,6 +22,7 @@ import {
 import "../App.css";
 
 import noNewsImage from "../images/noNewsImage.png";
+import CommentSection from "../components/CommentSection";
 //import Predict from "../components/Predict";
 
 const Match = (props) => {
@@ -35,6 +37,8 @@ const Match = (props) => {
   const [userData, setUserData] = useState();
   const classes = useStyles();
   let { id } = useParams();
+  // eslint-disable-next-line
+  const navigate = useNavigate();
   // eslint-disable-next-line
   const [matchId, setMatchId] = useState(id);
 
@@ -138,7 +142,7 @@ const Match = (props) => {
       let authtoken = await currentUser.getIdToken();
       try {
         const {
-          data: { matchObj, user },
+          data: { matchObj, user, commentObjects },
         } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
           headers: { authtoken: authtoken },
         });
@@ -194,7 +198,7 @@ const Match = (props) => {
     const socket = io("http://localhost:3002");
 
     // Join the chat room for the current match
-    socket.emit("join", id);
+    socket.emit("join", matchId);
 
     // Listen for new messages
     socket.on("message", (message) => {
@@ -205,7 +209,7 @@ const Match = (props) => {
     return () => {
       socket.disconnect();
     };
-  }, [id]);
+  }, [matchId]);
 
   if (loading) {
     return (
@@ -217,6 +221,17 @@ const Match = (props) => {
     return (
       <Grid id={matchData.id} container justifyContent="center" alignItems="center">
         <Grid item>
+          <Box>
+            <Card className={classes.card} variant="outlined">
+              <CardHeader className={classes.titleHead} title={"Comments (" + matchDataFromDB.comments.length + ")"} />
+              <CardContent>
+                <CommentSection />
+              </CardContent>
+            </Card>
+          </Box>
+        </Grid>
+
+        <Grid item style={{ marginLeft: "50px", marginRight: "50px" }}>
           <Box
             style={{
               //   backgroundImage: `url(${bigImage})`,
@@ -233,7 +248,7 @@ const Match = (props) => {
                   component="img"
                   image={
                     matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
-                      ? matchData.teamInfo[0].img
+                      ? matchData.teamInfo[0].img.split("?")[0]
                       : noNewsImage
                   }
                   title="show image"
@@ -243,7 +258,7 @@ const Match = (props) => {
                   component="img"
                   image={
                     matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
-                      ? matchData.teamInfo[1].img
+                      ? matchData.teamInfo[1].img.split("?")[0]
                       : noNewsImage
                   }
                   title="show image"
@@ -309,10 +324,15 @@ const Match = (props) => {
                         <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
                           {matchData?.teams[0]}
                         </Button>
-                        <Button onClick={() => handleClick("tie")} variant="contained">
+                        <Button style={{ marginLeft: "7px" }} onClick={() => handleClick("tie")} variant="contained">
                           Tie
                         </Button>
-                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                        <Button
+                          style={{ marginLeft: "7px" }}
+                          color="secondary"
+                          onClick={() => handleClick("team2")}
+                          variant="contained"
+                        >
                           {matchData?.teams[1]}
                         </Button>
                       </div>
@@ -324,7 +344,12 @@ const Match = (props) => {
                         <Button onClick={() => handleClick("tie")} variant="contained">
                           Tie
                         </Button>
-                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                        <Button
+                          style={{ marginLeft: "7px" }}
+                          color="secondary"
+                          onClick={() => handleClick("team2")}
+                          variant="contained"
+                        >
                           {matchData?.teams[1]}
                         </Button>
                       </div>
@@ -337,7 +362,7 @@ const Match = (props) => {
                         <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
                           {matchData?.teams[0]}
                         </Button>
-                        <Button onClick={() => handleClick("tie")} variant="contained">
+                        <Button style={{ marginLeft: "7px" }} onClick={() => handleClick("tie")} variant="contained">
                           Tie
                         </Button>
                       </div>
@@ -350,7 +375,12 @@ const Match = (props) => {
                         <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
                           {matchData?.teams[0]}
                         </Button>
-                        <Button color="secondary" onClick={() => handleClick("team2")} variant="contained">
+                        <Button
+                          style={{ marginLeft: "7px" }}
+                          color="secondary"
+                          onClick={() => handleClick("team2")}
+                          variant="contained"
+                        >
                           {matchData?.teams[1]}
                         </Button>
                       </div>
@@ -387,24 +417,44 @@ const Match = (props) => {
                   >
                     Back
                   </Button>
-                  {matchData.bbbEnabled && <Link to={"/match_bbb/" + matchData.id}> Ball By Ball Details</Link>}
+                  {matchData.bbbEnabled && (
+                    <Button
+                      style={{ marginLeft: "7px" }}
+                      variant="contained"
+                      color="primary"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/match_bbb/${matchData.id}`, { replace: true });
+                      }}
+                    >
+                      {" "}
+                      Ball By Ball Details
+                    </Button>
+                  )}
                 </Typography>
               </CardContent>
             </Card>
           </Box>
         </Grid>
         <Grid item>
-          <div>
-            <ul>
-              {messages.map((message, index) => (
-                <li key={index}>{message}</li>
-              ))}
-            </ul>
-            <form onSubmit={handleFormSubmit}>
-              <input type="text" value={message} onChange={handleInputChange} />
-              <button type="submit">Send</button>
-            </form>
-          </div>
+          <Box>
+            <Card className={classes.card} variant="outlined">
+              <CardHeader className={classes.titleHead} title="Chat" />
+              <CardContent>
+                <div>
+                  <ul>
+                    {messages.map((message, index) => (
+                      <li key={index}>{message}</li>
+                    ))}
+                  </ul>
+                  <form onSubmit={handleFormSubmit}>
+                    <input type="text" value={message} onChange={handleInputChange} />
+                    <button type="submit">Send</button>
+                  </form>
+                </div>
+              </CardContent>
+            </Card>
+          </Box>
         </Grid>
       </Grid>
     );

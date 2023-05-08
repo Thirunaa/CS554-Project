@@ -60,9 +60,12 @@ const Profile = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/users/search/" + searchTerm, {
-          headers: { authtoken: authtoken },
-        });
+        const { data } = await axios.get(
+          "http://localhost:3001/users/search/" + searchTerm,
+          {
+            headers: { authtoken: authtoken },
+          }
+        );
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -121,7 +124,9 @@ const Profile = () => {
         <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>
           <Card>
             <CardContent sx={{ display: "flex", alignItems: "center" }}>
-              <Avatar sx={{ width: 100, height: 100, mr: 2 }}>{displayName.charAt(0)}</Avatar>
+              <Avatar sx={{ width: 100, height: 100, mr: 2 }}>
+                {displayName.charAt(0)}
+              </Avatar>
               <div>
                 <Typography variant="h5">{displayName}</Typography>
                 <Typography color="textSecondary">{email}</Typography>
@@ -137,7 +142,15 @@ const Profile = () => {
           </Card>
 
           <Grid item xs={12}>
-            <Box component="section" sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}>
+            <Box
+              component="section"
+              sx={{
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                p: 2,
+                mb: 2,
+              }}
+            >
               <Typography variant="h5" gutterBottom>
                 Favorite Players
               </Typography>
@@ -162,7 +175,15 @@ const Profile = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Box component="section" sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}>
+            <Box
+              component="section"
+              sx={{
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                p: 2,
+                mb: 2,
+              }}
+            >
               <Typography variant="h5" gutterBottom>
                 Saved Matches
               </Typography>

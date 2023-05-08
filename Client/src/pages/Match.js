@@ -142,6 +142,7 @@ const Match = (props) => {
       let authtoken = await currentUser.getIdToken();
       try {
         const {
+          // eslint-disable-next-line
           data: { matchObj, user, commentObjects },
         } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
           headers: { authtoken: authtoken },
@@ -317,74 +318,87 @@ const Match = (props) => {
                   </dl>
 
                   {/* Prediction button logic */}
-                  {!predictionObj.team1.includes(userId) &&
-                    !predictionObj.team2.includes(userId) &&
-                    !predictionObj.tie.includes(userId) && (
-                      <div>
-                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                          {matchData?.teams[0]}
-                        </Button>
-                        <Button style={{ marginLeft: "7px" }} onClick={() => handleClick("tie")} variant="contained">
-                          Tie
-                        </Button>
-                        <Button
-                          style={{ marginLeft: "7px" }}
-                          color="secondary"
-                          onClick={() => handleClick("team2")}
-                          variant="contained"
-                        >
-                          {matchData?.teams[1]}
-                        </Button>
-                      </div>
-                    )}
-                  {predictionObj.team1.includes(userId) &&
-                    !predictionObj.team2.includes(userId) &&
-                    !predictionObj.tie.includes(userId) && (
-                      <div>
-                        <Button onClick={() => handleClick("tie")} variant="contained">
-                          Tie
-                        </Button>
-                        <Button
-                          style={{ marginLeft: "7px" }}
-                          color="secondary"
-                          onClick={() => handleClick("team2")}
-                          variant="contained"
-                        >
-                          {matchData?.teams[1]}
-                        </Button>
-                      </div>
-                    )}
+                  {/* change this to !matchData.matchEnded*/}
+                  {matchData.matchEnded && (
+                    <div>
+                      {!predictionObj.team1.includes(userId) &&
+                        !predictionObj.team2.includes(userId) &&
+                        !predictionObj.tie.includes(userId) && (
+                          <div>
+                            <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                              {matchData?.teams[0]}
+                            </Button>
+                            <Button
+                              style={{ marginLeft: "7px" }}
+                              onClick={() => handleClick("tie")}
+                              variant="contained"
+                            >
+                              Tie
+                            </Button>
+                            <Button
+                              style={{ marginLeft: "7px" }}
+                              color="secondary"
+                              onClick={() => handleClick("team2")}
+                              variant="contained"
+                            >
+                              {matchData?.teams[1]}
+                            </Button>
+                          </div>
+                        )}
+                      {predictionObj.team1.includes(userId) &&
+                        !predictionObj.team2.includes(userId) &&
+                        !predictionObj.tie.includes(userId) && (
+                          <div>
+                            <Button onClick={() => handleClick("tie")} variant="contained">
+                              Tie
+                            </Button>
+                            <Button
+                              style={{ marginLeft: "7px" }}
+                              color="secondary"
+                              onClick={() => handleClick("team2")}
+                              variant="contained"
+                            >
+                              {matchData?.teams[1]}
+                            </Button>
+                          </div>
+                        )}
 
-                  {!predictionObj.team1.includes(userId) &&
-                    predictionObj.team2.includes(userId) &&
-                    !predictionObj.tie.includes(userId) && (
-                      <div>
-                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                          {matchData?.teams[0]}
-                        </Button>
-                        <Button style={{ marginLeft: "7px" }} onClick={() => handleClick("tie")} variant="contained">
-                          Tie
-                        </Button>
-                      </div>
-                    )}
+                      {!predictionObj.team1.includes(userId) &&
+                        predictionObj.team2.includes(userId) &&
+                        !predictionObj.tie.includes(userId) && (
+                          <div>
+                            <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                              {matchData?.teams[0]}
+                            </Button>
+                            <Button
+                              style={{ marginLeft: "7px" }}
+                              onClick={() => handleClick("tie")}
+                              variant="contained"
+                            >
+                              Tie
+                            </Button>
+                          </div>
+                        )}
 
-                  {!predictionObj.team1.includes(userId) &&
-                    !predictionObj.team2.includes(userId) &&
-                    predictionObj.tie.includes(userId) && (
-                      <div>
-                        <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                          {matchData?.teams[0]}
-                        </Button>
-                        <Button
-                          style={{ marginLeft: "7px" }}
-                          color="secondary"
-                          onClick={() => handleClick("team2")}
-                          variant="contained"
-                        >
-                          {matchData?.teams[1]}
-                        </Button>
-                      </div>
-                    )}
+                      {!predictionObj.team1.includes(userId) &&
+                        !predictionObj.team2.includes(userId) &&
+                        predictionObj.tie.includes(userId) && (
+                          <div>
+                            <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
+                              {matchData?.teams[0]}
+                            </Button>
+                            <Button
+                              style={{ marginLeft: "7px" }}
+                              color="secondary"
+                              onClick={() => handleClick("team2")}
+                              variant="contained"
+                            >
+                              {matchData?.teams[1]}
+                            </Button>
+                          </div>
+                        )}
+                    </div>
+                  )}
 
                   <p>
                     Predictions for {matchData?.teams[0]} ({team1Percent}) Predictions for {matchData?.teams[1]} (

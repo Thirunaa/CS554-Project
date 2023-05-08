@@ -109,9 +109,10 @@ router.get("/match/:id", async (req, res) => {
     let id = req.params.id;
     let currentUser = req.authenticatedUser;
     const user = await users.getUserById(currentUser);
-    let matchObj = await matches.getMatchById(id);
-    console.log("data", matchObj);
-    res.status(200).json({ matchObj, user });
+    const matchObj = await matches.getMatchById(id);
+    const commentObjects = await matches.getCommentObjectsByMatchId(id);
+    //console.log("data", matchObj);
+    res.status(200).json({ matchObj, user, commentObjects });
     return;
   } catch (e) {
     console.log(e);
@@ -140,25 +141,29 @@ router.get("/match_bbb/:id", async (req, res) => {
   }
 });
 
+router.get("/match/:matchId/comments", async (req, res) => {
+  try {
+    let matchId = req.params.matchId;
+    let existingComments = await matches.getCommentObjectsByMatchId(matchId);
+    res.status(200).json(existingComments);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ success: false, error: "Sorry, something went wrong." });
+  }
+});
+
 router.post("/match/:matchId/comment", async (req, res) => {
   try {
     let matchId = req.params.matchId;
-    let commenter = req.authenticatedUser;
-    let comment = req.body.comment;
+    let commenter = req.body.currentUserid;
+    //let commenter = req.authenticatedUser;
+    let comment = req.body.commentInput;
 
-    try {
-      validation.validateID(commenter);
-      validation.validateComment(comment);
-    } catch (e) {
-      res.status(400).json({ success: false, message: e, error: e });
-      return;
-    }
-
-    let validationStatus = validation.validateCommentPostBody(body);
-    if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
-      return;
-    }
+    // let validationStatus = validation.validateCommentPostBody(body);
+    // if (!validationStatus.isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validationStatus.message });
+    //   return;
+    // }
 
     const createdComment = await matches.addComment(matchId, comment, commenter);
     res.status(200).json(createdComment);
@@ -170,21 +175,11 @@ router.post("/match/:matchId/comment", async (req, res) => {
   }
 });
 
-router.get("/match/:matchId/comments", async (req, res) => {
-  try {
-    let matchId = req.params.matchId;
-    let existingComments = await matches.getCommentsByMatchId(matchId);
-    res.status(200).json(existingComments);
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ success: false, error: "Sorry, something went wrong." });
-  }
-});
-
 router.delete("/match/:matchId/:commentId", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
+    let currentUserUid = req.params.currentUserid;
     let commentId = req.params.commentId;
 
     if (!validation.validateID(commentId).isValid) {
@@ -193,7 +188,7 @@ router.delete("/match/:matchId/:commentId", async (req, res) => {
     }
 
     try {
-      let matchAfterCommentDeleted = await matches.deleteComment(matchId, commentId, currentUser);
+      let matchAfterCommentDeleted = await matches.deleteComment(matchId, commentId, currentUserUid);
       res.status(200).json(matchAfterCommentDeleted);
       return;
     } catch (e) {
@@ -213,26 +208,20 @@ router.delete("/match/:matchId/:commentId", async (req, res) => {
   }
 });
 
-router.post("/match/:matchId/:commentId/replies", async (req, res) => {
+router.post("/match/:matchId/:commentId/reply", async (req, res) => {
   try {
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
-    let commenter = req.authenticatedUser;
-    let reply = req.body.reply;
+    let commenter = req.body.currentUserid;
+    console.log("inside route", commenter);
+    let reply = req.body.replyInput;
+    console.log("inside route", commentId);
 
-    try {
-      validation.validateID(commenter);
-      validation.validateComment(reply);
-    } catch (e) {
-      res.status(400).json({ success: false, message: e, error: e });
-      return;
-    }
-
-    let validationStatus = validation.validateCommentPostBody(body);
-    if (!validationStatus.isValid) {
-      res.status(400).json({ errorCode: 400, message: validationStatus.message });
-      return;
-    }
+    //let validationStatus = validation.validateCommentPostBody(body);
+    // if (!validationStatus.isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validationStatus.message });
+    //   return;
+    // }
 
     const matchAfterCommentReplyAdded = await matches.addReply(matchId, commentId, reply, commenter);
     res.status(200).json(matchAfterCommentReplyAdded);

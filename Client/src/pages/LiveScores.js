@@ -5,12 +5,14 @@ import { Grid, Card, CardContent } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useStyles } from "../styles/liveScoresStyles.js";
+import { useNavigate } from "react-router-dom";
 
 function LiveScores() {
   const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const [currMatch, setCurrMatch] = useState(0);
   const [matches, setMatches] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMatches = async () => {
@@ -75,6 +77,9 @@ function LiveScores() {
                         }}
                       >
                         <Card
+                          onClick={() => {
+                            navigate("/match/" + match.id, { replace: true });
+                          }}
                           style={{
                             height: 190,
                             width: 310,
@@ -83,6 +88,7 @@ function LiveScores() {
                             wrap: "wrap !important",
                             display: "flex",
                             fontSize: "0.70rem",
+                            cursor: "pointer",
                           }}
                         >
                           <CardContent>

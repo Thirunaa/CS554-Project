@@ -1,14 +1,17 @@
 import { useState, useContext, useEffect } from "react";
 import { CircularProgress, Container, Avatar, Card, CardContent, Typography, Grid, Box, Button } from "@mui/material";
 //import ChangePassword from '../components/ChangePassword';
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
+// eslint-disable-next-line
+import Profile from "./Profile";
 
 const User = () => {
   const { currentUser } = useContext(AuthContext);
   //const { displayName, email } = currentUser;
   let { username } = useParams();
+  let navigate = useNavigate();
   // eslint-disable-next-line
   const [profile, setProfile] = useState();
   // eslint-disable-next-line
@@ -35,7 +38,7 @@ const User = () => {
       }
     }
     fetchData();
-  }, [username]);
+  }, [username, currentUser]);
 
   if (loading) {
     return (
@@ -43,6 +46,8 @@ const User = () => {
         <CircularProgress />
       </div>
     );
+  } else if (username === currentUser.displayName) {
+    return navigate("/profile", { replace: true });
   } else {
     return (
       <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>

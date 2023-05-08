@@ -3,6 +3,7 @@ const validation = require("../validations/dataValidations");
 const { ObjectId } = require("mongodb");
 const matches = mongoCollections.matches;
 const comments = mongoCollections.comments;
+const users = require("../data/user");
 const currentMatchesUrl = "https://api.cricapi.com/v1/currentMatches?";
 const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
@@ -53,12 +54,12 @@ const getMatchById = async (id) => {
   let match = await matchesCollection.findOne({ matchId: id });
 
   if (match) {
-    console.log("data from data func - Match already in DB", match);
+    //console.log("data from data func - Match already in DB", match);
     const updatedMatchMetaData = await matchesCollection.updateOne({ matchId: id }, { $set: { data: metaData } });
     if (!updatedMatchMetaData.modifiedCount) return match;
     return await matchesCollection.findOne({ matchId: id });
   } else {
-    console.log("data from data func - Match inserted into DB", metaData);
+    //console.log("data from data func - Match inserted into DB", metaData);
     let matchObject = {
       _id: new ObjectId(),
       matchId: id,
@@ -86,12 +87,12 @@ const getMatchByIdFromDB = async (id) => {
 
 const getCommentById = async (id) => {
   const commentsCollection = await comments();
-  const comment = await commentsCollection.findOne({ _id: id });
+  const comment = await commentsCollection.findOne({ _id: new ObjectId(id) });
   if (!comment) throw `No comment found with that id ${id}`;
   return comment;
 };
 
-const getCommentsByMatchId = async (id) => {
+const getCommentObjectsByMatchId = async (id) => {
   const matchesCollection = await matches();
   const match = await matchesCollection.findOne({ matchId: id });
   if (!match) throw `No match found with that id ${id}`;
@@ -109,12 +110,14 @@ const addComment = async (matchId, comment, userThatPostedComment) => {
   validation.validateComment(comment);
   const matchesCollection = await matches();
   const commentsCollection = await comments();
+  let user = await users.getUserById(userThatPostedComment);
   let matchCommentedOn = await matchesCollection.findOne({ matchId: matchId });
   if (!matchCommentedOn) throw `No Match found with that match id ${matchId}`;
 
   let commentObject = {
     _id: new ObjectId(),
     userThatPostedComment: userThatPostedComment,
+    username: user.displayName,
     comment,
     likes: [],
     replies: [],
@@ -123,9 +126,9 @@ const addComment = async (matchId, comment, userThatPostedComment) => {
   const createdComment = await commentsCollection.insertOne(commentObject);
   if (!createdComment.insertedId) throw `Creating this comment was unsuccessful.`;
 
-  const addCommentToMatch = await matchCommentedOn.updateOne(
+  const addCommentToMatch = await matchesCollection.updateOne(
     { matchId: matchId },
-    { $addToSet: { comments: commentObject._id } }
+    { $addToSet: { comments: commentObject._id.toString() } }
   );
   if (!addCommentToMatch.modifiedCount) throw `Adding comment to match was unsuccessful.`;
   return await matchesCollection.findOne({ matchId: matchId });
@@ -162,13 +165,16 @@ const deleteComment = async (matchId, commentId, userId) => {
 
 // return the match object with the updated comments array with the added reply
 const addReply = async (matchId, commentId, reply, userThatPostedReply) => {
-  validation.validateComment(reply);
+  //validation.validateComment(reply);
+  console.log("comment id", commentId);
   const commentsCollection = await comments();
   const matchesCollection = await matches();
+  let user = await users.getUserById(userThatPostedReply);
   const replyObject = {
     _id: new ObjectId(),
     userThatPostedReply: userThatPostedReply,
-    reply,
+    username: user.displayName,
+    text: reply,
     likes: [],
   };
 
@@ -178,7 +184,7 @@ const addReply = async (matchId, commentId, reply, userThatPostedReply) => {
   );
   if (!addReply.modifiedCount) throw `Adding reply to comment was unsuccessful.`;
 
-  let matchAfterReplyAdded = await getCommentsByMatchId(matchId);
+  let matchAfterReplyAdded = await getCommentObjectsByMatchId(matchId);
   return matchAfterReplyAdded;
 };
 
@@ -213,7 +219,7 @@ const likeComment = async (matchId, commentId, userId) => {
 
   if (!commentAfterLikeAdded.modifiedCount) throw `Adding like to comment was unsuccessful.`;
 
-  let matchAfterCommentLiked = await getCommentsByMatchId(matchId);
+  let matchAfterCommentLiked = await getCommentObjectsByMatchId(matchId);
   return matchAfterCommentLiked;
 };
 
@@ -229,7 +235,7 @@ const likeReply = async (matchId, commentId, replyId, userId) => {
 
   if (!replyAfterLikeAdded.modifiedCount) throw `Adding like to reply was unsuccessful.`;
 
-  let matchAfterReplyLiked = await getCommentsByMatchId(matchId);
+  let matchAfterReplyLiked = await getCommentObjectsByMatchId(matchId);
   return matchAfterReplyLiked;
 };
 
@@ -334,7 +340,7 @@ module.exports = {
   getMatchById,
   getMatchByIdFromDB,
   getBBBMatchDataById,
-  getCommentsByMatchId,
+  getCommentObjectsByMatchId,
   addReply,
   deleteReply,
   likeComment,

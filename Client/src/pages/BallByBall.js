@@ -46,6 +46,7 @@ const BallByBall = () => {
       }
     });
   }
+
   if (loading) {
     return (
       <div>
@@ -79,64 +80,78 @@ const BallByBall = () => {
 
         {bbbData &&
           firstInnings.map((x, index) =>
-            x.ball === 6 ? (
+            (x.penalty === "no ball" || x.penalty === "wide" ) ? (
               <React.Fragment key={index}>
-                <card className={classes.card1}>
+              <card className={classes.card1}>
                   <Typography variant="h4">
-                    {x.over}.{x.ball}{" "}
+                    {x.over+1}.{x.ball}{" "}
                   </Typography>
                   <Typography variant="h6" sx={{ flex: "1 1 10%" }} >
-                    {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
+                    {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},this was a {x.penalty} bowl ,score is{" "}
                     {(score = score + x.runs)}
                   </Typography>
                 </card>
                 <br></br>
-                <Box boxShadow={3}>
-                  <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "100%" }}>
-                    <div className={classes.section}>
-                      <Typography variant="h2">{x.over + 1}</Typography>
-                    </div>
-                    <Divider
-                      className={classes.divider}
-                      orientation="vertical"
-                      sx={{
-                        height: "100%",
-                        margin: "0 8px",
-                      }}
-                    />
-                    <div className={classes.section}>
-                      <Typography variant="h4">
-                        Score after {x.over + 1} over is {score}
-                      </Typography>
-                    </div>
-                    <Divider
-                      className={classes.divider}
-                      orientation="vertical"
-                      sx={{
-                        height: "100%",
-                        margin: "0 8px",
-                      }}
-                    />
-                    <div className={classes.section}>
-                      <Typography variant="h6">
-                        With {x.batsman.name} being on the batting side and {x.bowler.name} bowling the over.
-                      </Typography>
-                    </div>
-                  </card>
-                </Box>
-                <br></br>
+                </React.Fragment>
+              ):( x.ball === 6  ?
+              <React.Fragment key={index}>
+              <card className={classes.card1}>
+              <Typography variant="h4">
+                {x.over+1}.{x.ball}{" "}
+              </Typography>
+              <Typography variant="h6" sx={{ flex: "1 1 10%" }} >
+                {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
+                {(score = score + x.runs)}
+              </Typography>
+            </card>
+            <br></br>
+            <Box boxShadow={3}>
+              <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "100%" }}>
+                <div className={classes.section}>
+                  <Typography variant="h2">{x.over + 1}</Typography>
+                </div>
+                <Divider
+                  className={classes.divider}
+                  orientation="vertical"
+                  sx={{
+                    height: "100%",
+                    margin: "0 8px",
+                  }}
+                />
+                <div className={classes.section}>
+                  <Typography variant="h4">
+                    Score after {x.over + 1} over is {score}
+                  </Typography>
+                </div>
+                <Divider
+                  className={classes.divider}
+                  orientation="vertical"
+                  sx={{
+                    height: "100%",
+                    margin: "0 8px",
+                  }}
+                />
+                <div className={classes.section}>
+                  <Typography variant="h6">
+                    With {x.batsman.name} being on the batting side and {x.bowler.name} bowling the over.
+                  </Typography>
+                </div>
+              </card>
+            </Box>
+            <br></br>
               </React.Fragment>
-            ) : (
+            
+                 : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>
                 <Typography variant="h4">
-                  {x.over}.{x.ball}{" "}
+                  {x.over+1}.{x.ball}{" "}
                 </Typography>
                 <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
                 </Typography>
               </card>
             )
-          )}
+          ))}
 <br></br>
         <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
           INNINGS : {bbbData?.data?.score[1].inning}

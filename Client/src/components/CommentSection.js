@@ -2,7 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import "../styles/CommentSection.css";
 import { CircularProgress } from "@material-ui/core";
+// eslint-disable-next-line
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 //import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
@@ -15,6 +17,7 @@ function CommentSection() {
   // eslint-disable-next-line
   const [currentUsername, setCurrentUsername] = useState("");
   const [commentInput, setCommentInput] = useState("");
+  // eslint-disable-next-line
   const [replyInput, setReplyInput] = useState("");
   const [currentCommentId, setCurrentCommentId] = useState("");
   let { id } = useParams();
@@ -56,7 +59,7 @@ function CommentSection() {
   // }
 
   async function handleCommentSubmit() {
-    if (commentInput && commentInput !== "") {
+    if (commentInput && commentInput.trim() !== "") {
       // axios call to add comment to database
       setLoading(true);
       let authtoken = await currentUser.getIdToken();
@@ -74,15 +77,16 @@ function CommentSection() {
       } catch (e) {
         console.log(e);
       }
-      setCommentInput("");
+      fetchData();
     }
-    fetchData();
+    setCommentInput("");
   }
 
-  async function handleReplySubmit(commentId) {
+  async function handleReplySubmit(event, commentId) {
     console.log(commentId);
-    setReplyInput(document.getElementById(commentId).value);
-    if (replyInput && replyInput !== "") {
+    event.preventDefault();
+    let replyInput = document.getElementById(commentId).value;
+    if (replyInput && replyInput.trim() !== "") {
       // axios call to add reply to database
       setLoading(true);
       let authtoken = await currentUser.getIdToken();
@@ -101,7 +105,6 @@ function CommentSection() {
         console.log(e);
       }
       fetchData();
-      setReplyInput("");
     }
     document.getElementById(commentId).value = "";
   }
@@ -214,9 +217,9 @@ function CommentSection() {
                   }}
                 >
                   {comment?.likes?.includes(currentUserid) ? (
-                    <FavoriteIcon className="heart-icon" />
+                    <ThumbUpIcon className="heart-icon" />
                   ) : (
-                    <FavoriteIcon className="heart-icon-outline" />
+                    <ThumbUpIcon className="heart-icon-outline" />
                   )}
                   {comment.likes.length > 0 && <span className="like-count">{comment.likes.length}</span>}
                 </button>
@@ -240,9 +243,9 @@ function CommentSection() {
                           }}
                         >
                           {reply?.likes?.includes(currentUserid) ? (
-                            <FavoriteIcon className="heart-icon" />
+                            <ThumbUpIcon className="heart-icon" />
                           ) : (
-                            <FavoriteIcon className="heart-icon-outline" />
+                            <ThumbUpIcon className="heart-icon-outline" />
                           )}
                           {reply.likes.length > 0 && <span className="like-count">{reply.likes.length}</span>}
                         </button>
@@ -254,18 +257,18 @@ function CommentSection() {
               <form
                 className="reply-form"
                 onSubmit={(event) => {
-                  event.preventDefault();
-                  handleReplySubmit(comment._id);
+                  handleReplySubmit(event, comment._id);
                 }}
               >
                 <input
+                  required
                   id={comment._id}
                   type="text"
                   className="reply-input"
                   placeholder="Write a reply"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      handleReplySubmit(comment._id);
+                      handleReplySubmit(e, comment._id);
                     }
                   }}
                 />
@@ -278,6 +281,7 @@ function CommentSection() {
         </ul>
         <form className="comment-form" onSubmit={handleCommentSubmit}>
           <input
+            required
             type="text"
             className="comment-input"
             placeholder="Write a comment"

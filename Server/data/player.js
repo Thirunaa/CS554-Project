@@ -11,7 +11,6 @@ const getPlayersList = async (PageNo) => {
   validation.validatePageNo(PageNo);
   PageNo = parseInt(PageNo);
   let offset = 25 * PageNo;
-
   const { data } = await axios.get(allplayersUrl + API_KEY + "&offset=" + offset);
   //console.log(data.data);
   return data.data;

@@ -19,6 +19,14 @@ function SignUp() {
     }
     console.log(displayName.value);
 
+    // check to see if the display name is available.
+    try {
+      await axios.get(`http://localhost:3001/users/check/${displayName.value}`);
+    } catch (e) {
+      alert("This user name is already taken. Please try another one.");
+      return;
+    }
+
     try {
       await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName.value);
       let userId = firebase.auth().currentUser.uid;

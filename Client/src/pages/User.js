@@ -1,15 +1,5 @@
-import { useState, useContext, useEffect } from "react";
-import {
-  CircularProgress,
-  Container,
-  Avatar,
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  Box,
-  Button,
-} from "@mui/material";
+import React, { useState, useContext, useEffect } from "react";
+import { CircularProgress, Container, Avatar, Card, CardContent, Typography, Grid, Box, Button } from "@mui/material";
 //import ChangePassword from '../components/ChangePassword';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";

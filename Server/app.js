@@ -184,7 +184,7 @@ app.use(async (req, res, next) => {
     req["authenticatedUser"] = uid;
   } catch (e) {
     console.log(e);
-    res.status(401).json({ success: false, message: "You must be logged in to perform this action." });
+    res.status(401).json({ success: false, message: "You must be logged in to perform this action. Please login." });
     return;
   }
   next();

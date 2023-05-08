@@ -24,7 +24,9 @@ const BallByBall = () => {
         const { data } = await axios.get("http://localhost:3001/matches/match_bbb/" + id, {
           headers: { authtoken: authtoken },
         });
-        setbbbData(data);
+        if(data){
+          setbbbData(data);
+        }
       } catch (e) {
         console.log(e);
       }
@@ -58,21 +60,21 @@ const BallByBall = () => {
         <br />
         <card>
           <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">
-            {bbbData?.data?.name}
+            {bbbData && bbbData.data && bbbData.data.name}
           </Typography>
           <br></br>
           <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
-            Toss-winner:{bbbData?.data?.tossWinner}
+            Toss-winner:{bbbData && bbbData.data && bbbData.data.tossWinner}
           </Typography>
           <br></br>
           <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
-            Toss-choice:{bbbData?.data?.tossChoice}
+            Toss-choice:{bbbData && bbbData.data && bbbData.data.tossChoice}
           </Typography>
         </card>
         <br></br>
         <card>
           <Typography sx={{ flex: "1 1 100%" }} variant="h5" id="tableTitle" component="div">
-            INNINGS : {bbbData?.data?.score[0].inning}
+            INNINGS : {bbbData && bbbData.data && bbbData.data.score[0].inning}
           </Typography>
         </card>
         <br></br>
@@ -153,7 +155,7 @@ const BallByBall = () => {
           ))}
 <br></br>
         <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
-          INNINGS : {bbbData?.data?.score[1].inning}
+          INNINGS : {bbbData && bbbData.data && bbbData.data.score[1].inning}
         </Typography>
         <br></br>
 

@@ -266,17 +266,17 @@ router.delete("/match/:matchId/:commentId/:replyId", async (req, res) => {
   }
 });
 
-router.post("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/:replyId/like", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
     let replyId = req.params.replyId;
 
-    if (!validation.validateID(replyId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
-      return;
-    }
+    // if (!validation.validateID(replyId).isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+    //   return;
+    // }
 
     let matchAfterReplyLiked = await matches.likeReply(matchId, commentId, replyId, currentUser);
     res.status(200).json(matchAfterReplyLiked);
@@ -288,17 +288,17 @@ router.post("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
   }
 });
 
-router.delete("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/:replyId/unlike", async (req, res) => {
   try {
     let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
     let replyId = req.params.replyId;
 
-    if (!validation.validateID(replyId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
-      return;
-    }
+    // if (!validation.validateID(replyId).isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validation.validateID(replyId).message });
+    //   return;
+    // }
 
     let matchAfterReplyUnliked = await matches.unlikeReply(matchId, commentId, replyId, currentUser);
     res.status(200).json(matchAfterReplyUnliked);
@@ -310,16 +310,18 @@ router.delete("/match/:matchId/:commentId/:replyId/likes", async (req, res) => {
   }
 });
 
-router.post("/match/:matchId/:commentId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/like", async (req, res) => {
   try {
-    let currentUser = req.authenticatedUser;
+    console.log("inside like route");
+    let currentUser = req.body.currentUserid;
+    //let currentUser = req.authenticatedUser;
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
 
-    if (!validation.validateID(commentId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
-      return;
-    }
+    // if (!validation.validateID(commentId).isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+    //   return;
+    // }
 
     let matchAfterCommentLiked = await matches.likeComment(matchId, commentId, currentUser);
     res.status(200).json(matchAfterCommentLiked);
@@ -331,16 +333,17 @@ router.post("/match/:matchId/:commentId/likes", async (req, res) => {
   }
 });
 
-router.delete("/match/:matchId/:commentId/likes", async (req, res) => {
+router.post("/match/:matchId/:commentId/unlike", async (req, res) => {
   try {
-    let currentUser = req.authenticatedUser;
+    //let currentUser = req.authenticatedUser;
+    let currentUser = req.body.currentUserid;
     let matchId = req.params.matchId;
     let commentId = req.params.commentId;
 
-    if (!validation.validateID(commentId).isValid) {
-      res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
-      return;
-    }
+    // if (!validation.validateID(commentId).isValid) {
+    //   res.status(400).json({ errorCode: 400, message: validation.validateID(commentId).message });
+    //   return;
+    // }
 
     let matchAfterCommentUnliked = await matches.unlikeComment(matchId, commentId, currentUser);
     res.status(200).json(matchAfterCommentUnliked);

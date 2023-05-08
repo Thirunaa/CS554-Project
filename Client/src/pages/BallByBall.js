@@ -5,6 +5,7 @@ import axios from "axios";
 import { useStyles } from "../styles/ballbyballStyles";
 import { Typography, Divider, Box, CircularProgress } from "@mui/material";
 import { AuthContext } from "../firebase/Auth";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const BallByBall = () => {
   // eslint-disable-next-line
@@ -53,14 +54,14 @@ const BallByBall = () => {
     );
   } else {
     return (
-      <div style={{ width: "100%", backgroundColor: "#f1faee" }}>
+      <div  className={classes.page} style={{ width: "60%", backgroundColor: "#f1faee" , marginLeft:"20%", marginRight:"20%"}}>
         <br />
         <card>
-          <Typography sx={{ flex: "1 1 100%" }} variant="h2" id="tableTitle" component="div">
+          <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">
             {bbbData?.data?.name}
           </Typography>
           <br></br>
-          <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">
+          <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
             Toss-winner:{bbbData?.data?.tossWinner}
           </Typography>
           <br></br>
@@ -84,13 +85,14 @@ const BallByBall = () => {
                   <Typography variant="h4">
                     {x.over}.{x.ball}{" "}
                   </Typography>
-                  <Typography variant="h6" className="classes.typography">
+                  <Typography variant="h6" sx={{ flex: "1 1 10%" }} >
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
                     {(score = score + x.runs)}
                   </Typography>
                 </card>
+                <br></br>
                 <Box boxShadow={3}>
-                  <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "80%" }}>
+                  <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "100%" }}>
                     <div className={classes.section}>
                       <Typography variant="h2">{x.over + 1}</Typography>
                     </div>
@@ -122,6 +124,7 @@ const BallByBall = () => {
                     </div>
                   </card>
                 </Box>
+                <br></br>
               </React.Fragment>
             ) : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>
@@ -134,12 +137,14 @@ const BallByBall = () => {
               </card>
             )
           )}
-
-        <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">
+<br></br>
+        <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
           INNINGS : {bbbData?.data?.score[1].inning}
         </Typography>
+        <br></br>
 
-        {bbbData &&
+        
+           {bbbData &&
           secondInnings.map((x, index) =>
             x.ball === 6 ? (
               <React.Fragment key={index}>
@@ -153,7 +158,7 @@ const BallByBall = () => {
                   </Typography>
                 </card>
                 <Box boxShadow={3}>
-                  <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "80%" }}>
+                  <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "100%" }}>
                     <div className={classes.section}>
                       <Typography variant="h2">{x.over + 1}</Typography>
                     </div>
@@ -197,6 +202,7 @@ const BallByBall = () => {
               </card>
             )
           )}
+
       </div>
     );
   }

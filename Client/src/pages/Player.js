@@ -101,8 +101,8 @@ const Player = (props) => {
         } = await axios.get("http://localhost:3001/players/player/" + id, {
           headers: { authtoken: authtoken },
         });
-        console.log(playerObj);
-        console.log(user);
+        // console.log(playerObj);
+        // console.log(user);
         if (playerObj) {
           setPlayerData(playerObj);
         } else {
@@ -175,7 +175,7 @@ const Player = (props) => {
           <PersonalInfo classes={classes} playerData={playerData} />
         </Grid>
         <Grid item xs={9}>
-          <Grid container xs={12}>
+          <Grid container>
             <Box>
               <h2 className={classes.subheading}>Batting Career Summary</h2>
             </Box>
@@ -199,9 +199,9 @@ function StatsTable({ type, classes, stats }) {
           <TableHead>
             <TableRow>
               <TableCell />
-              {STATS_HEADERS.batting.map((x) => {
+              {STATS_HEADERS.batting.map((x, i) => {
                 return (
-                  <TableCell padding="none" align="left">
+                  <TableCell key = {i} padding="none" align="left">
                     {x}
                   </TableCell>
                 );
@@ -209,9 +209,9 @@ function StatsTable({ type, classes, stats }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {stats?.map((x) => {
+            {stats?.map((x, i) => {
               return (
-                <TableRow>
+                <TableRow key = {i}>
                   <TableCell component="th" scope="row">
                     {x.matchtype.toUpperCase()}
                   </TableCell>
@@ -242,15 +242,15 @@ function StatsTable({ type, classes, stats }) {
           <TableHead>
             <TableRow>
               <TableCell />
-              {STATS_HEADERS.bowling.map((x) => {
-                return <TableCell align="left">{x}</TableCell>;
+              {STATS_HEADERS.bowling.map((x, i) => {
+                return <TableCell key = {i} align="left">{x}</TableCell>;
               })}
             </TableRow>
           </TableHead>
           <TableBody>
-            {stats?.map((x) => {
+            {stats?.map((x, i) => {
               return (
-                <TableRow>
+                <TableRow key = {i}>
                   <TableCell component="th" scope="row">
                     {x.matchtype.toUpperCase()}
                   </TableCell>

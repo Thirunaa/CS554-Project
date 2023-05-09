@@ -25,24 +25,26 @@ function formattedDate(dateString) {
 }
 
 function getStats(stats) {
-  let battingStats = stats?.filter((x) => x.fn == "batting");
-  let bowlingStats = stats?.filter((x) => x.fn == "bowling");
+  let battingStats = stats && stats.filter((x) => x.fn == "batting");
+  let bowlingStats = stats && stats.filter((x) => x.fn == "bowling");
   let matchtypes = ["odi", "t20i", "ipl"];
   let newStats = {
     batting: matchtypes.map((matchtype) => {
       let obj = { matchtype };
-      let arr = battingStats?.filter((x) => x.matchtype == matchtype);
-      arr?.forEach((element) => {
-        obj[element.stat] = element.value;
-      });
+      let arr = battingStats && battingStats.filter((x) => x.matchtype == matchtype);
+      arr &&
+        arr.forEach((element) => {
+          obj[element.stat] = element.value;
+        });
       return obj;
     }),
     bowling: matchtypes.map((matchtype) => {
       let obj = { matchtype };
-      let arr = bowlingStats?.filter((x) => x.matchtype == matchtype);
-      arr?.forEach((element) => {
-        obj[element.stat] = element.value;
-      });
+      let arr = bowlingStats && bowlingStats.filter((x) => x.matchtype == matchtype);
+      arr &&
+        arr.forEach((element) => {
+          obj[element.stat] = element.value;
+        });
       return obj;
     }),
   };

@@ -251,6 +251,8 @@ function CommentSection() {
                                 {reply.text}
                               </span>
                               <button
+                                id="replylike"
+                                label="replylike"
                                 className={reply.likes.includes(currentUserid) ? "like-btn active" : "like-btn"}
                                 onClick={() => {
                                   reply.likes.includes(currentUserid)

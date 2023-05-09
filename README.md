@@ -100,7 +100,7 @@ sudo kill -9 $(sudo lsof -t -i:9200)
 - Run npm start in the server folder.
 - Run npm start in the client folder.
 
-## seeding the database
+## Seeding the database
 
 - Run npm run seed in the server folder to seed the database with users. We made sure to add unique users[username and email] to the database which is in sync with the firebase database.
 - The matches data is populated into the database automatically once you open the match.

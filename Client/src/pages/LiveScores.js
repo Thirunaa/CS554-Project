@@ -51,7 +51,7 @@ function LiveScores() {
               <ArrowBackIosIcon
                 style={{
                   fontSize: 15,
-                  color: "white",
+                  color: "black",
                   borderRadius: "100%",
                   width: 25,
                   height: 25,
@@ -163,7 +163,7 @@ function LiveScores() {
               <ArrowForwardIosIcon
                 style={{
                   fontSize: 15,
-                  color: "white",
+                  color: "black",
                   borderRadius: "100%",
                   width: 25,
                   height: 25,

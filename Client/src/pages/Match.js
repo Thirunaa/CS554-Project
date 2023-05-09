@@ -340,7 +340,7 @@ const Match = (props) => {
                         !predictionObj.tie.includes(userId) && (
                           <div>
                             <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                              {matchData?.teams[0]}
+                              {matchData && matchData.teams[0]}
                             </Button>
                             <Button
                               style={{ marginLeft: "7px" }}

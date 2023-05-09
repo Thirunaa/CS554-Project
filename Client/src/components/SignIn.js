@@ -66,6 +66,7 @@ function SignIn() {
             <TextField
               variant="outlined"
               fullWidth
+              id="password"
               name="password"
               label="Password"
               type="password"

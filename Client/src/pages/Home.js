@@ -39,7 +39,7 @@ const Home = () => {
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={article.id}>
         <Card className={classes.card} variant="outlined">
           <CardActionArea>
-            <Link to={`${article.url}`}>
+            <Link to={`${article.url}`} target="_blank">
               <CardMedia
                 className={classes.media}
                 component="img"
@@ -89,7 +89,9 @@ const Home = () => {
         <LiveScores />
         <br />
         <br />
-        <Typography> LATEST CRICKET NEWS </Typography>
+        <Typography variant="h1" style={{ fontSize: "20px", paddingBottom: "15px" }} textAlign="center">
+          {"Latest Cricket News"}
+        </Typography>
         <br />
 
         <br />

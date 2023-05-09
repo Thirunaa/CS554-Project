@@ -5,7 +5,7 @@ const { Client } = require("@elastic/elasticsearch");
 const elasticClient = new Client({ node: "http://localhost:9200" });
 
 const createUser = async (userId, emailAddress, displayName) => {
-  validation.validateName(displayName);
+  validation.validateUsername(displayName);
 
   const usersCollection = await users();
   const findUser = await usersCollection.findOne({ _id: userId });
@@ -19,7 +19,6 @@ const createUser = async (userId, emailAddress, displayName) => {
     displayName,
     favouriteMatches: [],
     favouritePlayers: [],
-    imageUrl: "",
   };
   const insertUser = await usersCollection.insertOne(user);
   if (insertUser.insertedCount === 0) throw `Couldn't insert user to database.`;
@@ -42,12 +41,26 @@ const createUser = async (userId, emailAddress, displayName) => {
 
 const searchUsers = async (searchTerm) => {
   let result = [];
+  searchTerm = searchTerm.toLowerCase();
   try {
     result = await elasticClient.search({
       index: "users",
       body: {
         query: {
-          wildcard: { displayName: `*${searchTerm}*` },
+          bool: {
+            should: [
+              {
+                match: {
+                  displayName: searchTerm,
+                },
+              },
+              {
+                wildcard: {
+                  displayName: `*${searchTerm}*`,
+                },
+              },
+            ],
+          },
         },
       },
     });
@@ -135,7 +148,6 @@ const removeFavoritePlayer = async (userId, playerId) => {
 };
 
 const checkDisplayName = async (name) => {
-  //validateDisplayName(name);
   const usersCollection = await users();
   const findUser = await usersCollection.findOne({
     displayName: { $regex: new RegExp("^" + name + "$", "i") },

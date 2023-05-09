@@ -46,47 +46,11 @@ const validateUsername = (inputUsername) => {
   if (inputUsername.search(regexLetters) < 0) {
     throw `The userName must contains alphabets.`;
   }
-  const regex = new RegExp("^[a-zA-Z0-9]*$");
-  if (!regex.test(inputUsername)) throw `Username should contain only alphanumeric characters.`;
-};
-
-const validatePassword = (inputPassword) => {
-  if (!inputPassword) throw `Password not provided.`;
-  if (typeof inputPassword !== "string") throw `Password is not of valid input type.`;
-  if (inputPassword.trim().length === 0) throw `Password contains only whitespaces.`;
-  if (inputPassword.includes(" ")) throw `Password should not contain spaces.`;
-  if (inputPassword.length < 6) throw `Password should contain at least 6 characters.`;
-  const regexDigit = /[0-9]/;
-  if (inputPassword.search(regexDigit) < 0) {
-    throw `Password should contain at least one number`;
-  }
-  const regexUppercase = /[A-Z]/;
-  if (inputPassword.search(regexUppercase) < 0) {
-    throw `Password should contain at least one uppercase character`;
-  }
-  const regexLowercase = /[a-z]/;
-  if (inputPassword.search(regexLowercase) < 0) {
-    throw `Password should contain at least one lowercase character`;
-  }
-  const regexSpecialCharacter = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  if (inputPassword.search(regexSpecialCharacter) < 0) {
-    throw `Password should contain at least one special character`;
-  }
-};
-
-const validateName = (inputName) => {
-  if (!inputName) throw `Name not provided.`;
-  if (typeof inputName !== "string") throw `Name is not of valid input type.`;
-  if (inputName.trim().length < 2) throw `Name must contain at least 2 characters.`;
-  const regex = new RegExp("^[a-zA-Zs]*$");
-  if (!regex.test(inputName)) throw `Name should contain only alaphabets characters.`;
 };
 
 module.exports = {
   validateComment,
   validateID,
   validateUsername,
-  validatePassword,
-  validateName,
   validatePageNo,
 };

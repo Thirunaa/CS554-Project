@@ -81,7 +81,7 @@ function LiveScores() {
                             navigate("/match/" + match.id, { replace: true });
                           }}
                           style={{
-                            marginLeft: 40,
+                            marginLeft: 20,
                             height: 190,
                             width: 310,
                             backgroundColor: "rgba(255, 255, 255, 0.9)",

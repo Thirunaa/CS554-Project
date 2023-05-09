@@ -108,7 +108,8 @@ const Profile = () => {
           <SearchData searchValue={searchValue} />
           <List style={{ paddingLeft: "300px", paddingRight: "300px" }}>
             {searchTerm &&
-              searchData?.map((result) => (
+              searchData &&
+              searchData.map((result) => (
                 <ListItem
                   style={{ border: "1px solid #ccc", borderRadius: "5px" }}
                   key={result._source.displayName}

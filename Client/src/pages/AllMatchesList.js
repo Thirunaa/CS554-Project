@@ -124,7 +124,7 @@ const AllMatchesList = () => {
                         width={60}
                       />
                     )}
-                  {match.teams?.[0]}
+                  {match && match.teams[0]}
                 </CardMedia>
 
                 <Typography
@@ -157,7 +157,7 @@ const AllMatchesList = () => {
                         width={60}
                       />
                     )}
-                  {match.teams?.[1]}
+                  {match && match.teams[1]}
                 </CardMedia>
               </CardContent>
             </Link>

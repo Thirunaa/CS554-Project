@@ -29,61 +29,50 @@ const validatePageNo = (PageNo) => {
   return { isValid: true };
 };
 
-const validateName = (name) => {
-  if (!name)
+const validateUsername = (inputUsername) => {
+  if (!inputUsername)
     return {
       isValid: false,
-      message: "Invalid query params - Expected: [ name: string]",
+      message: "Username not provided.",
     };
 
-  if (typeof name !== "string")
+  if (typeof inputUsername !== "string")
     return {
       isValid: false,
-      message: "Invalid datatype for name - Expected: [ name: string]",
+      message: "Username is not of valid input type.",
     };
-  return { isValid: true };
-};
-
-const validateLogin = (inputBody) => {
-  if (typeof inputBody !== "object") return { isValid: false, message: `Invalid body provided for login.` };
-  if (!inputBody.username || !inputBody.password) return { isValid: false, message: `Invalid params in request body.` };
-  if (typeof inputBody.username !== "string")
+  if (inputUsername.trim().length === 0)
     return {
       isValid: false,
-      message: `Invalid datatype for username. Expecting a String`,
+      message: "Username is empty.",
     };
-  if (typeof inputBody.password !== "string")
+  if (inputUsername.includes(" "))
     return {
       isValid: false,
-      message: "Invalid datatype for password. Expecting a String",
+      message: "Username should not contain spaces.",
     };
-  if (inputBody.username.length === 0 || inputBody.username.trim().length === 0)
-    return { isValid: false, message: `Either the username or password is invalid` };
-  if (inputBody.password.length === 0 || inputBody.password.trim().length === 0)
-    return { isValid: false, message: `Either the username or password is invalid` };
-  return { isValid: true };
-};
-
-const validateCommentPostBody = (commentBody) => {
-  if (commentBody === undefined) return { isValid: false, message: `Invalid input.` };
-  if (typeof commentBody !== "object" || Array.isArray(commentBody))
-    return { isValid: false, message: `Invalid body type. Expecting a object` };
-  if (!commentBody.comment) return { isValid: false, message: `Body does not have comment parameter.` };
-
-  if (Object.keys(commentBody).some((element) => element !== "comment")) {
+  if (inputUsername.length < 3) throw `Username must contain at least 3 characters.`;
+  const regexLetters = /[a-zA-Z]/;
+  if (inputUsername.search(regexLetters) < 0) {
     return {
       isValid: false,
-      message: `Allowed parameter is "comment". Unexpected parameter ${element} passed`,
+      message: "The userName must contains alphabets.",
     };
   }
+  return { isValid: true };
+};
 
+const validateComment = (inputComment) => {
+  if (inputComment === undefined) return { isValid: false, message: `No comment provided.` };
+  if (typeof inputComment !== "string") return { isValid: false, message: `Comment should be string.` };
+  if (inputComment.length === 0) return { isValid: false, message: `Comment is empty` };
+  if (inputComment.trim().length === 0) return { isValid: false, message: `Comment contains only whitespaces.` };
   return { isValid: true };
 };
 
 module.exports = {
-  validateName,
-  validateLogin,
+  validateUsername,
   validateID,
-  validateCommentPostBody,
+  validateComment,
   validatePageNo,
 };

@@ -205,7 +205,10 @@ function CommentSection() {
   } else {
     return (
       <Card className={classes.card} variant="outlined">
-        <CardHeader className={classes.titleHead} title={"Comments (" + comments.length + ")"} />
+        <CardHeader
+          className={classes.titleHead}
+          title={comments ? "Comments (" + comments.length + ")" : "Comments (0)"}
+        />
         <CardContent>
           <div className="comment-section">
             {/* <h2>Comments ({comments.length})</h2> */}

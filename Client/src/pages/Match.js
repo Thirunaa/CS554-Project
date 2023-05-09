@@ -157,7 +157,7 @@ const Match = (props) => {
         setPredictionObj(matchObj.predictions);
         setPredictionPercentage(matchObj);
         // set score
-        if (matchObj?.data?.score) {
+        if (matchObj && matchObj.data && matchObj.data.score) {
           for (const score of matchObj.data.score) {
             scoresArray.push(
               (score.inning + " - " + score.r + "/" + score.w + "   Overs: " + score.o + " ").toString()
@@ -252,7 +252,12 @@ const Match = (props) => {
                   className={classes.media}
                   component="img"
                   image={
-                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                    matchData &&
+                    matchData.teamInfo &&
+                    matchData.teamInfo[0] &&
+                    matchData.teamInfo[0].img &&
+                    matchData.teamInfo[1] &&
+                    matchData.teamInfo[1].img
                       ? matchData.teamInfo[0].img.split("?")[0]
                       : noNewsImage
                   }
@@ -262,7 +267,12 @@ const Match = (props) => {
                   className={classes.media}
                   component="img"
                   image={
-                    matchData && matchData.teamInfo && matchData.teamInfo[0]?.img && matchData.teamInfo[1]?.img
+                    matchData &&
+                    matchData.teamInfo &&
+                    matchData.teamInfo[0] &&
+                    matchData.teamInfo[0].img &&
+                    matchData.teamInfo[1] &&
+                    matchData.teamInfo[1].img
                       ? matchData.teamInfo[1].img.split("?")[0]
                       : noNewsImage
                   }
@@ -344,7 +354,7 @@ const Match = (props) => {
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >
-                              {matchData?.teams[1]}
+                              {matchData && matchData.teams[1]}
                             </Button>
                           </div>
                         )}
@@ -360,7 +370,7 @@ const Match = (props) => {
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >
-                              {matchData?.teams[1]}
+                              {matchData && matchData.teams[1]}
                             </Button>
                           </div>
                         )}
@@ -370,7 +380,7 @@ const Match = (props) => {
                         !predictionObj.tie.includes(userId) && (
                           <div>
                             <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                              {matchData?.teams[0]}
+                              {matchData && matchData.teams[0]}
                             </Button>
                             <Button
                               style={{ marginLeft: "7px" }}
@@ -387,14 +397,14 @@ const Match = (props) => {
                         predictionObj.tie.includes(userId) && (
                           <div>
                             <Button color="primary" onClick={() => handleClick("team1")} variant="contained">
-                              {matchData?.teams[0]}
+                              {matchData && matchData.teams[0]}
                             </Button>
                             <Button
                               style={{ marginLeft: "7px", backgroundColor: "#ff0000" }}
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >
-                              {matchData?.teams[1]}
+                              {matchData && matchData.teams[1]}
                             </Button>
                           </div>
                         )}
@@ -402,18 +412,18 @@ const Match = (props) => {
                   )}
 
                   <p>
-                    Predictions for {matchData?.teams[0]} ({team1Percent}) Predictions for {matchData?.teams[1]} (
-                    {team2Percent}) Predictions for Tie ({tiePercent})
+                    Predictions for {matchData && matchData.teams[0]} ({team1Percent}) Predictions for{" "}
+                    {matchData && matchData.teams[1]} ({team2Percent}) Predictions for Tie ({tiePercent})
                   </p>
                   {/* End of Prediction button logic */}
                   <br />
 
-                  {!userData?.favouriteMatches.includes(id) && (
+                  {userData && !userData.favouriteMatches.includes(id) && (
                     <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
                       Save
                     </Button>
                   )}
-                  {userData?.favouriteMatches.includes(id) && (
+                  {userData && userData.favouriteMatches.includes(id) && (
                     <Button variant="contained" color="primary" onClick={() => handleSaveUnsave()}>
                       Unsave
                     </Button>
@@ -451,31 +461,33 @@ const Match = (props) => {
             </Card>
           </Box>
         </Grid>
-        <Grid item>
-          <Box>
-            <Card className={classes.card} variant="outlined">
-              <CardHeader className={classes.titleHead} title="Chat" />
-              <CardContent>
-                <div>
+        {!matchData.matchEnded && (
+          <Grid item>
+            <Box>
+              <Card className={classes.card} variant="outlined">
+                <CardHeader className={classes.titleHead} title="Chat" />
+                <CardContent>
                   <div>
-                    {messages.map((mess, index) => (
-                      <p key={index} style={{ textAlign: "left" }}>
-                        <Link to={"/user/" + mess.split(":")[0]}>{mess.split(":")[0]}</Link>
-                        {": "}
-                        {mess.split(":")[1]}
-                      </p>
-                    ))}
+                    <div>
+                      {messages.map((mess, index) => (
+                        <p key={index} style={{ textAlign: "left" }}>
+                          <Link to={"/user/" + mess.split(":")[0]}>{mess.split(":")[0]}</Link>
+                          {": "}
+                          {mess.split(":")[1]}
+                        </p>
+                      ))}
+                    </div>
+                    <form onSubmit={handleFormSubmit}>
+                      <input id="chat-inputbox" type="text" value={message} onChange={handleInputChange} />
+                      <label htmlFor="chat-inputbox"></label>
+                      <button type="submit">Send</button>
+                    </form>
                   </div>
-                  <form onSubmit={handleFormSubmit}>
-                    <input id="chat-inputbox" type="text" value={message} onChange={handleInputChange} />
-                    <label htmlFor="chat-inputbox"></label>
-                    <button type="submit">Send</button>
-                  </form>
-                </div>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
+                </CardContent>
+              </Card>
+            </Box>
+          </Grid>
+        )}
       </Grid>
     );
   }

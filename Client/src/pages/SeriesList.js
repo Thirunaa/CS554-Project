@@ -31,18 +31,22 @@ const SeriesList = () => {
 
   const buildCard = (series) => {
     return (
-      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={series.id}>
+      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={series && series.id}>
         <Card key={series.id} sx={{ minWidth: 275, mb: 2 }}>
           <CardContent>
             <Typography variant="h5" component="h2">
-              {series.name}
+              {series && series.name ? series.name : "Not Specified"}
             </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {series.startDate} - {series.endDate}
+            <Typography sx={{ mb: 1.5 }} color="textSecondary">
+              {series && series.startDate && series.endDate
+                ? `${series.startDate} - ${series.endDate}`
+                : "Not specified"}
             </Typography>
             <Typography variant="body2">
-              ODI: {series.odi} | T20: {series.t20} | Test: {series.test} | Squads: {series.squads} | Matches:{" "}
-              {series.matches}
+              ODI: {series && series.odi ? series.odi : "Not Specified"} | T20:{" "}
+              {series && series.t20 ? series.t20 : "Not Specified"} | Test:{" "}
+              {series && series.test ? series.test : "Not Specified"} | Squads:{" "}
+              {series && series.squads ? series.squads : "Not Specified"} | Matches: {series.matches}
             </Typography>
           </CardContent>
         </Card>

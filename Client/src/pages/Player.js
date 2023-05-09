@@ -153,18 +153,22 @@ const Player = (props) => {
         <Grid item xs={12}>
           <Grid direction="row" justifyContent="flex-start" alignItems="flex-end" container className={classes.header}>
             <Grid item>
-              <img alt={playerData?.name} className={classes.playerImg} src={playerData?.playerImg || ""} />
+              <img
+                alt={playerData && playerData.name}
+                className={classes.playerImg}
+                src={(playerData && playerData.playerImg) || ""}
+              />
             </Grid>
             <Grid item>
-              <h1>{playerData?.name || ""}</h1>
-              <h2 style={{ color: "grey" }}>{playerData?.country || ""}</h2>
+              <h1>{(playerData && playerData.name) || ""}</h1>
+              <h2 style={{ color: "grey" }}>{(playerData && playerData.country) || ""}</h2>
             </Grid>
-            {!userData?.favouritePlayers.includes(id) && (
+            {userData && !userData.favouritePlayers.includes(id) && (
               <Button variant="contained" color="primary" onClick={() => handleClick()}>
                 Add to Favourites
               </Button>
             )}
-            {userData?.favouritePlayers.includes(id) && (
+            {userData && userData.favouritePlayers.includes(id) && (
               <Button variant="contained" color="primary" onClick={() => handleClick()}>
                 Remove from Favourites
               </Button>
@@ -179,11 +183,11 @@ const Player = (props) => {
             <Box>
               <h2 className={classes.subheading}>Batting Career Summary</h2>
             </Box>
-            <StatsTable stats={playerData?.stats?.batting} classes={classes} type="batting" />
+            <StatsTable stats={playerData.stats && playerData.stats.batting} classes={classes} type="batting" />
             <Box>
               <h2 className={classes.subheading}>Bowling Career Summary</h2>
             </Box>
-            <StatsTable stats={playerData?.stats?.bowling} classes={classes} type="bowling" />
+            <StatsTable stats={playerData.stats && playerData.stats.bowling} classes={classes} type="bowling" />
           </Grid>
         </Grid>
       </Grid>
@@ -209,28 +213,29 @@ function StatsTable({ type, classes, stats }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {stats?.map((x) => {
-              return (
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    {x.matchtype.toUpperCase()}
-                  </TableCell>
-                  <TableCell align="left">{x.m || "-"}</TableCell>
-                  <TableCell align="left">{x.inn || "-"}</TableCell>
-                  <TableCell align="left">{x.no || "-"}</TableCell>
-                  <TableCell align="left">{x.runs || "-"}</TableCell>
-                  <TableCell align="left">{x.hs || "-"}</TableCell>
-                  <TableCell align="left">{x.avg || "-"}</TableCell>
-                  <TableCell align="left">{x.bf || "-"}</TableCell>
-                  <TableCell align="left">{x.sr || "-"}</TableCell>
-                  <TableCell align="left">{x["100s"] || "-"}</TableCell>
-                  <TableCell align="left">{x["200s"] || "-"}</TableCell>
-                  <TableCell align="left">{x["50s"] || "-"}</TableCell>
-                  <TableCell align="left">{x["4s"] || "-"}</TableCell>
-                  <TableCell align="left">{x["6s"] || "-"}</TableCell>
-                </TableRow>
-              );
-            })}
+            {stats &&
+              stats.map((x) => {
+                return (
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      {x.matchtype.toUpperCase()}
+                    </TableCell>
+                    <TableCell align="left">{x.m || "-"}</TableCell>
+                    <TableCell align="left">{x.inn || "-"}</TableCell>
+                    <TableCell align="left">{x.no || "-"}</TableCell>
+                    <TableCell align="left">{x.runs || "-"}</TableCell>
+                    <TableCell align="left">{x.hs || "-"}</TableCell>
+                    <TableCell align="left">{x.avg || "-"}</TableCell>
+                    <TableCell align="left">{x.bf || "-"}</TableCell>
+                    <TableCell align="left">{x.sr || "-"}</TableCell>
+                    <TableCell align="left">{x["100s"] || "-"}</TableCell>
+                    <TableCell align="left">{x["200s"] || "-"}</TableCell>
+                    <TableCell align="left">{x["50s"] || "-"}</TableCell>
+                    <TableCell align="left">{x["4s"] || "-"}</TableCell>
+                    <TableCell align="left">{x["6s"] || "-"}</TableCell>
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </Table>
       </TableContainer>
@@ -248,27 +253,28 @@ function StatsTable({ type, classes, stats }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {stats?.map((x) => {
-              return (
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    {x.matchtype.toUpperCase()}
-                  </TableCell>
-                  <TableCell align="left">{x.m || "-"}</TableCell>
-                  <TableCell align="left">{x.inn || "-"}</TableCell>
-                  <TableCell align="left">{x.b || "-"}</TableCell>
-                  <TableCell align="left">{x.runs || "-"}</TableCell>
-                  <TableCell align="left">{x.wkts || "-"}</TableCell>
-                  <TableCell align="left">{x.bbi || "-"}</TableCell>
-                  <TableCell align="left">{x.bbm || "-"}</TableCell>
-                  <TableCell align="left">{x.econ || "-"}</TableCell>
-                  <TableCell align="left">{x.avg || "-"}</TableCell>
-                  <TableCell align="left">{x.sr || "-"}</TableCell>
-                  <TableCell align="left">{x["5w"] || "-"}</TableCell>
-                  <TableCell align="left">{x["10w"] || "-"}</TableCell>
-                </TableRow>
-              );
-            })}
+            {stats &&
+              stats.map((x) => {
+                return (
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      {x.matchtype.toUpperCase()}
+                    </TableCell>
+                    <TableCell align="left">{x.m || "-"}</TableCell>
+                    <TableCell align="left">{x.inn || "-"}</TableCell>
+                    <TableCell align="left">{x.b || "-"}</TableCell>
+                    <TableCell align="left">{x.runs || "-"}</TableCell>
+                    <TableCell align="left">{x.wkts || "-"}</TableCell>
+                    <TableCell align="left">{x.bbi || "-"}</TableCell>
+                    <TableCell align="left">{x.bbm || "-"}</TableCell>
+                    <TableCell align="left">{x.econ || "-"}</TableCell>
+                    <TableCell align="left">{x.avg || "-"}</TableCell>
+                    <TableCell align="left">{x.sr || "-"}</TableCell>
+                    <TableCell align="left">{x["5w"] || "-"}</TableCell>
+                    <TableCell align="left">{x["10w"] || "-"}</TableCell>
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </Table>
       </TableContainer>
@@ -288,27 +294,27 @@ function PersonalInfo({ playerData, classes }) {
                 <TableBody>
                   <TableRow>
                     <TableCell className={classes.bold}>Born</TableCell>
-                    <TableCell>{playerData?.dateOfBirth || "--"}</TableCell>
+                    <TableCell>{playerData.dateOfBirth || "--"}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.bold}>Birth Place</TableCell>
-                    <TableCell>{playerData?.placeOfBirth || "--"}</TableCell>
+                    <TableCell>{playerData.placeOfBirth || "--"}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.bold}>Height</TableCell>
-                    <TableCell>{playerData?.height || "--"}</TableCell>
+                    <TableCell>{playerData.height || "--"}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.bold}>Role</TableCell>
-                    <TableCell>{playerData?.role}</TableCell>
+                    <TableCell>{playerData.role}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.bold}>Batting Style</TableCell>
-                    <TableCell>{playerData?.battingStyle}</TableCell>
+                    <TableCell>{playerData.battingStyle}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.bold}>Bowling Style</TableCell>
-                    <TableCell>{playerData?.bowlingStyle}</TableCell>
+                    <TableCell>{playerData.bowlingStyle}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -330,15 +336,45 @@ function PersonalInfo({ playerData, classes }) {
                 <TableBody>
                   <TableRow>
                     <TableCell padding="none">Batting</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.batting?.test || "--"}</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.batting?.odi || "--"}</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.batting?.t20 || "--"}</TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.batting &&
+                        playerData.iccRankings.batting.test) ||
+                        "--"}
+                    </TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.batting &&
+                        playerData.iccRankings.batting.odi) ||
+                        "--"}
+                    </TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.batting &&
+                        playerData.iccRankings.batting.t20) ||
+                        "--"}
+                    </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell padding="none">Bowling</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.test || "--"}</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.odi || "--"}</TableCell>
-                    <TableCell padding="none">{playerData?.iccRankings?.bowling?.t20 || "--"}</TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.bowling &&
+                        playerData.iccRankings.bowling.test) ||
+                        "--"}
+                    </TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.bowling &&
+                        playerData.iccRankings.bowling.odi) ||
+                        "--"}
+                    </TableCell>
+                    <TableCell padding="none">
+                      {(playerData.iccRankings &&
+                        playerData.iccRankings.bowling &&
+                        playerData.iccRankings.bowling.t20) ||
+                        "--"}
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

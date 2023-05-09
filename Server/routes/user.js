@@ -38,70 +38,70 @@ router.route("/").get(async (req, res) => {
   }
 });
 
-router.route("/users/login").post(async (req, res) => {
-  try {
-    if (req.session.userId) {
-      res.status(400).json({
-        errorCode: 400,
-        message: "You're already logged in.",
-      });
-      return;
-    }
-    let body = req.body;
-    let validationStatus = validation.validateLogin(body);
-    if (!validationStatus.isValid) {
-      if (
-        validationStatus.message ===
-        "Either the username or password is invalid"
-      ) {
-        res
-          .status(401)
-          .json({ errorCode: 401, message: validationStatus.message });
-        return;
-      } else {
-        res
-          .status(400)
-          .json({ errorCode: 400, message: validationStatus.message });
-        return;
-      }
-    }
-    try {
-      const user = await users.loginUser(body.username, body.password);
-      if (user.isAuthenticated) {
-        req.session.userId = user.userDetails._id.toString();
-        req.session.username = user.userDetails.username;
-        res.status(200).json(user.userDetails);
-        return;
-      }
-    } catch (e) {
-      res.status(400).json({ errorCode: 400, message: e });
-      return;
-    }
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ errorCode: 500, message: e });
-    return;
-  }
-});
+// router.route("/users/login").post(async (req, res) => {
+//   try {
+//     if (req.session.userId) {
+//       res.status(400).json({
+//         errorCode: 400,
+//         message: "You're already logged in.",
+//       });
+//       return;
+//     }
+//     let body = req.body;
+//     let validationStatus = validation.validateLogin(body);
+//     if (!validationStatus.isValid) {
+//       if (
+//         validationStatus.message ===
+//         "Either the username or password is invalid"
+//       ) {
+//         res
+//           .status(401)
+//           .json({ errorCode: 401, message: validationStatus.message });
+//         return;
+//       } else {
+//         res
+//           .status(400)
+//           .json({ errorCode: 400, message: validationStatus.message });
+//         return;
+//       }
+//     }
+//     try {
+//       const user = await users.loginUser(body.username, body.password);
+//       if (user.isAuthenticated) {
+//         req.session.userId = user.userDetails._id.toString();
+//         req.session.username = user.userDetails.username;
+//         res.status(200).json(user.userDetails);
+//         return;
+//       }
+//     } catch (e) {
+//       res.status(400).json({ errorCode: 400, message: e });
+//       return;
+//     }
+//   } catch (e) {
+//     console.log(e);
+//     res.status(500).json({ errorCode: 500, message: e });
+//     return;
+//   }
+// });
 
-router.route("/users/logout").get(async (req, res) => {
-  try {
-    if (!req.session.userId) {
-      res.status(401).json({
-        errorCode: 401,
-        message: "You've to be logged in to perform this action.",
-      });
-      return;
-    }
-    req.session.destroy();
-    res.status(200).json({ message: "You've been successfully logged out." });
-    return;
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ errorCode: 500, message: e });
-    return;
-  }
-});
+// router.route("/users/logout").get(async (req, res) => {
+//   try {
+//     if (!req.session.userId) {
+//       res.status(401).json({
+//         errorCode: 401,
+//         message: "You've to be logged in to perform this action.",
+//       });
+//       return;
+//     }
+//     req.session.destroy();
+//     res.status(200).json({ message: "You've been successfully logged out." });
+//     return;
+//   } catch (e) {
+//     console.log(e);
+//     res.status(500).json({ errorCode: 500, message: e });
+//     return;
+//   }
+// });
 
 router.route("/users/signup").post(async (req, res) => {
   try {
@@ -113,9 +113,7 @@ router.route("/users/signup").post(async (req, res) => {
     // catch the validation status from routeValidations.js - some validations has to be changed
     let validationStatus = validation.validateName(displayName);
     if (!validationStatus.isValid) {
-      res
-        .status(400)
-        .json({ errorCode: 400, message: validationStatus.message });
+      res.status(400).json({ errorCode: 400, message: validationStatus.message });
       return;
     }
 
@@ -123,11 +121,7 @@ router.route("/users/signup").post(async (req, res) => {
       res.status(400).json({ success: false, error: "User id not provided. " });
       return;
     }
-    const createdUser = await users.createUser(
-      userId,
-      emailAddress,
-      displayName
-    );
+    const createdUser = await users.createUser(userId, emailAddress, displayName);
     res.status(200).json({ success: true, createdUser });
     return;
   } catch (e) {
@@ -158,9 +152,7 @@ router.route("/users/profile").get(async (req, res) => {
       let player = await players.getPlayerById(user.favouritePlayers[i]);
       favouritePlayersObjects.push(player);
     }
-    res
-      .status(200)
-      .json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
     return;
   } catch (e) {
     console.log(e);
@@ -207,10 +199,7 @@ router.route("/users/addFavourite/:playerId").post(async (req, res) => {
       return;
     }
     let playerId = req.params.playerId;
-    const updatedUser = await users.addRemoveFavoritePlayer(
-      currentUser,
-      playerId
-    );
+    const updatedUser = await users.addRemoveFavoritePlayer(currentUser, playerId);
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);
@@ -233,10 +222,7 @@ router.route("/users/saveMatch/:matchId").post(async (req, res) => {
       return;
     }
     let matchId = req.params.matchId;
-    const updatedUser = await users.addRemoveFavoriteMatch(
-      currentUser,
-      matchId
-    );
+    const updatedUser = await users.addRemoveFavoriteMatch(currentUser, matchId);
     console.log("updatedUser");
     console.log(updatedUser);
     res.status(200).json(updatedUser);
@@ -284,9 +270,7 @@ router.route("/users/:username").get(async (req, res) => {
       let player = await players.getPlayerById(user.favouritePlayers[i]);
       favouritePlayersObjects.push(player);
     }
-    res
-      .status(200)
-      .json({ user, favouriteMatchesObjects, favouritePlayersObjects });
+    res.status(200).json({ user, favouriteMatchesObjects, favouritePlayersObjects });
     return;
   } catch (e) {
     console.log(e);

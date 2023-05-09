@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import logo from "../images/logo192.png";
-import userImage from "../images/User.png";
+//import userImage from "../images/User.png";
 import { useStyles } from "../styles/singleElementStyles.js";
 //import { NavLink } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
@@ -34,6 +34,7 @@ const Navigation = () => {
 function Navbar() {
   const classes = useStyles();
   const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
   // eslint-disable-next-line
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -56,7 +57,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar style={{ position: "fixed" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={logo} className="App-logo" alt="logo" />
@@ -64,7 +65,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            to="/"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -115,6 +116,26 @@ function Navbar() {
 
             <Link
               className={classes.button}
+              key={"Series List"}
+              to="/series-list"
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "3rem",
+              }}
+              style={{
+                marginRight: "10px",
+                marginLeft: "10px",
+                color: "white",
+                fontSize: "1rem",
+              }}
+            >
+              Series List
+            </Link>
+
+            <Link
+              className={classes.button}
               key={"Players"}
               to="/players/page/0"
               sx={{ my: 2, color: "white", display: "block" }}
@@ -128,24 +149,14 @@ function Navbar() {
               Players
             </Link>
           </Box>
-          {/* <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button
-              className={classes.button}
-              sx={{
-                my: 2,
-                color: "white",
-                display: "block",
-              }}
-              onClick={doSignOut}
-            >
-              SignOut
-            </Button>
-          </Box> */}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User" src={userImage} />
+                {/* <Avatar alt="User" src={userImage} /> */}
+                <Avatar style={{ color: "black" }} alt="User">
+                  {currentUser.displayName.charAt(0)}
+                </Avatar>
               </IconButton>
             </Tooltip>
 
@@ -213,7 +224,7 @@ const NavigationNonAuth = () => {
               textDecoration: "none",
             }}
           >
-            Cricketify
+            Live CricketHub
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

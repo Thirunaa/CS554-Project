@@ -32,7 +32,7 @@ function LiveScores() {
   return (
     <>
       {matches.length > 0 && (
-        <div className={classes.carousel} style={{ backgroundColor: "#2196f3", height: 235 }}>
+        <div className={classes.carousel} style={{ backgroundColor: "#1976d2", height: 235 }}>
           <div style={{ margin: "0 100px", position: "relative" }}>
             <div
               className={classes.item}
@@ -41,6 +41,7 @@ function LiveScores() {
               }}
               style={{
                 position: "absolute",
+                marginRight: "10px",
                 top: "50%",
                 left: 0,
                 transform: "translateY(-50%)",
@@ -51,7 +52,6 @@ function LiveScores() {
                 style={{
                   fontSize: 15,
                   color: "white",
-                  backgroundColor: "green",
                   borderRadius: "100%",
                   width: 25,
                   height: 25,
@@ -62,7 +62,7 @@ function LiveScores() {
                 }}
               />
             </div>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} style={{ display: "flex", justifyItems: "center", marginLeft: "20px" }}>
               {currMatch < matches.length ? (
                 matches.map((match, index) => {
                   if (index >= currMatch && index < currMatch + 4) {
@@ -81,6 +81,7 @@ function LiveScores() {
                             navigate("/match/" + match.id, { replace: true });
                           }}
                           style={{
+                            marginLeft: 40,
                             height: 190,
                             width: 310,
                             backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -163,7 +164,6 @@ function LiveScores() {
                 style={{
                   fontSize: 15,
                   color: "white",
-                  backgroundColor: "green",
                   borderRadius: "100%",
                   width: 25,
                   height: 25,

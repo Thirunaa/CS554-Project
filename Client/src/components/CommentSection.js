@@ -285,6 +285,7 @@ function CommentSection() {
                           }
                         }}
                       />
+                      <label htmlFor={comment._id}></label>
                       <button type="submit" className="reply-btn">
                         Reply
                       </button>
@@ -296,12 +297,14 @@ function CommentSection() {
               <input
                 required
                 type="text"
-                label="Comment Input Box"
+                id="commentInput"
+                label="CommentInputBox"
                 className="comment-input"
                 placeholder="Write a comment"
                 value={commentInput}
                 onChange={handleCommentInputChange}
               />
+              <label htmlFor="commentInput"></label>
               <button type="submit" className="comment-btn">
                 Post
               </button>

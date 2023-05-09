@@ -270,7 +270,7 @@ const Match = (props) => {
                 />
               </Grid>
               <CardContent>
-                <Typography variant="body2" color="textSecondary" component="div">
+                <Typography variant="body2" color="textSecondary">
                   <dl>
                     {scoreList.length !== 0 && (
                       <p>
@@ -467,7 +467,8 @@ const Match = (props) => {
                     ))}
                   </div>
                   <form onSubmit={handleFormSubmit}>
-                    <input type="text" value={message} onChange={handleInputChange} />
+                    <input id="chat-inputbox" type="text" value={message} onChange={handleInputChange} />
+                    <label htmlFor="chat-inputbox"></label>
                     <button type="submit">Send</button>
                   </form>
                 </div>

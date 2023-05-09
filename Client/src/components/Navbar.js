@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import logo from "../images/logo192.png";
-//import userImage from "../images/User.png";
+import userImage from "../images/User.png";
 import { useStyles } from "../styles/singleElementStyles.js";
 //import { NavLink } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";

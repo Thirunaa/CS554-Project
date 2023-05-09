@@ -188,7 +188,7 @@ function Navbar() {
                   navigate("/profile", { replace: true });
                 }}
               >
-                <Typography textAlign="center">{"Profile"}</Typography>
+                <Typography textalign="center">{"Profile"}</Typography>
               </MenuItem>
 
               <MenuItem
@@ -198,7 +198,7 @@ function Navbar() {
                   doSignOut();
                 }}
               >
-                <Typography textAlign="center">{"Logout"}</Typography>
+                <Typography textalign="center">{"Logout"}</Typography>
               </MenuItem>
             </Menu>
           </Box>

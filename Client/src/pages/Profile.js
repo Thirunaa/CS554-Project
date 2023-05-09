@@ -102,7 +102,7 @@ const Profile = () => {
       <div>
         <br />
         <div>
-          <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+          <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textalign="center">
             {"Search Users"}
           </Typography>
           <SearchData searchValue={searchValue} />

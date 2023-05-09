@@ -59,22 +59,22 @@ const CurrentMatchesList = () => {
                 <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" component="span">
                   <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
                 <Typography variant="body1" color="textSecondary">
                   {match && match.matchStarted ? (
-                    <div>
+                    <Typography variant="body2" color="textSecondary" component="span">
                       <strong>Started At:</strong>
 
                       {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
-                    </div>
+                    </Typography>
                   ) : (
-                    <div>
+                    <Typography variant="body2" color="textSecondary" component="span">
                       <strong>Starts At:</strong>
 
                       {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
-                    </div>
+                    </Typography>
                   )}
                 </Typography>
                 <Typography variant="body1" color="textSecondary">
@@ -85,61 +85,60 @@ const CurrentMatchesList = () => {
                     <span style={{ color: "red" }}>{match.status}</span>
                   )}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
-                  <CardMedia>
-                    {match &&
-                      match.teamInfo &&
-                      match.teamInfo[0] &&
-                      match.teamInfo[0].img &&
-                      match.teamInfo[1] &&
-                      match.teamInfo[1].img && (
-                        <img
-                          style={{ paddingRight: "5px" }}
-                          src={match.teamInfo[0].img}
-                          alt={match.teamInfo[0].name}
-                          height={35}
-                          width={60}
-                        />
-                      )}
-                    {match.teams?.[0]}
-                  </CardMedia>
 
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      fontSize: "1.5rem",
-                      fontWeight: "bold",
-                      margin: "0 1rem",
-                    }}
-                  >
-                    vs
-                  </Typography>
-                  <CardMedia>
-                    {match &&
-                      match.teamInfo &&
-                      match.teamInfo[0] &&
-                      match.teamInfo[0].img &&
-                      match.teamInfo[1] &&
-                      match.teamInfo[1].img && (
-                        <img
-                          style={{ paddingRight: "5px" }}
-                          src={match.teamInfo[1].img}
-                          alt={match.teamInfo[1].name}
-                          height={35}
-                          width={60}
-                        />
-                      )}
-                    {match.teams?.[1]}
-                  </CardMedia>
+                <CardMedia>
+                  {match &&
+                    match.teamInfo &&
+                    match.teamInfo[0] &&
+                    match.teamInfo[0].img &&
+                    match.teamInfo[1] &&
+                    match.teamInfo[1].img && (
+                      <img
+                        style={{ paddingRight: "5px" }}
+                        src={match.teamInfo[0].img}
+                        alt={match.teamInfo[0].name}
+                        height={35}
+                        width={60}
+                      />
+                    )}
+                  {match.teams?.[0]}
+                </CardMedia>
+
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="span"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                    margin: "0 1rem",
+                  }}
+                >
+                  vs
                 </Typography>
+                <CardMedia>
+                  {match &&
+                    match.teamInfo &&
+                    match.teamInfo[0] &&
+                    match.teamInfo[0].img &&
+                    match.teamInfo[1] &&
+                    match.teamInfo[1].img && (
+                      <img
+                        style={{ paddingRight: "5px" }}
+                        src={match.teamInfo[1].img}
+                        alt={match.teamInfo[1].name}
+                        height={35}
+                        width={60}
+                      />
+                    )}
+                  {match.teams?.[1]}
+                </CardMedia>
               </CardContent>
             </Link>
           </CardActionArea>
@@ -163,7 +162,7 @@ const CurrentMatchesList = () => {
   } else {
     return (
       <div>
-        <Typography variant="h1" style={{ fontSize: "30px" }} textAlign="center">
+        <Typography variant="h1" style={{ fontSize: "30px" }} textalign="center">
           {"Current Matches List"}
         </Typography>
         <br />

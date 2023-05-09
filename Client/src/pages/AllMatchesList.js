@@ -91,14 +91,14 @@ const AllMatchesList = () => {
                 <Typography className={classes.titleHead} gutterBottom variant="h6" component="h2">
                   {match.name && match.name}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" component="span">
                   <strong>Date:</strong> {match && match.dateTimeGMT && match.dateTimeGMT.slice(0, 10)}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" component="span">
                   <strong>Time:</strong>{" "}
                   {match && match.dateTimeGMT && convertTo12Hour(match.dateTimeGMT.slice(11, 16))}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" component="span">
                   <strong>Status: </strong>
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
@@ -109,57 +109,56 @@ const AllMatchesList = () => {
                 <Typography variant="body2" color="textSecondary">
                   <strong>Teams:</strong>
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
-                  <CardMedia>
-                    {match &&
-                      match.teamInfo &&
-                      match.teamInfo[0] &&
-                      match.teamInfo[0].img &&
-                      match.teamInfo[1] &&
-                      match.teamInfo[1].img && (
-                        <img
-                          style={{ paddingRight: "5px" }}
-                          src={match.teamInfo[0].img}
-                          alt={match.teamInfo[0].name}
-                          height={35}
-                          width={60}
-                        />
-                      )}
-                    {match.teams?.[0]}
-                  </CardMedia>
+                <CardMedia>
+                  {match &&
+                    match.teamInfo &&
+                    match.teamInfo[0] &&
+                    match.teamInfo[0].img &&
+                    match.teamInfo[1] &&
+                    match.teamInfo[1].img && (
+                      <img
+                        style={{ paddingRight: "5px" }}
+                        src={match.teamInfo[0].img}
+                        alt={match.teamInfo[0].name}
+                        height={35}
+                        width={60}
+                      />
+                    )}
+                  {match.teams?.[0]}
+                </CardMedia>
 
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      fontSize: "1.5rem",
-                      fontWeight: "bold",
-                      margin: "0 1rem",
-                    }}
-                  >
-                    vs
-                  </Typography>
-                  <CardMedia>
-                    {match &&
-                      match.teamInfo &&
-                      match.teamInfo[0] &&
-                      match.teamInfo[0].img &&
-                      match.teamInfo[1] &&
-                      match.teamInfo[1].img && (
-                        <img
-                          style={{ paddingRight: "5px" }}
-                          src={match.teamInfo[1].img}
-                          alt={match.teamInfo[1].name}
-                          height={35}
-                          width={60}
-                        />
-                      )}
-                    {match.teams?.[1]}
-                  </CardMedia>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="span"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                    margin: "0 1rem",
+                  }}
+                >
+                  vs
                 </Typography>
+                <CardMedia>
+                  {match &&
+                    match.teamInfo &&
+                    match.teamInfo[0] &&
+                    match.teamInfo[0].img &&
+                    match.teamInfo[1] &&
+                    match.teamInfo[1].img && (
+                      <img
+                        style={{ paddingRight: "5px" }}
+                        src={match.teamInfo[1].img}
+                        alt={match.teamInfo[1].name}
+                        height={35}
+                        width={60}
+                      />
+                    )}
+                  {match.teams?.[1]}
+                </CardMedia>
               </CardContent>
             </Link>
           </CardActionArea>
@@ -199,7 +198,7 @@ const AllMatchesList = () => {
   } else {
     return (
       <div>
-        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textalign="center">
           {"All Matches List"}
         </Typography>
         <Container>

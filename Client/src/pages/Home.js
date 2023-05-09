@@ -89,7 +89,7 @@ const Home = () => {
         <LiveScores />
         <br />
         <br />
-        <Typography variant="h1" style={{ fontSize: "20px", paddingBottom: "15px" }} textAlign="center">
+        <Typography variant="h1" style={{ fontSize: "20px", paddingBottom: "15px" }} textalign="center">
           {"Latest Cricket News"}
         </Typography>
         <br />

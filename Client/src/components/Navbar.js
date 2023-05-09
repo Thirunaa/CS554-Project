@@ -34,6 +34,7 @@ const Navigation = () => {
 function Navbar() {
   const classes = useStyles();
   const navigate = useNavigate();
+  // eslint-disable-next-line
   const { currentUser } = useContext(AuthContext);
   // eslint-disable-next-line
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -89,6 +90,7 @@ function Navbar() {
                 marginLeft: "10px",
                 color: "white",
                 fontSize: "1rem",
+                textDecoration: "none",
               }}
             >
               Current Matches
@@ -109,6 +111,7 @@ function Navbar() {
                 marginLeft: "10px",
                 color: "white",
                 fontSize: "1rem",
+                textDecoration: "none",
               }}
             >
               All Matches
@@ -129,6 +132,7 @@ function Navbar() {
                 marginLeft: "10px",
                 color: "white",
                 fontSize: "1rem",
+                textDecoration: "none",
               }}
             >
               Series List
@@ -144,6 +148,7 @@ function Navbar() {
                 marginLeft: "10px",
                 color: "white",
                 fontSize: "1rem",
+                textDecoration: "none",
               }}
             >
               Players

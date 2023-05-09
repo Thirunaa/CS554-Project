@@ -58,7 +58,15 @@ function SignUp() {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Card style={{ height: "50%", width: "50%" }}>
           <form onSubmit={handleSignUp}>
-            <TextField id="displayName" name="displayName" label="Name" required fullWidth margin="normal" autoFocus />
+            <TextField
+              id="displayName"
+              name="displayName"
+              label="Username"
+              required
+              fullWidth
+              margin="normal"
+              autoFocus
+            />
             <TextField id="email" name="email" label="Email" type="email" required fullWidth margin="normal" />
             <TextField
               id="passwordOne"

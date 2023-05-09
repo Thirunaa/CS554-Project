@@ -157,7 +157,7 @@ const Player = (props) => {
             </Grid>
             <Grid item>
               <h1>{playerData?.name || ""}</h1>
-              <h4>{playerData?.country || ""}</h4>
+              <h2 style={{ color: "grey" }}>{playerData?.country || ""}</h2>
             </Grid>
             {!userData?.favouritePlayers.includes(id) && (
               <Button variant="contained" color="primary" onClick={() => handleClick()}>

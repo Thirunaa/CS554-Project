@@ -20,6 +20,8 @@ import {
 //import { Alert } from "@mui/material";
 import "../App.css";
 import RouteNotFound from "../components/RouteNotFound.js";
+// eslint-disable-next-line
+import NoData from "../components/NoData";
 
 const AllMatchesList = () => {
   const { currentUser } = useContext(AuthContext);
@@ -48,6 +50,7 @@ const AllMatchesList = () => {
         if (data.length < 25) {
           setNextPagePresent(false);
         }
+
         setAxiosError("");
         setMatchesData(data);
       } catch (e) {
@@ -100,7 +103,7 @@ const AllMatchesList = () => {
                   {match && match.matchStarted ? (
                     <span style={{ color: "green" }}>{match.status}</span>
                   ) : (
-                    <span style={{ color: "red" }}>{match.status}</span>
+                    <span style={{ color: "darkred" }}>{match.status}</span>
                   )}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
@@ -114,7 +117,13 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img src={match.teamInfo[0].img} alt={match.teamInfo[0].name} height={35} width={60} />
+                        <img
+                          style={{ paddingRight: "5px" }}
+                          src={match.teamInfo[0].img}
+                          alt={match.teamInfo[0].name}
+                          height={35}
+                          width={60}
+                        />
                       )}
                     {match.teams?.[0]}
                   </CardMedia>
@@ -140,7 +149,13 @@ const AllMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img src={match.teamInfo[1].img} alt={match.teamInfo[1].name} height={35} width={60} />
+                        <img
+                          style={{ paddingRight: "5px" }}
+                          src={match.teamInfo[1].img}
+                          alt={match.teamInfo[1].name}
+                          height={35}
+                          width={60}
+                        />
                       )}
                     {match.teams?.[1]}
                   </CardMedia>
@@ -184,8 +199,11 @@ const AllMatchesList = () => {
   } else {
     return (
       <div>
+        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+          {"All Matches List"}
+        </Typography>
         <Container>
-          <ButtonGroup disableElevation variant="contained" color="secondary">
+          <ButtonGroup disableElevation variant="contained" color="primary">
             {pagenum !== 0 && (
               <Button
                 style={{ marginRight: "10px" }}

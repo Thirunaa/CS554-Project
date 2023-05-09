@@ -143,10 +143,14 @@ const PlayersList = () => {
   } else {
     return (
       <div>
+        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+          {"Players List"}
+        </Typography>
         <Container>
-          <ButtonGroup disableElevation variant="contained" color="secondary">
+          <ButtonGroup disableElevation variant="contained" color="primary">
             {pagenum !== 0 && (
               <Button
+                style={{ marginRight: "10px" }}
                 sx={{ marginRight: "1.5%" }}
                 variant={"contained"}
                 onClick={() => {
@@ -160,6 +164,7 @@ const PlayersList = () => {
             )}
             {nextPagePresent && (
               <Button
+                style={{ marginRight: "10px" }}
                 sx={{ marginRight: "1.5%" }}
                 variant={"contained"}
                 onClick={() => {

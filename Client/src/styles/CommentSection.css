@@ -71,8 +71,8 @@
 }
 
 .comment-section .like-btn {
-  color: gray;
-  background-color: white;
+  color: #767676;
+  background-color: #ffffff;
   font-size: 12px;
   margin-left: 10px;
   cursor: pointer;
@@ -113,7 +113,7 @@
 }
 
 .comment-section .comment-btn {
-  background-color: #3897f0;
+  background-color: #007acb;
   color: #fff;
   cursor: pointer;
   margin-left: 10px;
@@ -147,7 +147,7 @@
 }
 
 .comment-section .reply-btn {
-  background-color: #3897f0;
+  background-color: #007acb;
   color: #fff;
   cursor: pointer;
   margin-left: 10px;
@@ -156,11 +156,11 @@
 }
 
 .comment-section .reply-btn:hover {
-  background-color: #2684f0;
+  background-color: #014471;
 }
 
 .heart-icon {
-  color: red;
+  color: #007acb;
 }
 
 .comment-section .reply-list {

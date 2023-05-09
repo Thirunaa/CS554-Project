@@ -104,7 +104,7 @@ const CurrentMatchesList = () => {
                         width={60}
                       />
                     )}
-                  {match.teams?.[0]}
+                  {match && match.teams && match.teams[0]}
                 </CardMedia>
 
                 <Typography
@@ -137,7 +137,7 @@ const CurrentMatchesList = () => {
                         width={60}
                       />
                     )}
-                  {match.teams?.[1]}
+                  {match && match.teams && match.teams[1]}
                 </CardMedia>
               </CardContent>
             </Link>

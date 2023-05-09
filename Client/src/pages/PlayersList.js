@@ -119,7 +119,7 @@ const PlayersList = () => {
   }
 
   if (axiosError !== "") {
-    if (axiosError?.includes("400")) {
+    if (axiosError && axiosError.includes("400")) {
       return (
         <div>
           <Error400 />;

@@ -43,7 +43,7 @@ const Home = () => {
               <CardMedia
                 className={classes.media}
                 component="img"
-                image={article.urlToImage ? article.urlToImage : noNewsImage}
+                image={article && article.urlToImage ? article.urlToImage : noNewsImage}
                 title="show image"
               />
               <CardContent>
@@ -52,7 +52,7 @@ const Home = () => {
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {article.content ? article.content.substring(0, 150) + "...." : ""}
+                  {article && article.content ? article.content.substring(0, 150) + "...." : ""}
                   <span>More Info</span>
                 </Typography>
               </CardContent>
@@ -68,14 +68,6 @@ const Home = () => {
     newsData.map((article) => {
       return buildCard(article);
     });
-
-  //   if (err) {
-  //     return (
-  //       <div>
-  //         <ErrorComponent />
-  //       </div>
-  //     );
-  //   }
 
   if (loading) {
     return (

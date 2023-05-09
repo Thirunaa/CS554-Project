@@ -93,6 +93,7 @@ const getMatchByIdFromDB = async (id) => {
 };
 
 const getCommentById = async (id) => {
+  validation.validateID(id);
   const commentsCollection = await comments();
   const comment = await commentsCollection.findOne({ _id: new ObjectId(id) });
   if (!comment) throw `No comment found with that id ${id}`;
@@ -172,8 +173,8 @@ const deleteComment = async (matchId, commentId, userId) => {
 
 // return the match object with the updated comments array with the added reply
 const addReply = async (matchId, commentId, reply, userThatPostedReply) => {
-  //validation.validateComment(reply);
-  console.log("comment id", commentId);
+  validation.validateID(commentId);
+  validation.validateComment(reply);
   const commentsCollection = await comments();
   const matchesCollection = await matches();
   let user = await users.getUserById(userThatPostedReply);
@@ -278,7 +279,6 @@ const unlikeReply = async (matchId, commentId, replyId, userId) => {
 };
 
 const predictMatchResult = async (matchId, userId, prediction) => {
-  //validation.validatePrediction(prediction);
   const matchesCollection = await matches();
   const match = await matchesCollection.findOne({ matchId: matchId });
   if (!match) throw `No match found with that id ${matchId}`;

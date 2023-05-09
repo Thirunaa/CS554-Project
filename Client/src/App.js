@@ -23,6 +23,7 @@ import ChangePassword from "./components/ChangePassword";
 import Profile from "./pages/Profile";
 import User from "./pages/User";
 import MatchPreview from "./pages/MatchPreview";
+import SeriesList from "./pages/SeriesList";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           </header>
           <br />
           <br />
-          <div className="App-body">
+          <div className="App-body" style={{ marginTop: "50px" }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/current-matches" element={<PrivateRoute />}>
@@ -43,6 +44,10 @@ function App() {
 
               <Route path="/all-matches/page/:pagenum" element={<PrivateRoute />}>
                 <Route path="/all-matches/page/:pagenum" element={<AllMatchesList />} />
+              </Route>
+
+              <Route path="/series-list" element={<PrivateRoute />}>
+                <Route path="/series-list" element={<SeriesList />} />
               </Route>
 
               <Route path="/players/page/:pagenum" element={<PrivateRoute />}>

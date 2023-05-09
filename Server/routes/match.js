@@ -36,6 +36,34 @@ router.get("/currentMatches", async (req, res) => {
   }
 });
 
+router.get("/seriesList", async (req, res) => {
+  try {
+    if (!client.isOpen) await client.connect();
+    let serieslistFromCache = await client.get("serieslist");
+    if (serieslistFromCache) {
+      console.log("series list from redis");
+      res.status(200).json(JSON.parse(serieslistFromCache));
+      return;
+    } else {
+      let seriesList = await matches.getSeriesList();
+      try {
+        // Update the current matches cache every 24 hours
+        await client.set("serieslist", JSON.stringify(seriesList), "EX", 24 * 60 * 60);
+      } catch (e) {
+        console.log("Set series list in Redis Error");
+        console.log(e);
+      }
+      //console.log(currentMatchesList);
+      res.status(200).json(seriesList);
+      return;
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ errorCode: 500, message: e });
+    return;
+  }
+});
+
 router.get("/liveScores", async (req, res) => {
   try {
     if (!client.isOpen) await client.connect();

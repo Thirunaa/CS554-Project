@@ -40,7 +40,8 @@ const Match = (props) => {
   // eslint-disable-next-line
   const navigate = useNavigate();
   // eslint-disable-next-line
-  const [matchId, setMatchId] = useState(id);
+  const matchId = id;
+  const currentUserName = currentUser.displayName;
 
   // eslint-disable-next-line
   const [messages, setMessages] = useState([]);
@@ -81,7 +82,8 @@ const Match = (props) => {
     console.log("SENDING MESSAGE");
     console.log("ID: " + id);
     console.log("MESSAGE: " + message);
-    socket.emit("message", { id, message });
+    let messageWithUserNames = currentUserName + ": " + message;
+    socket.emit("message", { id, message: messageWithUserNames });
 
     // Clear the message input
     setMessage("");
@@ -203,7 +205,13 @@ const Match = (props) => {
 
     // Listen for new messages
     socket.on("message", (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
+      console.log("RECEIVED MESSAGE", message);
+      if (Array.isArray(message)) {
+        setMessages((prevMessages) => [...prevMessages, ...message]);
+      } else {
+        setMessages((prevMessages) => [...prevMessages, message]);
+      }
+      console.log("after setting the message", messages);
     });
 
     // Clean up the Socket.io connection
@@ -319,7 +327,7 @@ const Match = (props) => {
 
                   {/* Prediction button logic */}
                   {/* change this to !matchData.matchEnded*/}
-                  {matchData.matchEnded && (
+                  {!matchData.matchEnded && (
                     <div>
                       {!predictionObj.team1.includes(userId) &&
                         !predictionObj.team2.includes(userId) &&
@@ -456,11 +464,15 @@ const Match = (props) => {
               <CardHeader className={classes.titleHead} title="Chat" />
               <CardContent>
                 <div>
-                  <ul>
-                    {messages.map((message, index) => (
-                      <li key={index}>{message}</li>
+                  <div>
+                    {messages.map((mess, index) => (
+                      <p key={index} style={{ textAlign: "left" }}>
+                        <Link to={"/user/" + mess.split(":")[0]}>{mess.split(":")[0]}</Link>
+                        {": "}
+                        {mess.split(":")[1]}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                   <form onSubmit={handleFormSubmit}>
                     <input type="text" value={message} onChange={handleInputChange} />
                     <button type="submit">Send</button>

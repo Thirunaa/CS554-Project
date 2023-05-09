@@ -9,16 +9,23 @@ const allMatchesUrl = "https://api.cricapi.com/v1/matches?";
 const matchUrl = "https://api.cricapi.com/v1/match_info?";
 const ballbyballUrl = "https://api.cricapi.com/v1/match_bbb?";
 const liveScoresUrl = "https://api.cricapi.com/v1/cricScore?";
+const seriesListUrl = "https://api.cricapi.com/v1/series?";
 const newsAPI = "https://newsapi.org/v2/top-headlines?country=in&category=sports&q=Cric&";
-const newAPI_KEY = "apiKey=f1a6e7d5baf347b5b46b2b32ac608252";
+const newsAPI_KEY = "apiKey=f1a6e7d5baf347b5b46b2b32ac608252";
 const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
 
 const axios = require("axios");
 
 const getCricketNews = async () => {
-  const { data } = await axios.get(newsAPI + newAPI_KEY);
+  const { data } = await axios.get(newsAPI + newsAPI_KEY);
   //console.log(data);
   return data.articles;
+};
+
+const getSeriesList = async () => {
+  const { data } = await axios.get(seriesListUrl + API_KEY);
+  //console.log(data.data);
+  return data.data;
 };
 
 const getCurrentMatches = async () => {
@@ -331,6 +338,7 @@ const predictMatchResult = async (matchId, userId, prediction) => {
 };
 
 module.exports = {
+  getSeriesList,
   getCricketNews,
   addComment,
   deleteComment,

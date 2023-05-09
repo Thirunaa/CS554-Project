@@ -36,6 +36,7 @@ const createUser = async (userId, emailAddress, displayName) => {
   } catch (e) {
     console.log(e);
   }
+
   return await usersCollection.findOne({ _id: insertUser.insertedId });
 };
 
@@ -78,19 +79,11 @@ const addRemoveFavoriteMatch = async (userId, matchId) => {
   const user = await usersCollection.findOne({ _id: userId });
 
   if (user.favouriteMatches.includes(matchId)) {
-    const updatingUser = await usersCollection.updateOne(
-      { _id: userId },
-      { $pull: { favouriteMatches: matchId } }
-    );
-    if (!updatingUser.modifiedCount)
-      throw `Unsave match from user was unsuccessful.`;
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouriteMatches: matchId } });
+    if (!updatingUser.modifiedCount) throw `Unsave match from user was unsuccessful.`;
   } else {
-    const updatingUser = await usersCollection.updateOne(
-      { _id: userId },
-      { $addToSet: { favouriteMatches: matchId } }
-    );
-    if (!updatingUser.modifiedCount)
-      throw `Save match to user was unsuccessful.`;
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $addToSet: { favouriteMatches: matchId } });
+    if (!updatingUser.modifiedCount) throw `Save match to user was unsuccessful.`;
   }
   const updatedUser = await usersCollection.findOne({ _id: userId });
   console.log(updatedUser);
@@ -103,19 +96,14 @@ const addRemoveFavoritePlayer = async (userId, playerId) => {
   const user = await usersCollection.findOne({ _id: userId });
 
   if (user.favouritePlayers.includes(playerId)) {
-    const updatingUser = await usersCollection.updateOne(
-      { _id: userId },
-      { $pull: { favouritePlayers: playerId } }
-    );
-    if (!updatingUser.modifiedCount)
-      throw `Deleting player from user was unsuccessful.`;
+    const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouritePlayers: playerId } });
+    if (!updatingUser.modifiedCount) throw `Deleting player from user was unsuccessful.`;
   } else {
     const updatingUser = await usersCollection.updateOne(
       { _id: userId },
       { $addToSet: { favouritePlayers: playerId } }
     );
-    if (!updatingUser.modifiedCount)
-      throw `Adding player to user was unsuccessful.`;
+    if (!updatingUser.modifiedCount) throw `Adding player to user was unsuccessful.`;
   }
   const updatedUser = await usersCollection.findOne({ _id: userId });
   console.log(updatedUser);
@@ -125,13 +113,9 @@ const addRemoveFavoritePlayer = async (userId, playerId) => {
 const removeFavoriteMatch = async (userId, matchId) => {
   const usersCollection = await users();
 
-  const updatingUser = await usersCollection.updateOne(
-    { _id: userId },
-    { $pull: { favouriteMatches: matchId } }
-  );
+  const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouriteMatches: matchId } });
 
-  if (!updatingUser.modifiedCount)
-    throw `Removing match from user was unsuccessful.`;
+  if (!updatingUser.modifiedCount) throw `Removing match from user was unsuccessful.`;
 
   const updatedUser = await usersCollection.findOne({ _id: userId });
 
@@ -141,13 +125,9 @@ const removeFavoriteMatch = async (userId, matchId) => {
 const removeFavoritePlayer = async (userId, playerId) => {
   const usersCollection = await users();
 
-  const updatingUser = await usersCollection.updateOne(
-    { _id: userId },
-    { $pull: { favouritePlayers: playerId } }
-  );
+  const updatingUser = await usersCollection.updateOne({ _id: userId }, { $pull: { favouritePlayers: playerId } });
 
-  if (!updatingUser.modifiedCount)
-    throw `Removing player from user was unsuccessful.`;
+  if (!updatingUser.modifiedCount) throw `Removing player from user was unsuccessful.`;
 
   const updatedUser = await usersCollection.findOne({ _id: userId });
 

@@ -6,6 +6,7 @@ import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 // eslint-disable-next-line
 import Profile from "./Profile";
+import RouteNotFound from "../components/RouteNotFound";
 
 const User = () => {
   const { currentUser } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const User = () => {
   const [loading, setLoading] = useState(true);
   const [favouriteMatchesObjects, setFavouriteMatchesObjects] = useState([]);
   const [favouritePlayersObjects, setFavouritePlayersObjects] = useState([]);
-
+  const [axiosError, setAxiosError] = useState("");
   useEffect(() => {
     console.log("User profile useEffect fired");
     async function fetchData() {
@@ -35,10 +36,18 @@ const User = () => {
         setLoading(false);
       } catch (e) {
         console.log(e);
+        setAxiosError(e.response.data.message);
       }
     }
     fetchData();
   }, [username, currentUser]);
+  if (axiosError !== "") {
+    return (
+      <div>
+        <RouteNotFound />;
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -53,9 +62,7 @@ const User = () => {
       <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>
         <Card>
           <CardContent sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar sx={{ width: 100, height: 100, mr: 2 }}>
-              {profile.displayName.charAt(0)}
-            </Avatar>
+            <Avatar sx={{ width: 100, height: 100, mr: 2 }}>{profile.displayName.charAt(0)}</Avatar>
             <div>
               <Typography variant="h5">{profile.displayName}</Typography>
               <Typography color="textSecondary">{profile.email}</Typography>
@@ -65,10 +72,7 @@ const User = () => {
         </Card>
 
         <Grid item xs={12}>
-          <Box
-            component="section"
-            sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}
-          >
+          <Box component="section" sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}>
             <Typography variant="h5" gutterBottom>
               Favorite Players
             </Typography>
@@ -93,10 +97,7 @@ const User = () => {
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Box
-            component="section"
-            sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}
-          >
+          <Box component="section" sx={{ border: "1px solid #ccc", borderRadius: "5px", p: 2, mb: 2 }}>
             <Typography variant="h5" gutterBottom>
               Saved Matches
             </Typography>

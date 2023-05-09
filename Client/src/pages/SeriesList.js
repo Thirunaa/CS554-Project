@@ -65,6 +65,9 @@ const SeriesList = () => {
   } else {
     return (
       <div>
+        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+          {"Series List"}
+        </Typography>
         <br />
         <div>{card}</div>
         <br />

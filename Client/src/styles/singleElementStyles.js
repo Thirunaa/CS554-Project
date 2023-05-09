@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   card: {
     maxWidth: 1000,
+    textDecoration: "none !important",
     height: "auto",
     marginLeft: "auto",
     marginRight: "auto",

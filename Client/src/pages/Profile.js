@@ -60,12 +60,9 @@ const Profile = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get(
-          "http://localhost:3001/users/search/" + searchTerm,
-          {
-            headers: { authtoken: authtoken },
-          }
-        );
+        const { data } = await axios.get("http://localhost:3001/users/search/" + searchTerm, {
+          headers: { authtoken: authtoken },
+        });
         setSearchData(data);
         setLoading(false);
       } catch (e) {
@@ -105,7 +102,10 @@ const Profile = () => {
       <div>
         <br />
         <div>
-          Search Users: <SearchData searchValue={searchValue} />
+          <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textAlign="center">
+            {"Search Users"}
+          </Typography>
+          <SearchData searchValue={searchValue} />
           <List style={{ paddingLeft: "300px", paddingRight: "300px" }}>
             {searchTerm &&
               searchData?.map((result) => (
@@ -124,11 +124,11 @@ const Profile = () => {
         <Container maxWidth="lg" sx={{ mt: 2, mb: 2 }}>
           <Card>
             <CardContent sx={{ display: "flex", alignItems: "center" }}>
-              <Avatar sx={{ width: 100, height: 100, mr: 2 }}>
-                {displayName.charAt(0)}
-              </Avatar>
+              <Avatar sx={{ width: 100, height: 100, mr: 2, color: "black" }}>{displayName.charAt(0)}</Avatar>
               <div>
-                <Typography variant="h5">{displayName}</Typography>
+                <Typography variant="h2" style={{ fontSize: "30px" }}>
+                  {displayName}
+                </Typography>
                 <Typography color="textSecondary">{email}</Typography>
               </div>
             </CardContent>
@@ -151,7 +151,7 @@ const Profile = () => {
                 mb: 2,
               }}
             >
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h3" style={{ fontSize: "30px" }} gutterBottom>
                 Favorite Players
               </Typography>
               {favouritePlayersObjects.length === 0 && (
@@ -184,7 +184,7 @@ const Profile = () => {
                 mb: 2,
               }}
             >
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h3" style={{ fontSize: "30px" }} gutterBottom>
                 Saved Matches
               </Typography>
               {favouriteMatchesObjects.length === 0 && (

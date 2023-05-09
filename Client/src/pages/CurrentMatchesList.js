@@ -96,7 +96,13 @@ const CurrentMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img src={match.teamInfo[0].img} alt={match.teamInfo[0].name} height={35} width={60} />
+                        <img
+                          style={{ paddingRight: "5px" }}
+                          src={match.teamInfo[0].img}
+                          alt={match.teamInfo[0].name}
+                          height={35}
+                          width={60}
+                        />
                       )}
                     {match.teams?.[0]}
                   </CardMedia>
@@ -123,7 +129,13 @@ const CurrentMatchesList = () => {
                       match.teamInfo[0].img &&
                       match.teamInfo[1] &&
                       match.teamInfo[1].img && (
-                        <img src={match.teamInfo[1].img} alt={match.teamInfo[1].name} height={35} width={60} />
+                        <img
+                          style={{ paddingRight: "5px" }}
+                          src={match.teamInfo[1].img}
+                          alt={match.teamInfo[1].name}
+                          height={35}
+                          width={60}
+                        />
                       )}
                     {match.teams?.[1]}
                   </CardMedia>
@@ -151,6 +163,9 @@ const CurrentMatchesList = () => {
   } else {
     return (
       <div>
+        <Typography variant="h1" style={{ fontSize: "30px" }} textAlign="center">
+          {"Current Matches List"}
+        </Typography>
         <br />
         <br />
         <Grid container className={classes.grid} spacing={5}>

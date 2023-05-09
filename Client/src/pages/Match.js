@@ -218,6 +218,7 @@ const Match = (props) => {
     return () => {
       socket.disconnect();
     };
+    // eslint-disable-next-line
   }, [matchId]);
 
   if (loading) {
@@ -231,12 +232,7 @@ const Match = (props) => {
       <Grid id={matchData.id} container justifyContent="center" alignItems="center">
         <Grid item>
           <Box>
-            <Card className={classes.card} variant="outlined">
-              <CardHeader className={classes.titleHead} title={"Comments (" + matchDataFromDB.comments.length + ")"} />
-              <CardContent>
-                <CommentSection />
-              </CardContent>
-            </Card>
+            <CommentSection />
           </Box>
         </Grid>
 
@@ -344,8 +340,7 @@ const Match = (props) => {
                               Tie
                             </Button>
                             <Button
-                              style={{ marginLeft: "7px" }}
-                              color="secondary"
+                              style={{ marginLeft: "7px", backgroundColor: "#ff0000" }}
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >
@@ -361,8 +356,7 @@ const Match = (props) => {
                               Tie
                             </Button>
                             <Button
-                              style={{ marginLeft: "7px" }}
-                              color="secondary"
+                              style={{ marginLeft: "7px", backgroundColor: "#ff0000" }}
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >
@@ -396,8 +390,7 @@ const Match = (props) => {
                               {matchData?.teams[0]}
                             </Button>
                             <Button
-                              style={{ marginLeft: "7px" }}
-                              color="secondary"
+                              style={{ marginLeft: "7px", backgroundColor: "#ff0000" }}
                               onClick={() => handleClick("team2")}
                               variant="contained"
                             >

@@ -58,6 +58,15 @@ const BallByBall = () => {
     return (
       <div style={{ width: "60%", backgroundColor: "#f1faee", marginLeft: "20%", marginRight: "20%" }}>
         <br />
+        <Typography variant="h1" style={{ fontSize: "30px", paddingBottom: "15px" }} textalign="center">
+          {"Ball by Ball details"}
+        </Typography>
+        <Typography variant="h2" style={{ fontSize: "30px", paddingBottom: "15px" }} textalign="center">
+          {""}
+        </Typography>
+        <Typography variant="h3" style={{ fontSize: "30px", paddingBottom: "15px" }} textalign="center">
+          {""}
+        </Typography>
         <card>
           <Typography sx={{ flex: "1 1 100%" }} variant="h3" id="tableTitle" component="div">
             {bbbData && bbbData.data && bbbData.data.name}
@@ -88,7 +97,7 @@ const BallByBall = () => {
                     {x.over}.{x.ball}{" "}
                   </Typography>
 
-                  <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                  <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},this was a {x.penalty} bowl ,score
                     is {(score = score + x.runs)}
                   </Typography>
@@ -101,7 +110,7 @@ const BallByBall = () => {
                   <Typography variant="h4">
                     {x.over}.{x.ball}{" "}
                   </Typography>
-                  <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                  <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
                     {(score = score + x.runs)}
                   </Typography>
@@ -121,7 +130,7 @@ const BallByBall = () => {
                       }}
                     />
                     <div className={classes.section}>
-                      <Typography variant="h4">
+                      <Typography variant="h3">
                         Score after {x.over + 1} over is {score}
                       </Typography>
                     </div>
@@ -134,7 +143,7 @@ const BallByBall = () => {
                       }}
                     />
                     <div className={classes.section}>
-                      <Typography variant="h6">
+                      <Typography variant="h4" style={{ fontSize: "20px" }}>
                         With {x.batsman.name} being on the batting side and {x.bowler.name} bowling the over.
                       </Typography>
                     </div>
@@ -147,13 +156,13 @@ const BallByBall = () => {
                 <Typography variant="h4">
                   {x.over}.{x.ball}{" "}
                 </Typography>
-                <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
                 </Typography>
               </card>
             )
           )}
-        <p style={{ color: "#f1faee" }}>{(score = 0)}</p>
+        <p style={{ color: "#5f7955" }}>{(score = 0)}</p>
         <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
           INNINGS : {bbbData && bbbData.data && bbbData.data.score[1].inning}
         </Typography>
@@ -167,7 +176,7 @@ const BallByBall = () => {
                   <Typography variant="h4">
                     {x.over}.{x.ball}{" "}
                   </Typography>
-                  <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                  <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},this was a {x.penalty} bowl ,score
                     is {(score = score + x.runs)}
                   </Typography>
@@ -180,7 +189,7 @@ const BallByBall = () => {
                   <Typography variant="h4">
                     {x.over}.{x.ball}{" "}
                   </Typography>
-                  <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                  <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
                     {(score = score + x.runs)}
                   </Typography>
@@ -200,7 +209,7 @@ const BallByBall = () => {
                       }}
                     />
                     <div className={classes.section}>
-                      <Typography variant="h4">
+                      <Typography variant="h3">
                         Score after {x.over + 1} over is {score}
                       </Typography>
                     </div>
@@ -213,7 +222,7 @@ const BallByBall = () => {
                       }}
                     />
                     <div className={classes.section}>
-                      <Typography variant="h6">
+                      <Typography variant="h4" style={{ fontSize: "20px" }}>
                         With {x.batsman.name} being on the batting side and {x.bowler.name} bowling the over.
                       </Typography>
                     </div>
@@ -226,7 +235,7 @@ const BallByBall = () => {
                 <Typography variant="h4">
                   {x.over}.{x.ball}{" "}
                 </Typography>
-                <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                <Typography variant="h5" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
                 </Typography>
               </card>

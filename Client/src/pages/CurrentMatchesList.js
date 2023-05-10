@@ -16,6 +16,7 @@ const CurrentMatchesList = () => {
 
   useEffect(() => {
     console.log("on load useeffect");
+    setLoading(true);
     async function fetchData() {
       try {
         let authtoken = await currentUser.getIdToken();

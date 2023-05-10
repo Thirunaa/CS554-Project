@@ -19,6 +19,7 @@ router.get("/currentMatches", async (req, res) => {
     } else {
       let currentMatchesList = await matches.getCurrentMatches();
       try {
+        console.log("current matches from api", currentMatchesList);
         // Update the current matches cache every 24 hours
         await client.set("currentmatches", JSON.stringify(currentMatchesList), "EX", 24 * 60 * 60);
       } catch (e) {

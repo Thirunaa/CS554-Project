@@ -14,6 +14,16 @@ const newsAPI = "https://newsapi.org/v2/top-headlines?country=in&category=sports
 const newsAPI_KEY = "apiKey=f1a6e7d5baf347b5b46b2b32ac608252";
 const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
 
+// const currentMatchesUrl = process.env.CURRENT_MATCHES_URL;
+// const allMatchesUrl = process.env.ALLMATCHES_URL;
+// const matchUrl = process.env.MATCH_URL;
+// const ballbyballUrl = process.env.BALLBYBALL_URL;
+// const liveScoresUrl = process.env.LIVESCORES_URL;
+// const seriesListUrl = process.env.SERIESLIST_URL;
+// const newsAPI = process.env.NEWS_URL;
+// const newsAPI_KEY = process.env.NEWS_API_KEY;
+//const API_KEY = process.env.API_KEY;
+
 const axios = require("axios");
 
 const getCricketNews = async () => {

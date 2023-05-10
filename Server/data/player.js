@@ -4,6 +4,11 @@ const { ObjectId } = require("mongodb");
 const allplayersUrl = "https://api.cricapi.com/v1/players?";
 const playerUrl = "https://api.cricapi.com/v1/players_info?";
 const API_KEY = "apikey=62fea853-66e8-45e1-9e61-b8f56daa7058";
+
+// const allplayersUrl = process.env.ALLPLAYERS_URL;
+// const playerUrl = process.env.PLAYER_URL;
+//const API_KEY = process.env.API_KEY;
+
 const players = mongoCollections.players;
 const axios = require("axios");
 

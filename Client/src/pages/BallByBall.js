@@ -85,8 +85,9 @@ const BallByBall = () => {
               <React.Fragment key={index}>
                 <card className={classes.card1}>
                   <Typography variant="h4">
-                    {x.over + 1}.{x.ball}{" "}
+                    {x.over}.{x.ball}{" "}
                   </Typography>
+
                   <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},this was a {x.penalty} bowl ,score
                     is {(score = score + x.runs)}
@@ -94,11 +95,11 @@ const BallByBall = () => {
                 </card>
                 <br></br>
               </React.Fragment>
-            ) : x.ball === 6 ? (
+            ) : x.ball === 6 && x.penalty === undefined ? (
               <React.Fragment key={index}>
                 <card className={classes.card1}>
                   <Typography variant="h4">
-                    {x.over + 1}.{x.ball}{" "}
+                    {x.over}.{x.ball}{" "}
                   </Typography>
                   <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                     {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},score is{" "}
@@ -144,7 +145,7 @@ const BallByBall = () => {
             ) : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>
                 <Typography variant="h4">
-                  {x.over + 1}.{x.ball}{" "}
+                  {x.over}.{x.ball}{" "}
                 </Typography>
                 <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
                   {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs} ,score is {(score = score + x.runs)}
@@ -152,7 +153,7 @@ const BallByBall = () => {
               </card>
             )
           )}
-        <br></br>
+        <p style={{ color: "#f1faee" }}>{(score = 0)}</p>
         <Typography sx={{ flex: "1 1 100%" }} variant="h4" id="tableTitle" component="div">
           INNINGS : {bbbData && bbbData.data && bbbData.data.score[1].inning}
         </Typography>
@@ -160,7 +161,20 @@ const BallByBall = () => {
 
         {bbbData &&
           secondInnings.map((x, index) =>
-            x.ball === 6 ? (
+            x.penalty === "no ball" || x.penalty === "wide" ? (
+              <React.Fragment key={index}>
+                <card className={classes.card1}>
+                  <Typography variant="h4">
+                    {x.over}.{x.ball}{" "}
+                  </Typography>
+                  <Typography variant="h6" sx={{ flex: "1 1 10%" }}>
+                    {x.bowler.name} to {x.batsman.name},run for this bowl is {x.runs},this was a {x.penalty} bowl ,score
+                    is {(score = score + x.runs)}
+                  </Typography>
+                </card>
+                <br></br>
+              </React.Fragment>
+            ) : x.ball === 6 && x.penalty === undefined ? (
               <React.Fragment key={index}>
                 <card className={classes.card1}>
                   <Typography variant="h4">
@@ -171,6 +185,7 @@ const BallByBall = () => {
                     {(score = score + x.runs)}
                   </Typography>
                 </card>
+                <br></br>
                 <Box boxShadow={3}>
                   <card className={classes.card} variant="outlined" sx={{ flex: "1 1 100%", width: "100%" }}>
                     <div className={classes.section}>
@@ -204,6 +219,7 @@ const BallByBall = () => {
                     </div>
                   </card>
                 </Box>
+                <br></br>
               </React.Fragment>
             ) : (
               <card className={classes.card1} sx={{ flex: "1 1 10%" }}>

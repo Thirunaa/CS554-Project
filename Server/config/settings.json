@@ -1,6 +1,6 @@
 {
   "mongoConfig": {
-    "serverUrl": "mongodb://localhost:27017/",
+    "serverUrl": "mongodb+srv://rohith174518:drIbcO4kdEpl9Q2f@webprogramming.oqcolxw.mongodb.net/Cricketify-LiveCricketHub?retryWrites=true&w=majority",
     "database": "Cricketify-LiveCricketHub"
   }
 }

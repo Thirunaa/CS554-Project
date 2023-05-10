@@ -4,6 +4,8 @@ LiveCricketHub is a web application for live cricket updates. It features news a
 
 ## Walkthrough video:
 
+[Live Cricket Hub](https://youtu.be/0HzfVhjCL9M)
+
 ## Features
 
 - You can watch the live score of a match.

@@ -183,11 +183,19 @@ const Player = (props) => {
             <Box>
               <h2 className={classes.subheading}>Batting Career Summary</h2>
             </Box>
-            <StatsTable stats={playerData.stats && playerData.stats.batting} classes={classes} type="batting" />
+            <StatsTable
+              stats={playerData && playerData.stats && playerData.stats.batting}
+              classes={classes}
+              type="batting"
+            />
             <Box>
               <h2 className={classes.subheading}>Bowling Career Summary</h2>
             </Box>
-            <StatsTable stats={playerData.stats && playerData.stats.bowling} classes={classes} type="bowling" />
+            <StatsTable
+              stats={playerData && playerData.stats && playerData.stats.bowling}
+              classes={classes}
+              type="bowling"
+            />
           </Grid>
         </Grid>
       </Grid>

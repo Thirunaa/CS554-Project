@@ -40,7 +40,7 @@ const PlayersList = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/players/playersList/page/" + pageId, {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/players/playersList/page/" + pageId, {
           headers: { authtoken: authtoken },
         });
         console.log(data);
@@ -64,7 +64,7 @@ const PlayersList = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/players/search/" + searchTerm, {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/players/search/" + searchTerm, {
           headers: { authtoken: authtoken },
         });
         setSearchData(data);

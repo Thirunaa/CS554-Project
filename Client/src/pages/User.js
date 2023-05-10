@@ -26,7 +26,7 @@ const User = () => {
       try {
         const {
           data: { user, favouriteMatchesObjects, favouritePlayersObjects },
-        } = await axios.get("http://localhost:3001/users/" + username, {
+        } = await axios.get(process.env.REACT_APP_EC2_HOST + "/users/" + username, {
           headers: { authtoken: await currentUser.getIdToken() },
         });
         console.log(user);

@@ -21,7 +21,7 @@ const BallByBall = () => {
     async function fetchData() {
       let authtoken = await currentUser.getIdToken();
       try {
-        const { data } = await axios.get("http://localhost:3001/matches/match_bbb/" + id, {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/match_bbb/" + id, {
           headers: { authtoken: authtoken },
         });
         if (data) {

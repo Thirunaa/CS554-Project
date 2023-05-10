@@ -43,7 +43,7 @@ const AllMatchesList = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         let pageId = pagenum;
-        const { data } = await axios.get("http://localhost:3001/matches/allMatches/page/" + pageId, {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/allMatches/page/" + pageId, {
           headers: { authtoken: authtoken },
         });
         //console.log(data);

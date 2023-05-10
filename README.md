@@ -43,7 +43,7 @@ Technologies we used to build this application!
 
 > Independent Technologies
 
-- **Netlify** - The application front end is hosted on Netlify and the backend server is hosted on Heroku
+- **Amazon EC2** - The application backend is hosted on Amazon EC2
 - **ElasticSearch** - fast, text-based search engine to retrieve users from our database
 
 ## Setting everything up
@@ -98,12 +98,45 @@ sudo kill -9 $(sudo lsof -t -i:9200)
 
 - Clone the repository.
 - Run npm i in the server folder.
-- Run npm i --force in the client folder. Incase of any errors, run npm audit fix and then npm i --force.
+- Run npm ci --force in the client folder. Incase of any errors, run npm audit fix --force.
 - Run npm start in the server folder.
 - Run npm start in the client folder.
 
 ## Seeding the database
 
-- Run npm run seed in the server folder to seed the database with users. We made sure to add unique users[username and email] to the database which is in sync with the firebase database.
-- The matches data is populated into the database automatically once you open the match.
-- The comment data is also populated into the database automatically once you add a comment.
+- There is no need to seed the database, as the database is already seeded (MongoDB Atlas).
+
+## The Backend:
+
+`Note: If you're just looking to run the backend on your local machine, skip to point 3 under "EC2 Public URL" heading`
+
+By default, the app depends on a server that runs locally. However, our backend is also hosted on an EC2 instance running in AWS infrastructure. The server is currently turned off, but to login and start the server, follow the below steps:
+
+1. Navigate to: https://516997594963.signin.aws.amazon.com/console
+2. Enter the credentials provided along with the given submission:
+3. Once logged into the console, navigate to the EC2 service (https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:instanceState=running) and you will find an instance called 'cs554-livecrickapp'
+4. Select the instance and start it by navigating to "Instance State -> Start Instance"
+5. The server is configured in a way that all the necessary services are started on boot, and you shouldn't have to ssh into the instance to start anything manually.
+
+## The EC2 Public URL:
+
+1. Once the server is started, copy the _public DNS name_ of the running instance from the instance details below. Usually, it looks something like `ec2-3-**-**-***.compute-1.amazonaws.com`.
+2. Navigate to the Client's root directory and paste this URL inside the .env file under entries `EC2_HOST`, `CHAT_SERVER_HOST` as :
+
+```
+REACT_APP_EC2_HOST=http://ec2-3-**-**-***.compute-1.amazonaws.com:3001
+REACT_APP_CHAT_SERVER_HOST=http://ec2-3-**-**-***.compute-1.amazonaws.com:3002
+```
+
+3. If you're just looking to run the backend locally, fill the .env file like this:
+
+```
+REACT_APP_EC2_HOST=http://localhost:3001
+REACT_APP_CHAT_SERVER_HOST=http://localhost:3002
+```
+
+_IMP: Make sure NOT to include any trailing slashes in the URL._
+
+# INSTANCE SHUTDOWN
+
+Please remember to shutdown the instance once you're done with your work. This is to avoid unnecessary charges to the account.

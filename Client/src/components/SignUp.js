@@ -21,7 +21,7 @@ function SignUp() {
 
     // check to see if the display name is available.
     try {
-      await axios.get(`http://localhost:3001/users/check/${displayName.value}`);
+      await axios.get(`${process.env.REACT_APP_EC2_HOST}/users/check/${displayName.value}`);
     } catch (e) {
       alert("This user name is already taken. Please try another one.");
       return;
@@ -33,7 +33,7 @@ function SignUp() {
       let emailAddress = firebase.auth().currentUser.email;
       let username = displayName.value;
       let loweredEmailAddress = emailAddress.toLowerCase();
-      const { data } = await axios.post("http://localhost:3001/users/signup", {
+      const { data } = await axios.post(process.env.REACT_APP_EC2_HOST + "/users/signup", {
         userId,
         emailAddress: loweredEmailAddress,
         displayName: username,

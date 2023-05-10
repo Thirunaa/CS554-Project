@@ -20,7 +20,7 @@ const CurrentMatchesList = () => {
     async function fetchData() {
       try {
         let authtoken = await currentUser.getIdToken();
-        const { data } = await axios.get("http://localhost:3001/matches/currentMatches", {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/currentMatches", {
           headers: { authtoken: authtoken },
         });
         console.log(data);

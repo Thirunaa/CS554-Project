@@ -98,7 +98,7 @@ const Player = (props) => {
         setLoading(true);
         const {
           data: { playerObj, user },
-        } = await axios.get("http://localhost:3001/players/player/" + id, {
+        } = await axios.get(process.env.REACT_APP_EC2_HOST + "/players/player/" + id, {
           headers: { authtoken: authtoken },
         });
         console.log(playerObj);
@@ -126,7 +126,7 @@ const Player = (props) => {
       let authtoken = await currentUser.getIdToken();
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:3001/users/addFavourite/" + id,
+        process.env.REACT_APP_EC2_HOST + "/users/addFavourite/" + id,
         {},
         {
           headers: { authtoken: authtoken },

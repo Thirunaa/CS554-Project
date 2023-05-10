@@ -18,7 +18,7 @@ function LiveScores() {
     const fetchMatches = async () => {
       try {
         let authtoken = await currentUser.getIdToken();
-        const { data } = await axios.get("http://localhost:3001/matches/liveScores", {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/liveScores", {
           headers: { authtoken: authtoken },
         });
         console.log(data);

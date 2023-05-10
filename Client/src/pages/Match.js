@@ -78,7 +78,7 @@ const Match = (props) => {
     event.preventDefault();
 
     // Send the new message to the server
-    const socket = io("http://localhost:3002");
+    const socket = io(process.env.REACT_APP_CHAT_SERVER_HOST);
     console.log("SENDING MESSAGE");
     console.log("ID: " + id);
     console.log("MESSAGE: " + message);
@@ -114,7 +114,7 @@ const Match = (props) => {
       let authtoken = await currentUser.getIdToken();
       try {
         const { data } = await axios.post(
-          "http://localhost:3001/matches/match/" + id + "/predict",
+          process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/predict",
           {
             prediction,
           },
@@ -146,7 +146,7 @@ const Match = (props) => {
         const {
           // eslint-disable-next-line
           data: { matchObj, user, commentObjects },
-        } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
+        } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/match/" + matchId, {
           headers: { authtoken: authtoken },
         });
         let scoresArray = [];
@@ -178,7 +178,7 @@ const Match = (props) => {
       let authtoken = await currentUser.getIdToken();
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:3001/users/saveMatch/" + id,
+        process.env.REACT_APP_EC2_HOST + "/users/saveMatch/" + id,
         {},
         {
           headers: { authtoken: authtoken },
@@ -198,7 +198,7 @@ const Match = (props) => {
 
   useEffect(() => {
     // Set up Socket.io connection
-    const socket = io("http://localhost:3002");
+    const socket = io(process.env.REACT_APP_CHAT_SERVER_HOST);
 
     // Join the chat room for the current match
     socket.emit("join", matchId);

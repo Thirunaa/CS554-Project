@@ -22,7 +22,7 @@ const Home = () => {
     console.log("on load useeffect");
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:3001/");
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST);
         //console.log(data);
         setnewsData(data);
       } catch (e) {

@@ -37,7 +37,7 @@ function CommentSection() {
     try {
       const {
         data: { matchObj, user, commentObjects },
-      } = await axios.get("http://localhost:3001/matches/match/" + matchId, {
+      } = await axios.get(process.env.REACT_APP_EC2_HOST + "/matches/match/" + matchId, {
         headers: { authtoken: authtoken },
       });
 
@@ -72,7 +72,7 @@ function CommentSection() {
       let authtoken = await currentUser.getIdToken();
       try {
         const { data } = await axios.post(
-          "http://localhost:3001/matches/match/" + id + "/comment",
+          process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/comment",
           { commentInput, currentUserid },
           {
             headers: { authtoken: authtoken },
@@ -99,7 +99,7 @@ function CommentSection() {
       let authtoken = await currentUser.getIdToken();
       try {
         const { data } = await axios.post(
-          "http://localhost:3001/matches/match/" + id + "/" + commentId + "/reply",
+          process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/" + commentId + "/reply",
           { replyInput, currentUserid },
           {
             headers: { authtoken: authtoken },
@@ -121,7 +121,7 @@ function CommentSection() {
     let authtoken = await currentUser.getIdToken();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/matches/match/" + id + "/" + commentId + "/" + replyId + "/like",
+        process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/" + commentId + "/" + replyId + "/like",
         {},
         {
           headers: { authtoken: authtoken },
@@ -141,7 +141,7 @@ function CommentSection() {
     let authtoken = await currentUser.getIdToken();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/matches/match/" + id + "/" + commentId + "/" + replyId + "/unlike",
+        process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/" + commentId + "/" + replyId + "/unlike",
         {},
         {
           headers: { authtoken: authtoken },
@@ -161,7 +161,7 @@ function CommentSection() {
     let authtoken = await currentUser.getIdToken();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/matches/match/" + id + "/" + commentId + "/like",
+        process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/" + commentId + "/like",
         { currentUserid },
         {
           headers: { authtoken: authtoken },
@@ -181,7 +181,7 @@ function CommentSection() {
     let authtoken = await currentUser.getIdToken();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/matches/match/" + id + "/" + commentId + "/unlike",
+        process.env.REACT_APP_EC2_HOST + "/matches/match/" + id + "/" + commentId + "/unlike",
         { currentUserid },
         {
           headers: { authtoken: authtoken },

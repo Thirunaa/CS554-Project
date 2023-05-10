@@ -39,7 +39,7 @@ const Profile = () => {
       try {
         const {
           data: { user, favouriteMatchesObjects, favouritePlayersObjects },
-        } = await axios.get("http://localhost:3001/users/profile/", {
+        } = await axios.get(process.env.REACT_APP_EC2_HOST + "/users/profile/", {
           headers: { authtoken: authtoken },
         });
         console.log(user);
@@ -60,7 +60,7 @@ const Profile = () => {
       try {
         let authtoken = await currentUser.getIdToken();
         console.log(`in fetch searchTerm: ${searchTerm}`);
-        const { data } = await axios.get("http://localhost:3001/users/search/" + searchTerm, {
+        const { data } = await axios.get(process.env.REACT_APP_EC2_HOST + "/users/search/" + searchTerm, {
           headers: { authtoken: authtoken },
         });
         setSearchData(data);

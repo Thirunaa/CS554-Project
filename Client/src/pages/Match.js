@@ -286,8 +286,8 @@ const Match = (props) => {
                       <p>
                         <dt className="title">Score </dt>
 
-                        {scoreList.map((s) => {
-                          return <Grid>{s}</Grid>;
+                        {scoreList.map((s, i) => {
+                          return <Grid key={i}>{s}</Grid>;
                         })}
                       </p>
                     )}
